@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.8 — Deploy: Publicando seu Projeto | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Fundamentos</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.8</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.8</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🌐 Deploy: Publicando seu Projeto</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Do localhost para a internet em minutos. Vercel, Render, Railway, domínio personalizado e monitoramento básico — tudo o que você precisa para colocar seu projeto no ar com segurança.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">25</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Básico</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Prático</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🖥️ O que é deploy</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Deploy é o processo de mover seu projeto da sua máquina local para um servidor que fica acessível na internet, 24 horas por dia, para qualquer pessoa com o link. É o momento em que seu projeto deixa de existir apenas para você e passa a existir para o mundo. <strong class="text-emerald-400">Em 2025, deploy ficou tão simples quanto um push no git</strong>.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🗺️ O caminho do código ao usuário</h3>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-4">
+            <div class="w-8 h-8 rounded-full bg-dark-700 flex items-center justify-center flex-shrink-0 text-neutral-400 text-sm font-bold">1</div>
+            <div class="flex-1 flex items-center space-x-3">
+              <span class="text-neutral-300 text-sm">Código no seu computador (localhost:3000)</span>
+              <span class="text-neutral-600">→</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <div class="w-8 h-8 rounded-full bg-dark-700 flex items-center justify-center flex-shrink-0 text-neutral-400 text-sm font-bold">2</div>
+            <div class="flex-1 flex items-center space-x-3">
+              <span class="text-neutral-300 text-sm">Git push para o repositório (GitHub)</span>
+              <span class="text-neutral-600">→</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 text-sm font-bold">3</div>
+            <div class="flex-1 flex items-center space-x-3">
+              <span class="text-neutral-300 text-sm"><strong class="text-emerald-400">Plataforma de deploy detecta o push e constrói o projeto</strong></span>
+              <span class="text-neutral-600">→</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <div class="w-8 h-8 rounded-full bg-dark-700 flex items-center justify-center flex-shrink-0 text-neutral-400 text-sm font-bold">4</div>
+            <div class="flex-1">
+              <span class="text-neutral-300 text-sm">Projeto acessível em https://seu-projeto.vercel.app</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Como o deploy evoluiu
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>2010:</strong> Deploy = configurar servidor manualmente via SSH, instalar dependências, configurar nginx</li>
+          <li><strong>2015:</strong> Heroku populariza o deploy via git push — ainda complexo mas menos</li>
+          <li><strong>2020:</strong> Vercel e Netlify tornam front-end deploy em 30 segundos</li>
+          <li><strong>2025:</strong> Deploy completo (front + back + banco) em menos de 5 minutos com Railway ou Render</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">▲ Vercel — deploy em 1 clique para Next.js</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A Vercel criou o Next.js e é a plataforma de deploy mais otimizada para projetos React/Next.js. O fluxo é literalmente: conecte seu GitHub, selecione o repositório, clique em Deploy. <strong class="text-emerald-400">Em 60 segundos você tem uma URL pública com HTTPS automático e deploy contínuo</strong>.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Conecte o GitHub em vercel.com</h4>
+            <p class="text-sm text-neutral-400 mb-2">Menos de 30 segundos</p>
+            <p class="text-neutral-300 text-sm">Crie conta gratuita, autorize acesso ao GitHub. A Vercel vai listar todos os seus repositórios automaticamente.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Selecione o repositório e configure</h4>
+            <p class="text-sm text-neutral-400 mb-2">~1 minuto</p>
+            <p class="text-neutral-300 text-sm">A Vercel detecta automaticamente o framework (Next.js, Vite, etc.) e configura o build command correto. Você só precisa adicionar as variáveis de ambiente.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Deploy automático a cada push</h4>
+            <p class="text-sm text-neutral-400 mb-2">Todo git push na main = novo deploy</p>
+            <p class="text-neutral-300 text-sm">Depois do primeiro deploy, toda vez que você fizer push para a branch main, a Vercel detecta automaticamente e faz um novo deploy. Branches diferentes geram preview URLs separadas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center">
+          <span class="mr-2">📊</span> Vercel — o que está incluso gratuitamente
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Domínio *.vercel.app</strong> com HTTPS automático e certificado SSL</li>
+          <li><strong>100GB de bandwidth</strong> por mês — suficiente para milhares de usuários</li>
+          <li><strong>Preview deployments</strong> — toda branch tem sua própria URL de preview</li>
+          <li><strong>Analytics básico</strong> — visitantes, páginas mais acessadas</li>
+          <li><strong>Funções serverless</strong> — API routes do Next.js funcionam sem configuração adicional</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🎨 Render — backends e APIs</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quando seu projeto tem um backend Node.js, Python, Go ou Ruby que precisa ficar rodando 24/7 (não apenas quando recebe requests), o Render é uma das melhores opções. <strong class="text-emerald-400">É o Heroku moderno</strong> — simples, confiável e com plano gratuito funcional para desenvolvimento.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🔧 O que o Render oferece</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-3">
+            <div class="flex items-start space-x-3">
+              <span class="text-emerald-400 mt-0.5">✓</span>
+              <div>
+                <div class="font-semibold text-white text-sm">Web Services</div>
+                <div class="text-xs text-neutral-400">Backends que ficam sempre rodando</div>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-emerald-400 mt-0.5">✓</span>
+              <div>
+                <div class="font-semibold text-white text-sm">Static Sites</div>
+                <div class="text-xs text-neutral-400">Front-ends React, Vue, etc.</div>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-emerald-400 mt-0.5">✓</span>
+              <div>
+                <div class="font-semibold text-white text-sm">Background Workers</div>
+                <div class="text-xs text-neutral-400">Processamento assíncrono de filas</div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-start space-x-3">
+              <span class="text-emerald-400 mt-0.5">✓</span>
+              <div>
+                <div class="font-semibold text-white text-sm">PostgreSQL gerenciado</div>
+                <div class="text-xs text-neutral-400">Banco de dados com backups automáticos</div>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-emerald-400 mt-0.5">✓</span>
+              <div>
+                <div class="font-semibold text-white text-sm">Redis gerenciado</div>
+                <div class="text-xs text-neutral-400">Cache e filas de mensagens</div>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-emerald-400 mt-0.5">✓</span>
+              <div>
+                <div class="font-semibold text-white text-sm">Deploy automático via GitHub</div>
+                <div class="text-xs text-neutral-400">Push = novo deploy, como a Vercel</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Render vs. Vercel — quando usar cada um
+        </h3>
+        <p class="text-neutral-300 mb-3"><strong class="text-primary">Use Vercel</strong> para: front-ends React/Next.js, sites estáticos, APIs leves (serverless functions)</p>
+        <p class="text-neutral-300"><strong class="text-primary">Use Render</strong> para: servidores Node.js/Python que precisam ficar rodando, WebSockets, processamento em background, workers de fila</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🚂 Railway — banco + backend com setup mínimo</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Railway resolve o problema mais comum de quem está começando: <strong class="text-emerald-400">como rodar backend + banco de dados juntos de forma simples</strong>. Com alguns cliques, você provisiona um Postgres, um Redis e um serviço Node.js, todos conectados automaticamente e com variáveis de ambiente injetadas.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">⚡ Setup Railway em 5 passos</h3>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-7 h-7 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-xs">1</div>
+            <span class="text-neutral-300 text-sm">Crie conta em railway.app com GitHub</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-7 h-7 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-xs">2</div>
+            <span class="text-neutral-300 text-sm">Novo projeto → Deploy from GitHub repo</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-7 h-7 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-xs">3</div>
+            <span class="text-neutral-300 text-sm">Add service → Database → PostgreSQL (provisionado em segundos)</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-7 h-7 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-xs">4</div>
+            <span class="text-neutral-300 text-sm">DATABASE_URL é automaticamente injetada no seu serviço</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-7 h-7 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-xs">5</div>
+            <span class="text-neutral-300 text-sm">Deploy automático. URL gerada em menos de 2 minutos.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 text-center">
+          <div class="text-2xl mb-2">$5</div>
+          <div class="text-sm font-semibold text-white mb-1">por mês</div>
+          <div class="text-xs text-neutral-400">Plano Hobby — para projetos reais</div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 text-center">
+          <div class="text-2xl mb-2">1GB</div>
+          <div class="text-sm font-semibold text-white mb-1">RAM por serviço</div>
+          <div class="text-xs text-neutral-400">Suficiente para a maioria dos MVPs</div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 text-center">
+          <div class="text-2xl mb-2">∞</div>
+          <div class="text-sm font-semibold text-white mb-1">Serviços por projeto</div>
+          <div class="text-xs text-neutral-400">Front, back, banco, workers</div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Stack recomendada para iniciantes
+        </h3>
+        <p class="text-neutral-300"><strong class="text-primary">Front-end na Vercel</strong> + <strong class="text-primary">Back-end + Banco no Railway</strong>. Essa combinação cobre 95% dos projetos de aprendizado e MVPs. É gratuita até um certo ponto e escala facilmente quando necessário.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🌐 Configurando domínio — DNS e SSL</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Seu projeto merece um domínio próprio. <strong class="text-emerald-400">Domínios custam ~R$50/ano</strong> e transformam "projeto" em "produto". A configuração que parece complexa (DNS, SSL, HTTPS) foi simplificada ao ponto de levar menos de 10 minutos nas plataformas modernas.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🔧 Como configurar domínio na Vercel</h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-emerald-400 font-bold text-sm">1</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">Compre o domínio</div>
+              <p class="text-sm text-neutral-300">Use Registro.br (domínios .com.br), Cloudflare (domínios internacionais mais baratos) ou Google Domains. Cloudflare tem os melhores preços sem taxas de renovação surpreendentes.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-emerald-400 font-bold text-sm">2</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">Adicione o domínio na Vercel</div>
+              <p class="text-sm text-neutral-300">Settings → Domains → Add Domain. A Vercel mostra exatamente quais registros DNS você precisa adicionar no painel do seu registrador.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-emerald-400 font-bold text-sm">3</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">Configure os registros DNS</div>
+              <p class="text-sm text-neutral-300">No painel do registrador, adicione os registros A e CNAME que a Vercel indicou. Propagação leva entre 5 minutos e 48 horas (geralmente menos de 1 hora).</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-emerald-400 font-bold text-sm">4</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">SSL é automático</div>
+              <p class="text-sm text-neutral-300">A Vercel provisiona e renova o certificado SSL automaticamente via Let's Encrypt. Você não precisa fazer nada — HTTPS funciona assim que o DNS propaga.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center">
+          <span class="mr-2">📊</span> O que são DNS e SSL em linguagem simples
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>DNS</strong> (Domain Name System) — é a agenda telefônica da internet. Transforma "meuapp.com" no endereço IP do servidor da Vercel. Configurar DNS = dizer "quando alguém acessar meuapp.com, mande para o servidor X".</li>
+          <li><strong>SSL/HTTPS</strong> — é o cadeado que aparece no browser. Garante que a comunicação entre o usuário e seu servidor é criptografada. Sem SSL, dados trafegam em texto puro — qualquer rede pode interceptar.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🔑 Variáveis de ambiente no deploy</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Suas variáveis de ambiente do arquivo <code class="bg-dark-700 px-1.5 py-0.5 rounded text-emerald-400">.env</code> local não vão para o servidor sozinhas. Você precisa configurá-las na plataforma de deploy antes de fazer o primeiro push. <strong class="text-emerald-400">Esse é o passo que mais gera bugs de "funciona local, quebra em produção"</strong>.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">📋 Onde configurar em cada plataforma</h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4">
+            <div class="w-20 flex-shrink-0 text-sm font-semibold text-white">Vercel</div>
+            <div class="flex-1 text-sm text-neutral-300">Settings → Environment Variables → Add. Você pode definir variáveis diferentes para Production, Preview e Development.</div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-20 flex-shrink-0 text-sm font-semibold text-white">Render</div>
+            <div class="flex-1 text-sm text-neutral-300">Dashboard do serviço → Environment → Add Environment Variable. Mudanças forçam um novo deploy automático.</div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-20 flex-shrink-0 text-sm font-semibold text-white">Railway</div>
+            <div class="flex-1 text-sm text-neutral-300">Serviço → Variables. O Railway injeta automaticamente as variáveis de serviços conectados (ex: DATABASE_URL do Postgres).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Boas práticas</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Mantenha um .env.example no repositório com os nomes das variáveis (sem valores)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Use valores de produção apenas no painel da plataforma — nunca no código</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Separe chaves de test de chaves de produção (ex: Stripe tem sk_test_ e sk_live_)</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Erros comuns</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Committar o .env com valores reais no repositório</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Usar chaves de produção em ambiente de desenvolvimento</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Esquecer de configurar as variáveis na plataforma antes do deploy</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">📊 Monitoramento básico</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Colocar no ar é o começo — saber quando algo quebra é o que mantém o projeto de pé. <strong class="text-emerald-400">Monitoramento básico não precisa ser caro ou complexo</strong>. Com três ferramentas gratuitas, você tem visibilidade suficiente para a maioria dos projetos iniciais.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Uptime monitoring — Uptime Robot</h4>
+            <p class="text-sm text-neutral-400 mb-2">Gratuito para até 50 monitores</p>
+            <p class="text-neutral-300 text-sm">Verifica seu site a cada 5 minutos e manda email/SMS se ficar offline. Cria um histórico de uptime — útil para mostrar confiabilidade para usuários e investidores. Setup em 2 minutos.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Logs da plataforma</h4>
+            <p class="text-sm text-neutral-400 mb-2">Nativo em Vercel, Render e Railway</p>
+            <p class="text-neutral-300 text-sm">Todas as plataformas têm um painel de logs em tempo real. Quando algo quebra em produção, esses logs são o primeiro lugar para investigar. Crie o hábito de verificar os logs após cada deploy.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Sentry — tracking de erros</h4>
+            <p class="text-sm text-neutral-400 mb-2">Freemium — 5.000 erros/mês gratuito</p>
+            <p class="text-neutral-300 text-sm">Quando um erro ocorre para um usuário real, o Sentry captura o stack trace completo, o contexto do usuário e notifica você por email. É a diferença entre saber que um usuário teve problema e descobrir na hora que aconteceu.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Integrar Sentry em 5 minutos
+        </h3>
+        <p class="text-neutral-300 mb-3">Para projetos Next.js, peça ao agente: <strong class="text-primary">"Integre o Sentry ao projeto seguindo a documentação oficial. Configure para capturar erros de front-end e back-end. Use a variável de ambiente SENTRY_DSN."</strong></p>
+        <p class="text-neutral-300">O agente vai instalar o pacote, configurar o arquivo de inicialização e criar os handlers de erro — tudo automaticamente.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 1.8 — e da Trilha 1
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Deploy em 2025 é simples</strong><span class="text-neutral-400"> — Vercel (front), Render (back) e Railway (back+banco) cobrem 95% dos casos</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Vercel para Next.js/React</strong><span class="text-neutral-400"> — deploy em 1 clique, HTTPS automático, gratuito para começar</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Railway para back+banco juntos</strong><span class="text-neutral-400"> — provisionamento automático de Postgres com variáveis injetadas</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Configure variáveis ANTES do primeiro deploy</strong><span class="text-neutral-400"> — "funciona local, quebra em produção" quase sempre é variável esquecida</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Monitoramento mínimo: Uptime Robot + Sentry</strong><span class="text-neutral-400"> — sabendo quando algo quebra antes que o usuário reporte</span></div>
+          </div>
+        </div>
+
+        <!-- Celebração da trilha concluída -->
+        <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-6 mb-8">
+          <h3 class="text-xl font-bold text-emerald-400 mb-3">🎉 Trilha 1 Concluída!</h3>
+          <p class="text-neutral-300 mb-4">Você percorreu todos os 8 módulos da Trilha de Fundamentos. Você agora tem o mapa completo do vibe coding: conceitos, mentalidade, ferramentas, primeiro projeto, prompts, workflow, segurança e deploy.</p>
+          <p class="text-neutral-300">A <strong class="text-emerald-400">Trilha 2: Leigos</strong> aprofunda os conceitos práticos com exemplos de casos de uso do mundo real, projetos guiados passo a passo e técnicas avançadas de construção de produtos.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-1-7.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Voltar para Trilha 1
+          </a>
+          <a href="../leigos/index.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">
+            Próxima Trilha: Leigos →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 1.8 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

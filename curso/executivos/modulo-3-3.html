@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3.3 — Estratégia de Adoção | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span></a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-amber-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-amber-400">Executivos</a>
+      <span>/</span>
+      <span class="text-amber-400">Módulo 3.3</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.3</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🗺️ Estratégia de Adoção na sua Empresa</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Os 3 modelos de adoção, quem treinar primeiro, como selecionar ferramentas e um roadmap prático de 90 dias — do piloto ao processo padrão de desenvolvimento.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">7</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Estratégico</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Playbook</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🔀 Os 3 modelos de adoção</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Não existe uma única forma de implementar vibe coding em uma empresa. Os três modelos diferem em velocidade, risco e impacto cultural. A escolha certa depende do seu contexto, tolerância a risco e urgência competitiva.</p>
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-amber-500/20">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-semibold text-white">Modelo Gradual</h4>
+              <span class="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Mais seguro</span>
+            </div>
+            <p class="text-sm text-neutral-400 mb-3">Piloto → Expansão progressiva → Processo padrão (6-12 meses)</p>
+            <p class="text-neutral-300 text-sm">Começa com 2-5 desenvolvedores voluntários, em tarefas não críticas. Expansão baseada em evidências de ROI. Menor risco, menor urgência. Ideal para empresas em setores regulados ou com baixa pressão competitiva imediata.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-blue-500/20">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-semibold text-white">Modelo Paralelo</h4>
+              <span class="text-xs text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">Mais rápido</span>
+            </div>
+            <p class="text-sm text-neutral-400 mb-3">Time dedicado de IA + time tradicional em paralelo (3-6 meses)</p>
+            <p class="text-neutral-300 text-sm">Um time de vibe coders trabalha em projetos novos enquanto o time atual mantém sistemas existentes. Permite aprendizado sem risco aos sistemas críticos. Ideal quando há urgência de lançar novos produtos ou features.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-red-500/20">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-semibold text-white">Modelo Total</h4>
+              <span class="text-xs text-red-400 bg-red-500/10 px-2 py-0.5 rounded">Mais arriscado</span>
+            </div>
+            <p class="text-sm text-neutral-400 mb-3">Todo o time adota vibe coding de uma vez (0-3 meses)</p>
+            <p class="text-neutral-300 text-sm">Transformação completa e simultânea. Alta urgência competitiva justifica o risco. Requer liderança técnica experiente em IA, governança robusta e tolerância a turbulência no curto prazo. Não recomendado sem maturidade técnica prévia.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Recomendação para a maioria das empresas</h3>
+        <p class="text-neutral-300">O modelo gradual é o mais seguro para empresas que estão no Estágio 1 ou 2 de maturidade. O modelo paralelo faz sentido quando há uma oportunidade de produto nova que pode ser desenvolvida com vibe coding sem afetar sistemas críticos.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🛠️ Começando pelo MVP interno</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A forma mais segura de iniciar é com <strong class="text-amber-400">ferramentas internas</strong> — dashboards de dados, automações de processos, painéis de gestão. São sistemas onde o usuário é seu próprio time, o impacto de um bug é controlável e o aprendizado é acelerado.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
+          <h4 class="font-bold text-amber-400 mb-4">Por que ferramentas internas primeiro</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Usuários são o próprio time — feedback rápido e contextualizado</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Bug em ferramenta interna ≠ cliente impactado ou receita perdida</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>ROI visível rapidamente — horas economizadas por semana</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Permite treinar o time em contexto real sem pressão de produção</span></li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-neutral-300 mb-4">Exemplos de MVP internos ideais</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Dashboard de acompanhamento de KPIs do time</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Formulário de solicitação de férias com aprovação automática</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Relatório semanal automatizado de métricas de produto</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Painel de gestão de fornecedores ou contratos</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">👤 Quem treinar primeiro</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A decisão de quem treinar primeiro tem impacto direto na velocidade e qualidade da adoção. Há duas filosofias opostas — cada uma com vantagens em contextos diferentes.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6">
+          <h4 class="font-bold text-amber-400 mb-3">Estratégia A: Seniors como multiplicadores</h4>
+          <p class="text-neutral-300 text-sm mb-4">Treinar os mais experientes primeiro para que sirvam como guias e revisores para o restante do time.</p>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">+</span><span>Conseguem avaliar criticamente o output da IA</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">+</span><span>Criam padrões e governança internos desde o início</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">+</span><span>Maior credibilidade para multiplicar o conhecimento</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">-</span><span>Frequentemente mais resistentes à mudança de paradigma</span></li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-blue-900/20 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+          <h4 class="font-bold text-blue-400 mb-3">Estratégia B: Juniors como early adopters</h4>
+          <p class="text-neutral-300 text-sm mb-4">Treinar os mais novos, que têm menos vícios de programação tradicional e adotam mais rapidamente.</p>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">+</span><span>Mais receptivos — menos apego a formas tradicionais</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">+</span><span>Aprendizado mais rápido e entusiasmado</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">-</span><span>Sem capacidade de revisar criticamente o output da IA</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">-</span><span>Risco de acumular dívida técnica sem perceber</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 A abordagem recomendada</h3>
+        <p class="text-neutral-300">Treinar seniors primeiro (2-3 semanas) para criar os guardrails e a cultura de revisão, depois expandir para o time completo. Juniors devem ter um senior como revisor permanente nos primeiros 3 meses de adoção.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🔧 Selecionando as ferramentas corretas</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Cada ferramenta tem um perfil de usuário diferente. Escolher a ferramenta errada para o perfil errado é o erro mais comum nos projetos de adoção que falham.</p>
+      <div class="overflow-x-auto mb-6">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-dark-600">
+              <th class="text-left py-3 px-4 text-neutral-400 font-semibold">Ferramenta</th>
+              <th class="text-left py-3 px-4 text-neutral-400 font-semibold">Perfil ideal</th>
+              <th class="text-left py-3 px-4 text-neutral-400 font-semibold">Melhor para</th>
+              <th class="text-left py-3 px-4 text-amber-400 font-semibold">Custo</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-amber-400 font-medium">Cursor</td>
+              <td class="py-3 px-4 text-neutral-300">Desenvolvedores</td>
+              <td class="py-3 px-4 text-neutral-400">Código em projetos existentes, refatoração</td>
+              <td class="py-3 px-4 text-neutral-400">$20/mês</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-amber-400 font-medium">Lovable</td>
+              <td class="py-3 px-4 text-neutral-300">PMs, não-técnicos</td>
+              <td class="py-3 px-4 text-neutral-400">Novos produtos web sem código</td>
+              <td class="py-3 px-4 text-neutral-400">$25/mês</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-amber-400 font-medium">Claude Code</td>
+              <td class="py-3 px-4 text-neutral-300">Desenvolvedores avançados</td>
+              <td class="py-3 px-4 text-neutral-400">Automação, scripts, tarefas agentic</td>
+              <td class="py-3 px-4 text-neutral-400">$20/mês</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-amber-400 font-medium">Replit</td>
+              <td class="py-3 px-4 text-neutral-300">Qualquer perfil</td>
+              <td class="py-3 px-4 text-neutral-400">Prototipagem rápida, educação</td>
+              <td class="py-3 px-4 text-neutral-400">Free/$25/mês</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-amber-400 font-medium">GitHub Copilot</td>
+              <td class="py-3 px-4 text-neutral-300">Desenvolvedores</td>
+              <td class="py-3 px-4 text-neutral-400">Autocomplete, integração com VS Code</td>
+              <td class="py-3 px-4 text-neutral-400">$19/mês</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🛡️ Governança de uso</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Governança não é burocracia — é o conjunto de regras que permite adotar vibe coding com velocidade sem criar passivos jurídicos, de segurança ou de manutenção. Toda empresa precisa de ao menos 3 políticas mínimas antes de escalar.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-5">
+          <h4 class="font-bold text-amber-400 mb-3">Política 1: Code Review</h4>
+          <p class="text-neutral-300 text-sm">Todo código gerado por IA deve ser revisado por um humano antes do merge. Em sistemas críticos, por um senior. Em ferramentas internas, por qualquer dev do time.</p>
+        </div>
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-5">
+          <h4 class="font-bold text-amber-400 mb-3">Política 2: Dados Sensíveis</h4>
+          <p class="text-neutral-300 text-sm">É proibido enviar CPFs, dados pessoais de clientes, senhas, chaves de API e dados financeiros para LLMs externos. Código-fonte proprietário de sistemas críticos também.</p>
+        </div>
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-5">
+          <h4 class="font-bold text-amber-400 mb-3">Política 3: SAST Obrigatório</h4>
+          <p class="text-neutral-300 text-sm">Análise estática de segurança (SAST) deve ser rodada em todo código gerado por IA antes do deploy. Resultado documentado no PR. Vulnerabilidades críticas bloqueiam o merge.</p>
+        </div>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">Ferramentas recomendadas para governança</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>SAST:</strong> SonarQube (open source), Snyk, Semgrep</li>
+          <li><strong>Segredos:</strong> GitLeaks (detecta credenciais no código), Infisical</li>
+          <li><strong>Code review:</strong> Pull request obrigatório com checklist de IA</li>
+          <li><strong>Documentação:</strong> Template de PR que inclui "código gerado por IA: sim/não" e ferramenta usada</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🧠 Change management</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A resistência do time técnico é o fator mais subestimado nas falhas de adoção de vibe coding. Engenheiros seniors, em particular, frequentemente percebem a mudança como ameaça à sua identidade profissional e expertise.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">Fontes comuns de resistência</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">•</span><span>"O código gerado é de baixa qualidade" (frequentemente verdadeiro sem revisão)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">•</span><span>"Isso vai nos substituir" (medo legítimo que precisa ser endereçado honestamente)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">•</span><span>"Eu sei escrever código melhor que a IA" (verdadeiro, mas irrelevante para a produtividade)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">•</span><span>"Não entendo o que o código está fazendo" (risco real que deve ser governado)</span></li>
+          </ul>
+        </div>
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
+          <h4 class="font-bold text-amber-400 mb-4">Abordagens que funcionam</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Envolva seniors na criação das políticas — dê a eles propriedade do processo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Deixe claro que o objetivo é multiplicar a capacidade, não reduzir o headcount</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Mostre exemplos concretos de seniors que se tornaram mais valiosos com IA</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Comece com voluntários — não force adoção em quem é altamente resistente</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">📅 Roadmap de 90 dias</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Do piloto inicial ao processo padrão de desenvolvimento em 90 dias — um cronograma realista que a maioria das empresas consegue executar com o compromisso correto da liderança.</p>
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-16 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-amber-400 font-bold text-xs text-center">Dias<br/>1-30</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-amber-400 mb-2">Fase 1 — Piloto Controlado</h4>
+            <p class="text-neutral-300 text-sm">Selecionar time piloto (2-5 devs), instalar ferramentas, documentar baseline de métricas, executar primeiros projetos de ferramentas internas. Objetivo: aprender sem risco.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-16 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-amber-400 font-bold text-xs text-center">Dias<br/>31-60</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-amber-400 mb-2">Fase 2 — Estrutura e Governança</h4>
+            <p class="text-neutral-300 text-sm">Com base no aprendizado do piloto, criar as políticas de uso, checklist de code review, SAST no pipeline, e treinamento do time amplo. Expandir para 30-50% do time de desenvolvimento.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-16 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-amber-400 font-bold text-xs text-center">Dias<br/>61-90</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-amber-400 mb-2">Fase 3 — Processo Padrão</h4>
+            <p class="text-neutral-300 text-sm">Vibe coding integrado ao processo de desenvolvimento padrão. Métricas contínuas, revisão mensal de resultados, otimização das ferramentas e práticas. Relatório de ROI ao board.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 3.3</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">3 modelos de adoção</strong><span class="text-neutral-400"> — gradual (seguro), paralelo (rápido), total (arriscado). Escolha baseada no contexto</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Comece por ferramentas internas</strong><span class="text-neutral-400"> — menor risco, aprendizado real, ROI rápido e visível</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Treinar seniors primeiro</strong><span class="text-neutral-400"> — criam os guardrails e têm capacidade de revisar o output da IA</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Ferramenta certa para o perfil certo</strong><span class="text-neutral-400"> — Cursor para devs, Lovable para PMs, Claude Code para automação</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">3 políticas mínimas antes de escalar</strong><span class="text-neutral-400"> — code review, dados sensíveis e SAST obrigatório</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Roadmap de 90 dias</strong><span class="text-neutral-400"> — piloto → governança → processo padrão</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">3.4 — 🛡️ Riscos, Governança e Segurança: incidentes reais, LGPD, propriedade intelectual e quando NÃO usar</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 3.2</a>
+          <a href="modulo-3-4.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Próximo Módulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 3.3 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+  </script>
+</body>
+</html>

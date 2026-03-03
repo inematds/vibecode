@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.7 — Controle, Qualidade e Segurança Básica | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Fundamentos</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.7</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.7</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔐 Controle, Qualidade e Segurança Básica</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">2,74x mais vulnerabilidades em código de IA. Os riscos são reais e documentados. Aprenda as práticas mínimas que todo vibe coder precisa dominar antes de colocar qualquer coisa em produção.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Crítico</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Segurança</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">⚠️ O dado que assusta</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Vibe coding acelera o desenvolvimento — e também acelera a introdução de vulnerabilidades. O relatório <strong class="text-emerald-400">CodeRabbit 2025</strong> analisou mais de 1 milhão de pull requests e chegou a um número que todo vibe coder precisa conhecer: código assistido por IA tem <strong class="text-emerald-400">2,74x mais vulnerabilidades</strong> do que código escrito por humanos sem assistência.
+      </p>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Os números reais (CodeRabbit 2025)
+        </h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li><strong class="text-red-400">2,74x</strong> mais vulnerabilidades em código gerado com assistência de IA</li>
+          <li><strong>45%</strong> do código gerado por IA contém pelo menos uma falha de segurança (Veracode)</li>
+          <li><strong>16 de 18</strong> CTOs consultados sobre vibe coding em produção reportaram incidentes</li>
+          <li><strong>Top vulnerabilidades:</strong> SQL injection, XSS, dados hardcodados, IDOR (acesso a recursos de outros usuários)</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> O contexto importa
+        </h3>
+        <p class="text-neutral-300 mb-3">Esses números não significam que vibe coding é perigoso por natureza — significam que <strong class="text-primary">sem processo de revisão, qualquer metodologia de desenvolvimento é perigosa</strong>. Os riscos são gerenciáveis com as práticas que você aprende neste módulo.</p>
+        <p class="text-neutral-300">A maioria dos incidentes aconteceu em projetos onde o desenvolvedor aceitou código sem revisar, não usou variáveis de ambiente e colocou diretamente em produção sem teste.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🔒 Git como rede de segurança</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Git não é só controle de versão — é sua apólice de seguro para vibe coding. <strong class="text-emerald-400">Commits frequentes</strong> criam um histórico de estados funcionais que você pode acessar a qualquer momento. O momento em que você vai precisar de rollback é o pior momento para perceber que não fez commits.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🔄 Os comandos de segurança mais importantes</h3>
+        <div class="space-y-3 font-mono text-sm">
+          <div class="bg-dark-800 rounded-lg p-3">
+            <span class="text-neutral-500"># Ver o que mudou antes de commitar</span>
+            <br><span class="text-emerald-400">git diff</span>
+          </div>
+          <div class="bg-dark-800 rounded-lg p-3">
+            <span class="text-neutral-500"># Voltar um arquivo para o estado do último commit</span>
+            <br><span class="text-emerald-400">git checkout HEAD --</span> <span class="text-white">arquivo.tsx</span>
+          </div>
+          <div class="bg-dark-800 rounded-lg p-3">
+            <span class="text-neutral-500"># Voltar o projeto inteiro para um commit específico (temporariamente)</span>
+            <br><span class="text-emerald-400">git checkout</span> <span class="text-white">abc1234</span>
+          </div>
+          <div class="bg-dark-800 rounded-lg p-3">
+            <span class="text-neutral-500"># Criar uma branch de segurança antes de mudança grande</span>
+            <br><span class="text-emerald-400">git checkout -b</span> <span class="text-white">backup/antes-da-refatoracao</span>
+          </div>
+          <div class="bg-dark-800 rounded-lg p-3">
+            <span class="text-neutral-500"># Ver histórico de commits com diffs</span>
+            <br><span class="text-emerald-400">git log --oneline</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Frequência de commits recomendada
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>A cada funcionalidade funcionando</strong> — não espere uma PR perfeita</li>
+          <li><strong>Antes de cada mudança grande</strong> — refatorações, novos frameworks, mudanças de arquitetura</li>
+          <li><strong>Antes do final do dia</strong> — mesmo que seja trabalho em progresso (use WIP: no título)</li>
+          <li><strong>Sempre antes de testar algo experimental</strong> — se a IA vai propor uma abordagem nova, commite antes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🔑 Variáveis de ambiente — segredos fora do código</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A vulnerabilidade número 1 em projetos vibe coding: <strong class="text-emerald-400">chaves de API, tokens e senhas hardcodadas no código</strong>. A IA frequentemente coloca valores diretamente no código para "facilitar o exemplo". Se você commitar isso em um repositório — especialmente público — as consequências podem ser imediatas e sérias.
+      </p>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-4">⚠️ O cenário de vazamento mais comum</h3>
+        <div class="bg-dark-800 rounded-lg p-4 font-mono text-sm space-y-1 mb-4">
+          <div class="text-neutral-500">// Código gerado pela IA — NUNCA faça isso</div>
+          <div><span class="text-red-400">const</span> <span class="text-white">stripe = require('stripe')(<span class="text-red-400">'sk_live_ABC123REAL_KEY'</span>)</span></div>
+          <div><span class="text-red-400">const</span> <span class="text-white">db = postgres(<span class="text-red-400">'postgresql://user:senha@host/db'</span>)</span></div>
+        </div>
+        <p class="text-neutral-300 text-sm">Bots escaneiam repositórios GitHub em busca de padrões de chaves da AWS, Stripe, OpenAI, etc. O tempo médio entre o commit de uma chave real e seu primeiro uso malicioso é <strong>de 4 a 24 horas</strong>.</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">✅ A forma correta — variáveis de ambiente</h3>
+        <div class="space-y-3">
+          <div>
+            <p class="text-xs font-semibold text-neutral-400 mb-1">Arquivo .env (local, NUNCA commitado)</p>
+            <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">
+              STRIPE_SECRET_KEY=sk_live_ABC123<br>
+              DATABASE_URL=postgresql://user:senha@host/db<br>
+              OPENAI_API_KEY=sk-proj-xyz123
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-neutral-400 mb-1">Arquivo .gitignore (sempre inclua .env)</p>
+            <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">
+              .env<br>
+              .env.local<br>
+              .env.production
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-neutral-400 mb-1">No código (Next.js / Node.js)</p>
+            <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">
+              <span class="text-blue-400">const</span> stripe = require('stripe')(<span class="text-emerald-400">process.env.STRIPE_SECRET_KEY</span>)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Instrução padrão para o agente
+        </h3>
+        <p class="text-neutral-300">Adicione no seu <code class="bg-dark-700 px-1.5 py-0.5 rounded text-primary">.cursorrules</code> ou <code class="bg-dark-700 px-1.5 py-0.5 rounded text-primary">CLAUDE.md</code>: <em>"Nunca coloque valores de chaves de API, tokens ou senhas diretamente no código. Sempre use process.env.NOME_DA_VARIAVEL e adicione a instrução no .env.example."</em></p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">👁️ Revisar o diff antes de commitar</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-emerald-400">Ler antes de aceitar</strong> é o hábito de segurança mais importante do vibe coder. O agente pode ter feito mudanças além do que você pediu, introduzido padrões diferentes dos do projeto ou modificado arquivos que não deveriam ser tocados. O diff é sua última linha de defesa antes do commit.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🔍 O que procurar ao revisar o diff</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 font-bold mt-0.5">1.</span>
+            <div>
+              <div class="font-semibold text-white text-sm mb-1">Arquivos não esperados foram modificados?</div>
+              <p class="text-xs text-neutral-400">Se você pediu para alterar um componente e o diff mostra mudanças em um arquivo de configuração, investigue.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 font-bold mt-0.5">2.</span>
+            <div>
+              <div class="font-semibold text-white text-sm mb-1">Existem strings suspeitas? (tokens, URLs, senhas)</div>
+              <p class="text-xs text-neutral-400">Procure por padrões como "sk_", "AIza", "Bearer", "postgresql://". Se aparecerem em arquivos de código, alerta vermelho.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 font-bold mt-0.5">3.</span>
+            <div>
+              <div class="font-semibold text-white text-sm mb-1">Linhas foram deletadas sem motivo claro?</div>
+              <p class="text-xs text-neutral-400">Linhas em vermelho no diff representam código removido. Verifique se a remoção era intencional.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 font-bold mt-0.5">4.</span>
+            <div>
+              <div class="font-semibold text-white text-sm mb-1">Dependências novas foram adicionadas?</div>
+              <p class="text-xs text-neutral-400">Mudanças em package.json podem incluir dependências com vulnerabilidades conhecidas. Verifique cada pacote novo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-3">No Cursor / Windsurf</h4>
+          <p class="text-sm text-neutral-300">Use o painel de diff integrado para revisar cada mudança antes de aceitar. O botão "Accept All" deve ser o último recurso — prefira "Accept individual changes" para ter controle granular.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-3">No terminal</h4>
+          <p class="text-sm text-neutral-300 font-mono">git diff — mostra mudanças não staged<br>git diff --staged — mostra o que vai no commit<br>git diff HEAD~1 — compara com o commit anterior</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🛡️ Validação de dados — o mínimo necessário</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Uma das vulnerabilidades mais comuns em código de IA: <strong class="text-emerald-400">ausência de validação de dados de entrada</strong>. A IA foca em fazer o fluxo "feliz" funcionar e frequentemente ignora o que acontece quando o usuário envia dados inesperados, maliciosos ou simplesmente incorretos.
+      </p>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-4">⚠️ Vulnerabilidades por ausência de validação</h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-400 font-bold text-sm">!</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">SQL Injection</div>
+              <p class="text-sm text-neutral-300">Usuário envia <code class="bg-dark-700 px-1 py-0.5 rounded text-red-400">'; DROP TABLE users; --</code> como nome. Sem validação e sanitização, o banco pode ser destruído.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-400 font-bold text-sm">!</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">XSS (Cross-Site Scripting)</div>
+              <p class="text-sm text-neutral-300">Usuário envia <code class="bg-dark-700 px-1 py-0.5 rounded text-red-400">&lt;script&gt;roubarCookies()&lt;/script&gt;</code> em um campo de texto. Se exibido sem sanitização, executa no browser dos outros usuários.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-400 font-bold text-sm">!</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">IDOR (Insecure Direct Object Reference)</div>
+              <p class="text-sm text-neutral-300">API retorna qualquer usuário por ID: <code class="bg-dark-700 px-1 py-0.5 rounded text-red-400">/api/users/123</code>. Sem verificar se o usuário logado tem acesso ao ID 123, qualquer um pode ver dados de qualquer um.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">✅ Validação mínima para cada projeto</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span><strong class="text-white">Use Zod ou Yup</strong> para validar schemas no servidor — não confie em validação apenas no front-end</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span><strong class="text-white">Use ORMs</strong> (Prisma, Drizzle) ao invés de queries SQL manuais — eles previnem injection por padrão</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span><strong class="text-white">Sanitize HTML</strong> se você renderiza conteúdo de usuários — use DOMPurify no front-end</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span><strong class="text-white">Verifique autorização em cada endpoint</strong> — "o usuário logado tem acesso a esse recurso?" deve ser pergunta em toda API</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🚫 O que NÃO fazer em produção</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Produção é diferente de desenvolvimento. Em dev, um bug é um aprendizado. Em produção, um bug pode significar dados perdidos, usuários prejudicados e, em casos extremos, responsabilidade legal. Este checklist representa os <strong class="text-emerald-400">bloqueadores críticos</strong> — coisas que devem estar resolvidas ANTES de qualquer deploy.
+      </p>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-4">🚨 Checklist de bloqueadores críticos</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <div class="w-5 h-5 rounded border border-red-500/50 bg-red-500/10 flex-shrink-0 mt-0.5 flex items-center justify-center">
+              <span class="text-red-400 text-xs">!</span>
+            </div>
+            <span class="text-neutral-300 text-sm"><strong class="text-white">Sem chaves hardcodadas</strong> — todo segredo em variável de ambiente</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-5 h-5 rounded border border-red-500/50 bg-red-500/10 flex-shrink-0 mt-0.5 flex items-center justify-center">
+              <span class="text-red-400 text-xs">!</span>
+            </div>
+            <span class="text-neutral-300 text-sm"><strong class="text-white">Backup do banco antes do primeiro deploy</strong> — e antes de qualquer migração</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-5 h-5 rounded border border-red-500/50 bg-red-500/10 flex-shrink-0 mt-0.5 flex items-center justify-center">
+              <span class="text-red-400 text-xs">!</span>
+            </div>
+            <span class="text-neutral-300 text-sm"><strong class="text-white">Autenticação testada com usuários reais</strong> — fluxos de login/logout/reset de senha</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-5 h-5 rounded border border-red-500/50 bg-red-500/10 flex-shrink-0 mt-0.5 flex items-center justify-center">
+              <span class="text-red-400 text-xs">!</span>
+            </div>
+            <span class="text-neutral-300 text-sm"><strong class="text-white">Sem console.log() de dados sensíveis</strong> — remove antes de produção</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-5 h-5 rounded border border-red-500/50 bg-red-500/10 flex-shrink-0 mt-0.5 flex items-center justify-center">
+              <span class="text-red-400 text-xs">!</span>
+            </div>
+            <span class="text-neutral-300 text-sm"><strong class="text-white">HTTPS obrigatório</strong> — certifique-se que o deploy usa SSL</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-5 h-5 rounded border border-red-500/50 bg-red-500/10 flex-shrink-0 mt-0.5 flex items-center justify-center">
+              <span class="text-red-400 text-xs">!</span>
+            </div>
+            <span class="text-neutral-300 text-sm"><strong class="text-white">Rate limiting nas APIs</strong> — previne abuse e custos inesperados com LLMs</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-5 h-5 rounded border border-red-500/50 bg-red-500/10 flex-shrink-0 mt-0.5 flex items-center justify-center">
+              <span class="text-red-400 text-xs">!</span>
+            </div>
+            <span class="text-neutral-300 text-sm"><strong class="text-white">Validação de dados no servidor</strong> — nunca confie apenas no front-end</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Peça ao agente para auditar
+        </h3>
+        <p class="text-neutral-300">Antes de qualquer deploy de produção: <strong class="text-primary">"Faça uma auditoria de segurança básica desse projeto. Liste: chaves hardcodadas, endpoints sem autenticação, inputs sem validação, e console.logs que deveriam ser removidos."</strong> É uma revisão extra valiosa que leva menos de 2 minutos.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">🆘 Quando chamar um profissional</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Vibe coding democratizou o desenvolvimento, mas não eliminou a necessidade de expertise especializada em contextos críticos. Saber <strong class="text-emerald-400">quando pedir ajuda profissional</strong> é uma habilidade de maturidade — não uma admissão de fraqueza.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">📋 Sinais de que você precisa de revisão técnica externa</h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-400 font-bold text-sm">!</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">Dados de usuários reais (PII)</div>
+              <p class="text-sm text-neutral-300">CPF, dados médicos, informações financeiras. LGPD e regulamentações similares têm requisitos específicos que vão além do básico.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-400 font-bold text-sm">!</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">Processamento de pagamentos real</div>
+              <p class="text-sm text-neutral-300">Mesmo usando Stripe ou similar, a implementação do checkout, webhooks e conciliação financeira merece olhar especializado.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-400 font-bold text-sm">!</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">Mais de 1.000 usuários ativos</div>
+              <p class="text-sm text-neutral-300">Problemas de escalabilidade e performance que o código vibe coded geralmente não trata ficam evidentes nessa escala.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-400 font-bold text-sm">!</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">Você não consegue explicar como funciona uma parte crítica</div>
+              <p class="text-sm text-neutral-300">Se há código em produção que você não entende e que lida com dados ou transações — é hora de revisão.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Como contratar revisão técnica
+        </h3>
+        <p class="text-neutral-300 mb-3">Você não precisa de um dev em tempo integral para uma revisão. Opções acessíveis:</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• <strong>Code review pontual</strong> — plataformas como Codementor para 1-2 horas de revisão focada</li>
+          <li>• <strong>Freelancer sênior</strong> — uma semana de revisão e refatoração dos pontos críticos</li>
+          <li>• <strong>Serviços de pentest</strong> — para projetos com dados sensíveis, um pentest básico é investimento</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 1.7
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">2,74x mais vulnerabilidades em código de IA</strong><span class="text-neutral-400"> — risco real que requer processo de revisão, não abandono da ferramenta</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Git é sua rede de segurança</strong><span class="text-neutral-400"> — commits frequentes = seguro de rollback sempre disponível</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Jamais hardcode segredos no código</strong><span class="text-neutral-400"> — variáveis de ambiente para tudo que é sensível</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Leia o diff antes de commitar</strong><span class="text-neutral-400"> — última linha de defesa contra mudanças não intencionais</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Valide dados no servidor</strong><span class="text-neutral-400"> — SQL injection, XSS e IDOR são preveníveis com práticas básicas</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Saiba quando pedir ajuda</strong><span class="text-neutral-400"> — PII, pagamentos reais e mais de 1.000 usuários exigem revisão especializada</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.8 — 🌐 Deploy: Publicando seu Projeto — Vercel, Render, Railway, domínios e monitoramento básico</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-1-6.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo Anterior
+          </a>
+          <a href="modulo-1-8.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">
+            Próximo Módulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 1.7 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

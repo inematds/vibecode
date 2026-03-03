@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.6 — Ciclo de Desenvolvimento com IA | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Fundamentos</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.6</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.6</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔄 Ciclo de Desenvolvimento com IA</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">O workflow EPIV — Explore, Plan, Implement, Verify. O processo estruturado que transforma vibe coding de caótico em sistemático, com branches, incrementos testáveis e documentação automática.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Básico</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Workflow</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🗺️ O workflow EPIV</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O maior problema do vibe coding não é a qualidade do código gerado — é a falta de processo. Sem estrutura, as sessões se tornam caóticas: a IA muda coisas que não deveria, você perde o fio da meada, arquivos ficam inconsistentes. O <strong class="text-emerald-400">EPIV (Explore, Plan, Implement, Verify)</strong> resolve isso com um workflow deliberado de 4 fases.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-6">🔄 As 4 fases do EPIV</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-dark-800/50 rounded-xl p-4 text-center border border-emerald-500/20">
+            <div class="text-3xl mb-3">🔍</div>
+            <div class="font-bold text-emerald-400 text-lg mb-1">E</div>
+            <div class="font-semibold text-white text-sm mb-2">Explore</div>
+            <div class="text-xs text-neutral-400">Entenda antes de modificar</div>
+          </div>
+          <div class="bg-dark-800/50 rounded-xl p-4 text-center border border-blue-500/20">
+            <div class="text-3xl mb-3">📋</div>
+            <div class="font-bold text-blue-400 text-lg mb-1">P</div>
+            <div class="font-semibold text-white text-sm mb-2">Plan</div>
+            <div class="text-xs text-neutral-400">Planeje antes de executar</div>
+          </div>
+          <div class="bg-dark-800/50 rounded-xl p-4 text-center border border-primary/20">
+            <div class="text-3xl mb-3">⚙️</div>
+            <div class="font-bold text-primary text-lg mb-1">I</div>
+            <div class="font-semibold text-white text-sm mb-2">Implement</div>
+            <div class="text-xs text-neutral-400">Execute em partes testáveis</div>
+          </div>
+          <div class="bg-dark-800/50 rounded-xl p-4 text-center border border-purple-500/20">
+            <div class="text-3xl mb-3">✅</div>
+            <div class="font-bold text-purple-400 text-lg mb-1">V</div>
+            <div class="font-semibold text-white text-sm mb-2">Verify</div>
+            <div class="text-xs text-neutral-400">Valide antes de aceitar</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center">
+          <span class="mr-2">📊</span> Por que um workflow importa
+        </h3>
+        <p class="text-neutral-300 mb-3">Times que adotam um workflow estruturado para vibe coding reportam:</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>70% menos retrabalho</strong> causado por mudanças não intencionais</li>
+          <li><strong>3x menos bugs</strong> chegando à branch principal</li>
+          <li><strong>Histórico de git compreensível</strong> — qualquer membro do time entende o que foi feito</li>
+          <li><strong>Onboarding mais rápido</strong> — novos membros entendem o projeto pela documentação gerada pelo agente</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🔍 Fase Explore — entenda antes de mudar</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Antes de qualquer modificação, instrua o agente a <strong class="text-emerald-400">entender o codebase sem modificar nada</strong>. Essa fase é especialmente crítica em projetos existentes, mas essencial mesmo em projetos novos maiores de 3 arquivos. O agente que entende o contexto gera código mais consistente.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">📝 Prompts de Explore (sem modificar código)</h3>
+        <div class="space-y-3">
+          <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">
+            "Leia os arquivos do projeto e me explique: qual é a arquitetura atual? Quais são os principais componentes? Como os dados fluem? <strong class="text-emerald-400">Não modifique nada ainda.</strong>"
+          </div>
+          <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">
+            "Analise @components/ e me diga quais padrões de componentes estão sendo usados (props, estado, hooks). <strong class="text-emerald-400">Apenas análise, sem código.</strong>"
+          </div>
+          <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">
+            "Onde no codebase atual faria mais sentido adicionar a funcionalidade de X? Quais arquivos seriam afetados? <strong class="text-emerald-400">Não implemente ainda.</strong>"
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">O que você ganha com Explore</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Entendimento do que já existe antes de duplicar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Identificação de onde adicionar sem quebrar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Mapeamento de dependências ocultas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Padrões existentes para o agente replicar</span></li>
+          </ul>
+        </div>
+        <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+          <h4 class="font-bold text-primary mb-4">💡 Dica: o modo exploração</h4>
+          <p class="text-neutral-300 text-sm">No início de cada sessão com um projeto existente, sempre comece com: <em>"Quais foram as últimas mudanças feitas nesse projeto? Onde estava sendo desenvolvido?"</em> O agente vai ler o histórico do git e reconstruir o contexto da sessão anterior.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">📋 Fase Plan — planeje antes de escrever</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O erro mais caro em vibe coding: deixar a IA implementar sem ter um plano aprovado. A fase Plan força o agente a <strong class="text-emerald-400">pensar antes de escrever</strong>. Você revisa o plano, identifica problemas na abordagem, e só então dá o sinal verde.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">📝 O prompt de planejamento</h3>
+        <div class="bg-dark-800 rounded-lg p-4 font-mono text-sm text-neutral-300 space-y-2">
+          <div>"Antes de escrever qualquer código, me dê um plano detalhado de como você implementaria [feature]:</div>
+          <div class="ml-4 mt-2">1. Quais arquivos serão criados ou modificados?</div>
+          <div class="ml-4">2. Qual será a estrutura de dados?</div>
+          <div class="ml-4">3. Qual a sequência de implementação?</div>
+          <div class="ml-4">4. Quais dependências externas serão necessárias?</div>
+          <div class="ml-4">5. Quais são os possíveis pontos de falha?</div>
+          <div class="mt-2">Aguarde minha aprovação antes de implementar."</div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> O que revisar no plano
+        </h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-0.5">→</span>
+            <span><strong class="text-white">A abordagem faz sentido?</strong> A IA pode propor uma solução tecnicamente correta mas desnecessariamente complexa para o seu contexto</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-0.5">→</span>
+            <span><strong class="text-white">Arquivos corretos?</strong> Às vezes a IA planeja modificar arquivos que você prefere não tocar</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-0.5">→</span>
+            <span><strong class="text-white">Dependências esperadas?</strong> Se o plano inclui instalar 5 novos pacotes para algo simples, há algo errado</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> "Aguarde aprovação" como instrução padrão
+        </h3>
+        <p class="text-neutral-300">Adicione "aguarde minha aprovação" em todo pedido de planejamento. Isso impede que o agente, em alguns editores, comece a implementar enquanto ainda está planejando. A separação entre plano e execução é o coração do EPIV.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">⚙️ Fase Implement — execução em partes testáveis</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Com o plano aprovado, a implementação começa — mas ainda em partes. A regra da fase Implement: <strong class="text-emerald-400">cada passo deve ser testável antes de avançar para o próximo</strong>. Não implemente tudo de uma vez, mesmo que o plano cubra a feature completa.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Implement errado</h4>
+          <p class="text-sm text-neutral-300 mb-3">"Implemente todos os 5 passos do plano de uma vez"</p>
+          <p class="text-xs text-neutral-500">Resultado: Uma PR gigante com 30 arquivos alterados. Um bug em qualquer parte é difícil de localizar. Testes falham por razões desconhecidas. Rollback é impossível sem perder tudo.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Implement correto</h4>
+          <p class="text-sm text-neutral-300 mb-3">"Implemente apenas o passo 1 do plano. Vou testar e confirmar antes de continuar."</p>
+          <p class="text-xs text-neutral-500">Resultado: Cada passo é verificável. Bugs são isolados. Commits são pequenos e descritivos. Rollback de qualquer passo é simples.</p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🔧 Controle de escopo durante a implementação</h3>
+        <p class="text-neutral-300 mb-4">Durante a implementação, o agente frequentemente "ajuda" além do pedido — refatora código não relacionado, adiciona features não solicitadas, reorganiza arquivos. Use essas instruções para manter o escopo:</p>
+        <div class="space-y-3">
+          <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">
+            "Implemente apenas o que está no passo 1. <strong class="text-emerald-400">Se perceber algo que poderia melhorar em outros arquivos, anote mas não altere.</strong>"
+          </div>
+          <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">
+            "Não refatore nada que não seja necessário para essa implementação específica."
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> A granularidade ideal de um passo
+        </h3>
+        <p class="text-neutral-300">Um bom passo de implementação pode ser testado em menos de 5 minutos. Se levar mais de 10 minutos para testar, o passo está grande demais. Divida. A granularidade fina pode parecer lenta, mas elimina o tempo gasto em debugging de múltiplos problemas sobrepostos.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">✅ Fase Verify — valide antes de aceitar</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A fase Verify é onde o julgamento humano é insubstituível. O agente pode ter gerado código que compila, passa nos testes e parece correto — mas que tem comportamento indesejado em edge cases, viola requisitos de negócio ou introduz vulnerabilidades. <strong class="text-emerald-400">Verificar é diferente de testar</strong>.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Verificação funcional</h4>
+            <p class="text-sm text-neutral-400 mb-2">O básico — "funciona?"</p>
+            <p class="text-neutral-300 text-sm">Abra o browser, execute o fluxo completo do usuário, clique em cada botão, preencha cada formulário. Não se baseie apenas em "compilou sem erro".</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Verificação de edge cases</h4>
+            <p class="text-sm text-neutral-400 mb-2">O que acontece quando algo dá errado?</p>
+            <p class="text-neutral-300 text-sm">Teste com dados vazios, dados inválidos, campos com caracteres especiais, conexão lenta (simule no DevTools). O agente raramente implementa tratamento de erro adequado sem ser explicitamente pedido.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Verificação de regressão</h4>
+            <p class="text-sm text-neutral-400 mb-2">O que estava funcionando ainda funciona?</p>
+            <p class="text-neutral-300 text-sm">Teste as funcionalidades que existiam antes da mudança. O agente pode ter quebrado algo não relacionado ao mexer em arquivos compartilhados (utils, hooks, stores).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Peça ao agente para criar o checklist de verificação
+        </h3>
+        <p class="text-neutral-300">Antes de implementar, peça: <strong class="text-primary">"Qual seria o checklist de verificação que eu deveria usar para confirmar que esse passo funcionou corretamente?"</strong>. O agente vai listar os casos de teste relevantes — então use essa lista na fase Verify.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🌿 Branches para cada feature</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Uma das regras mais importantes do vibe coding profissional: <strong class="text-emerald-400">nunca vibe code diretamente na branch main</strong>. Cada feature, cada experimento, cada refatoração significativa começa em uma branch dedicada. Isso permite descartar trabalho problemático sem conseqüências.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🌿 Workflow de branches para vibe coding</h3>
+        <div class="space-y-3 font-mono text-sm">
+          <div class="bg-dark-800 rounded-lg p-3">
+            <span class="text-neutral-500"># Início de uma feature</span>
+            <br><span class="text-emerald-400">git checkout -b</span> <span class="text-white">feat/sistema-de-habitos</span>
+          </div>
+          <div class="bg-dark-800 rounded-lg p-3">
+            <span class="text-neutral-500"># Commits ao longo da implementação</span>
+            <br><span class="text-emerald-400">git commit -m</span> <span class="text-white">"feat: formulário de criação de hábito"</span>
+            <br><span class="text-emerald-400">git commit -m</span> <span class="text-white">"feat: lista de hábitos com filtro"</span>
+          </div>
+          <div class="bg-dark-800 rounded-lg p-3">
+            <span class="text-neutral-500"># Quando aprovado e testado</span>
+            <br><span class="text-emerald-400">git checkout</span> <span class="text-white">main</span>
+            <br><span class="text-emerald-400">git merge</span> <span class="text-white">feat/sistema-de-habitos</span>
+          </div>
+          <div class="bg-dark-800 rounded-lg p-3">
+            <span class="text-neutral-500"># Se a feature não funcionou como esperado</span>
+            <br><span class="text-emerald-400">git checkout</span> <span class="text-white">main</span>
+            <br><span class="text-emerald-400">git branch -D</span> <span class="text-white">feat/sistema-de-habitos</span>
+            <br><span class="text-neutral-500"># Começa de novo sem prejuízo na main</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center">
+          <span class="mr-2">⚠️</span> O risco de codificar na main
+        </h3>
+        <p class="text-neutral-300 mb-3">Vibe coding na main sem branches é como fazer experimentos químicos sem óculos de proteção — geralmente fica tudo bem, até o dia que não fica. Quando a IA faz uma mudança que quebra tudo e você não tem commit anterior nem branch de segurança, a única saída pode ser reescrever.</p>
+        <p class="text-neutral-300"><strong>Regra prática:</strong> Se você não se sente à vontade para descartar tudo que foi feito nos últimos 30 minutos, você está atrasado em criar uma branch.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">📄 Documentação automática</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Um dos maiores benefícios subutilizados do vibe coding: pedir ao agente que <strong class="text-emerald-400">documente o que fez e por quê</strong>. Documentação gerada pela IA é mais fácil de manter, mais consistente em estilo e — surpreendentemente — muitas vezes mais clara do que a escrita por humanos sob pressão de deadline.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">📝 Prompts de documentação por tipo</h3>
+        <div class="space-y-4">
+          <div>
+            <p class="text-sm font-semibold text-white mb-2">Para funções e componentes:</p>
+            <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">"Adicione JSDoc a todas as funções nesse arquivo, incluindo @param, @returns e um exemplo de uso"</div>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-white mb-2">Para decisões de arquitetura:</p>
+            <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">"Crie um arquivo DECISIONS.md explicando por que escolhemos [abordagem] ao invés de [alternativa] para esse problema"</div>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-white mb-2">Para o CLAUDE.md / .cursorrules:</p>
+            <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">"Com base no código atual, atualize o CLAUDE.md com os padrões que você observou sendo usados no projeto"</div>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-white mb-2">Para README:</p>
+            <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">"Gere um README.md completo para esse projeto: o que é, como instalar, como usar, e quais são as variáveis de ambiente necessárias"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Documentação como parte do Definition of Done
+        </h3>
+        <p class="text-neutral-300">Inclua no seu processo: uma feature só está "pronta" quando a documentação está atualizada. Como o agente escreve documentação rapidamente, esse critério extra adiciona quase zero tempo ao processo — mas transforma projetos vibe coding de caixas-pretas em projetos mantíveis.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 1.6
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">EPIV: Explore → Plan → Implement → Verify</strong><span class="text-neutral-400"> — o workflow que transforma vibe coding caótico em sistemático</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Explore sem modificar</strong><span class="text-neutral-400"> — instrua explicitamente o agente a entender antes de alterar</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Plano aprovado antes de qualquer código</strong><span class="text-neutral-400"> — elimina 90% do retrabalho por abordagem errada</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Implementação em partes testáveis</strong><span class="text-neutral-400"> — cada passo verificável antes do próximo</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Branches para cada feature</strong><span class="text-neutral-400"> — nunca vibe code direto na main</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Documentação automática como parte do processo</strong><span class="text-neutral-400"> — feature só está pronta com documentação atualizada</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.7 — 🔐 Controle, Qualidade e Segurança Básica — os riscos reais do código gerado por IA e como mitigá-los</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-1-5.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo Anterior
+          </a>
+          <a href="modulo-1-7.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">
+            Próximo Módulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 1.6 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

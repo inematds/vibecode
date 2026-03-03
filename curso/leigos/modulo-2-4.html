@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2.4 — Do Protótipo ao Produto | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Para Leigos</a>
+      <span>/</span>
+      <span class="text-purple-400">Módulo 2.4</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.4</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎯 Do Protótipo ao Produto</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Como coletar feedback de usuários reais, melhorar o design sem ser designer, adicionar banco de dados e login, e saber o momento certo de contratar um desenvolvedor.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">35</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Básico</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Prático</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🔍 A diferença entre protótipo e produto</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Um protótipo funciona quando você faz exatamente o que planejou. Um produto funciona quando usuários reais, fazendo coisas que você não planejou, em dispositivos que você não testou, com dados que você não antecipou — ainda assim conseguem o que precisam.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-neutral-400 mb-3">🔬 Protótipo</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• Funciona no seu fluxo específico</li>
+            <li>• Testado por você e talvez 1-2 pessoas</li>
+            <li>• Dados fictícios ou muito poucos</li>
+            <li>• Erros tolerados, esperados</li>
+            <li>• Interface "ok" para quem entende</li>
+          </ul>
+        </div>
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+          <h4 class="font-semibold text-purple-400 mb-3">🚀 Produto</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• Funciona para qualquer usuário do público-alvo</li>
+            <li>• Testado por beta users externos</li>
+            <li>• Dados reais, volume crescente</li>
+            <li>• Erros tratados com mensagens claras</li>
+            <li>• Interface intuitiva sem explicação</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 A transição não é binária</h3>
+        <p class="text-neutral-300">Você não acorda um dia e "vira" produto. É um processo de iteração: cada rodada de feedback transforma um aspecto do protótipo em produto. Após 3-5 rodadas com usuários reais, você chega a um produto confiável.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">💬 Feedback de usuários — Como coletar e usar</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O feedback mais valioso não vem de perguntas — vem de observação. Ver alguém usando o seu produto sem explicação é mil vezes mais informativo do que perguntar "O que você achou?". Mas quando você não pode observar pessoalmente, use as técnicas certas.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">1</div>
+          <div>
+            <h4 class="font-semibold mb-1">Observação direta (o mais valioso)</h4>
+            <p class="text-sm text-neutral-400">Sente-se ao lado de alguém, dê o celular ou mostre o computador. Não explique nada — deixe usar. Anote onde trava, onde confunde, onde funciona bem.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">2</div>
+          <div>
+            <h4 class="font-semibold mb-1">As 3 perguntas certas</h4>
+            <p class="text-sm text-neutral-400">Após usar: "Qual parte foi mais confusa?", "O que você esperava que acontecesse quando fez X?", "Usaria isso no dia a dia? Por quê?"</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">3</div>
+          <div>
+            <h4 class="font-semibold mb-1">Traduzindo feedback em prompt</h4>
+            <p class="text-sm text-neutral-400">Feedback: "Não entendi onde salvar". Prompt para a IA: "O botão de salvar está confuso para usuários. Torne-o mais visível, com texto claro 'Salvar agendamento' e cor de destaque".</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Quantos usuários você precisa ouvir</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>5 usuários</strong> revelam 85% dos problemas de usabilidade (pesquisa Nielsen Norman)</li>
+          <li><strong>3 rodadas</strong> de feedback são suficientes para a maioria dos MVPs</li>
+          <li><strong>1 usuário real</strong> vale mais que 10 opiniões de amigos que querem te agradar</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🎨 Design sem designer — Pedindo melhorias de UX/UI</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        UX (User Experience) é como o usuário se sente usando o produto. UI (User Interface) é como o produto parece visualmente. Você não precisa de um designer para melhorar os dois — basta saber descrever o que está errado e o que ficaria melhor.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🗣️ Vocabulário de design que funciona em prompts</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-neutral-300">
+          <div>
+            <p class="font-semibold text-white mb-2">Para melhorar aparência:</p>
+            <ul class="space-y-1">
+              <li>• "Mais espaçamento entre os elementos"</li>
+              <li>• "Fonte maior e mais legível"</li>
+              <li>• "Botão mais chamativo, maior"</li>
+              <li>• "Menos poluído, mais minimalista"</li>
+              <li>• "Mais profissional, menos amador"</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-white mb-2">Para melhorar experiência:</p>
+            <ul class="space-y-1">
+              <li>• "Fluxo mais curto para chegar ao objetivo"</li>
+              <li>• "Mensagem de erro mais clara"</li>
+              <li>• "Confirmação visual quando salvar"</li>
+              <li>• "Ordenar por data, mais recente primeiro"</li>
+              <li>• "Botão de ação principal mais evidente"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Peça inspiração em apps que você admira</h3>
+        <p class="text-neutral-300">Se você não sabe descrever o que quer, referencie. "Deixe o design parecido com o Notion — minimalista, muito branco, tipografia grande" funciona muito bem. A IA conhece a estética dos produtos mais famosos.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🗄️ Banco de dados — Guardando informações sem saber SQL</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        SQL é a linguagem usada para gerenciar bancos de dados. Você não precisa saber SQL — mas precisa entender o conceito para saber o que pedir. Pense em banco de dados como uma planilha do Excel: tem colunas (campos) e linhas (registros), e você pode buscar, filtrar e ordenar.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">📊 Como pedir banco de dados para a IA</h3>
+        <div class="space-y-3 text-neutral-300 text-sm">
+          <div class="bg-dark-700/50 rounded p-3 font-mono">"Preciso salvar informações de clientes. Cada cliente tem: nome completo, telefone, email e data de cadastro."</div>
+          <div class="bg-dark-700/50 rounded p-3 font-mono">"Cada agendamento deve registrar: qual cliente, qual serviço, data, hora e status (agendado/concluído/cancelado)."</div>
+          <div class="bg-dark-700/50 rounded p-3 font-mono">"Preciso consultar todos os agendamentos de hoje, ordenados por horário."</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-3">Com Lovable (Supabase)</h4>
+          <p class="text-sm text-neutral-300">O banco é criado automaticamente conforme você descreve o que quer guardar. Lovable usa Supabase — banco de dados profissional, escalável, que você não precisa configurar manualmente.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-3">Alternativas para iniciantes</h4>
+          <p class="text-sm text-neutral-300">Para começar mais simples, Google Sheets pode servir como banco de dados via API. O Airtable também funciona bem para MVPs sem complexidade.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🔐 Login e cadastro — Autenticação para leigos</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Autenticação é o processo de identificar quem é o usuário. O famoso "entrar com Google" é autenticação. Para não-técnicos, a boa notícia é que o Lovable inclui autenticação pronta — você só precisa pedir.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🔑 Como pedir autenticação para a IA</h3>
+        <div class="space-y-3 text-neutral-300 text-sm">
+          <div class="bg-dark-700/50 rounded p-3 font-mono">"Adicione uma tela de login. O usuário entra com email e senha. Se não tiver conta, pode criar uma."</div>
+          <div class="bg-dark-700/50 rounded p-3 font-mono">"Adicione opção de 'Entrar com Google' para simplificar o cadastro."</div>
+          <div class="bg-dark-700/50 rounded p-3 font-mono">"Cada usuário deve ver apenas os dados que ele mesmo cadastrou."</div>
+          <div class="bg-dark-700/50 rounded p-3 font-mono">"Adicione uma tela de recuperação de senha por email."</div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Tipos de autenticação comuns</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Email + senha:</strong> O mais simples. O usuário cria uma conta com email e senha.</li>
+          <li><strong>Google/GitHub OAuth:</strong> "Entrar com Google". Mais rápido para o usuário, menos senhas a gerenciar.</li>
+          <li><strong>Magic link:</strong> Usuário digita o email, recebe um link clicável. Sem senha.</li>
+          <li><strong>Multi-tenant:</strong> Cada empresa tem seus próprios dados separados dos demais.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">⚡ Performance básica — Quando o app fica lento</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Performance é a velocidade com que o app responde. Um app lento perde usuários — pesquisas mostram que 53% dos usuários abandonam um site que demora mais de 3 segundos para carregar. A boa notícia: a maioria dos problemas de lentidão tem soluções simples.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-2">Sintoma: Lista demora para carregar</h4>
+          <p class="text-sm text-neutral-400 mb-2">Causa comum: busca todos os registros de uma vez. Solução:</p>
+          <div class="bg-dark-700/50 rounded p-2 text-sm text-neutral-300 font-mono">"A lista de agendamentos está lenta. Mostre apenas os agendamentos dos próximos 7 dias. Adicione paginação para os mais antigos."</div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-2">Sintoma: Imagens demoram para aparecer</h4>
+          <p class="text-sm text-neutral-400 mb-2">Causa comum: imagens muito grandes sem otimização. Solução:</p>
+          <div class="bg-dark-700/50 rounded p-2 text-sm text-neutral-300 font-mono">"As imagens do produto estão demorando para carregar. Otimize o carregamento das imagens e adicione um placeholder enquanto carregam."</div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-2">Sintoma: Demora geral para abrir</h4>
+          <p class="text-sm text-neutral-400 mb-2">Causa comum: muito JavaScript carregando de uma vez. Solução:</p>
+          <div class="bg-dark-700/50 rounded p-2 text-sm text-neutral-300 font-mono">"O app está lento para abrir inicialmente. Otimize o carregamento inicial. Carregue apenas o essencial na primeira tela."</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">👩‍💻 Quando contratar um desenvolvedor</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Vibe coding não substitui desenvolvedores — ele muda <em>quando</em> você os contrata. Em vez de contratar antes de validar a ideia, você contrata depois de ter receita, usuários e feedback real. Isso muda completamente a relação de poder na negociação.
+      </p>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-4">🚨 Sinais de que chegou a hora</h3>
+        <ul class="space-y-3 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">!</span><span><strong>Você tem mais de 500 usuários ativos</strong> e a performance começa a cair</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">!</span><span><strong>Um cliente corporativo exige SLA</strong> (garantia de disponibilidade) com penalidades</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">!</span><span><strong>Você precisa de integração com sistema legado</strong> de grande empresa (SAP, Oracle, etc.)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">!</span><span><strong>A ferramenta de vibe coding não consegue</strong> implementar uma feature crítica após 3 tentativas</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">!</span><span><strong>Você vai receber regulação</strong> (LGPD compliance avançado, auditoria, etc.)</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">💡 Como contratar melhor por ter validado antes</h3>
+        <div class="space-y-3 text-neutral-300 text-sm">
+          <p>Quando você leva um dev para uma conversa com <strong class="text-white">receita comprovada, usuários reais e feedbacks documentados</strong>:</p>
+          <ul class="space-y-2 mt-2">
+            <li>• O escopo é claro — menos chance de "scope creep" (trabalho sem fim)</li>
+            <li>• Você sabe o que realmente importa para o usuário</li>
+            <li>• Sua posição de negociação é mais forte</li>
+            <li>• O dev tem contexto para tomar decisões técnicas melhores</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 O modelo híbrido que funciona</h3>
+        <p class="text-neutral-300">Use vibe coding para o produto core. Contrate um dev freelancer por horas para as partes que a ferramenta não consegue. Muitos fundadores não-técnicos bem-sucedidos operam assim indefinidamente — sem precisar de um CTO.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 2.4
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Protótipo vs. produto</strong><span class="text-neutral-400"> — produto funciona para qualquer usuário, em qualquer situação, sem explicação</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">5 usuários revelam 85% dos problemas</strong><span class="text-neutral-400"> — observe, não pergunte; feedback pago vale 10x mais</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Design sem designer</strong><span class="text-neutral-400"> — descreva o que está errado, referencie apps que admira</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Banco de dados em linguagem natural</strong><span class="text-neutral-400"> — descreva o que quer guardar e buscar, a IA cria o banco</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Login e cadastro prontos</strong><span class="text-neutral-400"> — Lovable inclui autenticação; apenas descreva o que precisa</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Contratar dev depois de validar</strong><span class="text-neutral-400"> — com receita e feedback, sua negociação é muito mais forte</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">2.5 — 🔌 Integrações: Conectando Tudo: APIs, pagamentos, WhatsApp e como adicionar IA dentro do seu produto</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-2-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo Anterior
+          </a>
+          <a href="modulo-2-5.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">
+            Próximo Módulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 2.4 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

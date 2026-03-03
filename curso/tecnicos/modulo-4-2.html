@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 4.2 — Prompt Engineering Avançado | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    pre { overflow-x: auto; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span></a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-blue-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Técnicos</a>
+      <span>/</span>
+      <span class="text-blue-400">Módulo 4.2</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎯 Prompt Engineering Avançado</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Chain-of-Thought, pseudocódigo primeiro, prompting agêntico e as técnicas de decomposição que transformam tarefas complexas em resultados precisos.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">40</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Avançado</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Prático</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🔗 Chain-of-Thought para código</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Chain-of-Thought (CoT) é a técnica de forçar o modelo a raciocinar explicitamente antes de gerar código. Estudos da Anthropic e Google (2024) mostram que CoT melhora a precisão em <strong class="text-blue-400">40-60% em problemas de programação complexos</strong>. O modelo não é mais rápido — é mais cuidadoso.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📝 Comparativo: Sem CoT vs. Com CoT</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs text-red-400 font-medium mb-2">Sem CoT (resultado medíocre):</p>
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>"Implemente uma função que
+verifica se um número é primo."</code></pre>
+          </div>
+          <div>
+            <p class="text-xs text-emerald-400 font-medium mb-2">Com CoT (resultado preciso):</p>
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>"Antes de implementar, analise:
+1. Quais casos extremos existem?
+   (0, 1, negativos, números grandes)
+2. Qual a complexidade ideal para
+   o contexto de uso (números até 10^6)?
+3. Precisa ser thread-safe?
+
+Depois implemente com TypeScript
+e inclua os testes unitários."</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-sm">1</div>
+          <div>
+            <h4 class="font-semibold mb-1">Frases ativadoras de CoT</h4>
+            <p class="text-sm text-neutral-400">"Antes de implementar, analise...", "Pense passo a passo sobre...", "Liste os casos extremos antes de começar...", "Explique sua abordagem antes de escrever código."</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-sm">2</div>
+          <div>
+            <h4 class="font-semibold mb-1">Quando usar CoT</h4>
+            <p class="text-sm text-neutral-400">Algoritmos não triviais, lógica de negócio complexa, refatorações de grande escala, qualquer tarefa onde o erro seja custoso. Não é necessário para CRUD simples ou boilerplate.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-sm">3</div>
+          <div>
+            <h4 class="font-semibold mb-1">Revisando o raciocínio</h4>
+            <p class="text-sm text-neutral-400">Antes de implementar, peça ao modelo para listar sua abordagem. Você pode corrigir o raciocínio antes do código ser gerado — muito mais barato do que corrigir a implementação depois.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">📝 Pseudocódigo primeiro — estratégia para alta complexidade</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Para tarefas de alta complexidade, <strong class="text-blue-400">separar planejamento de implementação</strong> é a técnica mais eficaz. Pedir pseudocódigo primeiro cria um checkpoint natural onde você revisa a lógica antes que qualquer linha de código seja gerada.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔄 Fluxo em Dois Estágios</h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-3">
+            <div class="w-7 h-7 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xs">1</div>
+            <div class="flex-1">
+              <p class="font-medium text-sm mb-1">Estágio 1: Planejamento</p>
+              <pre class="bg-dark-900 rounded p-3 text-xs text-neutral-300 font-mono"><code>"Preciso implementar um sistema de
+rate limiting por usuário e por IP.
+Antes de implementar, descreva em
+pseudocódigo ou texto estruturado:
+- A estrutura de dados
+- O algoritmo de verificação
+- Os casos de borda
+- Onde vai residir (middleware, Redis)"</code></pre>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-7 h-7 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-xs">2</div>
+            <div class="flex-1">
+              <p class="font-medium text-sm mb-1">Estágio 2: Implementação (após aprovação)</p>
+              <pre class="bg-dark-900 rounded p-3 text-xs text-neutral-300 font-mono"><code>"O plano está bom, com uma mudança:
+use sliding window em vez de fixed window
+para o rate limiting.
+
+Agora implemente com TypeScript + Redis,
+incluindo testes unitários com mock do Redis."</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 O ROI da Abordagem em Dois Estágios</h3>
+        <p class="text-neutral-300 text-sm">Corrigir lógica em pseudocódigo: 2 minutos. Corrigir uma implementação errada que já está integrada a outros módulos: 2 horas. Para features críticas de negócio, sempre separe planejamento de execução.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🎯 Focar em comportamento, não implementação</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Este é o princípio central que diferencia prompts mediocres de prompts profissionais. Especificar implementação limita o agente a soluções que talvez não sejam as melhores para o contexto. Especificar <strong class="text-blue-400">comportamento observável</strong> libera o agente para escolher a implementação mais adequada.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Orientado a implementação</h4>
+          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3"><code>"Use o método Array.filter() para
+filtrar usuários ativos e depois
+use Array.sort() com localeCompare
+para ordenar por nome."</code></pre>
+          <p class="text-xs text-neutral-500 mt-3">Problema: força implementação específica, pode ser subótima para o contexto real.</p>
+        </div>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Orientado a comportamento</h4>
+          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3"><code>"O usuário deve ver apenas membros
+ativos da equipe, ordenados
+alfabeticamente por nome.
+A lista atualiza em tempo real
+quando um membro muda de status."</code></pre>
+          <p class="text-xs text-neutral-500 mt-3">Resultado: agente escolhe a melhor implementação para o stack existente.</p>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Quando orientar a implementação é OK</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span><strong>Restrições técnicas reais:</strong> "Deve usar nossa lib interna de cache" — aí faz sentido especificar.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span><strong>Integração com sistema existente:</strong> "Deve seguir o padrão do módulo X" — contexto legítimo.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span><strong>Migração de código:</strong> "Converta este código de callbacks para async/await" — transformação específica.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🤖 Prompting agêntico — objetivos de alto nível com Definition of Done</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Prompting agêntico é fundamentalmente diferente do prompting conversacional. O agente vai executar <strong class="text-blue-400">múltiplas etapas sem intervenção humana</strong>. Sem uma Definition of Done (DoD) clara, ele continua trabalhando além do necessário ou para antes de terminar.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📋 Template de Prompt Agêntico</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>## Objetivo
+Implemente o módulo de autenticação JWT para a API de pagamentos.
+
+## Contexto relevante
+@src/app.ts
+@src/routes/index.ts
+@src/middleware/
+
+## Permissões
+- Pode criar novos arquivos em src/auth/ e src/middleware/
+- Pode modificar src/routes/index.ts para adicionar rotas de auth
+- NÃO deve modificar src/app.ts ou arquivos de migration existentes
+- NÃO deve fazer deploy ou commit
+
+## Restrições técnicas
+- Use jsonwebtoken e bcrypt (já estão no package.json)
+- Siga o padrão de erros existente em @src/utils/errors.ts
+- Tokens expiram em 24h (access) e 7d (refresh)
+
+## Definition of Done
+A tarefa está completa quando:
+1. POST /auth/register cria usuário com senha hasheada
+2. POST /auth/login retorna access e refresh token
+3. POST /auth/refresh troca refresh token por novo access token
+4. Middleware de autenticação protege rotas marcadas
+5. Todos os endpoints têm testes unitários passando
+6. npm run test passa sem erros
+
+Pause e aguarde aprovação antes de qualquer ação destrutiva.</code></pre>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 O Elemento Mais Importante: Permissões</h3>
+        <p class="text-neutral-300 text-sm">Definir o que o agente pode e não pode fazer é mais crítico do que o objetivo em si. Um agente sem restrições claras pode sobrescrever arquivos errados, fazer chamadas de API não autorizadas ou modificar infraestrutura de produção. Sempre liste permissões explicitamente.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🧩 Técnicas de decomposição — dividir sistemas complexos</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A regra prática mais eficaz: <strong class="text-blue-400">se a tarefa vai gerar mais de 300 linhas de código, decomponha</strong>. Tarefas grandes criam contexto longo que degrada a qualidade do modelo e dificulta a revisão humana. Decomposição é uma habilidade de engenharia, não de prompt.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔍 Exemplo: Sistema de Pagamentos Decomposto</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <span class="w-6 h-6 rounded-full bg-red-500/20 text-red-400 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">✗</span>
+            <div>
+              <p class="text-sm text-red-400 font-medium">Tarefa monolítica (falha):</p>
+              <p class="text-sm text-neutral-400">"Implemente o sistema de pagamentos completo com Stripe, planos de assinatura, webhooks e portal do cliente."</p>
+            </div>
+          </div>
+          <div class="h-px bg-dark-600"></div>
+          <div class="flex items-start space-x-3">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">✓</span>
+            <div>
+              <p class="text-sm text-emerald-400 font-medium">Decomposição correta:</p>
+              <ul class="space-y-1 text-sm text-neutral-400 mt-1">
+                <li>1. Schema de banco: tabelas plans, subscriptions, payments, invoices</li>
+                <li>2. Integração Stripe: criar customer, sincronizar produtos/preços</li>
+                <li>3. Endpoint de checkout: criar sessão e processar pagamento</li>
+                <li>4. Webhook handler: processar eventos do Stripe com idempotência</li>
+                <li>5. Portal do cliente: listar faturas, trocar plano, cancelar</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-blue-400 mb-3">Critérios de uma boa subtarefa</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Tem objetivo único e claro</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Produz &lt;300 linhas de código</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Pode ser testada independentemente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Tem critérios de conclusão verificáveis</span></li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-blue-400 mb-3">Ordem de implementação</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-blue-400">1.</span><span>Schema e modelos de dados primeiro</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">2.</span><span>Autenticação antes de features</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">3.</span><span>Lógica de negócio antes de UI</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">4.</span><span>Integrações externas por último</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">♻️ Refactoring por prompt — melhorias sem perder funcionalidade</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Refactoring com IA é uma das aplicações mais poderosas — e mais perigosas. Sem invariantes claros definidos, o agente pode mudar a interface pública de uma função, quebrar contratos implícitos ou introduzir mudanças sutis de comportamento. A chave é <strong class="text-blue-400">especificar o que não pode mudar</strong>.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📋 Template de Prompt para Refactoring</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>## Contexto
+@src/services/UserService.ts (arquivo a refatorar)
+@src/services/UserService.test.ts (testes existentes)
+
+## Objetivo
+Refatorar UserService para melhorar testabilidade:
+reduzir dependências acopladas e extrair lógica de
+validação para funções puras.
+
+## Invariantes (o que NÃO pode mudar)
+- Interface pública: assinatura de todos os métodos públicos
+- Comportamento: todos os testes existentes devem continuar passando
+- Compatibilidade: não modificar como é injetado no sistema (DI)
+- Não adicionar dependências externas novas
+
+## Objetivo de melhoria
+- Reduzir complexidade ciclomática de createUser() de 12 para <5
+- Extrair validateUserData() como função pura testável
+- Remover chamada direta ao banco (usar repositório injetado)
+
+## Definition of Done
+npm run test passa sem modificar nenhum teste existente</code></pre>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Refactoring Incremental vs. Big-Bang</h3>
+        <p class="text-neutral-300 text-sm">Prefira sempre refactoring incremental — um módulo por vez, com testes passando a cada etapa. Big-bang refactoring (refatorar tudo de uma vez) com IA gera código que funciona isoladamente mas quebra na integração. Commits pequenos, revisão frequente.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">🐛 Debug por prompt — contexto correto para resolução rápida</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A diferença entre um debug que resolve em uma mensagem e um que leva 10 trocas de mensagem é o contexto fornecido. <strong class="text-blue-400">O agente resolve o que consegue ver</strong>. Enviar apenas a mensagem de erro é como pedir diagnóstico médico descrevendo apenas a dor sem dizer onde.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🐛 Template de Debug Eficaz</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>## Erro
+TypeError: Cannot read properties of undefined (reading 'id')
+at UserService.createOrder (UserService.ts:47)
+at OrderController.post (OrderController.ts:23)
+
+## Stack trace completo
+[cole o stack trace completo aqui]
+
+## Código relevante
+@src/services/UserService.ts (linhas 40-55)
+@src/controllers/OrderController.ts (linhas 18-30)
+
+## Ambiente
+- Node.js 22.5.0
+- TypeScript 5.4
+- Prisma 5.10
+
+## O que já tentei
+- Adicionei console.log em UserService.ts:46 — user está undefined
+- Verifiquei que userId está chegando corretamente na controller
+
+## Comportamento esperado vs. observado
+- Esperado: usuário autenticado sempre tem user populado antes desta chamada
+- Observado: user é undefined apenas quando a requisição vem do webhook, não da UI</code></pre>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Taxa de Resolução por Qualidade do Contexto</h3>
+        <div class="space-y-3">
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-neutral-300">Apenas mensagem de erro</span>
+              <span class="text-red-400">15%</span>
+            </div>
+            <div class="h-2 bg-dark-700 rounded-full"><div class="h-2 bg-red-500 rounded-full" style="width:15%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-neutral-300">Erro + código relevante</span>
+              <span class="text-amber-400">55%</span>
+            </div>
+            <div class="h-2 bg-dark-700 rounded-full"><div class="h-2 bg-amber-500 rounded-full" style="width:55%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-neutral-300">Template completo (template acima)</span>
+              <span class="text-emerald-400">92%</span>
+            </div>
+            <div class="h-2 bg-dark-700 rounded-full"><div class="h-2 bg-emerald-500 rounded-full" style="width:92%"></div></div>
+          </div>
+        </div>
+        <p class="text-xs text-neutral-500 mt-3">Estimativa baseada em análise de sessões de debug com Claude Code (projetos reais, 2025)</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Isolamento Antes do Debug</h3>
+        <p class="text-neutral-300 text-sm">Antes de enviar para o agente, tente isolar o problema: reproduza com o mínimo de código possível. Um bug que reproduz em 20 linhas de código é muito mais fácil de resolver do que um bug em um sistema complexo. O agente (e você) agradece.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 4.2
+        </h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Chain-of-Thought</strong><span class="text-neutral-400"> melhora precisão em 40-60% em problemas complexos — use frases ativadoras explícitas</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Pseudocódigo primeiro</strong><span class="text-neutral-400"> separa planejamento de execução — corrija lógica em minutos, não horas</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Comportamento, não implementação</strong><span class="text-neutral-400"> — descreva o que o sistema deve fazer, deixe o agente escolher o como</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Prompting agêntico</strong><span class="text-neutral-400"> — Objetivo + Contexto + Permissões + Definition of Done. DoD é o mais crítico.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Decomposição</strong><span class="text-neutral-400"> — se vai gerar +300 linhas, decomponha. Subtarefas têm critérios verificáveis.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Debug com contexto completo</strong><span class="text-neutral-400"> — erro + stack trace + código + ambiente + tentativas = 92% de resolução na primeira</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">4.3 — 🏗️ Arquitetura e Design Patterns com IA: MVC, DDD, modelagem de banco e documentação arquitetural</p>
+        </div>
+
+        <div class="flex justify-start gap-4">
+          <a href="modulo-4-1.html" class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo 4.1
+          </a>
+          <a href="modulo-4-3.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">
+            Próximo Módulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 4.2 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

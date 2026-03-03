@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3.1 — O Impacto Real nos Negócios | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-amber-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-amber-400">Executivos</a>
+      <span>/</span>
+      <span class="text-amber-400">Módulo 3.1</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.1</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📈 O Impacto Real nos Negócios</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Dados concretos sobre a transformação do mercado, casos enterprise documentados e o diagnóstico de maturidade da sua empresa em IA para desenvolvimento.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">35</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">Estratégico</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">Dados</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">📅 O momento de inflexão</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Em 1 de fevereiro de 2025, <strong class="text-amber-400">Andrej Karpathy</strong> — cofundador da OpenAI e ex-diretor de IA da Tesla — publicou um post no X descrevendo "vibe coding". Em menos de 10 meses, o Collins English Dictionary elegeu o termo como <strong class="text-amber-400">Palavra do Ano de 2025</strong>. Essa velocidade de adoção cultural não tem precedente na história da tecnologia de software.
+      </p>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center">
+          <span class="mr-2">🗓️</span> Timeline: de tweet a Palavra do Ano
+        </h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <div class="w-24 flex-shrink-0 text-xs text-neutral-500 mt-0.5 font-mono">01/02/2025</div>
+            <div class="text-sm text-neutral-300">Karpathy publica o conceito — vibe coding nasce como termo</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-24 flex-shrink-0 text-xs text-neutral-500 mt-0.5 font-mono">Mar 2025</div>
+            <div class="text-sm text-neutral-300">Merriam-Webster lista o termo. Cursor ultrapassa $100M ARR</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-24 flex-shrink-0 text-xs text-neutral-500 mt-0.5 font-mono">Jun 2025</div>
+            <div class="text-sm text-neutral-300">Cursor levanta $900M em série C — valuation de $9,9B</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-24 flex-shrink-0 text-xs text-neutral-500 mt-0.5 font-mono">Set 2025</div>
+            <div class="text-sm text-neutral-300">Startup "Anything" — $2M ARR em 2 semanas, valuation $100M</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-24 flex-shrink-0 text-xs text-primary mt-0.5 font-mono font-bold">Dez 2025</div>
+            <div class="text-sm text-neutral-300"><strong class="text-primary">Collins Word of the Year 2025</strong> — confirmação cultural definitiva</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-24 flex-shrink-0 text-xs text-neutral-500 mt-0.5 font-mono">Fev 2026</div>
+            <div class="text-sm text-neutral-300">Karpathy declara: "vibe coding está ultrapassado, o futuro é agentic engineering"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Por que isso importa para executivos
+        </h3>
+        <p class="text-neutral-300">Quando um dicionário fundado em 1819 elege um termo de programação como Palavra do Ano, o sinal é claro: essa tecnologia ultrapassou os limites da comunidade técnica e entrou no mainstream de negócios. "Blockchain" e "machine learning" nunca conseguiram isso. Vibe coding conseguiu em 10 meses.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">💰 Os números que importam</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        As trajetórias de crescimento das plataformas de vibe coding são dados objetivos sobre onde o capital e os usuários estão se concentrando. Esses números não são projeções — são receita recorrente documentada.
+      </p>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Dados de mercado verificados (2025-2026)
+        </h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold mt-0.5 text-sm w-28 flex-shrink-0">Cursor</span>
+            <span class="text-neutral-300 text-sm">$9,9B valuation (jun/2025) · $100M ARR em 12 meses · Série C: $900M liderada por Andreessen Horowitz</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold mt-0.5 text-sm w-28 flex-shrink-0">Lovable</span>
+            <span class="text-neutral-300 text-sm">$1M → $100M ARR em <strong>8 meses</strong> — crescimento 100x documentado</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold mt-0.5 text-sm w-28 flex-shrink-0">Replit</span>
+            <span class="text-neutral-300 text-sm">$2,8M → $150M ARR · Valuation de $1,16B</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold mt-0.5 text-sm w-28 flex-shrink-0">GitHub Copilot</span>
+            <span class="text-neutral-300 text-sm">$2B ARR em 2025 · 1,8M usuários pagantes · 84% dos devs já usam ou planejam usar IA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> O sinal estratégico
+        </h3>
+        <p class="text-neutral-300">Quando a Andreessen Horowitz investe $900M em uma ferramenta de programação, o sinal não é sobre tecnologia — é sobre transformação de mercado. Esses valuations refletem a expectativa de que vibe coding se torna parte do stack padrão de desenvolvimento nos próximos 2-3 anos.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🚀 21% das startups YC com 91%+ de código por IA</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Y Combinator — incubadora de Airbnb, Stripe, Dropbox e Coinbase — revelou um dado estrutural sobre seu batch W25: <strong class="text-amber-400">21% das startups reportaram ter 91% ou mais do código gerado por IA</strong>. Isso representa uma mudança na relação capital-trabalho em software sem precedente histórico.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
+          <h4 class="font-bold text-amber-400 mb-4">O que isso significa para o mercado</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Startups com 3 vibe coders entregando o que antes exigia 15 engenheiros</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Custo de desenvolvimento 5x-10x menor para novos entrantes</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Time-to-market comprimido de meses para semanas em MVPs</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Barreira de entrada no mercado de software em queda estrutural</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">A ameaça competitiva</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">•</span><span>Empresas estabelecidas com times de 50 devs competindo com startups de 5 vibe coders</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">•</span><span>Custo operacional de engenharia como desvantagem competitiva inédita</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">•</span><span>Velocidade de iteração de produto como novo campo de batalha</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">•</span><span>O gap se amplia mês a mês enquanto a adoção cresce</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🏦 Casos enterprise documentados</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O argumento "ainda não está pronto para enterprise" perdeu validade em 2025. Instituições financeiras reguladas, com requisitos rigorosos de compliance e segurança, estão integrando vibe coding em seus ciclos de desenvolvimento.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+            <span class="text-amber-400 font-bold text-sm">GS</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Goldman Sachs</h4>
+            <p class="text-sm text-neutral-400 mb-2">Banco de investimentos, regulação máxima do setor financeiro</p>
+            <p class="text-neutral-300 text-sm">Integrou o agente Devin nos times de engenharia para tarefas de desenvolvimento e manutenção de código. Relatou ganhos de velocidade em geração de código de infraestrutura e automação de testes.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+            <span class="text-amber-400 font-bold text-sm">SAN</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Santander</h4>
+            <p class="text-sm text-neutral-400 mb-2">Banco global com presença em 9 países, regulação bancária europeia</p>
+            <p class="text-neutral-300 text-sm">Programa estruturado de automação de tarefas de código em escala, com governança específica para uso de IA generativa em contextos bancários regulados.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+            <span class="text-amber-400 font-bold text-sm">NU</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Nubank</h4>
+            <p class="text-sm text-neutral-400 mb-2">Maior fintech da América Latina, 100M+ clientes</p>
+            <p class="text-neutral-300 text-sm">Integração de agentes de IA no ciclo de desenvolvimento. Times de engenharia usando ferramentas agentic para acelerar desenvolvimento de features e reduzir tempo de code review.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+            <span class="text-amber-400 font-bold text-sm">ACC</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Accenture e IBM</h4>
+            <p class="text-sm text-neutral-400 mb-2">Consultorias globais com centenas de milhares de consultores técnicos</p>
+            <p class="text-neutral-300 text-sm">Usam vibe coding há anos em times mistos de consultoria. Karpathy citou Accenture como exemplo de empresa que colhe benefícios há tempo. Methodologias de treinamento e governança já documentadas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">👥 Times menores, output maior</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Garry Tan, CEO do Y Combinator, afirmou publicamente: <strong class="text-amber-400">"Times de 10 vibe coders conseguem fazer o trabalho de 50 a 100 engenheiros tradicionais."</strong> Essa afirmação, baseada em dados observados do portfólio YC, tem implicações diretas para o planejamento de headcount e a estrutura de custo de produto.
+      </p>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">O multiplicador de produtividade</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-2 px-3 text-neutral-400 font-semibold">Equipe</th>
+                <th class="text-left py-2 px-3 text-neutral-400 font-semibold">Tamanho</th>
+                <th class="text-left py-2 px-3 text-neutral-400 font-semibold">Custo mensal (estimativa)</th>
+                <th class="text-left py-2 px-3 text-amber-400 font-semibold">Output estimado</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-600">
+              <tr class="hover:bg-dark-700/30">
+                <td class="py-2 px-3 text-neutral-300">Engenharia tradicional</td>
+                <td class="py-2 px-3 text-neutral-400">50 devs</td>
+                <td class="py-2 px-3 text-neutral-400">~R$1,5M-R$3M</td>
+                <td class="py-2 px-3 text-neutral-300">Baseline</td>
+              </tr>
+              <tr class="hover:bg-dark-700/30">
+                <td class="py-2 px-3 text-neutral-300">Time híbrido com IA</td>
+                <td class="py-2 px-3 text-neutral-400">25 devs + ferramentas</td>
+                <td class="py-2 px-3 text-neutral-400">~R$800K-R$1,5M</td>
+                <td class="py-2 px-3 text-neutral-300">Comparable ou superior</td>
+              </tr>
+              <tr class="hover:bg-dark-700/30 bg-amber-500/5">
+                <td class="py-2 px-3 text-amber-400 font-medium">Vibe coding-first</td>
+                <td class="py-2 px-3 text-neutral-400">10 vibe coders</td>
+                <td class="py-2 px-3 text-neutral-400">~R$300K-R$600K</td>
+                <td class="py-2 px-3 text-amber-400 font-medium">Comparável (YC CEO)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs text-neutral-500 mt-3">* Estimativas baseadas em salários médios BR/SP e declarações públicas do CEO do YC. Resultados variam por contexto.</p>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center">
+          <span class="mr-2">⚠️</span> Atenção: multiplicador ≠ substituição imediata
+        </h3>
+        <p class="text-neutral-300">Esses números descrevem capacidade em tarefas adequadas ao vibe coding — não são uma recomendação de demitir times. Sistemas existentes, débito técnico, integração e manutenção exigem engenheiros experientes. O ganho real está em expandir capacidade sem expandir headcount proporcional.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🔍 O que é hype vs. o que é real</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A narrativa extrema em torno de vibe coding — tanto a positiva quanto a negativa — obscurece o que os dados reais mostram. O estudo METR 2025, conduzido com rigor metodológico em tarefas reais de desenvolvimento, é a referência mais sólida disponível.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">Hype — o que NÃO é verdade</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Vibe coding substitui todos os desenvolvedores</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Qualquer pessoa cria qualquer software sem limitação</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Velocidade 10x em qualquer tipo de tarefa</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Código gerado por IA é sempre seguro e correto</span></li>
+          </ul>
+        </div>
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
+          <h4 class="font-bold text-amber-400 mb-4">Evidência — o que os dados mostram</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span><strong>+55%</strong> de velocidade média em tarefas bem definidas (METR 2025)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span><strong>+81%</strong> de velocidade em código boilerplate e CRUD</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✗</span><span><strong>-19%</strong> de velocidade em tarefas complexas com muitas dependências</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✗</span><span><strong>2,74x</strong> mais vulnerabilidades de segurança sem revisão (Veracode)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 O princípio do executivo racional</h3>
+        <p class="text-neutral-300">A decisão certa não é adotar tudo nem rejeitar tudo. É identificar os casos de uso específicos onde o ROI é comprovado e implementá-los com governança adequada. Os módulos seguintes mostram exatamente como fazer isso.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">📋 Sua empresa está atrasada?</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Antes de definir uma estratégia de adoção, é necessário saber onde você está. O framework de maturidade em IA para desenvolvimento tem <strong class="text-amber-400">4 estágios</strong> e pode ser diagnosticado em uma semana com 5 perguntas-chave para seu time técnico.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center">
+            <span class="text-neutral-300 font-bold text-sm">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Estágio 1 — Ignorância</h4>
+            <p class="text-sm text-neutral-400 mb-2">Sinal: nenhum uso de IA no ciclo de desenvolvimento</p>
+            <p class="text-neutral-300 text-sm">Seu time ainda não usa nenhuma ferramenta de IA generativa no dia a dia de desenvolvimento. Não há política de uso, não há treinamento, e o assunto não chegou à liderança técnica de forma estruturada.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center">
+            <span class="text-neutral-300 font-bold text-sm">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Estágio 2 — Experimentação</h4>
+            <p class="text-sm text-neutral-400 mb-2">Sinal: uso individual sem estrutura</p>
+            <p class="text-neutral-300 text-sm">Alguns desenvolvedores usam GitHub Copilot ou ChatGPT individualmente, mas não há política, não há métricas e não há processo. O impacto é invisível para a liderança.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center">
+            <span class="text-amber-400 font-bold text-sm">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-amber-500/20">
+            <h4 class="font-semibold text-white mb-1">Estágio 3 — Processo</h4>
+            <p class="text-sm text-neutral-400 mb-2">Sinal: piloto estruturado com métricas</p>
+            <p class="text-neutral-300 text-sm">Existe um piloto formal com ferramentas selecionadas, métricas definidas e revisão de resultados. A liderança tem visibilidade sobre o impacto. Este é o estágio ideal para iniciar adoção escalada.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center">
+            <span class="text-amber-400 font-bold text-sm">4</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-amber-500/30">
+            <h4 class="font-semibold text-amber-400 mb-1">Estágio 4 — Vantagem</h4>
+            <p class="text-sm text-neutral-400 mb-2">Sinal: integrado ao processo padrão de desenvolvimento</p>
+            <p class="text-neutral-300 text-sm">Vibe coding faz parte do ciclo padrão: é treinado, governado, medido e otimizado continuamente. A empresa tem vantagem competitiva de velocidade e custo consolidada.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">5 perguntas para diagnosticar seu estágio</h3>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li>Quantos dos seus desenvolvedores usam alguma ferramenta de IA generativa regularmente?</li>
+          <li>Existe uma política documentada de uso de IA no desenvolvimento?</li>
+          <li>Você mede tempo de ciclo (cycle time) e qualidade do código por sprint?</li>
+          <li>O time técnico passou por treinamento específico em ferramentas agentic?</li>
+          <li>Existe um processo de revisão de segurança específico para código gerado por IA?</li>
+        </ol>
+        <p class="text-xs text-neutral-500 mt-4">0-1 "sim": Estágio 1 | 2 "sim": Estágio 2 | 3-4 "sim": Estágio 3 | 5 "sim": Estágio 4</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 3.1
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">O momento de inflexão é real</strong><span class="text-neutral-400"> — de tweet a Collins Word of the Year em 10 meses, sem precedente histórico</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Os números validam a tese</strong><span class="text-neutral-400"> — Cursor $9,9B, Lovable 100x em 8 meses, Goldman Sachs usando Devin</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">21% das startups YC com 91%+ de código por IA</strong><span class="text-neutral-400"> — a assimetria competitiva está se instalando agora</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">O ganho é real mas seletivo</strong><span class="text-neutral-400"> — +55% em tarefas simples, -19% em complexas. Contexto define ROI</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Você pode diagnosticar seu estágio em uma semana</strong><span class="text-neutral-400"> — 5 perguntas, 4 estágios, caminho claro</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">3.2 — 💹 ROI, Métricas e Como Avaliar: como medir o retorno real, o framework de piloto de 30 dias e o custo de não adotar</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Voltar para Trilha 3
+          </a>
+          <a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">
+            Próximo Módulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 3.1 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

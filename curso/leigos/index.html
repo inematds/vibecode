@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Leigos | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">TRILHA 2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎨 Para Leigos — Construindo sem Saber Programar</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Para empreendedores, PMs e não-técnicos. Do primeiro app à monetização. Sem código, sem medo, com resultados reais.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">7</div>
+          <div class="text-xs text-neutral-400">Módulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">49</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">~3.5h</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Acessível</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVEGAÇÃO RÁPIDA -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <h2 class="text-lg font-semibold text-neutral-400 mb-4">Navegação Rápida</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+      <a href="#modulo-2-1" class="bg-dark-800 hover:bg-purple-500/10 border border-dark-600 hover:border-purple-500/30 rounded-lg p-3 text-center transition-colors">
+        <div class="text-purple-400 font-bold text-sm">2.1</div>
+        <div class="text-xs text-neutral-400 mt-1">Sem Programar</div>
+      </a>
+      <a href="#modulo-2-2" class="bg-dark-800 hover:bg-purple-500/10 border border-dark-600 hover:border-purple-500/30 rounded-lg p-3 text-center transition-colors">
+        <div class="text-purple-400 font-bold text-sm">2.2</div>
+        <div class="text-xs text-neutral-400 mt-1">Ferramenta</div>
+      </a>
+      <a href="#modulo-2-3" class="bg-dark-800 hover:bg-purple-500/10 border border-dark-600 hover:border-purple-500/30 rounded-lg p-3 text-center transition-colors">
+        <div class="text-purple-400 font-bold text-sm">2.3</div>
+        <div class="text-xs text-neutral-400 mt-1">Primeiro App</div>
+      </a>
+      <a href="#modulo-2-4" class="bg-dark-800 hover:bg-purple-500/10 border border-dark-600 hover:border-purple-500/30 rounded-lg p-3 text-center transition-colors">
+        <div class="text-purple-400 font-bold text-sm">2.4</div>
+        <div class="text-xs text-neutral-400 mt-1">Ao Produto</div>
+      </a>
+      <a href="#modulo-2-5" class="bg-dark-800 hover:bg-purple-500/10 border border-dark-600 hover:border-purple-500/30 rounded-lg p-3 text-center transition-colors">
+        <div class="text-purple-400 font-bold text-sm">2.5</div>
+        <div class="text-xs text-neutral-400 mt-1">Integrações</div>
+      </a>
+      <a href="#modulo-2-6" class="bg-dark-800 hover:bg-purple-500/10 border border-dark-600 hover:border-purple-500/30 rounded-lg p-3 text-center transition-colors">
+        <div class="text-purple-400 font-bold text-sm">2.6</div>
+        <div class="text-xs text-neutral-400 mt-1">Monetizar</div>
+      </a>
+      <a href="#modulo-2-7" class="bg-dark-800 hover:bg-purple-500/10 border border-dark-600 hover:border-purple-500/30 rounded-lg p-3 text-center transition-colors">
+        <div class="text-purple-400 font-bold text-sm">2.7</div>
+        <div class="text-xs text-neutral-400 mt-1">Riscos</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- DIVISOR -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
+    <div class="border-t border-dark-600 pt-8">
+      <h2 class="text-xl font-bold mb-2">Conteúdo Detalhado</h2>
+      <p class="text-neutral-400 text-sm">Explore cada módulo. Clique nos tópicos para ver detalhes, abra em modal ou acesse a página completa.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+
+    <!-- MÓDULO 2.1 -->
+    <div id="modulo-2-1" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">2.1</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🌟 Programar Sem Saber Programar</h3>
+        <p class="text-neutral-400 text-sm">Por que 2025 foi diferente de todas as promessas anteriores, o que você pode construir e quanto custa e tempo leva.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🕐</span>
+            <div>
+              <span class="font-medium">O que mudou em 2025</span>
+              <span class="text-neutral-500 text-sm ml-2">— por que agora é diferente</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">A convergência de modelos de linguagem maduros, ferramentas especializadas e plataformas com deploy incluído que tornou possível construir produtos reais sem escrever código.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Entender por que agora é diferente evita ceticismo baseado em promessas passadas de "no-code" e ajuda a apostar no momento certo.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">LLMs maduros (2024-2025), ferramentas com deploy integrado, Lovable atingindo $100M ARR em 8 meses, 63% dos usuários não são devs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📰</span>
+            <div>
+              <span class="font-medium">Casos reais</span>
+              <span class="text-neutral-500 text-sm ml-2">— reporter da CNBC, fundador economizou $500K</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Histórias documentadas de pessoas sem formação técnica que construíram produtos reais em 2025 usando ferramentas de vibe coding.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Casos reais com números concretos substituem ceticismo por possibilidade. Se um jornalista fez, você também pode.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">CNBC reporter: produto em 2 dias de curso. Fundador: $500K economizados em MVP. Startup "Anything": $2M ARR em 2 semanas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">✅</span>
+            <div>
+              <span class="font-medium">O que você PODE construir</span>
+              <span class="text-neutral-500 text-sm ml-2">— apps, MVPs, automações</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">O mapa realista do que é possível construir sem saber programar em 2025: apps web com banco de dados, landing pages, ferramentas internas, bots de WhatsApp, dashboards e MVPs completos.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Saber o que é possível ajuda a escolher o projeto certo para começar, sem frustração por tentar algo além do alcance atual.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Apps web, automações, landing pages, MVPs, ferramentas internas, bots de WhatsApp, dashboards de dados, sistemas de agendamento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">⚠️</span>
+            <div>
+              <span class="font-medium">O que você NÃO PODE (ainda)</span>
+              <span class="text-neutral-500 text-sm ml-2">— sistemas críticos, escala massiva</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Os limites reais do vibe coding sem suporte técnico: sistemas financeiros regulados, apps com milhões de usuários simultâneos, integrações hospitalares críticas e código de alta performance.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Conhecer os limites evita lançar produtos com falhas críticas e define quando contratar um desenvolvedor.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Sistemas regulados (bancos, saúde), alta escala (1M+ usuários), segurança crítica, performance de baixíssima latência.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">💰</span>
+            <div>
+              <span class="font-medium">Quanto custa</span>
+              <span class="text-neutral-500 text-sm ml-2">— ferramentas gratuitas vs pagas</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Comparativo real de custo das ferramentas: Lovable ($20-50/mês), Bolt.new (gratuito com limite), v0 (gratuito + Vercel), Replit ($25/mês), Claude/ChatGPT ($20/mês).</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Entender custo total ajuda a planejar o orçamento antes de começar e a escolher o plano certo para seu estágio.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Free tiers, créditos de uso, custo por mensagem vs. assinatura, custos de hospedagem separados, custo de domínio (~R$50/ano).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">⏱️</span>
+            <div>
+              <span class="font-medium">Quanto tempo leva</span>
+              <span class="text-neutral-500 text-sm ml-2">— expectativas realistas</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Estimativas honestas para não-técnicos: landing page (2-4h), app simples (1-3 dias), MVP com banco de dados e login (1-2 semanas), produto com pagamentos (2-4 semanas).</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Expectativas corretas evitam abandono por frustração ou, pior, comprometer prazo com cliente antes de entender a complexidade.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Curva de aprendizado de 1-2 semanas, ganho de produtividade exponencial após dominar o fluxo, diferença entre "funciona" e "está pronto para usuários".</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🗺️</span>
+            <div>
+              <span class="font-medium">Seu roadmap pessoal</span>
+              <span class="text-neutral-500 text-sm ml-2">— do primeiro app ao produto monetizado</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Um plano em 4 etapas: (1) Aprender a ferramenta com projeto simples, (2) Construir MVP do seu produto, (3) Lançar para primeiros usuários, (4) Iterar e monetizar.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Um caminho claro substitui a sensação de estar perdido e dá marcos concretos para medir progresso.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Projeto de treino (sem pressão), MVP mínimo viável, beta fechado, iteração baseada em feedback, primeiro pagamento recorrente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-2-1.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 2.2 -->
+    <div id="modulo-2-2" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">2.2</span>
+          <span class="text-xs text-neutral-500">~25 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔧 Escolhendo sua Ferramenta</h3>
+        <p class="text-neutral-400 text-sm">Lovable, Bolt.new, v0, Replit Agent — como decidir qual usar para cada tipo de projeto.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">💜</span>
+            <div>
+              <span class="font-medium">Lovable</span>
+              <span class="text-neutral-500 text-sm ml-2">— melhor para apps com backend completo</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Plataforma que gera apps completos com banco de dados (Supabase), autenticação e deploy em um clique. De $1M a $100M ARR em 8 meses — a ferramenta favorita de fundadores não-técnicos.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Quando você precisa de um app real com usuários que fazem login, salvam dados e pagam — Lovable é a escolha mais completa para não-técnicos.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Supabase integrado, deploy automático, interface bonita por padrão, planos a partir de $20/mês, suporte a domínio personalizado.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">⚡</span>
+            <div>
+              <span class="font-medium">Bolt.new</span>
+              <span class="text-neutral-500 text-sm ml-2">— melhor para experimentar rápido</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Editor de código no navegador que gera apps instantaneamente. Ideal para protótipos rápidos, testes de ideia e aprendizado sem compromisso de conta ou pagamento inicial.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">É a melhor ferramenta para validar uma ideia em 30 minutos antes de investir tempo e dinheiro em uma solução mais robusta.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Zero setup, geração instantânea, sem banco de dados nativo, bom para front-end e lógica simples, exportação de código para continuar em outra ferramenta.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">▲</span>
+            <div>
+              <span class="font-medium">v0 (Vercel)</span>
+              <span class="text-neutral-500 text-sm ml-2">— melhor para sites e apps Next.js</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Gerador de interfaces da Vercel que cria componentes React/Next.js. Integra com a infraestrutura de deploy mais usada por startups do mundo.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Para quem quer uma interface profissional que um dev possa expandir depois — v0 gera código limpo e reutilizável, não código de ferramenta proprietária.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">React components, Shadcn/UI, deploy na Vercel, banco via Neon ou PlanetScale, melhor para times que têm um dev para integrar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🤖</span>
+            <div>
+              <span class="font-medium">Replit Agent</span>
+              <span class="text-neutral-500 text-sm ml-2">— melhor para automações e bots</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Agente de IA que roda em ambiente de desenvolvimento completo no navegador. Especialmente bom para automações, scripts, bots e integrações entre sistemas — com 30+ integrações nativas.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Para automatizar tarefas repetitivas do seu negócio sem pagar um dev — desde bots de atendimento até relatórios automáticos.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">30+ integrações, suporte a Python e JavaScript, hospedagem inclusa, Deploy de bots 24/7, ideal para automações internas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">💬</span>
+            <div>
+              <span class="font-medium">ChatGPT/Claude com código</span>
+              <span class="text-neutral-500 text-sm ml-2">— quando usar IA de chat</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Usar ChatGPT ou Claude para gerar código que você copia para uma ferramenta — uma abordagem alternativa para quem quer mais controle sobre o processo.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Quando a ferramenta especializada trava ou não entende seu pedido, o chat de IA resolve — e muitas vezes é mais rápido para ajustes pontuais.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Código gerado no chat + colagem na ferramenta, útil para ajustes cirúrgicos, Claude Projects para manter contexto, menos ideal para criar do zero.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📊</span>
+            <div>
+              <span class="font-medium">Tabela de decisão</span>
+              <span class="text-neutral-500 text-sm ml-2">— "Quero construir X, uso Y"</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Um guia de decisão rápida: app com usuários e banco → Lovable; protótipo rápido → Bolt.new; interface profissional → v0; automação/bot → Replit; ajuste cirúrgico → Chat.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Escolher a ferramenta errada desperdiça horas. Com a tabela certa, você decide em 2 minutos e começa a construir.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Critérios de decisão: precisa de usuários? de banco? de automação? de interface bonita? de código portável? Cada critério aponta para uma ferramenta.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🆓</span>
+            <div>
+              <span class="font-medium">Como testar antes de pagar</span>
+              <span class="text-neutral-500 text-sm ml-2">— free tiers e aproveitamento máximo</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Estratégia para aproveitar os testes gratuitos de cada ferramenta — Bolt.new (gratuito), v0 (créditos grátis), Lovable (trial), Replit (tier gratuito com limitações).</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Você pode construir e validar seu primeiro produto sem gastar nada. Só pague depois de provar que a ideia funciona.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Rotação entre free tiers, uso de múltiplos emails para trials, créditos de boas-vindas, priorizar a ferramenta que resolve 80% do problema gratuitamente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-2-2.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 2.3 (card compacto) -->
+    <div id="modulo-2-3" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">2.3</span>
+          <span class="text-xs text-neutral-500">~40 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🛠️ Construindo seu Primeiro App</h3>
+        <p class="text-neutral-400 text-sm mb-4">Do briefing ao primeiro resultado: como definir o que construir, escrever prompts eficazes e salvar versões sem perder progresso.</p>
+        <div class="flex justify-start">
+          <a href="modulo-2-3.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
+            Acessar Módulo
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÓDULO 2.4 (card compacto) -->
+    <div id="modulo-2-4" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">2.4</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🎯 Do Protótipo ao Produto</h3>
+        <p class="text-neutral-400 text-sm mb-4">Como coletar feedback, melhorar UX com instruções simples, adicionar banco de dados e login, e saber quando contratar um dev.</p>
+        <div class="flex justify-start">
+          <a href="modulo-2-4.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
+            Acessar Módulo
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÓDULO 2.5 (card compacto) -->
+    <div id="modulo-2-5" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">2.5</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔌 Integrações: Conectando Tudo</h3>
+        <p class="text-neutral-400 text-sm mb-4">APIs, pagamentos com Stripe, WhatsApp, Google Sheets, Zapier e como adicionar IA dentro do seu produto — sem saber uma linha de código.</p>
+        <div class="flex justify-start">
+          <a href="modulo-2-5.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
+            Acessar Módulo
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÓDULO 2.6 (card compacto) -->
+    <div id="modulo-2-6" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">2.6</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">💰 Publicando e Monetizando</h3>
+        <p class="text-neutral-400 text-sm mb-4">Deploy com um clique, domínio personalizado, modelos de monetização, Stripe para recorrência e o caminho do $0 ao primeiro $1.000 MRR.</p>
+        <div class="flex justify-start">
+          <a href="modulo-2-6.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
+            Acessar Módulo
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÓDULO 2.7 (card compacto) -->
+    <div id="modulo-2-7" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-purple-400 font-bold">2.7</span>
+          <span class="text-xs text-neutral-500">~25 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">⚠️ O Que Pode Dar Errado (e Como Evitar)</h3>
+        <p class="text-neutral-400 text-sm mb-4">Segurança, LGPD em 5 minutos, plano de contingência, backup e o checklist de 10 perguntas para validar antes de lançar.</p>
+        <div class="flex justify-start">
+          <a href="modulo-2-7.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
+            Acessar Módulo
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVEGAÇÃO FINAL -->
+    <div class="flex flex-col sm:flex-row gap-4 mt-8">
+      <a href="../fundamentos/index.html" class="flex-1 text-center px-6 py-4 bg-dark-800 border border-dark-600 text-neutral-300 rounded-xl font-semibold hover:bg-dark-700 transition-colors">
+        ← Trilha 1: Fundamentos
+      </a>
+      <a href="../executivos/index.html" class="flex-1 text-center px-6 py-4 bg-amber-600 text-white rounded-xl font-semibold hover:bg-amber-500 transition-colors">
+        Trilha 3: Executivos →
+      </a>
+    </div>
+  </main>
+
+  <!-- MODAIS -->
+  <div id="modal-2-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">2.1</span>
+          <span class="font-semibold">🌟 Programar Sem Saber Programar</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-2-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">2.2</span>
+          <span class="font-semibold">🔧 Escolhendo sua Ferramenta</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Trilha 2: Para Leigos · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) exp.classList.remove('active');
+      });
+
+      explanation.classList.toggle('active');
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.classList.add('hidden');
+      });
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

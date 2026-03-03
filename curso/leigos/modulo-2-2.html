@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2.2 — Escolhendo sua Ferramenta | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Para Leigos</a>
+      <span>/</span>
+      <span class="text-purple-400">Módulo 2.2</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔧 Escolhendo sua Ferramenta</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Lovable, Bolt.new, v0, Replit Agent ou chat de IA — como decidir qual usar para cada situação, e como testar todas sem gastar nada primeiro.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">25</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Zero</div>
+          <div class="text-xs text-neutral-400">Pré-requisito</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Prático</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">💜 Lovable — O app completo para não-técnicos</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Imagine contratar uma equipe de desenvolvimento que não dorme, não cobra por hora e entrega em minutos. É assim que fundadores não-técnicos descrevem o Lovable. A plataforma saiu de $1M para <strong class="text-purple-400">$100M de receita anual em apenas 8 meses</strong> — um dos crescimentos mais rápidos na história de software.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center">
+          <span class="mr-2">🏆</span> Por que Lovable se destaca
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-neutral-300 text-sm">
+          <div>
+            <p class="font-semibold text-white mb-2">O que inclui:</p>
+            <ul class="space-y-1">
+              <li>• Banco de dados Supabase integrado</li>
+              <li>• Autenticação de usuários pronta</li>
+              <li>• Deploy automático na nuvem</li>
+              <li>• Interface bonita por padrão</li>
+              <li>• Domínio personalizado suportado</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-white mb-2">Melhor para:</p>
+            <ul class="space-y-1">
+              <li>• Apps onde usuários fazem login</li>
+              <li>• SaaS com planos e pagamentos</li>
+              <li>• Marketplaces simples</li>
+              <li>• Plataformas de cursos</li>
+              <li>• Sistemas de agendamento</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Números reais da Lovable (2025)</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>$1M → $100M ARR</strong> em 8 meses — crescimento histórico</li>
+          <li><strong>Majoritariamente usuários não-técnicos</strong> — fundadores, PMs, empreendedores</li>
+          <li><strong>Supabase integrado</strong> — banco de dados profissional sem configuração</li>
+          <li><strong>Preço:</strong> A partir de $20/mês para uso profissional</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Quando escolher o Lovable</h3>
+        <p class="text-neutral-300">Use Lovable quando seu produto precisa que usuários criem contas, salvem dados e possam voltar depois. Se alguém vai usar seu app todo dia — e não apenas visitar uma vez — Lovable é a escolha certa.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">⚡ Bolt.new — O laboratório de ideias</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Bolt.new é como um caderno de rascunho digital. Você descreve o que quer, ele constrói na hora, você testa — sem criar conta, sem configurar nada, sem gastar nada nos primeiros usos. É a ferramenta ideal para a fase de "será que essa ideia funciona?".
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Pontos fortes</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Zero setup — funciona no navegador</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Resultado em segundos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Gratuito para experimentar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Exporta código para usar em outro lugar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Bom para front-end e lógica simples</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Limitações</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sem banco de dados nativo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sem autenticação de usuários</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Não ideal para apps complexos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Deploy limitado no plano gratuito</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Projetos não persistem sempre no free</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Use o Bolt.new como primeiro passo</h3>
+        <p class="text-neutral-300">Antes de pagar qualquer ferramenta, use o Bolt.new para validar se a ideia fica bonita e intuitiva na prática. Se o protótipo parecer promissor, aí você migra para o Lovable ou outra ferramenta com mais recursos.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">▲ v0 (Vercel) — A interface que os devs vão adorar</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        v0 é a ferramenta da Vercel — a empresa de hospedagem favorita de startups no mundo inteiro. Diferente de Lovable e Bolt, o v0 gera código que um desenvolvedor consegue pegar e expandir — código limpo, usando bibliotecas profissionais padrão do mercado.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🎯 Para quem é o v0</h3>
+        <div class="space-y-3 text-neutral-300 text-sm">
+          <p><strong class="text-white">Cenário 1:</strong> Você tem uma ideia, o v0 cria a interface, e você mostra para um desenvolvedor completar o backend. O dev vai adorar porque o código é limpo e usa bibliotecas que ele conhece.</p>
+          <p><strong class="text-white">Cenário 2:</strong> Você quer um site profissional que pode crescer. v0 gera Next.js — a tecnologia usada pela Netflix, Twitch e grandes players — então o produto pode escalar depois.</p>
+          <p><strong class="text-white">Cenário 3:</strong> Você quer testar visualmente como vai ficar antes de investir em desenvolvimento.</p>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Tecnologias que o v0 usa (sem precisar saber o que são)</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>React/Next.js</strong> — framework usado pela Netflix, Twitch, grandes sites</li>
+          <li><strong>Shadcn/UI</strong> — biblioteca de componentes bonitos e profissionais</li>
+          <li><strong>Tailwind CSS</strong> — sistema de design que garante visual consistente</li>
+          <li><strong>Vercel Deploy</strong> — hospedagem com CDN global, zero configuração</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Analogia simples</h3>
+        <p class="text-neutral-300">v0 é como contratar um arquiteto para fazer a planta da casa — você vê exatamente como vai ficar e consegue mostrar para um pedreiro construir. Lovable é como contratar a equipe completa que já entrega a casa pronta para morar.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🤖 Replit Agent — O especialista em bastidores</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Enquanto Lovable e Bolt.new são focados em criar interfaces e apps, o Replit Agent brilha nos bastidores: automações, bots, scripts que rodam sozinhos e integrações entre sistemas. Pense nele como um assistente que trabalha enquanto você dorme.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">1</div>
+          <div>
+            <div class="flex items-center space-x-2 mb-1"><span class="font-semibold">Bots de atendimento</span></div>
+            <p class="text-sm text-neutral-400">Bot que responde WhatsApp, Instagram ou email automaticamente, qualificando leads antes de chegar para você.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">2</div>
+          <div>
+            <div class="flex items-center space-x-2 mb-1"><span class="font-semibold">Relatórios automáticos</span></div>
+            <p class="text-sm text-neutral-400">Coleta dados de diferentes fontes (planilhas, sistemas) e envia um relatório formatado por email todo dia de manhã.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">3</div>
+          <div>
+            <div class="flex items-center space-x-2 mb-1"><span class="font-semibold">Integrações entre sistemas</span></div>
+            <p class="text-sm text-neutral-400">Quando um pedido entra no seu e-commerce, atualiza a planilha, notifica o WhatsApp do fornecedor e cria a etiqueta de entrega.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📊 30+ integrações nativas do Replit</h3>
+        <p class="text-neutral-300 text-sm mb-2">O Replit Agent conecta com as ferramentas mais usadas no mundo dos negócios:</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm text-neutral-400">
+          <span>WhatsApp API</span>
+          <span>Gmail / Google</span>
+          <span>Stripe</span>
+          <span>Slack</span>
+          <span>Airtable</span>
+          <span>Notion</span>
+          <span>Shopify</span>
+          <span>HubSpot</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">💬 ChatGPT/Claude com código — O coringa</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        As IAs de chat (ChatGPT e Claude) não são ferramentas de vibe coding no sentido completo — mas são coringas poderosos. Quando a ferramenta especializada trava em algo específico, você abre o chat, descreve o problema, pega o código gerado e cola de volta na ferramenta.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-3">Quando usar o chat de IA</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• A ferramenta não entendeu o pedido</li>
+            <li>• Você quer ajuste em um trecho específico</li>
+            <li>• Precisa de explicação sobre o que foi gerado</li>
+            <li>• Quer um segundo opinião sobre uma abordagem</li>
+            <li>• O resultado está quase certo mas falta algo</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-3">Claude vs. ChatGPT</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• <strong class="text-white">Claude:</strong> melhor para código mais longo e complexo</li>
+            <li>• <strong class="text-white">ChatGPT:</strong> melhor integrado com ferramentas (DALL-E, etc.)</li>
+            <li>• <strong class="text-white">Claude Projects:</strong> mantém contexto do seu projeto</li>
+            <li>• <strong class="text-white">Ambos:</strong> $20/mês para o plano Pro</li>
+            <li>• <strong class="text-white">Dica:</strong> use ambos nos free tiers para comparar</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 O fluxo coringa</h3>
+        <p class="text-neutral-300 mb-2">Quando a ferramenta trava:</p>
+        <ol class="space-y-1 text-neutral-300 text-sm list-decimal list-inside">
+          <li>Descreva o problema no chat (Claude ou ChatGPT)</li>
+          <li>Peça o código para resolver aquela parte específica</li>
+          <li>Cole o código de volta na ferramenta principal</li>
+          <li>Se der erro, cole o erro no chat e peça correção</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">📊 Tabela de decisão — "Quero construir X, uso Y"</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Chega de indecisão. Responda a pergunta principal do seu projeto e a tabela abaixo te diz qual ferramenta usar.
+      </p>
+
+      <div class="overflow-x-auto mb-6">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-dark-600">
+              <th class="text-left py-3 px-4 text-neutral-400 font-semibold">Quero construir...</th>
+              <th class="text-left py-3 px-4 text-purple-400 font-semibold">Use isso</th>
+              <th class="text-left py-3 px-4 text-neutral-400 font-semibold">Por quê</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300">App onde usuários criam conta e salvam dados</td>
+              <td class="py-3 px-4 text-purple-400 font-semibold">Lovable</td>
+              <td class="py-3 px-4 text-neutral-400">Banco + auth inclusos</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300">Protótipo rápido para validar uma ideia</td>
+              <td class="py-3 px-4 text-purple-400 font-semibold">Bolt.new</td>
+              <td class="py-3 px-4 text-neutral-400">Zero setup, zero custo</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300">Interface que um dev vai continuar depois</td>
+              <td class="py-3 px-4 text-purple-400 font-semibold">v0 (Vercel)</td>
+              <td class="py-3 px-4 text-neutral-400">Código portável e limpo</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300">Bot, automação ou integração entre sistemas</td>
+              <td class="py-3 px-4 text-purple-400 font-semibold">Replit Agent</td>
+              <td class="py-3 px-4 text-neutral-400">30+ integrações nativas</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300">Ajuste cirúrgico em algo que já existe</td>
+              <td class="py-3 px-4 text-purple-400 font-semibold">Claude/ChatGPT</td>
+              <td class="py-3 px-4 text-neutral-400">Mais controle pontual</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300">Landing page com formulário e design bonito</td>
+              <td class="py-3 px-4 text-purple-400 font-semibold">Lovable ou v0</td>
+              <td class="py-3 px-4 text-neutral-400">Interface polida</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300">SaaS com cobranças mensais</td>
+              <td class="py-3 px-4 text-purple-400 font-semibold">Lovable</td>
+              <td class="py-3 px-4 text-neutral-400">Integração Stripe fácil</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-3">🎯 Regra de ouro</h3>
+        <p class="text-neutral-300">Comece com o Bolt.new para validar a ideia visualmente — sem gastar nada. Se funcionar, migre para a ferramenta certa para o produto real. Você vai poupar horas de retrabalho.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">🆓 Como testar antes de pagar</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Todas as ferramentas principais têm formas de usar gratuitamente. A estratégia certa é usar os free tiers para aprender e validar, e só pagar quando você tiver certeza de que aquela ferramenta é a certa para o seu projeto.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-3">Bolt.new — Zero custo para começar</h4>
+          <p class="text-sm text-neutral-400 mb-2">Limite generoso de mensagens por dia. Use para aprender o fluxo básico e fazer protótipos sem compromisso. Quando o limite acabar no dia, use no dia seguinte.</p>
+          <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded">Estratégia: seus primeiros 5 projetos de treino</span>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-3">v0 (Vercel) — Créditos mensais gratuitos</h4>
+          <p class="text-sm text-neutral-400 mb-2">O Vercel dá créditos mensais para usar o v0. Suficiente para criar 3 a 5 interfaces completas por mês sem pagar nada. Quando acabar, espera renovar no mês seguinte.</p>
+          <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded">Estratégia: criar mockups e apresentações para investidores</span>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-3">Lovable — Trial para sentir a ferramenta</h4>
+          <p class="text-sm text-neutral-400 mb-2">O trial do Lovable dá acesso completo por tempo limitado. Use esse tempo para construir o MVP do seu produto — não um projeto de treino. Aproveite cada crédito.</p>
+          <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded">Estratégia: construa o MVP real durante o trial</span>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-3">Replit — Tier gratuito funcional</h4>
+          <p class="text-sm text-neutral-400 mb-2">O tier gratuito do Replit permite criar automações e projetos simples. Projetos ficam em "sleep" quando não estão sendo usados, mas acordam quando acessados.</p>
+          <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded">Estratégia: automações internas sem urgência de resposta</span>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 A regra: só pague com receita</h3>
+        <p class="text-neutral-300">Você só deve pagar pelas ferramentas quando o produto estiver gerando pelo menos alguma receita. Use free tiers para aprender e validar. Use receita de clientes para pagar assinaturas. Nunca tire do próprio bolso sem ter validado a ideia.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 2.2
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Lovable</strong><span class="text-neutral-400"> — melhor para apps completos com banco e login ($20-50/mês, $1M→$100M ARR em 8 meses)</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Bolt.new</strong><span class="text-neutral-400"> — melhor para prototipagem rápida e validação de ideia (gratuito para começar)</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">v0 (Vercel)</strong><span class="text-neutral-400"> — melhor para interface profissional que um dev vai expandir (créditos gratuitos mensais)</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Replit Agent</strong><span class="text-neutral-400"> — melhor para automações, bots e integrações (30+ integrações nativas)</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Chat de IA</strong><span class="text-neutral-400"> — coringa para ajustes pontuais quando a ferramenta principal trava</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Estratégia de free tiers</strong><span class="text-neutral-400"> — aprenda e valide de graça, pague com receita de clientes</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">2.3 — 🛠️ Construindo seu Primeiro App: do briefing ao resultado, como escrever prompts que funcionam para não-técnicos</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-2-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo Anterior
+          </a>
+          <a href="modulo-2-3.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">
+            Próximo Módulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 2.2 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

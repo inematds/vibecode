@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executivos | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">TRILHA 3</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📊 Para Executivos — Estratégia, ROI e Criação com IA</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Para líderes e gestores. Da estratégia de adoção ao ROI real, chegando à criação prática de dashboards, fluxos e assistentes.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">8</div>
+          <div class="text-xs text-neutral-400">Módulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">56</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">~4h</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">Estratégico</div>
+          <div class="text-xs text-neutral-400">+ Prático</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- NAVEGAÇÃO RÁPIDA -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-6 text-neutral-300">Navegação Rápida</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <a href="#modulo-3-1" class="bg-dark-800 border border-amber-500/30 rounded-lg p-4 hover:border-amber-500/60 transition-colors">
+          <div class="text-amber-400 font-bold text-sm mb-1">3.1</div>
+          <div class="text-xs text-neutral-300">📈 Impacto Real nos Negócios</div>
+        </a>
+        <a href="#modulo-3-2" class="bg-dark-800 border border-amber-500/30 rounded-lg p-4 hover:border-amber-500/60 transition-colors">
+          <div class="text-amber-400 font-bold text-sm mb-1">3.2</div>
+          <div class="text-xs text-neutral-300">💹 ROI, Métricas e Como Avaliar</div>
+        </a>
+        <a href="#modulo-3-3" class="bg-dark-800 border border-dark-600 rounded-lg p-4 hover:border-amber-500/30 transition-colors">
+          <div class="text-amber-400 font-bold text-sm mb-1">3.3</div>
+          <div class="text-xs text-neutral-300">🗺️ Estratégia de Adoção</div>
+        </a>
+        <a href="#modulo-3-4" class="bg-dark-800 border border-dark-600 rounded-lg p-4 hover:border-amber-500/30 transition-colors">
+          <div class="text-amber-400 font-bold text-sm mb-1">3.4</div>
+          <div class="text-xs text-neutral-300">🛡️ Riscos e Governança</div>
+        </a>
+        <a href="#modulo-3-5" class="bg-dark-800 border border-dark-600 rounded-lg p-4 hover:border-amber-500/30 transition-colors">
+          <div class="text-amber-400 font-bold text-sm mb-1">3.5</div>
+          <div class="text-xs text-neutral-300">🔭 O Futuro: Agentic Engineering</div>
+        </a>
+        <a href="#modulo-3-6" class="bg-dark-800 border border-dark-600 rounded-lg p-4 hover:border-amber-500/30 transition-colors">
+          <div class="text-amber-400 font-bold text-sm mb-1">3.6</div>
+          <div class="text-xs text-neutral-300">📊 Criando Dashboards</div>
+        </a>
+        <a href="#modulo-3-7" class="bg-dark-800 border border-dark-600 rounded-lg p-4 hover:border-amber-500/30 transition-colors">
+          <div class="text-amber-400 font-bold text-sm mb-1">3.7</div>
+          <div class="text-xs text-neutral-300">🔄 Fluxo e Automação</div>
+        </a>
+        <a href="#modulo-3-8" class="bg-dark-800 border border-dark-600 rounded-lg p-4 hover:border-amber-500/30 transition-colors">
+          <div class="text-amber-400 font-bold text-sm mb-1">3.8</div>
+          <div class="text-xs text-neutral-300">🤖 Assistente Personalizado</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="flex items-center space-x-4 mb-8">
+      <div class="flex-1 h-px bg-dark-600"></div>
+      <span class="text-neutral-500 text-sm font-medium">Conteúdo Detalhado</span>
+      <div class="flex-1 h-px bg-dark-600"></div>
+    </div>
+
+    <!-- MÓDULO 3.1 — Detalhado -->
+    <div id="modulo-3-1" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">3.1</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">📈 O Impacto Real nos Negócios</h3>
+        <p class="text-neutral-400 text-sm">Dados concretos sobre a transformação do mercado, casos enterprise documentados e o diagnóstico de maturidade da sua empresa.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📅</span>
+            <div>
+              <span class="font-medium">O momento de inflexão</span>
+              <span class="text-neutral-500 text-sm ml-2">— de brincadeira no Twitter a Collins Word of the Year</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Em fevereiro de 2025, Andrej Karpathy cunhou "vibe coding" em um post no X. Em menos de 10 meses, o Collins English Dictionary elegeu o termo como Palavra do Ano de 2025 — a primeira palavra de programação a receber essa honra em mais de 200 anos de história do dicionário.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Executivos que entenderam as implicações desse momento no início de 2025 tiveram 6-12 meses de vantagem competitiva. Quem ainda trata vibe coding como modismo de desenvolvedores está perdendo essa janela estratégica.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Karpathy (cofundador OpenAI, ex-Tesla) como fonte de credibilidade; velocidade da adoção cultural como indicador de maturidade tecnológica; diferença entre trend e inflexão estrutural de mercado.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">💰</span>
+            <div>
+              <span class="font-medium">Os números que importam</span>
+              <span class="text-neutral-500 text-sm ml-2">— Cursor $9,9B, Lovable $1M→$100M ARR em 8 meses</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Os valuations e trajetórias de crescimento das plataformas de vibe coding revelam o tamanho real da oportunidade. Cursor: $9,9B em junho/2025, $100M ARR em 12 meses. Lovable: de $1M para $100M ARR em apenas 8 meses. Replit: de $2,8M para $150M ARR.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Esses números sinalizam onde o capital está se concentrando e quais ferramentas têm tração real. Para um executivo, identificar qual plataforma adotar antes da consolidação do mercado pode resultar em vantagem de custo e curva de aprendizado.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">ARR (Receita Recorrente Anual) como métrica de tração; velocidade de crescimento como proxy de product-market fit; diferença entre valuation de startup e valor real para o usuário corporativo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🚀</span>
+            <div>
+              <span class="font-medium">21% das startups YC com 91%+ de código por IA</span>
+              <span class="text-neutral-500 text-sm ml-2">— o que isso significa para o mercado</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">No batch W25 do Y Combinator — incubadora das startups mais bem-sucedidas do mundo — 21% das empresas reportaram ter 91% ou mais do seu código gerado por IA. Isso representa uma mudança estrutural na relação capital-trabalho no desenvolvimento de software.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Seus competidores, especialmente startups mais jovens, podem estar operando com estruturas de custo de engenharia radicalmente diferentes. Uma startup com 3 vibe coders pode construir o que antes exigia um time de 15 engenheiros.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Y Combinator como leading indicator do mercado de tech; assimetria de custo entre startups nativas de IA e empresas tradicionais; implicações para estratégia de precificação e time-to-market.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🏦</span>
+            <div>
+              <span class="font-medium">Casos enterprise</span>
+              <span class="text-neutral-500 text-sm ml-2">— Goldman Sachs, Santander, Nubank, Accenture</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Goldman Sachs integrou Devin nos times de engenharia. Santander automatizou tarefas de código em escala. Nubank adotou agentes de IA no ciclo de desenvolvimento. Accenture e IBM reportam que usam vibe coding há anos em times mistos de consultoria.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Quando empresas reguladas como Goldman Sachs e Santander adotam uma tecnologia, o argumento de "ainda não está maduro para enterprise" perde validade. Esses casos documentados funcionam como benchmarks para seu conselho e stakeholders.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Devin como agente autônomo de engenharia; diferença entre piloto e adoção em escala; como empresas reguladas gerenciam compliance ao usar IA generativa no código.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">👥</span>
+            <div>
+              <span class="font-medium">Times menores, output maior</span>
+              <span class="text-neutral-500 text-sm ml-2">— "10 vibe coders fazendo o trabalho de 50-100 engenheiros" (YC CEO)</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Garry Tan, CEO do Y Combinator, afirmou publicamente que times de 10 vibe coders conseguem produzir o equivalente a 50-100 engenheiros tradicionais. Isso não é especulação — é baseado em dados observados das startups do portfólio YC.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Essa relação de 5x a 10x de produtividade muda completamente o cálculo de headcount, custo de desenvolvimento e capacidade competitiva. Para empresas com times de engenharia grandes, isso representa tanto oportunidade de eficiência quanto pressão competitiva externa.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Multiplicador de produtividade vs. substituição de headcount; como medir output de engenharia (velocidade, features entregues, bugs); implicações para planejamento de workforce.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔍</span>
+            <div>
+              <span class="font-medium">O que é hype vs. o que é real</span>
+              <span class="text-neutral-500 text-sm ml-2">— separando narrativa de evidência</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Hype: vibe coding substitui todos os desenvolvedores, qualquer pessoa pode construir qualquer coisa. Real: 55% mais rápido em tarefas simples, 19% mais lento em tarefas complexas (METR 2025). O ganho é real e significativo em contextos específicos, não universal.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Executivos que tomam decisões baseadas no hype máximo — seja adotando sem critério ou rejeitando por ceticismo — cometem o mesmo erro. A vantagem está em calibrar expectativas com dados reais e investir onde o ROI é comprovado.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Estudo METR 2025 como referência; diferença entre benchmarks de laboratório e performance em produção; framework para separar casos de uso com ROI real de casos experimentais.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">📋</span>
+            <div>
+              <span class="font-medium">Sua empresa está atrasada?</span>
+              <span class="text-neutral-500 text-sm ml-2">— diagnóstico de maturidade em IA para desenvolvimento</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Um framework de 4 estágios de maturidade: (1) Ignorância — nenhuma adoção; (2) Experimentação — uso individual não estruturado; (3) Processo — piloto com métricas; (4) Vantagem — integrado ao ciclo de desenvolvimento padrão.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Saber onde você está é o primeiro passo para definir onde investir. Empresas no estágio 1 e 2 precisam de abordagens completamente diferentes das que estão no estágio 3. Sem esse diagnóstico, qualquer plano de adoção está construído sobre premissas erradas.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Indicadores de maturidade por estágio; como fazer o diagnóstico em uma semana; perguntas que revelam a maturidade real da sua equipe de engenharia em relação à IA.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-3-1.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 3.2 — Detalhado -->
+    <div id="modulo-3-2" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">3.2</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">💹 ROI, Métricas e Como Avaliar</h3>
+        <p class="text-neutral-400 text-sm">Como medir o retorno real, onde o ganho é comprovado e onde é questionável, e como estruturar um piloto de 30 dias.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">⚡</span>
+            <div>
+              <span class="font-medium">O paradoxo da velocidade</span>
+              <span class="text-neutral-500 text-sm ml-2">— 55% mais rápido em média, 19% mais lento em tarefas complexas</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O estudo METR 2025, conduzido com desenvolvedores experientes em tarefas reais, encontrou um resultado contraintuitivo: em média, vibe coding acelera o trabalho em 55%. Mas em tarefas complexas com muitas dependências, os desenvolvedores com IA foram 19% mais lentos que sem IA.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Esse dado muda completamente como você avalia e implementa vibe coding. Não é uma solução universal — é uma ferramenta de alto impacto em contextos específicos. Aplicar onde o ROI é negativo desperdiça investimento e gera frustração.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Estudo METR como referência metodológica; distinção entre tarefas bem-definidas e tarefas abertas; por que complexidade sistêmica reduz a eficiência da IA generativa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">✅</span>
+            <div>
+              <span class="font-medium">Onde o ROI é real</span>
+              <span class="text-neutral-500 text-sm ml-2">— boilerplate 81% mais rápido, CRUD, APIs, landing pages</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Código boilerplate (estrutura inicial de projetos) é 81% mais rápido com IA. CRUD (criar, ler, atualizar, deletar dados), APIs REST simples, landing pages, dashboards internos, automações com lógica clara — todos têm ROI comprovado e documentado.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Identificar os casos de uso de alto ROI na sua empresa permite priorizar onde iniciar. Em vez de um piloto genérico, você pode atacar primeiro as tarefas onde o ganho é garantido e mensurável, criando vitórias rápidas que validam o investimento.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Tipos de tarefas com alto ROI em IA; boilerplate como primeiro candidato; como estimar o tempo economizado antes de iniciar o piloto; mapeamento de tarefas no seu backlog de desenvolvimento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">⚠️</span>
+            <div>
+              <span class="font-medium">Onde o ROI é questionável</span>
+              <span class="text-neutral-500 text-sm ml-2">— sistemas legacy, código crítico, compliance regulatório</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Sistemas legados com décadas de acumulação de débito técnico, código de missão crítica (pagamentos, saúde, infraestrutura), e contextos de compliance regulatório rígido são casos onde o custo de revisão e correção frequentemente cancela o ganho de velocidade.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">O maior risco não é não adotar — é adotar no contexto errado. Usar vibe coding em sistemas legados sem governança pode introduzir vulnerabilidades ocultas que custam muito mais para corrigir do que o tempo economizado na geração.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Critérios para classificar sistemas como adequados ou inadequados para vibe coding; custo oculto de revisão em código crítico; estratégias para sistemas legados (wrapping vs. reescrita incremental).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📊</span>
+            <div>
+              <span class="font-medium">Métricas que realmente importam</span>
+              <span class="text-neutral-500 text-sm ml-2">— velocidade, qualidade, segurança e dívida técnica</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">As quatro dimensões de avaliação: Velocidade (cycle time, time-to-deploy), Qualidade (bugs em produção, cobertura de testes), Segurança (vulnerabilidades introduzidas, resultado de SAST), e Dívida Técnica (legibilidade, manutenibilidade do código gerado).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Medir apenas velocidade é o erro mais comum. Empresas que implementam vibe coding sem medir qualidade e segurança frequentemente acumulam dívida técnica que cancela o ganho de curto prazo. O dashboard de métricas certo é a diferença entre um piloto bem-sucedido e um rollback embaraçoso.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">DORA metrics aplicadas ao contexto de IA; o que é SAST (Static Application Security Testing); como medir dívida técnica com ferramentas automatizadas; baseline antes do piloto.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">💵</span>
+            <div>
+              <span class="font-medium">Custo total da adoção</span>
+              <span class="text-neutral-500 text-sm ml-2">— ferramentas + treinamento + retrabalho + revisão de segurança</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O custo visível: licenças de ferramentas ($20-$400/dev/mês). Os custos ocultos: horas de treinamento (2-4 semanas), retrabalho em código mal gerado, revisões de segurança adicionais (SAST obrigatório), e o tempo de um engenheiro sênior como revisor permanente.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Projetos de adoção de IA frequentemente excedem o orçamento porque só contabilizam as licenças. O modelo completo de custo total de propriedade é o que permite uma decisão de investimento responsável e apresentável ao CFO.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">TCO (Total Cost of Ownership) de ferramentas de IA; como calcular o break-even point da adoção; modelo de planilha para apresentar ao board; período típico de payback (3-6 meses em contextos de alto ROI).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🧪</span>
+            <div>
+              <span class="font-medium">Framework de avaliação</span>
+              <span class="text-neutral-500 text-sm ml-2">— como fazer um piloto de 30 dias e medir resultados</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Um protocolo estruturado de 30 dias: Semana 1 (baseline e setup), Semana 2-3 (execução com tarefas selecionadas), Semana 4 (medição e decisão). Com métricas pré-definidas, grupo de controle quando possível, e critérios claros de sucesso antes de começar.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Pilotos sem estrutura geram anedotas, não dados. "Parece que ficou mais rápido" não justifica um investimento de $50K/ano em licenças e treinamento. O framework de 30 dias transforma percepção em evidência apresentável ao C-suite.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Como selecionar o grupo piloto (2-5 devs idealmente); que tarefas incluir no escopo; como documentar o baseline; template de relatório de resultado para o piloto de 30 dias.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🏁</span>
+            <div>
+              <span class="font-medium">O custo de NÃO adotar</span>
+              <span class="text-neutral-500 text-sm ml-2">— o risco competitivo de ficar para trás</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Enquanto você avalia, seus competidores estão acelerando. Uma empresa que implementou vibe coding em Q1 2025 já tem 12 meses de vantagem de velocidade de entrega, redução de custo de engenharia e capacidade de experimentar mais. Esse diferencial compõe mês a mês.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A análise de ROI não é completa sem incluir o custo de oportunidade da inação. Em mercados dinâmicos, a velocidade de entrega de features é vantagem competitiva. Empresas que entregam 2x mais rápido têm mais capacidade de testar e validar hipóteses de produto.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Custo de oportunidade vs. custo direto; como o gap competitivo se amplia com o tempo; setores onde a velocidade de entrega tem impacto mais direto em market share; como apresentar o argumento da inação ao board.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-3-2.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
+      </div>
+    </div>
+
+    <!-- MÓDULOS 3.3 a 3.8 — Compactos -->
+    <div id="modulo-3-3" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">3.3</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🗺️ Estratégia de Adoção na sua Empresa</h3>
+        <p class="text-neutral-400 text-sm">Os 3 modelos de adoção, quem treinar primeiro, quais ferramentas selecionar e um roadmap de 90 dias do piloto ao processo padrão.</p>
+      </div>
+      <div class="p-4 px-6 text-sm text-neutral-400">
+        7 tópicos: Modelos de adoção · MVP interno · Quem treinar primeiro · Selecionando ferramentas · Governança de uso · Change management · Roadmap de 90 dias
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <a href="modulo-3-3.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
+      </div>
+    </div>
+
+    <div id="modulo-3-4" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">3.4</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🛡️ Riscos, Governança e Segurança</h3>
+        <p class="text-neutral-400 text-sm">16 de 18 CTOs reportaram desastres em produção. Incidentes reais, propriedade intelectual, LGPD e quando NÃO usar vibe coding.</p>
+      </div>
+      <div class="p-4 px-6 text-sm text-neutral-400">
+        7 tópicos: Dados de risco · Incidentes reais · Propriedade intelectual · LGPD e código de IA · Política de uso seguro · Arquitetura de governança · Quando NÃO usar
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <a href="modulo-3-4.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
+      </div>
+    </div>
+
+    <div id="modulo-3-5" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">3.5</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔭 O Futuro: Do Vibe Coding ao Agentic Engineering</h3>
+        <p class="text-neutral-400 text-sm">Karpathy em fevereiro de 2026, agentes em paralelo, impacto no mercado de trabalho e como se posicionar estrategicamente.</p>
+      </div>
+      <div class="p-4 px-6 text-sm text-neutral-400">
+        7 tópicos: Karpathy fev/2026 · O que é agentic engineering · 40% via agentes até 2026 · Novo perfil de engenheiro · Impacto no mercado de trabalho · Posicionamento estratégico · O investimento que vale
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <a href="modulo-3-5.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
+      </div>
+    </div>
+
+    <div id="modulo-3-6" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">3.6</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">📊 Criando Dashboards a partir de Dados e Planilhas</h3>
+        <p class="text-neutral-400 text-sm">Do Excel a um dashboard interativo em minutos, sem programar. Passo a passo para executivos criarem suas próprias visualizações.</p>
+      </div>
+      <div class="p-4 px-6 text-sm text-neutral-400">
+        7 tópicos: O que é possível · Preparando seus dados · Descrevendo o dashboard · Gráficos e KPIs · Conectando dados reais · Filtros e interatividade · Publicando e compartilhando
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <a href="modulo-3-6.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
+      </div>
+    </div>
+
+    <div id="modulo-3-7" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">3.7</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔄 Criando Soluções de Fluxo e Automação</h3>
+        <p class="text-neutral-400 text-sm">Da aprovação de despesas ao onboarding de clientes. Casos reais de automação de notificações, aprovações e integrações com CRM/ERP.</p>
+      </div>
+      <div class="p-4 px-6 text-sm text-neutral-400">
+        7 tópicos: O que é um fluxo · Mapeando o processo · Automação de notificações · Fluxo de aprovação · Integrações com sistemas · Monitoramento · Caso real: onboarding automatizado
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <a href="modulo-3-7.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
+      </div>
+    </div>
+
+    <div id="modulo-3-8" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-bold">3.8</span>
+          <span class="text-xs text-neutral-500">~40 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🤖 Criando um Assistente Personalizado</h3>
+        <p class="text-neutral-400 text-sm">Diferença entre ChatGPT genérico e um assistente treinado no seu contexto. RH, vendas, suporte, onboarding — do conceito ao deploy.</p>
+      </div>
+      <div class="p-4 px-6 text-sm text-neutral-400">
+        7 tópicos: O que é um assistente personalizado · Definindo o escopo · Alimentando com conhecimento · Criando a interface · Integrando com WhatsApp ou Slack · Testando e ajustando · Governança do assistente
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <a href="modulo-3-8.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
+      </div>
+    </div>
+
+    <!-- NAVEGAÇÃO FINAL -->
+    <div class="flex flex-col sm:flex-row gap-4 mt-8">
+      <a href="../leigos/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+        ← Trilha 2: Leigos
+      </a>
+      <a href="../tecnicos/index.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">
+        Trilha 4: Técnicos →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- MODAIS -->
+  <div id="modal-3-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-amber-400 font-bold">3.1</span>
+          <span class="font-semibold">O Impacto Real nos Negócios</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-3-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-amber-400 font-bold">3.2</span>
+          <span class="font-semibold">ROI, Métricas e Como Avaliar</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Trilha 3: Executivos · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) exp.classList.remove('active');
+      });
+      explanation.classList.toggle('active');
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(modal => modal.classList.add('hidden'));
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 4.4 — Segurança em Código Gerado por IA | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    pre { overflow-x: auto; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Vibe Coding</span></a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span></a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Técnicos</a><span>/</span>
+      <span class="text-blue-400">Módulo 4.4</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.4</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔒 Segurança em Código Gerado por IA</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Os dados são alarmantes: 45% do código gerado por IA tem falhas de segurança. Este módulo ensina a identificar, prevenir e auditar vulnerabilidades antes que cheguem à produção.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">7</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Crítico</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">📊 Os dados: 45% do código de IA tem falhas de segurança</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Antes de qualquer técnica, é essencial entender a <strong class="text-blue-400">escala do problema com dados concretos</strong>. O código gerado por IA não é inerentemente inseguro — mas ele reproduz os padrões de segurança (e insegurança) que existem nos dados de treinamento.
+      </p>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Dados de Pesquisa (2024-2025)</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li><strong class="text-white">45%</strong> do código gerado por IA contém pelo menos uma falha de segurança — Veracode State of Software Security 2025</li>
+          <li><strong class="text-white">2,74x</strong> mais vulnerabilidades em código gerado por IA vs. código escrito por humanos — CodeRabbit Analysis 2025</li>
+          <li><strong class="text-white">40%</strong> dos desenvolvedores admitem não revisar código de IA antes de fazer commit — Stack Overflow Survey 2025</li>
+          <li><strong class="text-white">78%</strong> das vulnerabilidades em código de IA são categorizadas como OWASP Top 10 — CVE Database 2025</li>
+          <li><strong class="text-white">16/18</strong> CTOs reportaram problemas de segurança sérios com vibe coding não supervisionado — Pesquisa CTO Council 2025</li>
+        </ul>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Por que a IA comete erros de segurança</h3>
+        <p class="text-neutral-300 text-sm mb-3">A IA não tem intenção maliciosa — ela aprende padrões dos dados de treinamento. Exemplo: muito código de tutorial online não valida input corretamente. A IA aprende e reproduz esse padrão. O modelo não sabe a diferença entre código de produção e código educacional.</p>
+        <p class="text-neutral-300 text-sm">Além disso, a IA otimiza para "funcionar" — não para "funcionar com segurança". Segurança requer instrução explícita em cada contexto.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🔟 OWASP Top 10 para código de IA</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O OWASP Top 10 lista as vulnerabilidades mais críticas de aplicações web. A IA cria todas elas, mas as mais frequentes têm padrões identificáveis que você pode detectar e prevenir com instruções específicas nos arquivos de regras.
+      </p>
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-red-500/20 p-5">
+          <h4 class="font-semibold text-red-400 mb-2">A01: SQL Injection</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <p class="text-xs text-red-400 mb-1">Código vulnerável (IA gera assim sem instrução):</p>
+              <pre class="bg-dark-900 rounded p-2 text-xs text-neutral-300 font-mono"><code>// PERIGOSO - SQL Injection
+const query = `SELECT * FROM users
+WHERE email = '${email}'`;</code></pre>
+            </div>
+            <div>
+              <p class="text-xs text-emerald-400 mb-1">Instrução no CLAUDE.md para prevenir:</p>
+              <pre class="bg-dark-900 rounded p-2 text-xs text-neutral-300 font-mono"><code>// SEGURO - Parameterizado
+const user = await prisma.user.findUnique({
+  where: { email } // Prisma sanitiza
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-red-500/20 p-5">
+          <h4 class="font-semibold text-red-400 mb-2">A03: XSS — Cross-Site Scripting</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <p class="text-xs text-red-400 mb-1">Vulnerável:</p>
+              <pre class="bg-dark-900 rounded p-2 text-xs text-neutral-300 font-mono"><code>// PERIGOSO
+element.innerHTML = userInput;</code></pre>
+            </div>
+            <div>
+              <p class="text-xs text-emerald-400 mb-1">Seguro:</p>
+              <pre class="bg-dark-900 rounded p-2 text-xs text-neutral-300 font-mono"><code>// SEGURO
+element.textContent = userInput;
+// ou sanitize com DOMPurify</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-red-500/20 p-5">
+          <h4 class="font-semibold text-red-400 mb-2">A01 (API): Broken Object Level Authorization (BOLA)</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <p class="text-xs text-red-400 mb-1">Vulnerável (MUITO comum em código de IA):</p>
+              <pre class="bg-dark-900 rounded p-2 text-xs text-neutral-300 font-mono"><code>// PERIGOSO - qualquer user acessa
+app.get('/orders/:id', async (req) => {
+  return db.orders.findById(req.params.id);
+});</code></pre>
+            </div>
+            <div>
+              <p class="text-xs text-emerald-400 mb-1">Seguro:</p>
+              <pre class="bg-dark-900 rounded p-2 text-xs text-neutral-300 font-mono"><code>// SEGURO - verifica ownership
+app.get('/orders/:id', auth, async (req) => {
+  return db.orders.findFirst({
+    where: { id: req.params.id,
+             userId: req.user.id } // CRÍTICO
+  });
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📋 Instrução no CLAUDE.md para Segurança</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>## Regras de Segurança (OBRIGATÓRIAS)
+- SEMPRE verificar req.user.id ao acessar dados do usuário
+- NUNCA confiar em parâmetros de URL sem validar ownership
+- SEMPRE usar ORM parametrizado (Prisma) - nunca SQL raw com input do usuário
+- NUNCA retornar stack traces em produção
+- SEMPRE validar e sanitizar input com Zod antes de processar
+- NUNCA usar innerHTML com dados de usuário</code></pre>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🛡️ Row Level Security — o erro mais comum em apps Lovable</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Row Level Security (RLS) é uma funcionalidade do PostgreSQL/Supabase que garante que usuários só acessam seus próprios dados <strong class="text-blue-400">no nível do banco de dados</strong>, independente do que a aplicação faça. É a última linha de defesa e a mais frequentemente esquecida em vibe coding.
+      </p>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">🚨 O Caso dos 18.000 Usuários (Lovable, 2025)</h3>
+        <p class="text-neutral-300 text-sm mb-3">Um app construído com Lovable (plataforma de vibe coding) foi exposto por um pesquisador de segurança: sem RLS configurado, qualquer usuário autenticado conseguia acessar dados de qualquer outro usuário fazendo requests diretos à API do Supabase — que o Lovable expõe automaticamente.</p>
+        <p class="text-neutral-300 text-sm">18.000 usuários tiveram dados potencialmente expostos. O problema: Lovable não ativava RLS por padrão, e a IA não adicionava políticas de RLS sem instrução explícita.</p>
+      </div>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🛡️ RLS Obrigatório em Cada Tabela</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>-- Habilitar RLS em TODA tabela nova
+ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
+
+-- Policy: usuário só vê seus próprios dados
+CREATE POLICY "users_own_orders"
+ON orders
+FOR ALL
+USING (auth.uid() = user_id);
+
+-- Policy: admins veem tudo
+CREATE POLICY "admins_all_orders"
+ON orders
+FOR ALL
+USING (
+  EXISTS (
+    SELECT 1 FROM profiles
+    WHERE id = auth.uid() AND role = 'admin'
+  )
+);</code></pre>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 RLS no CLAUDE.md</h3>
+        <p class="text-neutral-300 text-sm">Adicione no seu CLAUDE.md: "SEMPRE criar políticas RLS ao criar novas tabelas no Supabase. Nunca criar tabela sem RLS habilitado. Padrão mínimo: usuário só acessa linhas onde user_id = auth.uid()." Uma instrução que previne o incidente dos 18K usuários.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🔑 Gestão de secrets — never hardcode, never commit</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Secrets hardcodados é um dos erros mais comuns e mais devastadores em código de IA. O modelo aprende de exemplos online onde credenciais frequentemente aparecem hardcodadas para simplificação. <strong class="text-blue-400">Você precisa instruir explicitamente contra isso</strong>.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-3">✗ O que a IA pode gerar sem instrução</h4>
+          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3"><code>// NUNCA fazer isso
+const stripe = new Stripe(
+  'sk_live_abc123xyz...'
+);
+
+const db = postgres({
+  password: 'minhasenha123'
+});</code></pre>
+        </div>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-3">✓ Correto</h4>
+          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3"><code>// SEMPRE assim
+const stripe = new Stripe(
+  process.env.STRIPE_SECRET_KEY!
+);
+
+const db = postgres({
+  password: process.env.DB_PASSWORD
+});</code></pre>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔐 Checklist de Gestão de Secrets</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>.env</strong> no .gitignore — sempre, sem exceção</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>.env.example</strong> com chaves vazias — no repositório para documentar variáveis necessárias</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>git-secrets</strong> ou <strong>trufflehog</strong> — scan automático de commits para detectar secrets acidentais</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>GitHub Secret Scanning</strong> — Alertas automáticos se um secret detectado é pushado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>Rotate imediatamente</strong> — se um secret foi commitado, rotacione antes de corrigir o commit</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🔍 SAST: análise estática automatizada</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        SAST (Static Application Security Testing) analisa o código sem executá-lo, detectando vulnerabilidades antes do deploy. Em um fluxo de vibe coding, SAST deve rodar <strong class="text-blue-400">automaticamente em cada commit ou PR</strong> — não manualmente depois.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-blue-400 mb-4">Ferramentas SAST Gratuitas</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li><strong>CodeQL</strong> — GitHub, gratuito para open source, detecta vulnerabilidades complexas</li>
+            <li><strong>Semgrep</strong> — regras customizáveis, roda no CI ou localmente</li>
+            <li><strong>Bandit</strong> — específico para Python, rápido e preciso</li>
+            <li><strong>ESLint Security Plugin</strong> — detecta padrões inseguros em JavaScript/TypeScript</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-blue-400 mb-4">Ferramentas SAST Pagas</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li><strong>Snyk</strong> — integra com IDE, CI/CD e SCM. Foco em dependências</li>
+            <li><strong>Veracode</strong> — análise profunda, compliance. Enterprise.</li>
+            <li><strong>SonarQube</strong> — qualidade de código + segurança. Muito adotado em times</li>
+            <li><strong>Checkmarx</strong> — foco em conformidade e compliance regulatório</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">⚙️ Semgrep no GitHub Actions</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>- name: Run Semgrep
+  uses: semgrep/semgrep-action@v1
+  with:
+    config: >-
+      p/security-audit
+      p/secrets
+      p/owasp-top-ten
+  env:
+    SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}</code></pre>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">👁️ Code review focado em segurança</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Mesmo com SAST automatizado, code review humano focado em segurança é insubstituível. O humano detecta falhas de lógica de negócio que ferramentas automatizadas não conseguem — como <strong class="text-blue-400">autorização incorreta que tecnicamente compila mas semanticamente está errada</strong>.
+      </p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📋 Checklist de Code Review para Código de IA</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <p class="text-blue-400 font-medium mb-2">Autenticação e Autorização</p>
+            <ul class="space-y-1 text-neutral-300">
+              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Todas as rotas privadas têm middleware de auth?</span></li>
+              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Verificação de ownership em todos os recursos?</span></li>
+              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Tokens expiram corretamente?</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-blue-400 font-medium mb-2">Input e Output</p>
+            <ul class="space-y-1 text-neutral-300">
+              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Todo input de usuário é validado com schema?</span></li>
+              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Queries usam ORM ou parâmetros?</span></li>
+              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Erros não expõem stack trace ou dados internos?</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-blue-400 font-medium mb-2">Secrets e Dados</p>
+            <ul class="space-y-1 text-neutral-300">
+              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Nenhum secret hardcodado?</span></li>
+              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Dados sensíveis não estão sendo logados?</span></li>
+              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>RLS configurado em tabelas Supabase?</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-blue-400 font-medium mb-2">Dependências</p>
+            <ul class="space-y-1 text-neutral-300">
+              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Novas dependências auditadas com npm audit?</span></li>
+              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Versões pinadas no package.json?</span></li>
+              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Dependências conhecidas e confiáveis?</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">💀 Casos reais de incidentes — o que aconteceu e por quê</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Estudar casos reais é a forma mais eficaz de internalizar a importância de segurança. Estes não são cenários hipotéticos — são <strong class="text-blue-400">incidentes documentados que afetaram usuários reais</strong> de plataformas de vibe coding.
+      </p>
+      <div class="space-y-4 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h4 class="font-semibold text-red-400">Lovable — 18.000 usuários expostos</h4>
+            <span class="text-xs text-neutral-500">2025</span>
+          </div>
+          <p class="text-sm text-neutral-300 mb-2"><strong>Problema:</strong> RLS não configurado por padrão. API do Supabase exposta publicamente permitia qualquer usuário autenticado acessar dados de qualquer outro.</p>
+          <p class="text-sm text-neutral-400"><strong>Lição:</strong> RLS não é opcional em apps Supabase. Habilite em cada tabela. Verifique que a API key do Supabase no frontend é a anon key, nunca a service key.</p>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h4 class="font-semibold text-red-400">CurXecute — CVE-2025-54135</h4>
+            <span class="text-xs text-neutral-500">2025</span>
+          </div>
+          <p class="text-sm text-neutral-300 mb-2"><strong>Problema:</strong> Plugin de IDE para vibe coding executava código arbitrário via prompt injection. Um prompt malicioso poderia executar comandos no sistema do desenvolvedor.</p>
+          <p class="text-sm text-neutral-400"><strong>Lição:</strong> Cuidado com plugins de IDE de origem desconhecida. Agentes com acesso ao filesystem e executor de código são vetores de ataque. Revise permissões de cada plugin.</p>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h4 class="font-semibold text-red-400">Replit — banco de dados deletado em produção</h4>
+            <span class="text-xs text-neutral-500">2025</span>
+          </div>
+          <p class="text-sm text-neutral-300 mb-2"><strong>Problema:</strong> Agente de IA interpretou "limpe os dados de teste" como instrução para executar DELETE sem WHERE em banco de produção. Sem backup recente.</p>
+          <p class="text-sm text-neutral-400"><strong>Lição:</strong> Agentes não devem ter acesso irrestrito a ambientes de produção. Use ambientes separados, backups automáticos e confirmação humana antes de operações destrutivas.</p>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h4 class="font-semibold text-red-400">Base44 — vazamento de dados de clientes</h4>
+            <span class="text-xs text-neutral-500">2025</span>
+          </div>
+          <p class="text-sm text-neutral-300 mb-2"><strong>Problema:</strong> Código gerado por IA para exportação de relatórios não validava que o usuário tinha acesso aos dados solicitados. Qualquer usuário podia exportar dados de qualquer empresa.</p>
+          <p class="text-sm text-neutral-400"><strong>Lição:</strong> BOLA (Broken Object Level Authorization) é a vulnerabilidade #1 em código de IA. Sempre verifique ownership. "Funciona" não é o mesmo que "funciona com segurança".</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">✅ Resumo do Módulo 4.4</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">45% do código de IA tem falhas</strong><span class="text-neutral-400"> — não é alarmismo, são dados do Veracode. Revisão é obrigatória.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">OWASP Top 10 e código de IA</strong><span class="text-neutral-400"> — SQL injection, XSS e BOLA são os mais frequentes. Instrua o agente explicitamente.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">RLS é obrigatório no Supabase</strong><span class="text-neutral-400"> — o incidente dos 18K usuários aconteceu por omissão desta configuração de 3 linhas.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Never hardcode, never commit</strong><span class="text-neutral-400"> — sempre process.env. git-secrets e GitHub Secret Scanning como backup.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">SAST no pipeline</strong><span class="text-neutral-400"> — Semgrep ou CodeQL em cada PR. Segurança automatizada não é opcional.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Cases reais ensinaram</strong><span class="text-neutral-400"> — Lovable, Base44, CurXecute, Replit. Todos preveníveis com as técnicas deste módulo.</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">4.5 — 🧪 Testes Automatizados com IA: o guardrail que permite vibe coding seguro em produção</p>
+        </div>
+        <div class="flex justify-start gap-4">
+          <a href="modulo-4-3.html" class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 4.3</a>
+          <a href="modulo-4-5.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo Módulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 4.4 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.2 — Mentalidade do Vibe Coder | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Fundamentos</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.2</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧠 Mentalidade do Vibe Coder</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A virada de chave mental que separa quem usa IA de quem realmente trabalha com IA. Aprenda a pensar em resultados, iterar com método e manter senso crítico.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Básico</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Mindset</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🎯 Pensar em resultados, não em código</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A maior barreira para quem começa com vibe coding não é técnica — é mental. Quem vem da programação tradicional está treinado para pensar <em>como</em> o computador executa as coisas. O vibe coder eficaz pensa <strong class="text-emerald-400">o que o sistema precisa fazer</strong>. Essa é a virada de chave fundamental.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center">
+          <span class="mr-2">🔄</span> A mudança de perspectiva
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="text-sm font-semibold text-neutral-500 mb-3 uppercase tracking-wide">Mentalidade antiga</p>
+            <ul class="space-y-2 text-neutral-300 text-sm">
+              <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">→</span><span>"Preciso de um loop for com filter e map"</span></li>
+              <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">→</span><span>"Vou usar um estado Redux aqui"</span></li>
+              <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">→</span><span>"Qual a melhor estrutura de dados?"</span></li>
+              <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">→</span><span>"Preciso refatorar esse código"</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-emerald-400 mb-3 uppercase tracking-wide">Mentalidade vibe coder</p>
+            <ul class="space-y-2 text-neutral-300 text-sm">
+              <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">→</span><span>"O usuário precisa ver só os itens ativos"</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">→</span><span>"O carrinho deve persistir entre sessões"</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">→</span><span>"A busca deve retornar em menos de 200ms"</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">→</span><span>"Quero que isso seja mais fácil de manter"</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica Prática
+        </h3>
+        <p class="text-neutral-300">Antes de escrever qualquer prompt, complete esta frase: <strong class="text-primary">"O usuário deve conseguir..."</strong>. Se você consegue completar com clareza, tem um bom ponto de partida. Se travar, o problema ainda não está bem definido — e a IA também vai travar.</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Por que essa mudança importa
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Prompts orientados a resultado</strong> geram código 40% mais adequado na primeira tentativa (estimativa baseada em uso real)</li>
+          <li><strong>Prompts orientados a implementação</strong> confundem o modelo — ele assume que você já sabe o que quer tecnicamente</li>
+          <li>LLMs são treinados em especificações de software — <strong>falar como um product manager</strong> é mais eficaz do que falar como um programador</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🔁 Iteração como método</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Vibe coding não é mágica de "um prompt e está pronto". É um processo iterativo deliberado. Os vibe coders mais produtivos não tentam resolver tudo de uma vez — eles constroem em camadas, validando cada passo antes de avançar. <strong class="text-emerald-400">Iteração curta e frequente</strong> é a diferença entre produtividade e frustração.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Defina o resultado mínimo</h4>
+            <p class="text-sm text-neutral-400 mb-2">O menor output testável</p>
+            <p class="text-neutral-300 text-sm">Não peça o sistema completo. Peça a menor versão que você consiga testar e verificar. "Crie um formulário que aceite email e salve no banco" — não "crie o sistema de usuários completo".</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Teste imediatamente</h4>
+            <p class="text-sm text-neutral-400 mb-2">Validação antes de continuar</p>
+            <p class="text-neutral-300 text-sm">Abra o browser, clique nos botões, verifique o comportamento. Não continue adicionando features se o que está lá ainda não funciona. Dívida técnica em vibe coding acumula rápido.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Ajuste com contexto</h4>
+            <p class="text-sm text-neutral-400 mb-2">Feedback específico, não genérico</p>
+            <p class="text-neutral-300 text-sm">Quando algo não funciona, descreva o comportamento esperado vs. o observado. "O botão deveria salvar e redirecionar, mas só está salvando" é infinitamente mais útil do que "não funcionou".</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">4</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Avance e repita</h4>
+            <p class="text-sm text-neutral-400 mb-2">Ciclos curtos, progresso constante</p>
+            <p class="text-neutral-300 text-sm">Com o passo anterior validado, avance para o próximo. Cada iteração bem-sucedida constrói confiança e fornece contexto acumulado para a IA trabalhar com mais qualidade.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center">
+          <span class="mr-2">⚠️</span> O erro mais comum de iniciantes
+        </h3>
+        <p class="text-neutral-300">Tentar descrever o sistema inteiro em um único prompt gigante. Isso gera código que parece completo mas tem dezenas de dependências quebradas, casos de borda não tratados e lógica inconsistente. A IA "aluciná" sob pressão de escopo alto.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🏗️ Você é o arquiteto — a IA é o estagiário brilhante</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A metáfora mais útil para trabalhar com IA no código: imagine um estagiário extremamente inteligente, com acesso a todo o conhecimento técnico do mundo, mas que precisa de <strong class="text-emerald-400">supervisão constante e direcionamento claro</strong>. Sem você definindo o que quer e revisando o que foi feito, o resultado pode ser tecnicamente impressionante mas completamente errado para o seu contexto.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ O que a IA faz bem</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Escrever código boilerplate rapidamente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Implementar padrões conhecidos e bem documentados</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Refatorar e melhorar código existente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Explicar por que escolheu uma abordagem</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Gerar testes automatizados para código existente</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ O que a IA faz mal</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Entender restrições do seu negócio sem que você diga</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Lembrar decisões de sessões anteriores</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Avaliar se a solução é adequada ao seu contexto</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Identificar o que o usuário final realmente precisa</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Assumir responsabilidade pelos resultados</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🎯 As responsabilidades do arquiteto</h3>
+        <p class="text-neutral-300 mb-4">Como arquiteto do projeto, você é responsável por três coisas que a IA não pode assumir por você:</p>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-3">
+            <span class="text-emerald-400 font-bold mt-0.5">1.</span>
+            <span><strong class="text-white">Visão:</strong> Saber o que você está construindo e por quê. Quem é o usuário? Qual problema resolve? Qual é o critério de sucesso?</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-emerald-400 font-bold mt-0.5">2.</span>
+            <span><strong class="text-white">Validação:</strong> Testar se o que foi gerado realmente funciona e faz sentido. A IA não testa — ela gera.</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-emerald-400 font-bold mt-0.5">3.</span>
+            <span><strong class="text-white">Decisão:</strong> Escolher entre múltiplas abordagens possíveis com base no seu contexto específico.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🚀 Abraçar a imprecisão inicial</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Um dos bloqueios mais comuns é a busca pela perfeição antes de começar. O vibe coder eficaz entende que <strong class="text-emerald-400">a primeira versão sempre vai estar errada</strong> — e tudo bem. O objetivo da primeira versão é descobrir o que você realmente quer, não entregar o produto final.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🏗️ O ciclo prototipar-refinar</h3>
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <div class="text-2xl mb-2">🎨</div>
+            <div class="font-semibold text-white text-sm mb-1">Prototipar rápido</div>
+            <div class="text-xs text-neutral-400">Versão funcional em horas, não dias</div>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <div class="text-2xl mb-2">🧪</div>
+            <div class="font-semibold text-white text-sm mb-1">Testar com usuário real</div>
+            <div class="text-xs text-neutral-400">Feedback real antes de investir mais</div>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <div class="text-2xl mb-2">🔧</div>
+            <div class="font-semibold text-white text-sm mb-1">Refinar com dados</div>
+            <div class="text-xs text-neutral-400">Decisões baseadas em uso real</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> O custo real de prototipar tarde
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li>Startups que passam mais de <strong>3 semanas</strong> sem validar com usuário têm 3x mais chance de construir a feature errada</li>
+          <li>Reid Hoffman (fundador do LinkedIn): <em>"Se você não tem vergonha da sua primeira versão, lançou tarde demais"</em></li>
+          <li>Com vibe coding, uma primeira versão testável pode ser feita em <strong>2-4 horas</strong> — sem esse mindset, demora 2-4 semanas</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> A permissão para ser imperfeito
+        </h3>
+        <p class="text-neutral-300">Dê a si mesmo permissão explícita para criar algo feio, lento e cheio de workarounds na primeira versão. O código da versão 1 vai ser descartado ou completamente reescrito de qualquer forma. O que você está construindo na V1 não é o produto — é o entendimento do problema.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">⚡ O paradoxo da velocidade</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Vibe coding é dramaticamente mais rápido em tarefas simples e pode ser surpreendentemente mais lento em tarefas complexas. Entender esse paradoxo é fundamental para calibrar expectativas e usar a ferramenta certa no momento certo. Um estudo da METR (2025) quantificou isso com precisão incômoda.
+      </p>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Estudo METR 2025 — Dados reais
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <div class="text-3xl font-bold text-emerald-400 mb-1">81%</div>
+            <div class="text-sm text-white font-semibold mb-2">Mais rápido em boilerplate</div>
+            <p class="text-xs text-neutral-400">CRUD, formulários, autenticação, layouts, páginas padrão — a IA domina essas tarefas repetitivas</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <div class="text-3xl font-bold text-red-400 mb-1">19%</div>
+            <div class="text-sm text-white font-semibold mb-2">Mais lento em tarefas complexas</div>
+            <p class="text-xs text-neutral-400">Algoritmos específicos, otimizações de performance, integrações com sistemas legados, debugging profundo</p>
+          </div>
+        </div>
+        <p class="text-neutral-400 text-sm mt-4">Fonte: METR (Model Evaluation and Threat Research), estudo publicado em 2025 com desenvolvedores seniores</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🎯 Quando usar vibe coding (e quando não usar)</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="text-sm font-semibold text-emerald-400 mb-3">Use para:</p>
+            <ul class="space-y-2 text-neutral-300 text-sm">
+              <li>• Telas de CRUD e formulários</li>
+              <li>• Autenticação e autorização padrão</li>
+              <li>• Integrações com APIs documentadas</li>
+              <li>• Componentes de UI repetitivos</li>
+              <li>• Scripts de automação e scraping</li>
+              <li>• Testes automatizados</li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-red-400 mb-3">Cuidado com:</p>
+            <ul class="space-y-2 text-neutral-300 text-sm">
+              <li>• Algoritmos de otimização críticos</li>
+              <li>• Integrações com sistemas legados complexos</li>
+              <li>• Lógica de negócio muito específica</li>
+              <li>• Performance em escala (milhões de usuários)</li>
+              <li>• Segurança em sistemas financeiros</li>
+              <li>• Código que não pode falhar</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> A regra dos 80%
+        </h3>
+        <p class="text-neutral-300">80% do código de qualquer aplicação é boilerplate e padrões conhecidos. Vibe coding acelera esses 80% dramaticamente. Os 20% restantes (lógica específica do negócio, edge cases, performance) ainda requerem atenção humana — mas você chegará até eles muito mais rápido.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">📈 Do vibe coding ao agentic engineering</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Em fevereiro de 2026, Karpathy publicou uma evolução do conceito: <strong class="text-emerald-400">Agentic Engineering</strong>. O mindset não muda — mas a escala de autonomia que você delega para a IA aumenta significativamente. Entender essa progressão ajuda a saber onde você está e para onde está indo.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center flex-shrink-0 text-neutral-300 font-bold text-sm">V1</div>
+          <div>
+            <div class="font-semibold text-white mb-1">Vibe Coding Básico</div>
+            <p class="text-sm text-neutral-400">Você escreve o prompt, a IA gera o código, você aceita ou rejeita. Um arquivo por vez. Sessões curtas e focadas.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center flex-shrink-0 text-neutral-300 font-bold text-sm">V2</div>
+          <div>
+            <div class="font-semibold text-white mb-1">Editor Agêntico</div>
+            <p class="text-sm text-neutral-400">A IA edita múltiplos arquivos, entende o projeto inteiro, sugere refatorações. Você supervisiona em nível de feature, não de linha.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-emerald-500/30 p-5 flex items-start space-x-4">
+          <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-sm">V3</div>
+          <div>
+            <div class="font-semibold text-emerald-400 mb-1">Agentic Engineering — você está caminhando para aqui</div>
+            <p class="text-sm text-neutral-400">Você descreve objetivos de nível de produto. Agentes planejam, implementam, testam e fazem deploy. Você revisa milestones, não código individual.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center flex-shrink-0 text-neutral-300 font-bold text-sm">V4</div>
+          <div>
+            <div class="font-semibold text-white mb-1">Multi-Agent Orchestration</div>
+            <p class="text-sm text-neutral-400">Múltiplos agentes especializados (frontend, backend, QA, segurança) colaboram em paralelo. Humano como CEO do sistema.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> O mindset permanece o mesmo
+        </h3>
+        <p class="text-neutral-300">A diferença entre V1 e V4 não é o mindset — é a confiança e o escopo do que você delega. As habilidades que você desenvolve agora (pensar em resultados, iterar com método, manter senso crítico) são as mesmas que vão te levar ao agentic engineering.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">🔍 Quando confiar e quando questionar</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O maior risco do vibe coding não é a IA gerar código ruim — é o desenvolvedor aceitar código ruim sem questionar. <strong class="text-emerald-400">Senso crítico</strong> é a habilidade mais importante do vibe coder moderno. Não é desconfiar de tudo, mas saber exatamente quando confiar e quando investigar.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">✅ Sinais de que você pode confiar</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span>A IA <strong class="text-white">explica o que fez e por quê</strong> sem você pedir</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span>O código é <strong class="text-white">legível e segue padrões reconhecíveis</strong></span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span>A solução <strong class="text-white">funciona nos casos de teste</strong> básicos que você verificou</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-0.5">✓</span>
+            <span>A abordagem <strong class="text-white">não parece "mágica"</strong> — você consegue entender a lógica geral</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-4">⚠️ Sinais de alerta — questione sempre</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-3">
+            <span class="text-red-400 mt-0.5">!</span>
+            <span>A IA gera código com <strong class="text-white">chaves ou tokens hardcodados</strong> no arquivo</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-red-400 mt-0.5">!</span>
+            <span>A IA diz <strong class="text-white">"isso deve funcionar"</strong> mas você não consegue testar facilmente</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-red-400 mt-0.5">!</span>
+            <span>O código faz <strong class="text-white">requisições a URLs externas não documentadas</strong></span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-red-400 mt-0.5">!</span>
+            <span>A IA começa a <strong class="text-white">reescrever partes não relacionadas</strong> ao que você pediu</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-red-400 mt-0.5">!</span>
+            <span>Você está <strong class="text-white">aceitando código sem ler</strong> porque "parece certo"</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> A pergunta de ouro
+        </h3>
+        <p class="text-neutral-300 mb-3">Antes de aceitar qualquer bloco de código gerado por IA, pergunte-se: <strong class="text-primary">"Se esse código fizer exatamente o que parece fazer, o sistema vai se comportar como eu quero?"</strong></p>
+        <p class="text-neutral-300">Se você não consegue responder essa pergunta, ainda não entendeu o código o suficiente para aceitar. Peça para a IA explicar linha a linha até você entender.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 1.2
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Pense em resultados, não em implementação</strong><span class="text-neutral-400"> — descreva o comportamento desejado, não o como fazer</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Itere em ciclos curtos</strong><span class="text-neutral-400"> — defina o mínimo testável, teste, ajuste, avance</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Você é o arquiteto</strong><span class="text-neutral-400"> — a IA executa, você dirige a visão e valida os resultados</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">A primeira versão vai estar errada</strong><span class="text-neutral-400"> — e tudo bem. Prototipar rápido é o objetivo</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">81% mais rápido em boilerplate, 19% mais lento em complexidade</strong><span class="text-neutral-400"> — use vibe coding onde ele brilha</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Senso crítico é a habilidade central</strong><span class="text-neutral-400"> — saiba quando confiar e quando investigar o output</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.3 — 🛠️ Ferramentas: O Ecossistema — Cursor, Windsurf, Claude Code, Lovable e como escolher a sua</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-1-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo Anterior
+          </a>
+          <a href="modulo-1-3.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">
+            Próximo Módulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 1.2 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

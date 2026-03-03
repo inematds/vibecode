@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.4 — Seu Primeiro Projeto com IA | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Fundamentos</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.4</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.4</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🚀 Seu Primeiro Projeto com IA</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Do setup ao primeiro resultado funcional. Aprenda a escolher o projeto certo, escrever o primeiro prompt eficaz e estabelecer o ciclo aceitar-testar-ajustar desde o início.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">35</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Básico</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Prático</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">⚙️ Setup em 10 minutos</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A barreira de entrada para vibe coding é menor do que parece. Em 10 minutos você consegue ter um ambiente funcional. O segredo é <strong class="text-emerald-400">não instalar mais do que o necessário</strong> — adicione ferramentas conforme o projeto exigir, não antes.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Baixe o Cursor (cursor.com)</h4>
+            <p class="text-sm text-neutral-400 mb-2">~2 min</p>
+            <p class="text-neutral-300 text-sm">Versão gratuita inclui 2.000 completions por mês — suficiente para começar. Instale como qualquer aplicativo. Ele detecta automaticamente as extensões do VS Code que você já tem.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Configure o modelo padrão</h4>
+            <p class="text-sm text-neutral-400 mb-2">~1 min</p>
+            <p class="text-neutral-300 text-sm">Em Settings → Models, selecione <strong>claude-sonnet-4-6</strong> como padrão. Para tarefas simples, <strong>claude-haiku</strong> é mais rápido e barato. Para planejamento complexo, use <strong>claude-opus</strong> pontualmente.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Crie uma pasta de projeto e abra no Cursor</h4>
+            <p class="text-sm text-neutral-400 mb-2">~1 min</p>
+            <p class="text-neutral-300 text-sm">File → Open Folder. Selecione uma pasta vazia ou o projeto existente. O Cursor vai indexar os arquivos — esse índice é o que permite o agente entender o projeto inteiro.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">4</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Crie o arquivo .cursorrules</h4>
+            <p class="text-sm text-neutral-400 mb-2">~5 min — mas vale cada segundo</p>
+            <p class="text-neutral-300 text-sm">Na raiz do projeto, crie <code class="bg-dark-600 px-1.5 py-0.5 rounded text-emerald-400">.cursorrules</code> e defina: stack tecnológica, convenções de código, contexto do projeto. Esse arquivo é lido pelo agente em toda sessão.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Para plataformas prompt-to-app
+        </h3>
+        <p class="text-neutral-300">Se você escolheu Lovable ou Bolt.new, o setup é ainda mais simples: crie uma conta e abra o browser. Não é necessário instalar nada. Use essa opção se o objetivo é validar uma ideia antes de se comprometer com um ambiente de desenvolvimento local.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🎯 Escolhendo o projeto certo para começar</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O projeto inicial tem que ser <strong class="text-emerald-400">pequeno o suficiente para terminar em um dia</strong> e real o suficiente para ser útil. Projetos didáticos sem propósito real (um clone do Twitter para aprender) são menos eficazes do que resolver um problema que você realmente tem.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Projetos ideais para começar</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Dashboard para dados que você já acompanha manualmente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Formulário de coleta que você preenche em planilha hoje</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Script que automatiza uma tarefa repetitiva sua</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Landing page simples para um produto ou serviço</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Lista de tarefas com funcionalidade específica que você precisa</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Evite para o primeiro projeto</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Clones de apps complexos (Instagram, Uber, WhatsApp)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Sistemas de pagamento ou financeiros</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Apps que requerem integrações com 5+ serviços externos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Sistemas em tempo real (chat ao vivo, colaboração simultânea)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Qualquer coisa que "vai ser o próximo unicórnio"</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> O critério do "testável hoje"
+        </h3>
+        <p class="text-neutral-300 mb-3">Um bom primeiro projeto responde "sim" a todas estas perguntas:</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>1.</strong> Consigo descrever o que ele faz em uma frase?</li>
+          <li><strong>2.</strong> Existe uma versão mínima que funciona sem backend? (HTML + JavaScript puro)</li>
+          <li><strong>3.</strong> Vou conseguir testar se funcionou sem precisar de outros usuários?</li>
+          <li><strong>4.</strong> Consigo definir quando ele está "pronto"?</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">✍️ O primeiro prompt — descrevendo o que você quer</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O primeiro prompt define o ritmo do projeto. Um bom primeiro prompt não tenta descrever o app inteiro — ele define o <strong class="text-emerald-400">contexto, a stack e a funcionalidade central</strong>. Pense nele como um briefing para um desenvolvedor que nunca viu seu projeto.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">📝 Anatomia do primeiro prompt</h3>
+        <div class="bg-dark-800 rounded-lg p-4 font-mono text-sm text-neutral-300 space-y-2">
+          <div><span class="text-neutral-500"># Contexto</span></div>
+          <div>Estou criando um app de controle de hábitos pessoal.</div>
+          <div class="mt-2"><span class="text-neutral-500"># Stack</span></div>
+          <div>Use Next.js 14 com TypeScript e TailwindCSS.</div>
+          <div>Para banco de dados use localStorage por enquanto.</div>
+          <div class="mt-2"><span class="text-neutral-500"># Funcionalidade central (apenas isso agora)</span></div>
+          <div>Crie uma tela onde o usuário possa:</div>
+          <div>- Adicionar um hábito com nome e frequência (diário/semanal)</div>
+          <div>- Ver a lista de hábitos cadastrados</div>
+          <div>- Marcar um hábito como feito hoje</div>
+          <div class="mt-2"><span class="text-neutral-500"># Não precisa agora</span></div>
+          <div>Sem autenticação, sem banco remoto, sem gráficos ainda.</div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> O poder do "não precisa agora"
+        </h3>
+        <p class="text-neutral-300">Listar explicitamente o que você <em>não</em> quer é tão importante quanto listar o que você quer. A IA tende a adicionar funcionalidades que "fazem sentido" no contexto, o que aumenta a complexidade desnecessariamente no primeiro dia.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Prompt fraco</h4>
+          <div class="bg-dark-700 rounded-lg p-3 font-mono text-sm text-neutral-400">
+            "Crie um app de hábitos"
+          </div>
+          <p class="text-xs text-neutral-500 mt-3">Resultado: A IA vai inventar decisões de stack, incluir autenticação, banco de dados remoto, animações complexas — tudo sem você pedir.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Prompt forte</h4>
+          <div class="bg-dark-700 rounded-lg p-3 font-mono text-sm text-neutral-300">
+            "Com Next.js + TailwindCSS, crie uma tela para adicionar e listar hábitos com nome e frequência. Use localStorage. Sem auth."
+          </div>
+          <p class="text-xs text-neutral-500 mt-3">Resultado: Exatamente o que você pediu, sem surpresas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🔄 Iteração na prática</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Depois do primeiro prompt, entra o ciclo que vai definir sua produtividade: <strong class="text-emerald-400">aceitar → testar → ajustar → repetir</strong>. Cada rodada do ciclo deve resolver um problema específico e ser pequena o suficiente para testar em minutos, não horas.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🔄 O ciclo em detalhes</h3>
+        <div class="grid grid-cols-4 gap-4">
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-3">
+              <span class="text-emerald-400 font-bold">A</span>
+            </div>
+            <div class="text-sm font-semibold text-white mb-1">Aceitar</div>
+            <div class="text-xs text-neutral-400">Aplique as mudanças sugeridas. Não rejeite antes de testar.</div>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-3">
+              <span class="text-blue-400 font-bold">T</span>
+            </div>
+            <div class="text-sm font-semibold text-white mb-1">Testar</div>
+            <div class="text-xs text-neutral-400">Abra o browser, clique nos elementos, verifique o comportamento.</div>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-3">
+              <span class="text-primary font-bold">J</span>
+            </div>
+            <div class="text-sm font-semibold text-white mb-1">Ajustar</div>
+            <div class="text-xs text-neutral-400">Descreva o que não funcionou com precisão. Seja específico.</div>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-3">
+              <span class="text-emerald-400 font-bold">R</span>
+            </div>
+            <div class="text-sm font-semibold text-white mb-1">Repetir</div>
+            <div class="text-xs text-neutral-400">Cada ciclo te aproxima da versão que funciona do jeito certo.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Como dar feedback eficaz à IA
+        </h3>
+        <div class="space-y-4">
+          <div>
+            <p class="text-sm font-semibold text-red-400 mb-1">Feedback ruim:</p>
+            <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-400">"Não funcionou"</div>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-emerald-400 mb-1">Feedback bom:</p>
+            <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">"Quando clico em 'Adicionar', o hábito não aparece na lista. Não há erro no console. O botão parece responder ao clique (cor muda) mas a lista continua vazia."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Velocidade do ciclo como indicador
+        </h3>
+        <p class="text-neutral-300">Se cada ciclo de iteração está levando mais de 15 minutos, o escopo está grande demais. Divida o problema em partes menores. Se está levando menos de 2 minutos, você pode estar iterando em algo muito trivial — vale aumentar o escopo do próximo passo.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🐛 Quando o erro aparece — copiar e colar de volta</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A técnica mais subestimada e mais poderosa do vibe coding: quando o código quebra, <strong class="text-emerald-400">copie o erro completo e cole diretamente no chat</strong>. A maioria das pessoas tenta descrever o erro em palavras — perde tempo e perde contexto. A mensagem de erro é exatamente o que o agente precisa.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🔧 O processo em 3 passos</h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-emerald-400 font-bold text-sm">1</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">Abra o console do browser (F12)</div>
+              <p class="text-sm text-neutral-300">Tab "Console" para erros de JavaScript, tab "Network" para erros de API. Selecione e copie a mensagem de erro completa, incluindo o stack trace.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-emerald-400 font-bold text-sm">2</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">Cole o erro no chat com contexto mínimo</div>
+              <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300 mt-2">
+                "Ao clicar em Adicionar, aparece esse erro no console:<br><br>[COLE O ERRO AQUI]"
+              </div>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-emerald-400 font-bold text-sm">3</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">Aguarde e aplique a correção</div>
+              <p class="text-sm text-neutral-300">O agente vai diagnosticar a causa raiz e propor a correção. Aplique, teste novamente. Se o erro persistir, repita o processo com o novo erro.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Por que isso funciona tão bem</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li>• Stack traces contêm o arquivo, linha exata e tipo do erro — informação suficiente para diagnóstico preciso</li>
+          <li>• Os LLMs foram treinados em <strong>milhões de issues e bug reports</strong> — eles reconhecem padrões de erro mais rápido do que humanos</li>
+          <li>• Erros de TypeScript, ESLint e testes têm mensagens estruturadas que os modelos decodificam com alta precisão</li>
+          <li>• Esse ciclo resolve <strong>~80% dos bugs de front-end</strong> sem precisar entender o código</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">💾 Salvando o progresso — commits estratégicos</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Git é a sua rede de segurança. Em vibe coding, onde mudanças podem ser grandes e rápidas, <strong class="text-emerald-400">commits frequentes são proteção contra desastres</strong>. A regra é simples: se o que está na tela está funcionando, commite agora. Não espere uma versão "perfeita".
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">📋 Estratégia de commits para vibe coding</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+            <div>
+              <div class="font-semibold text-white text-sm">Commite após cada funcionalidade funcionando</div>
+              <div class="text-xs text-neutral-400">Não espere o "feature completo" — se o formulário salva, commite agora, mesmo sem validação</div>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+            <div>
+              <div class="font-semibold text-white text-sm">Use mensagens descritivas</div>
+              <div class="text-xs text-neutral-400">"feat: formulário de hábitos salva no localStorage" é melhor que "update"</div>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+            <div>
+              <div class="font-semibold text-white text-sm">Commite antes de fazer refatorações grandes</div>
+              <div class="text-xs text-neutral-400">Se a IA vai reescrever um componente inteiro, tenha um ponto de retorno seguro primeiro</div>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 font-bold mt-0.5">✓</span>
+            <div>
+              <div class="font-semibold text-white text-sm">Use branches para experimentos</div>
+              <div class="text-xs text-neutral-400">Quer tentar uma abordagem diferente? Crie uma branch. Se não funcionar, delete sem medo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center">
+          <span class="mr-2">⚠️</span> O cenário de desastre mais comum
+        </h3>
+        <p class="text-neutral-300 mb-3">O agente reescreve um componente e quebra algo que estava funcionando. Sem commit anterior, não há como voltar. Com commit, é um <code class="bg-dark-800 px-1.5 py-0.5 rounded text-red-400">git checkout HEAD arquivo.tsx</code>.</p>
+        <p class="text-neutral-300">16 dos 18 CTOs consultados sobre desastres com vibe coding mencionaram "aceitar mudanças sem commit prévio" como fator contribuinte.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">🏁 Quando o primeiro projeto está "pronto"</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        "Pronto" em vibe coding não significa perfeito — significa <strong class="text-emerald-400">funcional para o propósito original</strong>. Definir critérios de conclusão antes de começar evita o temido "feature creep" (adicionar funcionalidades infinitamente porque é fácil pedir à IA).
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">✅ Checklist de conclusão do primeiro projeto</h3>
+        <div class="space-y-3">
+          <label class="flex items-start space-x-3 cursor-pointer">
+            <div class="w-5 h-5 rounded border border-emerald-500/50 bg-emerald-500/10 flex-shrink-0 mt-0.5"></div>
+            <span class="text-neutral-300 text-sm">A funcionalidade central funciona sem erros no console</span>
+          </label>
+          <label class="flex items-start space-x-3 cursor-pointer">
+            <div class="w-5 h-5 rounded border border-emerald-500/50 bg-emerald-500/10 flex-shrink-0 mt-0.5"></div>
+            <span class="text-neutral-300 text-sm">Alguém além de você consegue usar sem instrução verbal</span>
+          </label>
+          <label class="flex items-start space-x-3 cursor-pointer">
+            <div class="w-5 h-5 rounded border border-emerald-500/50 bg-emerald-500/10 flex-shrink-0 mt-0.5"></div>
+            <span class="text-neutral-300 text-sm">Os dados persistem corretamente (não se perdem ao recarregar)</span>
+          </label>
+          <label class="flex items-start space-x-3 cursor-pointer">
+            <div class="w-5 h-5 rounded border border-emerald-500/50 bg-emerald-500/10 flex-shrink-0 mt-0.5"></div>
+            <span class="text-neutral-300 text-sm">O código está commitado com mensagens descritivas</span>
+          </label>
+          <label class="flex items-start space-x-3 cursor-pointer">
+            <div class="w-5 h-5 rounded border border-emerald-500/50 bg-emerald-500/10 flex-shrink-0 mt-0.5"></div>
+            <span class="text-neutral-300 text-sm">Você consegue explicar o que cada seção principal faz (mesmo sem ler o código)</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> O que fazer após o primeiro projeto
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Mostre para alguém real</strong> — o feedback externo revela o que você está cego de tanto olhar</li>
+          <li><strong>Documente o que aprendeu</strong> — qual prompt funcionou melhor? Qual abordagem da IA foi errada?</li>
+          <li><strong>Decida: melhorar ou recomeçar</strong> — às vezes a V1 serve de aprendizado e a V2 é melhor construída do zero</li>
+          <li><strong>Compartilhe</strong> — postar o que você fez em 1-2 dias impressiona e gera feedback valioso</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> O critério definitivo
+        </h3>
+        <p class="text-neutral-300">Seu primeiro projeto está pronto quando você <strong class="text-primary">usaria ele ao invés de como resolvia o problema antes</strong>. Se ainda prefere a planilha, o post-it ou o processo manual — o projeto não resolve o problema real ainda.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 1.4
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Setup em 10 minutos</strong><span class="text-neutral-400"> — Cursor gratuito + configuração de modelo + .cursorrules bem feito</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Primeiro projeto: pequeno e real</strong><span class="text-neutral-400"> — resolve um problema seu, testável em horas, não semanas</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Primeiro prompt: contexto + stack + funcionalidade central</strong><span class="text-neutral-400"> — liste também o que NÃO precisa</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Ciclo: aceitar → testar → ajustar → repetir</strong><span class="text-neutral-400"> — cada rodada resolve um problema específico</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Copie erros e cole no chat</strong><span class="text-neutral-400"> — técnica mais subestimada, mais eficaz</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Commite frequentemente</strong><span class="text-neutral-400"> — todo estado funcionando merece um commit como seguro</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.5 — 💬 Prompt Engineering Básico — como escrever prompts que geram resultados precisos</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-1-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo Anterior
+          </a>
+          <a href="modulo-1-5.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">
+            Próximo Módulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 1.4 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.3 — Ferramentas: O Ecossistema | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Fundamentos</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.3</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.3</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🛠️ Ferramentas: O Ecossistema</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Um panorama completo das ferramentas de vibe coding: de IDEs inteligentes a plataformas no-code. Entenda as diferenças e escolha com base no seu perfil.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">35</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Básico</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Prático</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🗺️ O mapa das ferramentas</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O ecossistema de vibe coding cresceu explosivamente em 2024-2025. Existem hoje três categorias principais de ferramentas: <strong class="text-emerald-400">IDEs com IA integrada</strong> (para quem vai lidar com código diretamente), <strong class="text-emerald-400">agentes de terminal</strong> (para automação e projetos complexos) e <strong class="text-emerald-400">plataformas prompt-to-app</strong> (para quem quer zero contato com código).
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🗂️ As três categorias</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <div class="text-2xl mb-2">💻</div>
+            <div class="font-semibold text-white mb-2">IDEs com IA</div>
+            <p class="text-xs text-neutral-400 mb-3">Você vê e edita código, mas a IA faz o trabalho pesado</p>
+            <div class="space-y-1 text-xs text-neutral-300">
+              <div>• Cursor</div>
+              <div>• Windsurf</div>
+              <div>• GitHub Copilot</div>
+            </div>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <div class="text-2xl mb-2">⌨️</div>
+            <div class="font-semibold text-white mb-2">Agentes de Terminal</div>
+            <p class="text-xs text-neutral-400 mb-3">Executa tarefas complexas via linha de comando</p>
+            <div class="space-y-1 text-xs text-neutral-300">
+              <div>• Claude Code</div>
+              <div>• Aider</div>
+              <div>• OpenHands</div>
+            </div>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <div class="text-2xl mb-2">🚀</div>
+            <div class="font-semibold text-white mb-2">Prompt-to-App</div>
+            <p class="text-xs text-neutral-400 mb-3">Zero código — descreva e o app aparece</p>
+            <div class="space-y-1 text-xs text-neutral-300">
+              <div>• Lovable</div>
+              <div>• Bolt.new</div>
+              <div>• v0 (Vercel)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Números do mercado (2025-2026)
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Cursor:</strong> $9,9B de valuation, $100M ARR em 12 meses (jun/2025)</li>
+          <li><strong>Lovable:</strong> De $1M para $100M ARR em apenas 8 meses</li>
+          <li><strong>GitHub Copilot:</strong> 84% dos devs usam ou planejam usar IA (Stack Overflow 2025)</li>
+          <li><strong>Windsurf:</strong> Adquirida pela OpenAI por $3B em 2025</li>
+          <li><strong>Bolt.new:</strong> Mais de 1M de usuários em menos de 3 meses após o lançamento</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">⚡ Cursor — o líder técnico</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Cursor é o editor de código com IA mais popular do mercado técnico. Construído sobre o VS Code, ele adiciona uma camada agêntica completa: o <strong class="text-emerald-400">Composer</strong> edita múltiplos arquivos de uma vez, o sistema de <strong class="text-emerald-400">@referências</strong> permite pontuar contexto específico, e as <strong class="text-emerald-400">.cursorrules</strong> funcionam como instruções permanentes para o agente.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🔑 Superpoderes do Cursor</h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-emerald-400 font-bold text-sm">1</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">.cursorrules — memória permanente do projeto</div>
+              <p class="text-sm text-neutral-300">Um arquivo de texto na raiz do projeto que define regras, stack tecnológica, convenções e contexto do negócio. O agente lê esse arquivo em toda sessão. É a diferença entre um assistente genérico e um especialista no seu projeto.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-emerald-400 font-bold text-sm">2</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">Composer — edição multi-arquivo</div>
+              <p class="text-sm text-neutral-300">Diferente do chat simples, o Composer entende o projeto inteiro e edita múltiplos arquivos de uma vez. Você pede "adicione autenticação" e ele cria o middleware, edita as rotas, atualiza o modelo de usuário e cria os componentes de login.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-emerald-400 font-bold text-sm">3</span>
+            </div>
+            <div>
+              <div class="font-semibold text-white mb-1">@referências — contexto cirúrgico</div>
+              <p class="text-sm text-neutral-300">Use @arquivo, @pasta, @docs para injetar contexto específico no prompt. "@auth/routes.ts como esse padrão, adicione a rota de logout" gera código consistente com o seu estilo existente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center">
+          <span class="mr-2">📊</span> Cursor em números
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>$20/mês</strong> — plano Pro com modelos premium (Claude, GPT-4, Gemini)</li>
+          <li><strong>$9,9 bilhões</strong> — valuation após rodada de $900M em junho de 2025</li>
+          <li><strong>Top ferramenta</strong> usada por startups do Y Combinator em 2025</li>
+          <li><strong>VS Code-based</strong> — toda extensão e atalho do VS Code funciona diretamente</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🌊 Windsurf — a alternativa com mais agentes</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Windsurf (da Codeium, adquirido pela OpenAI em 2025) se diferencia do Cursor com uma abordagem mais <strong class="text-emerald-400">agressivamente agêntica</strong>: o agente executa mais ações autonomamente sem pedir confirmação a cada passo. O recurso <strong class="text-emerald-400">Codemaps</strong> cria um mapa visual do codebase que o agente usa para navegar.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Vantagens do Windsurf</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span><strong>Mais agentes no plano base</strong> ($15/mês)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Codemaps — visualização da arquitetura</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Cascade — agente que planeja antes de executar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Interface mais limpa para iniciantes</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Histórico de conversas por projeto</span></li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-neutral-300 mb-4">vs. Cursor</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-neutral-500 mt-0.5">•</span><span>Cursor tem ecosystem maior e mais plugins</span></li>
+            <li class="flex items-start space-x-2"><span class="text-neutral-500 mt-0.5">•</span><span>Cursor tem comunidade mais ativa (mais tutoriais)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-neutral-500 mt-0.5">•</span><span>Windsurf executa mais ações por iniciativa própria</span></li>
+            <li class="flex items-start space-x-2"><span class="text-neutral-500 mt-0.5">•</span><span>Ambos usam modelos Claude, GPT-4, Gemini</span></li>
+            <li class="flex items-start space-x-2"><span class="text-neutral-500 mt-0.5">•</span><span>Windsurf melhor para projetos maiores com muitos arquivos</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica: Codemaps como ferramenta de onboarding
+        </h3>
+        <p class="text-neutral-300">Se você está entrando em um projeto existente (código de outra pessoa, projeto legado), o Codemaps do Windsurf é uma das melhores ferramentas para entender rapidamente a arquitetura. Peça ao agente para explicar o mapa — economiza horas de leitura manual.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🤖 Claude Code — poder no terminal</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Claude Code da Anthropic é um agente de linha de comando que roda diretamente no terminal. É a ferramenta preferida de desenvolvedores mais experientes para automações complexas, refatorações em larga escala e projetos que exigem controle total. O <strong class="text-emerald-400">CLAUDE.md</strong> é o superpoder — um arquivo de contexto que o agente lê antes de cada sessão.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">📄 CLAUDE.md — o superpoder oculto</h3>
+        <p class="text-neutral-300 mb-4">O arquivo <code class="bg-dark-700 px-2 py-0.5 rounded text-emerald-400 text-sm">CLAUDE.md</code> na raiz do projeto funciona como um briefing permanente. O agente lê esse arquivo antes de qualquer tarefa. Inclua:</p>
+        <div class="bg-dark-800 rounded-lg p-4 font-mono text-sm text-neutral-300 space-y-1">
+          <div class="text-neutral-500"># CLAUDE.md — Contexto do Projeto</div>
+          <div class="mt-2"><span class="text-emerald-400">## Stack</span></div>
+          <div>Next.js 14, TypeScript, Prisma, PostgreSQL</div>
+          <div class="mt-2"><span class="text-emerald-400">## Regras</span></div>
+          <div>- Nunca usar any no TypeScript</div>
+          <div>- Todos os componentes em /components</div>
+          <div>- API routes em /app/api</div>
+          <div class="mt-2"><span class="text-emerald-400">## Contexto de negócio</span></div>
+          <div>SaaS B2B para gestão de equipes</div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">🔌</span> MCP — Model Context Protocol
+        </h3>
+        <p class="text-neutral-300 mb-3">O MCP (Model Context Protocol) é um padrão aberto que permite ao Claude Code conectar-se a ferramentas externas: bancos de dados, APIs, sistemas de arquivos, browsers, e muito mais.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li>• <strong>MCP + Postgres:</strong> agente lê e consulta o banco diretamente</li>
+          <li>• <strong>MCP + Browser:</strong> agente abre páginas e testa a UI automaticamente</li>
+          <li>• <strong>MCP + GitHub:</strong> agente cria branches, PRs e issues automaticamente</li>
+          <li>• <strong>MCP + Figma:</strong> agente lê o design e gera código correspondente</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Para quem é o Claude Code
+        </h3>
+        <p class="text-neutral-300">Claude Code é ideal para quem já tem familiaridade com terminal e quer automatizar tarefas repetitivas em larga escala: migrar banco de dados, refatorar 50 arquivos de uma vez, gerar documentação para todo o projeto. É a ferramenta de potência máxima — com a curva de aprendizado correspondente.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">✨ Lovable, Bolt.new e v0 — prompt-to-app</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        As plataformas prompt-to-app são a porta de entrada mais acessível para vibe coding. Você descreve o que quer em linguagem natural, a plataforma gera o app completo e oferece hospedagem imediata. <strong class="text-emerald-400">Lovable</strong> foi do $1M ao $100M ARR em 8 meses — um dos crescimentos mais rápidos da história do SaaS.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">❤️</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Lovable — melhor para produtos completos</h4>
+            <p class="text-sm text-neutral-400 mb-2">$20/mês | lovable.dev</p>
+            <p class="text-neutral-300 text-sm">Gera apps React + Supabase completos com autenticação, banco de dados e deploy. Ideal para MVPs de startups. Tem "GitHub sync" — você pode baixar o código e continuar no Cursor se precisar de mais controle.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">⚡</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Bolt.new — velocidade máxima</h4>
+            <p class="text-sm text-neutral-400 mb-2">Freemium | bolt.new</p>
+            <p class="text-neutral-300 text-sm">Preview ao vivo em segundos, editor de código integrado, deploy em 1 clique. Suporta Node.js e múltiplos frameworks. Melhor para demos rápidas e protótipos que precisam ser validados hoje.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">v0</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">v0 (Vercel) — componentes e UI</h4>
+            <p class="text-sm text-neutral-400 mb-2">Freemium | v0.dev</p>
+            <p class="text-neutral-300 text-sm">Especializado em geração de componentes React com Tailwind. Ideal para criar UIs bonitas rapidamente. O output é código limpo que você copia direto para o seu projeto no Cursor ou Windsurf.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Lovable — crescimento histórico
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Jan 2025:</strong> $1M ARR — lançamento</li>
+          <li><strong>Abr 2025:</strong> $10M ARR — 3 meses depois</li>
+          <li><strong>Ago 2025:</strong> $100M ARR — 8 meses depois do lançamento</li>
+          <li><strong>Base de usuários:</strong> 63% não-desenvolvedores (fundadores, designers, PMs)</li>
+          <li><strong>Caso de destaque:</strong> Startup levantou $2M de pré-seed com MVP feito em Lovable</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🐙 GitHub Copilot — o mais adotado</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        GitHub Copilot foi o primeiro a popularizar IA no código e continua sendo a ferramenta <strong class="text-emerald-400">mais usada no mercado corporativo</strong>. Com 84% dos desenvolvedores usando ou planejando usar IA, o Copilot domina por integrar-se perfeitamente ao VS Code e ao ecossistema GitHub — que a maioria das empresas já usa.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">📋 Evolução do Copilot</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-4">
+            <div class="w-20 flex-shrink-0 text-xs text-neutral-500 mt-1 font-mono">2021</div>
+            <div class="text-sm text-neutral-300">Autocomplete de linha e bloco — revolução no fluxo básico</div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-20 flex-shrink-0 text-xs text-neutral-500 mt-1 font-mono">2023</div>
+            <div class="text-sm text-neutral-300">Copilot Chat — pergunta e resposta dentro do editor</div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-20 flex-shrink-0 text-xs text-neutral-500 mt-1 font-mono">2024</div>
+            <div class="text-sm text-neutral-300">Copilot Workspace — planejamento e implementação de issues completas</div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-20 flex-shrink-0 text-xs text-emerald-400 mt-1 font-mono font-bold">2025</div>
+            <div class="text-sm text-neutral-300"><strong class="text-emerald-400">Copilot Agent Mode</strong> — edição multi-arquivo, execução de testes, criação de PRs automaticamente</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center">
+          <span class="mr-2">📊</span> Copilot vs. concorrentes — quando escolher
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li><strong>Escolha Copilot</strong> se já usa VS Code + GitHub na empresa — integração nativa inigualável</li>
+          <li><strong>Escolha Cursor</strong> se quer a experiência agêntica mais madura com comunidade ativa</li>
+          <li><strong>Escolha Windsurf</strong> se quer mais autonomia do agente com menos confirmações</li>
+          <li><strong>$19/mês</strong> — plano Pro com acesso a modelos premium</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">🧭 Como escolher a sua ferramenta</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Não existe "melhor ferramenta universal" — existe a <strong class="text-emerald-400">ferramenta certa para o seu perfil e momento</strong>. A escolha depende de três variáveis: seu nível técnico, o tipo de projeto e o quanto você quer ver o código gerado. Use a tabela abaixo para decidir.
+      </p>
+
+      <div class="overflow-x-auto mb-6">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-dark-600">
+              <th class="text-left py-3 px-4 text-neutral-400 font-semibold">Perfil</th>
+              <th class="text-left py-3 px-4 text-neutral-400 font-semibold">Objetivo</th>
+              <th class="text-left py-3 px-4 text-emerald-400 font-semibold">Recomendação</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300 font-medium">Não-técnico / Fundador</td>
+              <td class="py-3 px-4 text-neutral-400">MVP rápido, sem ver código</td>
+              <td class="py-3 px-4 text-emerald-400">Lovable ou Bolt.new</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300 font-medium">Designer</td>
+              <td class="py-3 px-4 text-neutral-400">Componentes UI bonitos</td>
+              <td class="py-3 px-4 text-emerald-400">v0 (Vercel)</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300 font-medium">Dev iniciante</td>
+              <td class="py-3 px-4 text-neutral-400">Aprender + construir projetos</td>
+              <td class="py-3 px-4 text-emerald-400">Cursor (plano gratuito)</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300 font-medium">Dev corporativo</td>
+              <td class="py-3 px-4 text-neutral-400">Integração com GitHub/VS Code</td>
+              <td class="py-3 px-4 text-emerald-400">GitHub Copilot</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300 font-medium">Dev sênior</td>
+              <td class="py-3 px-4 text-neutral-400">Projetos complexos, automação</td>
+              <td class="py-3 px-4 text-emerald-400">Cursor + Claude Code</td>
+            </tr>
+            <tr class="hover:bg-dark-800/50">
+              <td class="py-3 px-4 text-neutral-300 font-medium">Freelancer</td>
+              <td class="py-3 px-4 text-neutral-400">Velocidade máxima, múltiplos projetos</td>
+              <td class="py-3 px-4 text-emerald-400">Windsurf ou Cursor</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Recomendação para este curso
+        </h3>
+        <p class="text-neutral-300 mb-3">Para acompanhar os módulos práticos deste curso, nossa recomendação é o <strong class="text-primary">Cursor</strong> (plano gratuito tem 2.000 completions/mês) combinado com o <strong class="text-primary">Claude claude-sonnet-4-6</strong> como modelo base.</p>
+        <p class="text-neutral-300">Se o seu objetivo é apenas validar uma ideia sem código, comece com <strong class="text-primary">Lovable</strong>. Você pode migrar para o Cursor depois que a ideia estiver validada.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 1.3
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">3 categorias de ferramentas:</strong><span class="text-neutral-400"> IDEs com IA (Cursor, Windsurf), agentes de terminal (Claude Code) e prompt-to-app (Lovable, Bolt, v0)</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Cursor lidera o mercado técnico</strong><span class="text-neutral-400"> — .cursorrules, Composer e @referências são seus superpoderes</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">CLAUDE.md e .cursorrules são memória do projeto</strong><span class="text-neutral-400"> — configure-os cedo e bem</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Lovable foi de $1M para $100M ARR em 8 meses</strong><span class="text-neutral-400"> — a demanda por prompt-to-app é real e crescente</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Escolha pela sua situação, não pelo hype</strong><span class="text-neutral-400"> — a melhor ferramenta é a que você vai realmente usar</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.4 — 🚀 Seu Primeiro Projeto com IA — setup em 10 minutos e o primeiro app funcionando</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-1-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo Anterior
+          </a>
+          <a href="modulo-1-4.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">
+            Próximo Módulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 1.3 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

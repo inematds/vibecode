@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.5 — Prompt Engineering Básico | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Fundamentos</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.5</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.5</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">💬 Prompt Engineering Básico</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A mesma IA, prompts diferentes, resultados completamente diferentes. Aprenda a estrutura que separa prompts mediocres de prompts que geram código preciso na primeira tentativa.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Básico</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Técnico</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">💡 Por que o prompt importa tanto</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Dois desenvolvedores, a mesma ferramenta, o mesmo modelo de IA. Um recebe código preciso que funciona na primeira tentativa. O outro recebe código genérico que precisa de 5 rodadas de correção. A diferença quase nunca é a ferramenta — é a qualidade do prompt. <strong class="text-emerald-400">Prompt engineering é a habilidade central do vibe coder</strong>.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🔬 O mesmo pedido, dois resultados</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs font-semibold text-red-400 mb-2 uppercase">Prompt vago</p>
+            <div class="bg-dark-800 rounded-lg p-3 text-sm text-neutral-400 font-mono">"crie uma função de validação"</div>
+            <div class="mt-3 text-xs text-neutral-500">
+              <p class="font-semibold text-neutral-400 mb-1">Resultado:</p>
+              <p>Função genérica de validação de email (a IA chutou o tipo). Sem tratamento de erro. Retorna boolean sem mensagem. Não integra com o formulário existente.</p>
+            </div>
+          </div>
+          <div>
+            <p class="text-xs font-semibold text-emerald-400 mb-2 uppercase">Prompt específico</p>
+            <div class="bg-dark-800 rounded-lg p-3 text-sm text-neutral-300 font-mono">"crie uma função validateHabitForm(data) que recebe {name: string, frequency: 'daily'|'weekly'} e retorna {valid: boolean, errors: Record&lt;string, string&gt;}. Se name estiver vazio, errors.name = 'Nome obrigatório'"</div>
+            <div class="mt-3 text-xs text-neutral-500">
+              <p class="font-semibold text-neutral-400 mb-1">Resultado:</p>
+              <p>Exatamente o que foi pedido, com tipos TypeScript corretos, integra com o formulário e tem mensagens de erro específicas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center">
+          <span class="mr-2">📊</span> O impacto mensurável de prompts melhores
+        </h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li>Prompts bem estruturados reduzem as rodadas de iteração em <strong>~60%</strong> (baseado em uso real de times de desenvolvimento)</li>
+          <li>Desenvolvedores que aprendem prompt engineering reportam <strong>2-3x mais produtividade</strong> com as mesmas ferramentas</li>
+          <li>O custo de tokens também cai — prompts precisos geram respostas mais curtas e focadas</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">👑 Contexto é rei — a estrutura de 4 partes</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Todo prompt eficaz para código tem quatro componentes. Você não precisa de todos em todos os prompts — mas quanto mais presentes, mais preciso o resultado. A estrutura é: <strong class="text-emerald-400">Contexto + Tarefa + Restrições + Resultado Esperado</strong>.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">C</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Contexto — onde estamos</h4>
+            <p class="text-sm text-neutral-400 mb-2">O que o agente precisa saber sobre o projeto</p>
+            <div class="bg-dark-700 rounded-lg p-3 font-mono text-sm text-emerald-400">"Estamos em um app Next.js 14 de gestão de hábitos. O componente HabitForm já existe em /components/HabitForm.tsx."</div>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">T</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Tarefa — o que precisa ser feito</h4>
+            <p class="text-sm text-neutral-400 mb-2">Ação específica, com verbo claro</p>
+            <div class="bg-dark-700 rounded-lg p-3 font-mono text-sm text-emerald-400">"Adicione validação ao formulário que impeça submissão se o campo 'nome' estiver vazio."</div>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">R</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Restrições — o que não fazer</h4>
+            <p class="text-sm text-neutral-400 mb-2">Limites explícitos que previnem saídas indesejadas</p>
+            <div class="bg-dark-700 rounded-lg p-3 font-mono text-sm text-emerald-400">"Não use bibliotecas externas. Não mude a estrutura atual do componente. Apenas adicione a lógica de validação."</div>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">E</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Resultado Esperado — como fica</h4>
+            <p class="text-sm text-neutral-400 mb-2">O comportamento final que confirma que funcionou</p>
+            <div class="bg-dark-700 rounded-lg p-3 font-mono text-sm text-emerald-400">"O botão deve ficar desabilitado enquanto o campo estiver vazio. Mensagem 'Nome obrigatório' deve aparecer abaixo do input em text-red-400."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Não precisa ser formal
+        </h3>
+        <p class="text-neutral-300">Você não precisa escrever "Contexto:", "Tarefa:" como cabeçalhos. O importante é que o prompt contenha essas informações de forma natural. O agente extrai a estrutura do texto — apenas certifique-se de que tudo está lá.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">📐 Especificar entrada e saída</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Para funções e componentes, o nível de precisão mais eficaz é especificar exatamente <strong class="text-emerald-400">o que entra e o que sai</strong>. "Faça uma função" é vago. "Função que recebe X e retorna Y" gera código que integra perfeitamente com o resto do sistema.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">📋 Tipos de especificação de entrada/saída</h3>
+
+        <div class="space-y-4">
+          <div>
+            <p class="text-sm font-semibold text-white mb-2">Para funções:</p>
+            <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">
+              "Crie uma função <span class="text-emerald-400">formatCurrency(value: number, locale: string)</span> que retorna uma <span class="text-blue-400">string</span> no formato moeda (ex: R$ 1.234,56 para pt-BR)"
+            </div>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-white mb-2">Para APIs:</p>
+            <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">
+              "Crie um endpoint POST /api/habits que recebe <span class="text-emerald-400">{name: string, frequency: string}</span> e retorna <span class="text-blue-400">{id: string, ...habit, createdAt: string}</span> ou <span class="text-red-400">{error: string}</span> com status 400"
+            </div>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-white mb-2">Para componentes:</p>
+            <div class="bg-dark-800 rounded-lg p-3 font-mono text-sm text-neutral-300">
+              "Crie um componente <span class="text-emerald-400">HabitCard</span> que recebe <span class="text-emerald-400">habit: {id, name, frequency, completedToday: boolean}</span> e chama <span class="text-emerald-400">onToggle(id)</span> quando clicado"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Prompts de função vagos</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"faça uma função para formatar data"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"crie um helper para o formulário"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"função que verifica se o usuário tem acesso"</span></li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Prompts de função precisos</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"formatDate(date: Date) → string no formato 'dd/mm/yyyy'"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"validateForm(fields) → {valid: bool, errors: object}"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>"canAccess(user: User, resource: string) → boolean"</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">📌 Fornecer exemplos no prompt</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Exemplos são o atalho mais eficaz para resultados precisos. Quando você mostra o que quer, a IA infere o padrão e replica — mais rápido e mais fiel do que qualquer descrição verbal. Isso é chamado de <strong class="text-emerald-400">few-shot prompting</strong> e é tecnicamente validado em pesquisas sobre LLMs.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">📝 Few-shot prompting em prática</h3>
+        <div class="bg-dark-800 rounded-lg p-4 font-mono text-sm text-neutral-300 space-y-2">
+          <div class="text-neutral-500"># Sem exemplos (zero-shot)</div>
+          <div>"Crie funções de formatação para os dados de hábitos"</div>
+          <div class="mt-4 text-neutral-500"># Com exemplos (few-shot) — muito mais preciso</div>
+          <div>"Crie funções de formatação seguindo o padrão abaixo:</div>
+          <div class="ml-4 text-neutral-400">// Exemplo existente</div>
+          <div class="ml-4">const formatDate = (d: Date) => d.toLocaleDateString('pt-BR')</div>
+          <div class="ml-4 text-neutral-400">// Crie da mesma forma:</div>
+          <div class="ml-4">// formatFrequency(freq: 'daily'|'weekly') → 'Diário' | 'Semanal'</div>
+          <div class="ml-4">// formatStreak(days: number) → '5 dias seguidos'"</div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Quando exemplos são essenciais
+        </h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-0.5">→</span>
+            <span><strong class="text-white">Estilo de código:</strong> Quando seu projeto tem convenções específicas (nomes de variáveis, estrutura de arquivos, padrão de comentários)</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-0.5">→</span>
+            <span><strong class="text-white">Formato de output:</strong> Quando o retorno precisa ser exatamente igual a algo que já existe (schema de banco, formato de API)</span>
+          </li>
+          <li class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-0.5">→</span>
+            <span><strong class="text-white">Componentes consistentes:</strong> Quando você quer que o novo componente siga o padrão visual e estrutural dos existentes</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Use @referências no Cursor
+        </h3>
+        <p class="text-neutral-300">No Cursor, use <code class="bg-dark-700 px-1.5 py-0.5 rounded text-primary">@componente.tsx</code> para incluir um arquivo existente como exemplo. "Crie um componente similar ao @HabitCard.tsx mas para metas semanais" é mais eficaz do que descrever o padrão em palavras.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">✂️ Dividir problemas grandes</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Nunca peça tudo de uma vez. Quanto maior e mais complexo o pedido, maior a probabilidade de a IA "alucinar" partes, gerar inconsistências entre arquivos e produzir código que funciona individualmente mas quebra quando integrado. <strong class="text-emerald-400">Decompor o problema é responsabilidade do arquiteto — você</strong>.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🪓 Como decompor uma feature</h3>
+        <div class="space-y-3">
+          <div class="bg-dark-800 rounded-lg p-4">
+            <p class="text-sm font-semibold text-red-400 mb-2">Pedido monolítico (evitar):</p>
+            <p class="text-sm text-neutral-400 font-mono">"Crie um sistema de autenticação completo com login, registro, recuperação de senha, sessão persistente e proteção de rotas"</p>
+          </div>
+          <div class="text-center text-neutral-500 text-sm">Dividir em:</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-lg p-3">
+              <p class="text-xs font-semibold text-emerald-400 mb-1">Passo 1</p>
+              <p class="text-xs text-neutral-300">"Crie a página de login com formulário (email + senha) e validação básica. Sem lógica de auth ainda."</p>
+            </div>
+            <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-lg p-3">
+              <p class="text-xs font-semibold text-emerald-400 mb-1">Passo 2</p>
+              <p class="text-xs text-neutral-300">"Conecte o formulário à API /api/auth/login que retorna {token, user}"</p>
+            </div>
+            <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-lg p-3">
+              <p class="text-xs font-semibold text-emerald-400 mb-1">Passo 3</p>
+              <p class="text-xs text-neutral-300">"Salve o token no cookie httpOnly e crie middleware de proteção de rota"</p>
+            </div>
+            <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-lg p-3">
+              <p class="text-xs font-semibold text-emerald-400 mb-1">Passo 4</p>
+              <p class="text-xs text-neutral-300">"Adicione a tela de registro seguindo o mesmo padrão do login"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Peça o plano antes do código
+        </h3>
+        <p class="text-neutral-300">Para features complexas, comece com: <strong class="text-primary">"Antes de escrever qualquer código, me dê um plano de como você implementaria [feature]"</strong>. Revise o plano, ajuste a abordagem, e só então peça a implementação passo a passo. Isso elimina 90% dos retrabalhos.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🔁 Pedir revisão e refatoração</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Uma das capacidades mais subutilizadas: usar a IA para <strong class="text-emerald-400">melhorar o código que ela mesma gerou</strong>. Depois de ter algo funcionando, você pode pedir revisão de segurança, performance, legibilidade e manutenibilidade — tudo em prompts separados.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">Prompts de revisão úteis</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm font-mono">
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400 mt-0.5">›</span>
+              <span>"Revise esse código para possíveis vulnerabilidades de segurança"</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400 mt-0.5">›</span>
+              <span>"Esse código vai escalar para 10.000 usuários simultâneos? O que melhorar?"</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400 mt-0.5">›</span>
+              <span>"Refatore para ser mais legível, mantendo o comportamento atual"</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400 mt-0.5">›</span>
+              <span>"O que está faltando de tratamento de erro aqui?"</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">Sequência recomendada</h4>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-center space-x-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs text-emerald-400 font-bold flex-shrink-0">1</span>
+              <span class="text-neutral-300">Faça funcionar (prompt de implementação)</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs text-emerald-400 font-bold flex-shrink-0">2</span>
+              <span class="text-neutral-300">Commite o estado funcionando</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs text-emerald-400 font-bold flex-shrink-0">3</span>
+              <span class="text-neutral-300">Peça revisão de segurança</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs text-emerald-400 font-bold flex-shrink-0">4</span>
+              <span class="text-neutral-300">Peça revisão de performance</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs text-emerald-400 font-bold flex-shrink-0">5</span>
+              <span class="text-neutral-300">Peça refatoração de legibilidade</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center">
+          <span class="mr-2">📊</span> Por que separar as revisões funciona
+        </h3>
+        <p class="text-neutral-300">Quando você pede segurança + performance + legibilidade em um único prompt, a IA faz tudo de forma superficial. Quando você pede um aspecto por vez, ela vai a fundo em cada dimensão. A qualidade do output melhora substancialmente com prompts focados.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">❌ Os 5 erros mais comuns em prompts de código</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Depois de analisar centenas de sessões de vibe coding, cinco padrões de erro aparecem repetidamente. Conhecê-los antes de cometê-los economiza horas de frustração. Cada erro tem uma correção simples e direta.
+      </p>
+
+      <div class="space-y-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="flex items-start space-x-4">
+            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-400 font-bold">1</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-semibold text-white mb-2">Pedir muito de uma vez</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="bg-red-900/20 rounded-lg p-3 text-sm">
+                  <p class="text-red-400 font-semibold text-xs mb-1">Errado:</p>
+                  <p class="text-neutral-300 font-mono">"Crie todo o sistema de hábitos com CRUD, gráficos, notificações e auth"</p>
+                </div>
+                <div class="bg-emerald-900/20 rounded-lg p-3 text-sm">
+                  <p class="text-emerald-400 font-semibold text-xs mb-1">Correto:</p>
+                  <p class="text-neutral-300 font-mono">"Primeiro, apenas a tela de listagem de hábitos"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="flex items-start space-x-4">
+            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-400 font-bold">2</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-semibold text-white mb-2">Não especificar a stack</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="bg-red-900/20 rounded-lg p-3 text-sm">
+                  <p class="text-red-400 font-semibold text-xs mb-1">Errado:</p>
+                  <p class="text-neutral-300 font-mono">"crie um formulário de login"</p>
+                </div>
+                <div class="bg-emerald-900/20 rounded-lg p-3 text-sm">
+                  <p class="text-emerald-400 font-semibold text-xs mb-1">Correto:</p>
+                  <p class="text-neutral-300 font-mono">"com Next.js 14, TypeScript e TailwindCSS, crie..."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="flex items-start space-x-4">
+            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-400 font-bold">3</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-semibold text-white mb-2">Feedback genérico de erro</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="bg-red-900/20 rounded-lg p-3 text-sm">
+                  <p class="text-red-400 font-semibold text-xs mb-1">Errado:</p>
+                  <p class="text-neutral-300 font-mono">"não funcionou, tente de novo"</p>
+                </div>
+                <div class="bg-emerald-900/20 rounded-lg p-3 text-sm">
+                  <p class="text-emerald-400 font-semibold text-xs mb-1">Correto:</p>
+                  <p class="text-neutral-300 font-mono">"[erro completo do console]. Acontece quando clico em salvar."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="flex items-start space-x-4">
+            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-400 font-bold">4</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-semibold text-white mb-2">Aceitar sem testar</h4>
+              <p class="text-neutral-300 text-sm">O código parece correto, você aceita sem abrir o browser. O erro vai aparecer 3 features depois e será muito mais difícil de rastrear. <strong class="text-white">Sempre teste imediatamente após aceitar.</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="flex items-start space-x-4">
+            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-400 font-bold">5</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-semibold text-white mb-2">Não especificar o que não mudar</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="bg-red-900/20 rounded-lg p-3 text-sm">
+                  <p class="text-red-400 font-semibold text-xs mb-1">Errado:</p>
+                  <p class="text-neutral-300 font-mono">"adicione dark mode ao componente"</p>
+                </div>
+                <div class="bg-emerald-900/20 rounded-lg p-3 text-sm">
+                  <p class="text-emerald-400 font-semibold text-xs mb-1">Correto:</p>
+                  <p class="text-neutral-300 font-mono">"adicione dark mode. Não mude a estrutura HTML, apenas os estilos Tailwind"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 1.5
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">O prompt é a habilidade central</strong><span class="text-neutral-400"> — mesma IA, prompt melhor, resultado muito melhor</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Estrutura C+T+R+E</strong><span class="text-neutral-400"> — Contexto + Tarefa + Restrições + Resultado Esperado</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Especifique entrada e saída para funções</strong><span class="text-neutral-400"> — não "crie uma função" mas "função que recebe X e retorna Y"</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Exemplos são mais eficazes que descrições</strong><span class="text-neutral-400"> — use @referências e few-shot prompting</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Divida problemas grandes</strong><span class="text-neutral-400"> — peça o plano primeiro, implemente passo a passo</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Revisões separadas têm mais profundidade</strong><span class="text-neutral-400"> — segurança, performance e legibilidade em prompts distintos</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.6 — 🔄 Ciclo de Desenvolvimento com IA — o workflow EPIV: Explore, Plan, Implement, Verify</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-1-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo Anterior
+          </a>
+          <a href="modulo-1-6.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">
+            Próximo Módulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 1.5 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

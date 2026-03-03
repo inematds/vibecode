@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2.6 — Publicando e Monetizando | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Para Leigos</a>
+      <span>/</span>
+      <span class="text-purple-400">Módulo 2.6</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.6</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">💰 Publicando e Monetizando</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Deploy com um clique, domínio personalizado, modelos de monetização, Stripe para recorrência, precificação e o caminho real do $0 ao primeiro $1.000 MRR.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Básico</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Negócios</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🚀 Deploy com um clique — Publicando na internet</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        "Deploy" é o processo de publicar seu app na internet para que outras pessoas possam acessar. Com as ferramentas de vibe coding, isso foi reduzido a literalmente um clique. Mas existem diferenças importantes entre as opções — escolher a errada pode gerar custos inesperados.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">1</div>
+          <div>
+            <div class="flex items-center space-x-2 mb-1"><span class="font-semibold">Lovable Deploy</span><span class="text-xs text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">Recomendado para iniciantes</span></div>
+            <p class="text-sm text-neutral-400">Deploy automático incluído no plano. Cada mudança que você salva no Lovable é publicada instantaneamente. Inclui HTTPS, CDN global e subdomain gratuito (seuapp.lovable.app).</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">2</div>
+          <div>
+            <div class="flex items-center space-x-2 mb-1"><span class="font-semibold">Vercel</span><span class="text-xs text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">Melhor para Next.js/v0</span></div>
+            <p class="text-sm text-neutral-400">Gratuito para projetos pessoais. Deploy em segundos via GitHub. Performance excepcional com CDN em mais de 100 países. Plano Pro a partir de $20/mês para produção.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">3</div>
+          <div>
+            <div class="flex items-center space-x-2 mb-1"><span class="font-semibold">Render</span><span class="text-xs text-neutral-500 bg-dark-700 px-2 py-0.5 rounded">Para backend e automações</span></div>
+            <p class="text-sm text-neutral-400">Gratuito para projetos pequenos (com sleep automático quando sem uso). Ideal para APIs, bots e scripts que precisam rodar na nuvem. Planos pagos a partir de $7/mês.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 HTTPS é obrigatório</h3>
+        <p class="text-neutral-300">Todas as ferramentas mencionadas incluem HTTPS (o cadeado verde) automaticamente. Nunca publique um produto para usuários sem HTTPS — além de inseguro, o Google penaliza sites sem ele no ranking de busca.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🌐 Domínio personalizado — Comprando seu .com.br</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        "seuapp.lovable.app" funciona, mas "seuapp.com.br" passa muito mais credibilidade. Um domínio personalizado custa entre R$30 e R$80 por ano e pode ser a diferença entre um usuário confiar ou desconfiar do seu produto.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">📋 Passo a passo para conectar domínio</h3>
+        <div class="space-y-3 text-neutral-300 text-sm">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">1.</span>
+            <div>Compre o domínio no Registro.br (.com.br), GoDaddy (.com) ou Namecheap (.com). Custo: R$30-80/ano.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">2.</span>
+            <div>No painel da ferramenta de deploy (Lovable, Vercel), adicione o domínio personalizado. Ela vai fornecer um "CNAME" ou "A Record".</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">3.</span>
+            <div>No painel do registrador de domínio, adicione o CNAME/A Record fornecido. Propagação leva de 10 minutos a 48 horas.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">4.</span>
+            <div>Acesse seu domínio. Se aparecer seu app com HTTPS, está pronto.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Travou na configuração? Peça para a IA ajudar</h3>
+        <p class="text-neutral-300">Se o processo de configuração de domínio parecer complicado, abra o chat do Claude ou ChatGPT e diga: "Comprei o domínio X no Registro.br e preciso conectar ao Lovable. Me guie passo a passo." Funciona muito bem.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">💼 Modelos de monetização — Como cobrar</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Existem quatro modelos principais de monetização para produtos digitais. A escolha certa depende do tipo de produto, do comportamento do usuário e da sua capacidade de suporte. Cada um tem vantagens e armadilhas.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-2">1. Assinatura (SaaS)</h4>
+          <p class="text-xs text-neutral-500 mb-3">Usuário paga mensalmente para continuar usando</p>
+          <p class="text-sm text-neutral-300 mb-3">Melhor modelo para produtos de uso frequente. Gera receita previsível e escalável. Requer que o produto entregue valor continuamente.</p>
+          <p class="text-xs text-neutral-400">Ex: R$49/mês, R$197/mês, R$997/mês para times</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-2">2. Freemium</h4>
+          <p class="text-xs text-neutral-500 mb-3">Básico gratuito, avançado pago</p>
+          <p class="text-sm text-neutral-300 mb-3">Ótimo para aquisição de usuários. O desafio é definir o que fica grátis e o que é pago — o grátis deve ser bom o suficiente para atrair, mas deixar querer mais.</p>
+          <p class="text-xs text-neutral-400">Ex: Notion, Spotify, Figma</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-2">3. Pagamento único</h4>
+          <p class="text-xs text-neutral-500 mb-3">Compra uma vez, usa para sempre</p>
+          <p class="text-sm text-neutral-300 mb-3">Mais fácil de vender (sem compromisso recorrente), mas difícil de escalar. Funciona bem para ferramentas simples e cursos.</p>
+          <p class="text-xs text-neutral-400">Ex: R$297, R$497, R$1.997 vitalício</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-2">4. Por uso (pay-as-you-go)</h4>
+          <p class="text-xs text-neutral-500 mb-3">Cobra proporcional ao que usa</p>
+          <p class="text-sm text-neutral-300 mb-3">Justo para o usuário, mas receita imprevisível. Bom quando o custo do produto (ex: chamadas de API) varia com o uso.</p>
+          <p class="text-xs text-neutral-400">Ex: AWS, Twilio, serviços por crédito</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Recomendação para iniciantes</h3>
+        <p class="text-neutral-300">Comece com assinatura mensal simples. É o modelo mais fácil de implementar com Stripe e o que gera receita mais previsível. Você pode adicionar freemium depois que tiver clareza sobre o que realmente entrega valor.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">💳 Stripe para recorrência — Assinatura pronta</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Stripe é a plataforma de pagamentos mais usada por startups do mundo. A boa notícia: ele tem um dashboard visual completo que você gerencia sem código, e o Lovable integra nativamente com ele.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🔧 Como configurar assinatura no Stripe</h3>
+        <div class="space-y-3 text-neutral-300 text-sm">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">1.</span>
+            <div>Crie conta no Stripe.com (gratuito). Preencha dados de pessoa física ou jurídica para receber pagamentos.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">2.</span>
+            <div>No Stripe, vá em "Products" e crie seu produto com o nome, descrição e preço mensal.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">3.</span>
+            <div>Copie a "Secret Key" do Stripe e cole no Lovable quando ele pedir durante a integração.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">4.</span>
+            <div>Teste com cartão de teste 4242 4242 4242 4242, qualquer data futura, qualquer CVV.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">5.</span>
+            <div>Quando tudo funcionar no modo teste, mude para as chaves de produção no Stripe Dashboard.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Taxas do Stripe no Brasil</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Cartão de crédito:</strong> 2,9% + R$0,30 por transação</li>
+          <li><strong>PIX:</strong> Disponível via Stripe a taxa reduzida</li>
+          <li><strong>Boleto:</strong> Taxa fixa por boleto</li>
+          <li><strong>Sem taxa de instalação</strong> — você só paga quando vende</li>
+          <li><strong>Repasse</strong> — o dinheiro fica disponível em 7 dias úteis</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🏷️ Precificação — Como definir o valor do seu produto</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Precificar é uma das decisões mais difíceis para quem está começando. O erro mais comum é cobrar barato demais — por medo ou insegurança — e acabar com um negócio que funciona mas não é lucrativo.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">📐 Frameworks de precificação para não-técnicos</h3>
+        <div class="space-y-4 text-neutral-300 text-sm">
+          <div>
+            <p class="font-semibold text-white mb-1">1. Precificação por valor gerado</p>
+            <p>Se seu produto economiza 5h/semana do usuário e ele vale R$50/hora, você está gerando R$1.000/mês de valor. Cobrar R$100-200/mês é totalmente justificável.</p>
+          </div>
+          <div>
+            <p class="font-semibold text-white mb-1">2. Pesquise a concorrência</p>
+            <p>Olhe 3-5 produtos similares. Posicione seu preço no mesmo nível ou um pouco abaixo inicialmente, com plano de subir conforme agrega features.</p>
+          </div>
+          <div>
+            <p class="font-semibold text-white mb-1">3. Teste diferentes preços</p>
+            <p>Não existe preço certo na teoria — só no mercado. Comece com um preço, observe a taxa de conversão e ajuste. Aumentar preço geralmente não reduz conversão tanto quanto parece.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-red-400 mb-3">✗ Não cobre barato porque:</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• Usuários baratos dão mais trabalho de suporte</li>
+            <li>• Difícil subir preço depois de estabelecer barato</li>
+            <li>• Margem baixa = menos recursos para melhorar</li>
+            <li>• Produto barato é percebido como de qualidade baixa</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-3">Referências de preços SaaS BR</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• Ferramentas simples: R$29-79/mês</li>
+            <li>• Software de negócio: R$99-299/mês</li>
+            <li>• SaaS para empresas: R$299-999/mês</li>
+            <li>• Enterprise: por usuário ou negociação</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">👥 Primeiros usuários — Onde encontrar os primeiros 100 clientes</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O produto mais difícil de vender é o que tem zero usuários. Os primeiros 10-50 clientes exigem esforço manual, conversas pessoais e muito mais humildade do que estratégias de marketing sofisticadas. E isso é completamente normal.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">1</div>
+          <div>
+            <h4 class="font-semibold mb-1">Sua rede pessoal (0-10 clientes)</h4>
+            <p class="text-sm text-neutral-400">Comece com quem você já conhece. Ex-colegas, parceiros, clientes atuais de outro negócio. Não peça "favor" — ofereça desconto de beta em troca de feedback honesto e depoimento.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">2</div>
+          <div>
+            <h4 class="font-semibold mb-1">Grupos e comunidades online (10-50 clientes)</h4>
+            <p class="text-sm text-neutral-400">Grupos de WhatsApp, Telegram e Facebook do seu nicho. LinkedIn para B2B. Não faça spam — contribua com conteúdo, depois mencione naturalmente o produto. "Resolvi este problema que você descreveu com uma ferramenta que criei."</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">3</div>
+          <div>
+            <h4 class="font-semibold mb-1">Product Hunt e lançamentos (50-100 clientes)</h4>
+            <p class="text-sm text-neutral-400">Product Hunt é uma plataforma de lançamento de produtos. Um bom lançamento pode trazer centenas de usuários em um dia. Prepare depoimentos, screenshots e um vídeo de demo antes de lançar.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 text-purple-400 font-bold text-sm">4</div>
+          <div>
+            <h4 class="font-semibold mb-1">Conteúdo e SEO (100+ clientes)</h4>
+            <p class="text-sm text-neutral-400">Artigos, vídeos no YouTube, posts no LinkedIn sobre o problema que seu produto resolve. SEO demora meses para funcionar, mas cria tráfego gratuito e sustentável a longo prazo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">📈 Do $0 ao primeiro $1.000 MRR — O caminho real</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        $1.000 MRR (Monthly Recurring Revenue — receita recorrente mensal) é o primeiro marco significativo para um SaaS. Pode parecer muito, mas é relativamente próximo quando você tem um produto que resolve um problema real.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🧮 As contas para $1.000 MRR</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-2 px-3 text-neutral-400">Preço mensal</th>
+                <th class="text-left py-2 px-3 text-neutral-400">Clientes necessários</th>
+                <th class="text-left py-2 px-3 text-neutral-400">Prazo realista</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-600">
+              <tr><td class="py-2 px-3 text-neutral-300">R$49/mês</td><td class="py-2 px-3 text-neutral-300">21 clientes</td><td class="py-2 px-3 text-neutral-400">4-6 meses</td></tr>
+              <tr><td class="py-2 px-3 text-neutral-300">R$99/mês</td><td class="py-2 px-3 text-neutral-300">11 clientes</td><td class="py-2 px-3 text-neutral-400">3-5 meses</td></tr>
+              <tr><td class="py-2 px-3 text-neutral-300">R$197/mês</td><td class="py-2 px-3 text-neutral-300">6 clientes</td><td class="py-2 px-3 text-neutral-400">2-4 meses</td></tr>
+              <tr><td class="py-2 px-3 text-neutral-300">R$497/mês</td><td class="py-2 px-3 text-neutral-300">3 clientes</td><td class="py-2 px-3 text-neutral-400">1-3 meses</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-2">Meses 1-2: Produto e primeiros testes</h4>
+          <p class="text-sm text-neutral-400">Constrói o MVP, testa com 5-10 usuários, coleta feedback intensivo, itera. Objetivo: produto que faz o básico muito bem.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-2">Meses 2-3: Beta pago</h4>
+          <p class="text-sm text-neutral-400">Lança para beta fechado com preço de fundador (desconto de 30-50%). Objetivo: primeiros 5-10 pagantes e depoimentos reais.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-2">Meses 3-6: Escala manual</h4>
+          <p class="text-sm text-neutral-400">Cada novo cliente é conquista manual — conversa, demo, follow-up. Quando tiver 10 clientes pagando, você tem o que precisa para escalar com marketing.</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 O segredo que ninguém conta</h3>
+        <p class="text-neutral-300">Os primeiros $1.000 MRR vêm de conversas individuais, não de campanhas de marketing. Fale com cada potencial cliente, entenda o problema deles, mostre como seu produto resolve. Marketing em escala vem depois de validar a mensagem manualmente.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 2.6
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Deploy em um clique</strong><span class="text-neutral-400"> — Lovable (integrado), Vercel (Next.js), Render (backend); sempre com HTTPS incluído</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Domínio personalizado</strong><span class="text-neutral-400"> — R$30-80/ano no Registro.br ou GoDaddy, conectado via CNAME no painel da ferramenta</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Modelos de monetização</strong><span class="text-neutral-400"> — assinatura (mais previsível), freemium (mais usuários), pagamento único, por uso</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Stripe para recorrência</strong><span class="text-neutral-400"> — gratuito para instalar, taxa por transação; teste com cartão 4242 4242 4242 4242</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Precificação</strong><span class="text-neutral-400"> — cobre baseado no valor gerado; nunca barato por medo; teste diferentes preços</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">$1.000 MRR</strong><span class="text-neutral-400"> — 3 a 21 clientes dependendo do preço; vem de conversas individuais, não campanhas</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">2.7 — ⚠️ O Que Pode Dar Errado: segurança, LGPD, backup e o checklist antes de lançar</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-2-5.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo Anterior
+          </a>
+          <a href="modulo-2-7.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">
+            Próximo Módulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 2.6 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

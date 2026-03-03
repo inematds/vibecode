@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3.5 — O Futuro: Agentic Engineering | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Vibe Coding</span></a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span></a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-amber-400">Início</a><span>/</span>
+      <a href="index.html" class="hover:text-amber-400">Executivos</a><span>/</span>
+      <span class="text-amber-400">Módulo 3.5</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.5</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔭 O Futuro: Do Vibe Coding ao Agentic Engineering</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Karpathy declarou em fevereiro de 2026 que vibe coding "já está ultrapassado". O próximo estágio é agentic engineering — e isso muda o posicionamento estratégico que sua empresa precisa fazer agora.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">7</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Visionário</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Estratégia</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">💬 Karpathy em fevereiro de 2026</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Exatamente um ano depois de cunhar "vibe coding", Andrej Karpathy fez uma nova declaração que chocou a comunidade de tecnologia: o conceito que ele mesmo criou já estava ultrapassado. O próximo estágio havia chegado.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">A declaração de fevereiro de 2026</h3>
+        <blockquote class="border-l-4 border-amber-500 pl-4 italic text-neutral-300 mb-4">
+          "Vibe coding já está ultrapassado como o estado da arte. O futuro é agentic engineering — múltiplos agentes especializados trabalhando em paralelo, com o humano como orquestrador e revisor. O programador do futuro não escreve código — ele dirige uma orquestra de agentes."
+        </blockquote>
+        <p class="text-neutral-400 text-sm">— Andrej Karpathy, fevereiro de 2026</p>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Por que isso importa agora</h3>
+        <p class="text-neutral-300">Karpathy tem histórico de prever com precisão os próximos 12-18 meses do setor. A empresa que hoje ainda está avaliando vibe coding pode estar se preparando para a batalha de ontem. A estratégia correta é implementar vibe coding agora — exatamente para estar pronto para agentic engineering amanhã.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🤖 O que é agentic engineering</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Enquanto vibe coding é um desenvolvedor descrevendo o que quer para uma IA, <strong class="text-amber-400">agentic engineering</strong> é múltiplos agentes autônomos especializados trabalhando em paralelo — planejando, codificando, testando e integrando — com o humano como orquestrador.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-neutral-300 mb-4">Vibe Coding (2025)</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-neutral-500 mt-0.5">•</span><span>1 humano + 1 agente de IA em sequência</span></li>
+            <li class="flex items-start space-x-2"><span class="text-neutral-500 mt-0.5">•</span><span>Humano descreve, IA executa, humano revisa</span></li>
+            <li class="flex items-start space-x-2"><span class="text-neutral-500 mt-0.5">•</span><span>Processo linear, uma tarefa por vez</span></li>
+            <li class="flex items-start space-x-2"><span class="text-neutral-500 mt-0.5">•</span><span>Velocidade: 5-10x de ganho</span></li>
+          </ul>
+        </div>
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
+          <h4 class="font-bold text-amber-400 mb-4">Agentic Engineering (2026)</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>1 humano orquestrando múltiplos agentes em paralelo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Agente A planeja, Agente B codifica, Agente C testa — simultaneamente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Humano define objetivos e aprova gates de qualidade</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Velocidade projetada: 20-50x de ganho</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">📊 40% do software enterprise via agentes até 2026</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A Gartner projetou que 40% do software enterprise será desenvolvido ou significativamente modificado por agentes de IA até o final de 2026. Em março de 2026, essa projeção está se confirmando mais rápido do que o esperado.</p>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">Adoção de agentes em 2025-2026</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold mt-0.5 text-sm w-28 flex-shrink-0">GitHub Copilot</span>
+            <span class="text-neutral-300 text-sm">Workspace Agents — agentes que planejam e executam tasks completas no repositório</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold mt-0.5 text-sm w-28 flex-shrink-0">Cursor</span>
+            <span class="text-neutral-300 text-sm">Background Agents — executam tarefas em paralelo enquanto você trabalha em outras</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold mt-0.5 text-sm w-28 flex-shrink-0">Claude Code</span>
+            <span class="text-neutral-300 text-sm">Agente de terminal autônomo — lê, escreve, executa e testa código sem intervenção</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold mt-0.5 text-sm w-28 flex-shrink-0">Devin</span>
+            <span class="text-neutral-300 text-sm">Primeiro agente de engenharia autônomo em adoção enterprise — Goldman Sachs, Santander</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">👤 O novo perfil de engenheiro</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O papel do engenheiro de software está passando pela maior transformação desde a criação das linguagens de alto nível. <strong class="text-amber-400">Orquestrar e supervisionar</strong> substituem escrever e depurar como habilidades centrais.</p>
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-neutral-700 flex items-center justify-center"><span class="text-neutral-400 font-bold text-sm">Antes</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Engenheiro Tradicional (2020-2024)</h4>
+            <p class="text-neutral-300 text-sm">Escreve código linha a linha, resolve bugs, otimiza algoritmos, gerencia dependências. O valor está no conhecimento da sintaxe e dos padrões da linguagem.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-sm">Hoje</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-amber-500/20">
+            <h4 class="font-semibold text-amber-400 mb-2">Vibe Coder (2025)</h4>
+            <p class="text-neutral-300 text-sm">Descreve o comportamento desejado em linguagem natural, avalia o output, itera e revisa criticamente. O valor está na clareza de pensamento e capacidade de julgamento.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-sm">2026</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-amber-500/30">
+            <h4 class="font-semibold text-amber-400 mb-2">Agentic Engineer (2026+)</h4>
+            <p class="text-neutral-300 text-sm">Define objetivos de alto nível, orquestra múltiplos agentes especializados, aprova gates de qualidade, gerencia o portfolio de trabalho dos agentes. O valor está na visão sistêmica e capacidade de orquestração.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">📈 Impacto no mercado de trabalho</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Os dados sobre o impacto salarial de skills de IA em engenharia já estão emergindo — e eles mostram uma bifurcação: engenheiros que dominam IA generativa ganham mais, enquanto engenheiros sem essas skills enfrentam pressão crescente.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
+          <h4 class="font-bold text-amber-400 mb-4">Profissionais com skills de IA</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span><strong>+28% a +43%</strong> de salário em média vs. sem skills de IA (LinkedIn 2025)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Seniors com IA tornam-se mais valiosos — orquestração exige julgamento experiente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Demanda crescente por "AI engineers" e "prompt engineers" especializados</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">Profissionais sem skills de IA</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">•</span><span>Júniores sem IA: maior pressão — tarefas que faziam são 10x mais rápidas com IA</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">•</span><span>Contratações de júnior caíram significativamente em startups nativas de IA</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">•</span><span>Mercado de trabalho bifurcado — especialistas em IA vs. generalistas sem skills</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">Implicação para a sua empresa</h3>
+        <p class="text-neutral-300 text-sm">Empresas que treinam seus engenheiros em skills de IA agora têm vantagem de talent retention — devs preferem trabalhar onde aprendem as ferramentas do futuro. E empresas que não treinam perdem para concorrentes que oferecem esse desenvolvimento.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🎯 Posicionamento estratégico</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">A transição para agentic engineering não é um evento — é um processo. As empresas que chegarem melhor posicionadas serão as que usaram 2025-2026 para construir as fundações certas.</p>
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-sm">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Construir cultura de revisão crítica</h4>
+            <p class="text-neutral-300 text-sm">A habilidade central do agentic engineer é avaliar o output de agentes com julgamento crítico. Equipes que desenvolvem isso hoje com vibe coding estarão prontas para gerenciar múltiplos agentes amanhã.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-sm">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Investir em arquitetura orientada a agentes</h4>
+            <p class="text-neutral-300 text-sm">Sistemas modulares, com APIs bem definidas e documentação clara, são mais fáceis de gerenciar com agentes autônomos. Débito técnico acumulado é o maior obstáculo para a transição para agentic engineering.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-sm">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Treinar para orquestração, não para codificação</h4>
+            <p class="text-neutral-300 text-sm">O treinamento que sua empresa precisa não é "como escrever prompts" — é "como definir objetivos claros para agentes", "como avaliar outputs em escala" e "como gerenciar pipelines de agentes em produção".</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">💎 O investimento que vale</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Com tantas opções de ferramentas e treinamentos emergindo, qual é o investimento que tem o maior ROI de longo prazo? A resposta dos líderes técnicos mais respeitados é consistente: <strong class="text-amber-400">treinar revisão crítica de código de IA</strong>.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Por que revisão crítica é a habilidade central</h3>
+        <ul class="space-y-3 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span><strong>É agnóstica de ferramenta</strong> — a habilidade de avaliar código de IA funciona independente de qual ferramenta é usada (Cursor, Claude, Devin ou qualquer futura)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span><strong>É durável</strong> — enquanto ferramentas mudam a cada 6 meses, a capacidade de julgamento crítico é um ativo de longo prazo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span><strong>É escalável</strong> — um revisor treinado pode supervisionar múltiplos agentes simultaneamente, multiplicando a produtividade</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span><strong>Reduz risco</strong> — é a única barreira entre código de IA com bugs/vulnerabilidades e produção</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 O programa mínimo de 2 semanas</h3>
+        <p class="text-neutral-300 mb-3">O investimento mínimo que faz diferença: 2 semanas de treinamento intensivo para 5 engenheiros seniors no seu time, focado em:</p>
+        <ul class="space-y-1 text-neutral-300 text-sm">
+          <li>• Identificar padrões de vulnerabilidade comuns em código gerado por IA</li>
+          <li>• Revisar código que não foi escrito por você (skill diferente de revisar seu próprio código)</li>
+          <li>• Usar ferramentas SAST para validar automaticamente o que a revisão manual pode perder</li>
+          <li>• Dar feedback de qualidade para agentes de IA de forma que eles corrijam o problema certo</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 3.5</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Karpathy em fev/2026</strong><span class="text-neutral-400"> — vibe coding já está ultrapassado como estado da arte; agentic engineering é o próximo estágio</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Múltiplos agentes em paralelo</strong><span class="text-neutral-400"> — humano como orquestrador, não como codificador</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">40% do software enterprise via agentes até 2026</strong><span class="text-neutral-400"> — projeção Gartner que está se confirmando</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">+28% a +43% de salário</strong><span class="text-neutral-400"> — diferencial de remuneração para engenheiros com skills de IA documentados</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Posicionamento estratégico agora</strong><span class="text-neutral-400"> — cultura de revisão crítica, arquitetura modular, treinar para orquestração</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">O investimento que vale</strong><span class="text-neutral-400"> — revisão crítica de código de IA é a habilidade agnóstica de ferramenta e durável</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">3.6 — 📊 Criando Dashboards a partir de Dados e Planilhas: módulo prático para executivos criarem suas próprias visualizações</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-3-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 3.4</a>
+          <a href="modulo-3-6.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Próximo Módulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 3.5 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+  </script>
+</body>
+</html>

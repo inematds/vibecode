@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Técnicos | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">TRILHA 4</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">💻 Para Técnicos — Vibe Coding Profissional e Agentic Engineering</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Para desenvolvedores e engenheiros. Prompt avançado, segurança, agentes autônomos e multi-agent workflows. O nível mais profundo do curso.</p>
+
+      <div class="mt-4 inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/30 rounded-lg px-4 py-2">
+        <span class="text-blue-400 text-sm font-medium">Pré-requisito:</span>
+        <a href="../fundamentos/index.html" class="text-neutral-300 text-sm hover:text-blue-400 transition-colors">Trilha 1 — Fundamentos (ou experiência prévia equivalente)</a>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">8</div>
+          <div class="text-xs text-neutral-400">Módulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">56</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">~5h</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Avançado</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVEGAÇÃO RÁPIDA -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <h2 class="text-xl font-bold mb-6 text-neutral-300">Navegação Rápida</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <a href="#modulo-4-1" class="bg-dark-800 border border-blue-500/30 rounded-lg p-3 hover:bg-blue-500/10 transition-colors group">
+        <div class="text-blue-400 font-bold text-sm mb-1">4.1</div>
+        <div class="text-xs text-neutral-400 group-hover:text-neutral-300">⚙️ Stack Técnico Avançado</div>
+      </a>
+      <a href="#modulo-4-2" class="bg-dark-800 border border-dark-600 rounded-lg p-3 hover:bg-blue-500/10 hover:border-blue-500/30 transition-colors group">
+        <div class="text-blue-400 font-bold text-sm mb-1">4.2</div>
+        <div class="text-xs text-neutral-400 group-hover:text-neutral-300">🎯 Prompt Engineering Avançado</div>
+      </a>
+      <a href="#modulo-4-3" class="bg-dark-800 border border-dark-600 rounded-lg p-3 hover:bg-blue-500/10 hover:border-blue-500/30 transition-colors group">
+        <div class="text-blue-400 font-bold text-sm mb-1">4.3</div>
+        <div class="text-xs text-neutral-400 group-hover:text-neutral-300">🏗️ Arquitetura e Design Patterns</div>
+      </a>
+      <a href="#modulo-4-4" class="bg-dark-800 border border-dark-600 rounded-lg p-3 hover:bg-blue-500/10 hover:border-blue-500/30 transition-colors group">
+        <div class="text-blue-400 font-bold text-sm mb-1">4.4</div>
+        <div class="text-xs text-neutral-400 group-hover:text-neutral-300">🔒 Segurança em Código Gerado</div>
+      </a>
+      <a href="#modulo-4-5" class="bg-dark-800 border border-dark-600 rounded-lg p-3 hover:bg-blue-500/10 hover:border-blue-500/30 transition-colors group">
+        <div class="text-blue-400 font-bold text-sm mb-1">4.5</div>
+        <div class="text-xs text-neutral-400 group-hover:text-neutral-300">🧪 Testes Automatizados</div>
+      </a>
+      <a href="#modulo-4-6" class="bg-dark-800 border border-dark-600 rounded-lg p-3 hover:bg-blue-500/10 hover:border-blue-500/30 transition-colors group">
+        <div class="text-blue-400 font-bold text-sm mb-1">4.6</div>
+        <div class="text-xs text-neutral-400 group-hover:text-neutral-300">🚢 CI/CD e Deploy Profissional</div>
+      </a>
+      <a href="#modulo-4-7" class="bg-dark-800 border border-dark-600 rounded-lg p-3 hover:bg-blue-500/10 hover:border-blue-500/30 transition-colors group">
+        <div class="text-blue-400 font-bold text-sm mb-1">4.7</div>
+        <div class="text-xs text-neutral-400 group-hover:text-neutral-300">🤖 Agentes e Multi-Agent</div>
+      </a>
+      <a href="#modulo-4-8" class="bg-dark-800 border border-dark-600 rounded-lg p-3 hover:bg-blue-500/10 hover:border-blue-500/30 transition-colors group">
+        <div class="text-blue-400 font-bold text-sm mb-1">4.8</div>
+        <div class="text-xs text-neutral-400 group-hover:text-neutral-300">👥 Vibe Coding em Times</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO DETALHADO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <div class="flex items-center space-x-3 mb-8">
+      <div class="h-px flex-1 bg-dark-600"></div>
+      <span class="text-neutral-500 text-sm font-medium">Conteúdo Detalhado</span>
+      <div class="h-px flex-1 bg-dark-600"></div>
+    </div>
+
+    <!-- MÓDULO 4.1 -->
+    <div id="modulo-4-1" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">4.1</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">⚙️ Stack Técnico Avançado</h3>
+        <p class="text-neutral-400 text-sm">Escolha de IDEs, regras persistentes, MCP, configuração multi-modelo e o setup profissional de 2026.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🖥️</span>
+            <div>
+              <span class="font-medium">Escolhendo o IDE certo</span>
+              <span class="text-neutral-500 text-sm ml-2">— Cursor vs. Windsurf vs. Claude Code</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Comparativo técnico entre os três principais ambientes de vibe coding profissional: Cursor (IDE baseado em VSCode com IA integrada), Windsurf (foco em agentic flows com Cascade), e Claude Code (terminal-first para automação e pipelines).</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A escolha errada de IDE pode custar horas de produtividade. Cada ferramenta tem vantagens distintas para contextos específicos — usar Claude Code para refatoração de projetos grandes é muito mais eficiente do que usar Windsurf.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Cursor para projetos complexos com múltiplos arquivos; Windsurf para fluxos de criação rápida; Claude Code para automação em terminal, scripts e CI/CD. Combinação de ferramentas por tarefa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📋</span>
+            <div>
+              <span class="font-medium">.cursorrules e CLAUDE.md</span>
+              <span class="text-neutral-500 text-sm ml-2">— a técnica mais eficaz</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Arquivos de configuração que definem regras persistentes de projeto lidas automaticamente pelo agente a cada sessão. O .cursorrules instrui o Cursor; o CLAUDE.md instrui o Claude Code. São a "memória de longo prazo" do agente sobre seu projeto.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Sem essas regras, cada sessão começa do zero — o agente não sabe qual framework usa, qual padrão de nomenclatura, quais arquivos não tocar. Com elas, a consistência do código gerado aumenta drasticamente.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Stack tecnológico, padrões de código, arquivos proibidos, comandos de teste, convenções de nomenclatura, segredos que nunca devem ser hardcodados. Manter o arquivo versionado no repositório.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔌</span>
+            <div>
+              <span class="font-medium">Model Context Protocol (MCP)</span>
+              <span class="text-neutral-500 text-sm ml-2">— conectando IA ao seu stack</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Protocolo aberto criado pela Anthropic que permite conectar modelos de IA a fontes de dados externas: banco de dados, APIs, filesystem, ferramentas de observabilidade. É a ponte entre o agente e o ambiente real de produção.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">MCP é o que transforma a IA de um assistente de texto em um agente que realmente opera no seu ambiente. Com MCP, o Claude Code pode fazer queries no Supabase, chamar sua API, verificar logs e muito mais.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Servidores MCP, ferramentas expostas, configuração no claude_desktop_config.json, MCP para Postgres, GitHub, filesystem e APIs customizadas. Segurança de acesso no MCP.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">⚖️</span>
+            <div>
+              <span class="font-medium">Configuração de múltiplos modelos</span>
+              <span class="text-neutral-500 text-sm ml-2">— custo vs. capacidade</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Estratégia de uso inteligente de diferentes modelos Claude (Opus, Sonnet, Haiku) baseada na complexidade e custo de cada tarefa. Não usar Opus para tarefas simples, nem Haiku para arquitetura crítica.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">O custo de API pode inviabilizar o uso profissional se não houver estratégia. Times que usam Opus para tudo pagam 5-10x mais do que precisam. A roteagem inteligente de modelos é uma vantagem competitiva real.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Opus para decisões arquiteturais e análise complexa; Sonnet para implementação do dia a dia; Haiku para autocomplete e tasks repetitivas. Cálculo de custo por token em projetos reais.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🛠️</span>
+            <div>
+              <span class="font-medium">Plugins e extensões essenciais</span>
+              <span class="text-neutral-500 text-sm ml-2">— o setup de profissionais em 2026</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Conjunto curado de extensões e integrações que maximizam a produtividade com IA: linters que o agente respeita, formatadores automáticos, controle de versão integrado e ferramentas de observabilidade.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">O agente gera código de acordo com o ambiente configurado. Sem ESLint configurado, o código gerado ignora padrões. Com prettier integrado, o código já sai formatado sem intervenção manual.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">ESLint + Prettier, GitLens, Error Lens, REST Client, extensões de segurança (Snyk), e configuração de hooks pre-commit que o agente respeita no fluxo de trabalho.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📁</span>
+            <div>
+              <span class="font-medium">Contexto de projeto bem estruturado</span>
+              <span class="text-neutral-500 text-sm ml-2">— @arquivo, @pasta, referenciamento</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Técnica de fornecer contexto preciso ao agente usando referências explícitas a arquivos e pastas (@arquivo.ts, @src/components) em vez de descrições vagas. O agente lê o código real em vez de inferir o que existe.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Alucinações de código quase sempre acontecem quando o agente não tem acesso ao contexto real. Referenciar explicitamente os arquivos certos reduz erros e retrabalho em 60-70% em projetos complexos.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Sintaxe @file no Cursor, -f no Claude Code, contexto mínimo viável, quando incluir e quando excluir arquivos do contexto, evitar context overflow em projetos grandes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">📊</span>
+            <div>
+              <span class="font-medium">Profiling do ambiente</span>
+              <span class="text-neutral-500 text-sm ml-2">— medindo onde a IA realmente ajuda</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Processo de medir objetivamente onde a IA aumenta e onde reduz produtividade em seu contexto específico. Inclui tracking de tempo, taxa de aceitação de sugestões e qualidade do código gerado vs. manual.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A IA não ajuda igualmente em todas as tarefas. Em código altamente otimizado para performance ou em sistemas de segurança críticos, a revisão manual adiciona overhead que pode superar o ganho. Dados orientam decisões melhores.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Métricas de aceitação de sugestões, tempo de ciclo antes/depois, taxa de bugs em código gerado vs. manual, ROI por tipo de tarefa e por desenvolvedor. Dashboard de produtividade com IA.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-4-1.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 4.2 -->
+    <div id="modulo-4-2" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">4.2</span>
+          <span class="text-xs text-neutral-500">~40 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🎯 Prompt Engineering Avançado</h3>
+        <p class="text-neutral-400 text-sm">Chain-of-Thought, pseudocódigo, prompting agêntico e as técnicas que profissionais usam para extrair o máximo dos LLMs.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔗</span>
+            <div>
+              <span class="font-medium">Chain-of-Thought para código</span>
+              <span class="text-neutral-500 text-sm ml-2">— "pense passo a passo"</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Técnica de prompting que instrui o modelo a raciocinar explicitamente antes de gerar código. Em vez de pedir diretamente a solução, você pede ao modelo para analisar o problema, identificar casos extremos e planejar a implementação antes de escrever qualquer linha.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Em problemas complexos, modelos que "pensam em voz alta" produzem código 40-60% mais correto na primeira tentativa. Chain-of-Thought é especialmente eficaz para algoritmos, lógica de negócio complexa e refatorações de grande escala.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Frases ativadoras ("Antes de implementar, analise..."), scratchpad explícito, decomposição de problemas em etapas rastreáveis, revisão do raciocínio antes da implementação.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📝</span>
+            <div>
+              <span class="font-medium">Pseudocódigo primeiro</span>
+              <span class="text-neutral-500 text-sm ml-2">— estratégia para alta complexidade</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Abordagem em dois estágios: primeiro pede ao modelo para descrever em pseudocódigo ou texto estruturado o que vai implementar, depois aprova o plano e solicita a implementação real. Separa planejamento de execução.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Corrigir a lógica em pseudocódigo leva 30 segundos; corrigir uma implementação errada pode levar horas. Para tarefas que envolvem múltiplos sistemas ou lógica de negócio crítica, esta técnica evita retrabalho custoso.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Checkpoint de aprovação antes da implementação, revisão de lógica em linguagem natural, identificação de casos extremos no estágio de planejamento, ajuste fino do plano antes do código.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎯</span>
+            <div>
+              <span class="font-medium">Focar em comportamento, não implementação</span>
+              <span class="text-neutral-500 text-sm ml-2">— o princípio central</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Princípio de escrever prompts que descrevem o que o sistema deve fazer (comportamento observável) em vez de como implementar (método específico). "O usuário deve conseguir fazer X" em vez de "use o método Y da classe Z".</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Especificar a implementação limita o agente a soluções subótimas e cria dívida técnica. Especificar o comportamento permite que o modelo escolha a implementação mais adequada ao contexto do projeto.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">User stories como base de prompts, critérios de aceitação mensuráveis, comportamento em casos de erro, independência de implementação, alinhamento com testes de aceitação.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🤖</span>
+            <div>
+              <span class="font-medium">Prompting agêntico</span>
+              <span class="text-neutral-500 text-sm ml-2">— objetivos de alto nível com Definition of Done</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Prompts estruturados para agentes autônomos que incluem: objetivo claro, Definition of Done explícito, restrições e permissões, e checkpoint de validação. Diferente do prompting conversacional, o agente executa múltiplas etapas sem intervenção.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Agentes sem Definition of Done claro continuam trabalhando indefinidamente ou param antes do objetivo. Um DoD preciso define quando o agente deve parar e apresentar resultados para revisão humana.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Estrutura Objetivo + Contexto + Restrições + DoD, checkpoints de aprovação, rollback points, escopo de permissões (pode criar arquivos? pode fazer deploy?), confirmação antes de ações destrutivas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🧩</span>
+            <div>
+              <span class="font-medium">Técnicas de decomposição</span>
+              <span class="text-neutral-500 text-sm ml-2">— dividir sistemas complexos em subtarefas</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Método sistemático de quebrar requisitos de sistemas complexos em subtarefas independentes e bem definidas que o agente pode executar com alta qualidade. Cada subtarefa tem contexto próprio e critério de conclusão claro.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Pedir ao agente para "construir um sistema de pagamentos completo" falha. Pedir para "implementar a validação de cartão de crédito com Luhn algorithm e testes unitários" tem 95% de chance de sucesso. Granularidade correta é tudo.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Work Breakdown Structure para agentes, dependências entre subtarefas, ordem de implementação (infraestrutura antes de features), integração incremental, evitar tasks com mais de 500 linhas de código esperado.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">♻️</span>
+            <div>
+              <span class="font-medium">Refactoring por prompt</span>
+              <span class="text-neutral-500 text-sm ml-2">— melhorias sem perder funcionalidade</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Técnica de solicitar refatoração de código existente especificando o objetivo de melhoria (legibilidade, performance, testabilidade) enquanto define explicitamente o que não deve mudar (interface pública, comportamento externo, compatibilidade).</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Refactoring sem restrições claras frequentemente quebra funcionalidade. Definir invariantes (o que não pode mudar) e objetivos (o que deve melhorar) resulta em refatorações seguras e úteis.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Invariantes de comportamento, contratos de interface, métricas de melhoria (reduzir complexidade ciclomática, melhorar cobertura de testes), refactoring incremental vs. big-bang.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🐛</span>
+            <div>
+              <span class="font-medium">Debug por prompt</span>
+              <span class="text-neutral-500 text-sm ml-2">— contexto de erro correto para resolução rápida</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Estrutura de prompt para debugging que inclui: stack trace completo, código relevante, ambiente (versão, dependências), o que já foi tentado e o comportamento esperado vs. observado. Elimina o vai-e-volta de perguntas do agente.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Enviar apenas "meu código está quebrando" resulta em 5-10 trocas de mensagem antes de chegar na solução. Enviar o contexto correto na primeira mensagem resolve o problema em uma única resposta na maioria dos casos.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Template: Erro + Stack Trace + Código Relevante + Ambiente + O que tentou + Comportamento esperado. Reprodução mínima do problema, isolamento da causa raiz antes de enviar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-4-2.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
+      </div>
+    </div>
+
+    <!-- MÓDULOS COMPACTOS 4.3 a 4.8 -->
+
+    <!-- 4.3 -->
+    <div id="modulo-4-3" class="bg-dark-800 rounded-xl border border-dark-600 mb-4">
+      <div class="p-5 flex items-center justify-between">
+        <div class="flex-1">
+          <div class="flex items-center space-x-3 mb-1">
+            <span class="text-blue-400 font-bold text-sm">4.3</span>
+            <span class="text-xs text-neutral-500">~40 min</span>
+          </div>
+          <h3 class="text-xl font-bold mb-1">🏗️ Arquitetura e Design Patterns com IA</h3>
+          <p class="text-neutral-400 text-sm">MVC, DDD assistido por IA, modelagem de banco de dados, autenticação e documentação arquitetural automática.</p>
+        </div>
+        <a href="modulo-4-3.html" class="ml-4 px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors flex-shrink-0">
+          Acessar →
+        </a>
+      </div>
+    </div>
+
+    <!-- 4.4 -->
+    <div id="modulo-4-4" class="bg-dark-800 rounded-xl border border-dark-600 mb-4">
+      <div class="p-5 flex items-center justify-between">
+        <div class="flex-1">
+          <div class="flex items-center space-x-3 mb-1">
+            <span class="text-blue-400 font-bold text-sm">4.4</span>
+            <span class="text-xs text-neutral-500">~40 min</span>
+          </div>
+          <h3 class="text-xl font-bold mb-1">🔒 Segurança em Código Gerado por IA</h3>
+          <p class="text-neutral-400 text-sm">45% do código de IA tem falhas (Veracode). OWASP Top 10, RLS, gestão de secrets e casos reais de incidentes.</p>
+        </div>
+        <a href="modulo-4-4.html" class="ml-4 px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors flex-shrink-0">
+          Acessar →
+        </a>
+      </div>
+    </div>
+
+    <!-- 4.5 -->
+    <div id="modulo-4-5" class="bg-dark-800 rounded-xl border border-dark-600 mb-4">
+      <div class="p-5 flex items-center justify-between">
+        <div class="flex-1">
+          <div class="flex items-center space-x-3 mb-1">
+            <span class="text-blue-400 font-bold text-sm">4.5</span>
+            <span class="text-xs text-neutral-500">~35 min</span>
+          </div>
+          <h3 class="text-xl font-bold mb-1">🧪 Testes Automatizados com IA</h3>
+          <p class="text-neutral-400 text-sm">Testes como guardrail do vibe coding. Unitários, integração, E2E com Playwright, TDD invertido e debugging sistemático.</p>
+        </div>
+        <a href="modulo-4-5.html" class="ml-4 px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors flex-shrink-0">
+          Acessar →
+        </a>
+      </div>
+    </div>
+
+    <!-- 4.6 -->
+    <div id="modulo-4-6" class="bg-dark-800 rounded-xl border border-dark-600 mb-4">
+      <div class="p-5 flex items-center justify-between">
+        <div class="flex-1">
+          <div class="flex items-center space-x-3 mb-1">
+            <span class="text-blue-400 font-bold text-sm">4.6</span>
+            <span class="text-xs text-neutral-500">~35 min</span>
+          </div>
+          <h3 class="text-xl font-bold mb-1">🚢 CI/CD e Deploy Profissional</h3>
+          <p class="text-neutral-400 text-sm">GitHub Actions, SAST no pipeline, deploy automático com Vercel/Railway, feature flags e monitoramento pós-deploy.</p>
+        </div>
+        <a href="modulo-4-6.html" class="ml-4 px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors flex-shrink-0">
+          Acessar →
+        </a>
+      </div>
+    </div>
+
+    <!-- 4.7 -->
+    <div id="modulo-4-7" class="bg-dark-800 rounded-xl border border-dark-600 mb-4">
+      <div class="p-5 flex items-center justify-between">
+        <div class="flex-1">
+          <div class="flex items-center space-x-3 mb-1">
+            <span class="text-blue-400 font-bold text-sm">4.7</span>
+            <span class="text-xs text-neutral-500">~45 min</span>
+          </div>
+          <h3 class="text-xl font-bold mb-1">🤖 Agentes Autônomos e Multi-Agent</h3>
+          <p class="text-neutral-400 text-sm">Devin em 2026, Claude Code como agente, arquitetura multi-agent, MCP na prática e o novo papel do engenheiro sênior.</p>
+        </div>
+        <a href="modulo-4-7.html" class="ml-4 px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors flex-shrink-0">
+          Acessar →
+        </a>
+      </div>
+    </div>
+
+    <!-- 4.8 -->
+    <div id="modulo-4-8" class="bg-dark-800 rounded-xl border border-dark-600 mb-8">
+      <div class="p-5 flex items-center justify-between">
+        <div class="flex-1">
+          <div class="flex items-center space-x-3 mb-1">
+            <span class="text-blue-400 font-bold text-sm">4.8</span>
+            <span class="text-xs text-neutral-500">~35 min</span>
+          </div>
+          <h3 class="text-xl font-bold mb-1">👥 Vibe Coding em Times</h3>
+          <p class="text-neutral-400 text-sm">PRs obrigatórios, padronização de prompts, SAST/DAST no processo, métricas de produtividade e lições de 16 de 18 CTOs que tiveram desastres.</p>
+        </div>
+        <a href="modulo-4-8.html" class="ml-4 px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors flex-shrink-0">
+          Acessar →
+        </a>
+      </div>
+    </div>
+
+    <!-- NAVEGAÇÃO FINAL -->
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="../executivos/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+        ← Trilha 3: Executivos
+      </a>
+      <a href="../../index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+        ← Voltar ao Início
+      </a>
+    </div>
+  </main>
+
+  <!-- MODAIS -->
+  <div id="modal-4-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">4.1</span>
+          <span class="font-semibold">⚙️ Stack Técnico Avançado</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-4-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">4.2</span>
+          <span class="font-semibold">🎯 Prompt Engineering Avançado</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Trilha 4: Técnicos · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) exp.classList.remove('active');
+      });
+      explanation.classList.toggle('active');
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    }
+
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

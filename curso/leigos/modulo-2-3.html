@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2.3 — Construindo seu Primeiro App | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Para Leigos</a>
+      <span>/</span>
+      <span class="text-purple-400">Módulo 2.3</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.3</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🛠️ Construindo seu Primeiro App</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Do briefing ao primeiro resultado funcional. Como definir o que construir, escrever prompts eficazes, interpretar o resultado e salvar versões sem perder progresso.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">40</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Zero</div>
+          <div class="text-xs text-neutral-400">Pré-requisito</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Prático</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🎯 Definindo o que construir</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O maior erro de quem começa com vibe coding não é escrever o prompt errado — é tentar construir a coisa errada. Aplicativos ambiciosos demais, cheios de features, para um público vago. A regra de ouro é: <strong class="text-purple-400">comece menor do que você acha que deveria</strong>.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🔬 O framework de definição</h3>
+        <div class="space-y-4 text-neutral-300 text-sm">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">1.</span>
+            <div><strong class="text-white">Quem usa?</strong> Seja específico: "dono de pet shop" é melhor que "pessoas que têm animais"</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">2.</span>
+            <div><strong class="text-white">Qual é o problema?</strong> Uma frase: "donos de pet shop perdem agendamentos porque anotam no papel"</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">3.</span>
+            <div><strong class="text-white">Qual é a solução mínima?</strong> A menor coisa que resolve o problema: "app para agendar consultas e enviar lembrete por WhatsApp"</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">4.</span>
+            <div><strong class="text-white">O que NÃO está no escopo?</strong> Liste o que vai ficar para depois: relatórios, integração com estoque, app mobile</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 A armadilha da feature envy</h3>
+        <p class="text-neutral-300">Todo fundador começa querendo construir o produto completo de uma vez — e aí nunca lança. O melhor produto é aquele que está no ar, sendo usado por pessoas reais, recebendo feedback. Uma feature funcionando vale mais que dez planejadas.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">📝 Escrevendo o briefing</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O briefing é o documento que você escreve antes de abrir qualquer ferramenta. Funciona como uma receita de bolo: quanto mais detalhada, menos improviso na hora de executar — e menos retrabalho depois.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-white mb-4">📋 Template de briefing</h3>
+        <div class="bg-dark-700/50 rounded-lg p-4 font-mono text-sm text-neutral-300 space-y-2">
+          <p><span class="text-purple-400">NOME DO APP:</span> [nome simples e descritivo]</p>
+          <p><span class="text-purple-400">USUÁRIO PRINCIPAL:</span> [quem vai usar]</p>
+          <p><span class="text-purple-400">PROBLEMA QUE RESOLVE:</span> [em uma frase]</p>
+          <p><span class="text-purple-400">FUNCIONALIDADES (3 no máximo):</span></p>
+          <p class="pl-4">1. [funcionalidade 1]</p>
+          <p class="pl-4">2. [funcionalidade 2]</p>
+          <p class="pl-4">3. [funcionalidade 3]</p>
+          <p><span class="text-purple-400">ESTILO VISUAL:</span> [moderno, simples, colorido, etc.]</p>
+          <p><span class="text-purple-400">COR PRINCIPAL:</span> [verde, azul, etc.]</p>
+          <p><span class="text-purple-400">NÃO INCLUIR:</span> [o que fica para depois]</p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">✅ Exemplo preenchido</h3>
+        <div class="bg-dark-700/50 rounded-lg p-4 font-mono text-sm text-neutral-300 space-y-2">
+          <p><span class="text-purple-400">NOME DO APP:</span> AgendaPet</p>
+          <p><span class="text-purple-400">USUÁRIO PRINCIPAL:</span> Dono de pet shop com 1-3 funcionários</p>
+          <p><span class="text-purple-400">PROBLEMA QUE RESOLVE:</span> Perdem agendamentos porque controlam no papel</p>
+          <p><span class="text-purple-400">FUNCIONALIDADES:</span></p>
+          <p class="pl-4">1. Cadastrar cliente e pet com dados básicos</p>
+          <p class="pl-4">2. Agendar consulta com data/hora e serviço</p>
+          <p class="pl-4">3. Ver agenda do dia em tela simples</p>
+          <p><span class="text-purple-400">ESTILO VISUAL:</span> Simples e limpo, fácil de usar no celular</p>
+          <p><span class="text-purple-400">COR PRINCIPAL:</span> Azul</p>
+          <p><span class="text-purple-400">NÃO INCLUIR:</span> Integração WhatsApp, pagamentos, estoque</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">💬 O primeiro prompt — Template que funciona</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O prompt inicial é a primeira coisa que você manda para a ferramenta de vibe coding. Um bom prompt de abertura define o tom de todo o projeto. Use o template abaixo como ponto de partida.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-white mb-4">📝 Template de primeiro prompt</h3>
+        <div class="bg-dark-700/50 rounded-lg p-4 text-sm text-neutral-300 leading-relaxed">
+          <p>Crie um aplicativo web chamado <span class="text-purple-400">[NOME]</span> para <span class="text-purple-400">[USUÁRIO]</span>.</p>
+          <br>
+          <p>O app resolve o seguinte problema: <span class="text-purple-400">[PROBLEMA EM UMA FRASE]</span>.</p>
+          <br>
+          <p>Funcionalidades necessárias:</p>
+          <p>1. <span class="text-purple-400">[FUNCIONALIDADE 1]</span></p>
+          <p>2. <span class="text-purple-400">[FUNCIONALIDADE 2]</span></p>
+          <p>3. <span class="text-purple-400">[FUNCIONALIDADE 3]</span></p>
+          <br>
+          <p>Estilo visual: <span class="text-purple-400">[ESTILO]</span>, com cor principal <span class="text-purple-400">[COR]</span>. Interface simples e intuitiva, funciona bem no celular.</p>
+          <br>
+          <p>Não inclua por enquanto: <span class="text-purple-400">[LISTA DO QUE FICA PARA DEPOIS]</span>.</p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">✅ Exemplo aplicado (AgendaPet)</h3>
+        <div class="bg-dark-700/50 rounded-lg p-4 text-sm text-neutral-300 leading-relaxed">
+          <p>Crie um aplicativo web chamado AgendaPet para donos de pet shop com 1-3 funcionários.</p>
+          <br>
+          <p>O app resolve o seguinte problema: eles perdem agendamentos porque controlam tudo no papel ou no WhatsApp.</p>
+          <br>
+          <p>Funcionalidades necessárias:</p>
+          <p>1. Cadastrar clientes e seus pets com nome, telefone e tipo do animal</p>
+          <p>2. Agendar serviços com data, hora, tipo do serviço e funcionário responsável</p>
+          <p>3. Ver a agenda do dia em uma tela clara com os horários</p>
+          <br>
+          <p>Estilo visual: simples e limpo, fácil de usar no celular, com cor principal azul. Sem detalhes desnecessários.</p>
+          <br>
+          <p>Não inclua por enquanto: integração com WhatsApp, sistema de pagamento, controle de estoque.</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Por que esse template funciona</h3>
+        <p class="text-neutral-300">Ele dá contexto (quem usa, qual problema), escopo claro (3 funcionalidades no máximo), estilo visual (evita perguntas sobre design) e o que NÃO incluir (a parte mais importante — evita que a IA adicione complexidade desnecessária).</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">👁️ Interpretando o resultado</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A ferramenta gerou o primeiro resultado. Agora vem uma etapa que muitos não-técnicos pulam: <strong class="text-purple-400">avaliar o que foi gerado de forma estruturada</strong>. Não olhe para o código — você não precisa entendê-lo. Olhe para o comportamento.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Como avaliar bem</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Teste cada funcionalidade que você pediu</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Use como se fosse um usuário real</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tente encontrar o que quebra</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Veja se a interface é intuitiva</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cheque no celular e no desktop</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Erros comuns</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tentar ler e entender o código</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Aceitar o resultado sem testar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Pedir tudo de uma vez no segundo prompt</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Desistir porque ficou diferente do esperado</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Mostrar para clientes antes de testar</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Checklist de avaliação rápida</h3>
+        <div class="space-y-2 text-neutral-300 text-sm">
+          <div class="flex items-center space-x-2"><span class="text-blue-400">□</span><span>As funcionalidades que pedi estão presentes?</span></div>
+          <div class="flex items-center space-x-2"><span class="text-blue-400">□</span><span>O fluxo principal funciona sem erro?</span></div>
+          <div class="flex items-center space-x-2"><span class="text-blue-400">□</span><span>A interface é fácil de entender sem explicação?</span></div>
+          <div class="flex items-center space-x-2"><span class="text-blue-400">□</span><span>Aparece bem no celular?</span></div>
+          <div class="flex items-center space-x-2"><span class="text-blue-400">□</span><span>Há algo quebrado ou que não funciona?</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🔄 Pedindo ajustes</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O primeiro resultado raramente é o resultado final. O processo de vibe coding é iterativo — você pede, avalia, ajusta, e repete. A chave é saber como pedir ajustes de forma eficaz para que a ferramenta entenda exatamente o que mudar.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-3">Pedidos de ajuste simples (design)</h4>
+          <div class="space-y-2 text-sm">
+            <div class="bg-dark-700/50 rounded p-2 text-neutral-300 font-mono">"Mude o botão de salvar de azul para verde"</div>
+            <div class="bg-dark-700/50 rounded p-2 text-neutral-300 font-mono">"Deixe a fonte maior, está difícil de ler"</div>
+            <div class="bg-dark-700/50 rounded p-2 text-neutral-300 font-mono">"Adicione um espaço maior entre os campos do formulário"</div>
+            <div class="bg-dark-700/50 rounded p-2 text-neutral-300 font-mono">"Mova o menu para a parte de cima da tela"</div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-3">Pedidos de ajuste complexos (funcionalidade)</h4>
+          <div class="space-y-2 text-sm">
+            <div class="bg-dark-700/50 rounded p-2 text-neutral-300 font-mono">"Quando o usuário salvar um agendamento, mostre uma mensagem de confirmação"</div>
+            <div class="bg-dark-700/50 rounded p-2 text-neutral-300 font-mono">"Adicione uma opção de cancelar agendamento com confirmação antes"</div>
+            <div class="bg-dark-700/50 rounded p-2 text-neutral-300 font-mono">"Mostre os agendamentos de hoje em ordem de horário, do mais cedo para o mais tarde"</div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-white mb-3">Como descrever um erro</h4>
+          <div class="space-y-2 text-sm">
+            <div class="bg-dark-700/50 rounded p-2 text-neutral-300 font-mono">"Quando clico em Salvar, nada acontece. O formulário deveria ser limpo e mostrar o agendamento na lista."</div>
+            <div class="bg-dark-700/50 rounded p-2 text-neutral-300 font-mono">"A tela fica em branco depois que faço login. Deveria mostrar a agenda."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 A fórmula de um bom pedido</h3>
+        <p class="text-neutral-300 mb-2"><strong>[O que acontece agora]</strong> + <strong>[O que deveria acontecer]</strong></p>
+        <p class="text-neutral-300 text-sm">Exemplo: "Quando clico em Salvar, o formulário não é limpo <span class="text-primary">[o que acontece agora]</span>. Depois de salvar, o formulário deveria ficar vazio para cadastrar o próximo agendamento <span class="text-primary">[o que deveria acontecer]</span>."</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🧪 Testando funcionalidades</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Testar não é opcional — é a parte mais importante do processo. Antes de mostrar para qualquer pessoa, você precisa quebrar o seu próprio produto. Isso parece contraintuitivo, mas é o que separa produtos que sobrevivem ao contato com usuários dos que causam vergonha.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🔨 Como testar como um usuário real</h3>
+        <div class="space-y-3 text-neutral-300 text-sm">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">1.</span>
+            <div><strong class="text-white">Fluxo principal:</strong> Execute a ação mais importante do começo ao fim, sem desvios. Ex: cadastrar → agendar → ver na agenda.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">2.</span>
+            <div><strong class="text-white">Tente quebrar:</strong> Deixe campos obrigatórios em branco, use datas inválidas, clique em botões várias vezes seguidas, feche e reabra.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">3.</span>
+            <div><strong class="text-white">Teste no celular:</strong> A maioria dos seus usuários vai acessar pelo celular. Se não funcionar bem no celular, não está pronto.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">4.</span>
+            <div><strong class="text-white">Peça para alguém usar:</strong> Sem dar explicações, coloque o link na mão de alguém e peça para usar. Observe o que trava.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Nunca pule o teste</h3>
+        <p class="text-neutral-300">A IA pode gerar código que parece correto mas tem comportamentos inesperados em situações de borda. Um campo que aceita qualquer texto quando deveria aceitar só números. Uma ação que funciona uma vez mas quebra na segunda. Esses problemas só aparecem testando — nunca lendo o código.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">💾 Salvando versões — O conceito de snapshot</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Imagine que você está editando um documento importante. Antes de fazer uma mudança grande, você salva uma cópia com outro nome. Se a mudança estragar tudo, você volta para a cópia. Em vibe coding, isso se chama <strong class="text-purple-400">snapshot</strong> — e salva você de horas de retrabalho.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-3">No Lovable</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• Clique no ícone de relógio no topo da interface</li>
+            <li>• Veja o histórico de versões</li>
+            <li>• Clique em qualquer versão para restaurar</li>
+            <li>• Dê nome às versões importantes ("versão com login")</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-3">No Bolt.new e outros</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• Use o histórico de conversas como referência</li>
+            <li>• Exporte o código antes de mudanças grandes</li>
+            <li>• Abra a ferramenta em outra aba com a versão antiga</li>
+            <li>• Faça screenshots do estado que está funcionando</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Quando salvar uma versão</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• Antes de pedir qualquer mudança grande</li>
+          <li>• Quando o app está funcionando bem pela primeira vez</li>
+          <li>• Antes de adicionar uma nova funcionalidade</li>
+          <li>• Quando você vai mostrar para alguém</li>
+          <li>• Antes de tentar corrigir um bug complexo</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 2.3
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Defina antes de construir</strong><span class="text-neutral-400"> — usuário, problema, 3 funcionalidades máximo, o que NÃO inclui</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Escreva o briefing</strong><span class="text-neutral-400"> — documento de uma página antes de abrir qualquer ferramenta</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Use o template de prompt</strong><span class="text-neutral-400"> — contexto + funcionalidades + estilo + o que não incluir</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Avalie o comportamento, não o código</strong><span class="text-neutral-400"> — teste como um usuário real, sem olhar para o código</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Peça ajustes com precisão</strong><span class="text-neutral-400"> — "o que acontece agora" + "o que deveria acontecer"</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Salve snapshots</strong><span class="text-neutral-400"> — sempre antes de mudanças grandes, quando está funcionando bem</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">2.4 — 🎯 Do Protótipo ao Produto: como transformar um app que funciona em um produto pronto para usuários reais</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-2-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo Anterior
+          </a>
+          <a href="modulo-2-4.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">
+            Próximo Módulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 2.3 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

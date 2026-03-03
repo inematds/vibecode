@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 4.3 — Arquitetura e Design Patterns com IA | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    pre { overflow-x: auto; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span></a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-blue-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Técnicos</a>
+      <span>/</span>
+      <span class="text-blue-400">Módulo 4.3</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.3</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🏗️ Arquitetura e Design Patterns com IA</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Como instruir a IA sobre padrões do projeto, usar DDD assistido por LLM, modelar banco de dados corretamente desde o início e documentar decisões arquiteturais automaticamente.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">7</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Técnico</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🔴 O problema do patchwork</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O problema mais crítico de codebases gerados por IA sem direcionamento arquitetural é o <strong class="text-blue-400">efeito patchwork</strong>: cada sessão de vibe coding adiciona código que funciona isoladamente mas não se integra coerentemente. O resultado é um sistema que cresce, mas que fica progressivamente mais difícil de manter.
+      </p>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Sinais do Patchwork</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• Três padrões diferentes de tratamento de erro no mesmo projeto</li>
+          <li>• Lógica de negócio duplicada em controllers, services e models</li>
+          <li>• Nomenclatura inconsistente: userId, user_id e userID no mesmo codebase</li>
+          <li>• Queries SQL diretas misturadas com ORM no mesmo arquivo</li>
+          <li>• Autenticação verificada de formas diferentes em cada rota</li>
+        </ul>
+      </div>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">🛡️ A Solução: Visão Arquitetural no .cursorrules</h3>
+        <p class="text-neutral-300 text-sm">Definir a arquitetura no arquivo de regras persistentes garante que cada sessão de IA respeite o padrão global. O agente não pode ver o projeto inteiro a cada sessão — mas pode ler as regras e aplicá-las consistentemente.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🏛️ MVC e separação em camadas — instruindo a IA</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O padrão MVC (Model-View-Controller) existe há décadas, mas a IA tende a misturar camadas sem instrução explícita. <strong class="text-blue-400">A solução é declarar a arquitetura no .cursorrules</strong> e reforçar em cada prompt de implementação.
+      </p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📋 Arquitetura no .cursorrules</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>## Arquitetura em camadas (OBRIGATÓRIO)
+
+# Routes (src/routes/)
+- Apenas parsing de request e chamada de controller
+- Zero lógica de negócio
+- Validação de schema (Zod) aqui
+
+# Controllers (src/controllers/)
+- Coordena serviços, monta response
+- Sem queries de banco diretas
+- Sem lógica de negócio complexa
+
+# Services (src/services/)
+- TODA lógica de negócio aqui
+- Pode chamar repositories e serviços externos
+- Testável sem HTTP context
+
+# Repositories (src/repositories/)
+- TODA interação com banco aqui
+- Apenas Prisma queries
+- Sem lógica de negócio
+
+# Regra de dependência: Routes → Controllers → Services → Repositories
+# NUNCA pular camadas. NUNCA criar dependências circulares.</code></pre>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Por que documentar no arquivo e não no prompt</h3>
+        <p class="text-neutral-300 text-sm">Se você colocar as regras de arquitetura apenas no prompt, precisa repetir em cada sessão. No .cursorrules, o Cursor as lê automaticamente. No CLAUDE.md, o Claude Code as segue em todas as sessões. Uma vez documentado, nunca mais precisa repetir.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🗺️ Domain-Driven Design assistido por IA</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        LLMs são excelentes em modelagem de domínio quando recebem o contexto de negócio correto. O modelo consegue identificar entidades, agregados e bounded contexts a partir de descrições de regras de negócio — <strong class="text-blue-400">se você souber como fornecer esse contexto</strong>.
+      </p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🎯 Prompt para Modelagem de Domínio</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>"Vou descrever as regras de negócio de uma
+plataforma de assinaturas. Identifique:
+1. Entidades principais e seus atributos
+2. Agregados e raízes de agregado
+3. Value Objects
+4. Bounded Contexts sugeridos
+
+Regras de negócio:
+- Um Cliente pode ter múltiplas Assinaturas
+- Cada Assinatura tem um Plano (mensal/anual)
+- Faturas são geradas automaticamente no ciclo
+- Um Cliente pode pausar (não cancelar) a assinatura
+- Assinatura pausada não gera fatura mas mantém acesso por 30 dias
+- Cancelamento imediato vs. no final do ciclo são fluxos diferentes"</code></pre>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-blue-400 mb-3">IA é boa em modelagem para:</h4>
+          <ul class="space-y-1 text-sm text-neutral-300">
+            <li>• Identificar entidades óbvias e atributos</li>
+            <li>• Sugerir relacionamentos entre entidades</li>
+            <li>• Gerar schemas de banco a partir do domínio</li>
+            <li>• Identificar invariantes de negócio</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-red-400 mb-3">Você ainda decide:</h4>
+          <ul class="space-y-1 text-sm text-neutral-300">
+            <li>• Bounded contexts e fronteiras de serviço</li>
+            <li>• Trade-offs de normalização vs. performance</li>
+            <li>• Decisões de consistência eventual vs. imediata</li>
+            <li>• Regras de negócio implícitas não documentadas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🗄️ Banco de dados: modelagem e SQL — schemas corretos desde o início</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O schema de banco é a decisão mais difícil de reverter em qualquer projeto. Um schema incorreto impacta performance, integridade de dados e segurança por toda a vida do projeto. <strong class="text-blue-400">Invista tempo aqui antes de qualquer linha de código de aplicação</strong>.
+      </p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🗄️ Prompt para Schema de Banco</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>"Crie o schema Prisma para uma plataforma
+de e-learning com as seguintes entidades:
+
+Usuários: autenticação, perfil, progresso
+Cursos: módulos, aulas, recursos (vídeos/pdfs)
+Matrículas: relaciona usuário a curso, rastreia progresso
+Certificados: gerados ao completar curso
+
+Requisitos:
+- Multi-tenant (organizações com múltiplos usuários)
+- Soft delete em todas as entidades principais
+- Timestamps de auditoria (created_at, updated_at)
+- Suporte a Row Level Security (Supabase)
+- Índices para as queries mais comuns
+
+Após o schema, mostre as queries Prisma
+mais usadas e os índices correspondentes."</code></pre>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Schema Review Obrigatório</h3>
+        <p class="text-neutral-300 text-sm">Nunca aplique um schema gerado por IA em produção sem revisão humana especializada. Verifique: normalização adequada, índices corretos, tipos de dados precisos, constraints de integridade, e políticas de RLS para multi-tenant. O schema é o alicerce — não improvise aqui.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🔐 Autenticação e autorização — implementar primeiro</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O erro arquitetural mais comum em vibe coding: adicionar autenticação depois de construir as features. <strong class="text-blue-400">Autenticação é infraestrutura, não feature</strong>. Adicioná-la depois exige refatorar cada rota, cada endpoint e potencialmente o schema inteiro.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-3">✗ Ordem errada (comum em vibe coding)</h4>
+          <ol class="space-y-1 text-sm text-neutral-400">
+            <li>1. Constrói CRUD de usuários sem auth</li>
+            <li>2. Adiciona features de produto</li>
+            <li>3. Adiciona pagamentos</li>
+            <li>4. Tenta adicionar auth — descobre que precisa refatorar tudo</li>
+          </ol>
+        </div>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-3">✓ Ordem correta</h4>
+          <ol class="space-y-1 text-sm text-neutral-300">
+            <li>1. Schema de banco com user_id em todas as tabelas</li>
+            <li>2. Implementa autenticação (JWT ou Supabase Auth)</li>
+            <li>3. Middleware de auth protege todas as rotas</li>
+            <li>4. Agora constrói features — já seguras por padrão</li>
+          </ol>
+        </div>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Estratégias por Contexto</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead><tr class="border-b border-dark-600"><th class="text-left py-2 px-3 text-neutral-400">Cenário</th><th class="text-left py-2 px-3 text-neutral-400">Estratégia Recomendada</th></tr></thead>
+            <tbody class="divide-y divide-dark-700">
+              <tr><td class="py-2 px-3 text-neutral-300">MVP simples</td><td class="py-2 px-3 text-neutral-400">Supabase Auth (magic link ou OAuth) — zero implementação</td></tr>
+              <tr><td class="py-2 px-3 text-neutral-300">API própria</td><td class="py-2 px-3 text-neutral-400">JWT stateless com refresh tokens</td></tr>
+              <tr><td class="py-2 px-3 text-neutral-300">Enterprise/Compliance</td><td class="py-2 px-3 text-neutral-400">OAuth 2.0 + PKCE com provedor corporativo</td></tr>
+              <tr><td class="py-2 px-3 text-neutral-300">Multi-tenant</td><td class="py-2 px-3 text-neutral-400">RLS no banco + contexto de tenant no token</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">📈 Escalabilidade: decidindo antes de construir</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Decisões de escalabilidade feitas incorretamente no início são as mais caras de reverter. A IA tende a gerar soluções que funcionam para o caso de uso atual sem considerar como o sistema vai crescer. <strong class="text-blue-400">Você precisa fornecer esse contexto explicitamente</strong>.
+      </p>
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold">1</div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold mb-2">Banco de dados: SQL vs. NoSQL</h4>
+            <p class="text-sm text-neutral-400">A IA escolherá SQL (Postgres/MySQL) por padrão — e em 80% dos casos é a escolha certa. Especifique explicitamente se precisa de NoSQL e por quê. Nunca use NoSQL por "parecer mais escalável".</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold">2</div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold mb-2">Monolito vs. Microserviços</h4>
+            <p class="text-sm text-neutral-400">Comece com monolito bem estruturado. A IA gera monolitos mais consistentes. Microserviços adicionam complexidade operacional que o vibe coding não resolve automaticamente.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold">3</div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold mb-2">Cache: quando e onde</h4>
+            <p class="text-sm text-neutral-400">Instrua a IA sobre sua estratégia de cache no CLAUDE.md: Redis para sessões e cache de alta frequência, CDN para assets estáticos. Sem instrução, a IA não adiciona cache por padrão.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">📄 Documentação arquitetural automática — ADRs com IA</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Architecture Decision Records (ADRs) são documentos curtos que registram decisões arquiteturais importantes, o contexto que as motivou e as alternativas consideradas. <strong class="text-blue-400">A IA é excelente em gerar ADRs</strong> quando você fornece o contexto da decisão — e ADRs são essenciais para manutenção de longo prazo.
+      </p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📄 Prompt para Gerar ADR</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>"Gere um ADR (Architecture Decision Record)
+para a seguinte decisão:
+
+Decisão: usar Supabase como backend-as-a-service
+em vez de construir nossa própria API REST.
+
+Contexto:
+- Time de 3 devs, todos com experiência em IA
+- MVP com prazo de 6 semanas
+- Precisamos de auth, banco, storage e realtime
+- Eventual migração para infra própria é possível
+
+Alternativas consideradas:
+- API própria com Node.js + PostgreSQL
+- Firebase + Firestore
+- Supabase
+
+Formato: markdown, inclua Status, Contexto,
+Decisão, Consequências e Alternativas."</code></pre>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 ADRs no Repositório</h3>
+        <p class="text-neutral-300 text-sm">Salve ADRs em docs/decisions/ no repositório. São versionados com o código e explicam "por que" tomamos decisões que podem parecer estranhas no futuro. Um ADR bem escrito pode economizar horas de investigação para qualquer pessoa que entrar no projeto depois.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">✅ Resumo do Módulo 4.3</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Patchwork</strong><span class="text-neutral-400"> é o inimigo — defina arquitetura no .cursorrules e ela será respeitada em cada sessão</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Camadas explícitas</strong><span class="text-neutral-400"> — Routes → Controllers → Services → Repositories, nunca pule etapas</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">DDD assistido por IA</strong><span class="text-neutral-400"> — LLMs são bons em modelagem quando recebem regras de negócio claras</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Schema primeiro</strong><span class="text-neutral-400"> — a decisão mais difícil de reverter. Revise sempre antes de aplicar em produção</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Auth é infraestrutura</strong><span class="text-neutral-400"> — implemente antes de qualquer feature. Nunca depois.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">ADRs automáticos</strong><span class="text-neutral-400"> — use a IA para documentar decisões arquiteturais enquanto as toma</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">4.4 — 🔒 Segurança em Código Gerado por IA: dados reais, OWASP Top 10 e casos de incidentes reais</p>
+        </div>
+        <div class="flex justify-start gap-4">
+          <a href="modulo-4-2.html" class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 4.2</a>
+          <a href="modulo-4-4.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo Módulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 4.3 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 4.8 — Vibe Coding em Times | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    pre { overflow-x: auto; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Vibe Coding</span></a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span></a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Técnicos</a><span>/</span>
+      <span class="text-blue-400">Módulo 4.8</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center space-x-3 mb-4">
+        <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">MÓDULO 4.8</span>
+        <span class="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full">MÓDULO FINAL DO CURSO</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">👥 Vibe Coding em Times</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Governança, processos e métricas para usar vibe coding com segurança em equipes profissionais. As lições de 16 CTOs que tiveram problemas sérios — e como evitá-los.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">7</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Gestão</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">👤 O dev sênior como reviewer — IA gera, humano revisa</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O modelo que funciona em times é claro: <strong class="text-blue-400">agentes implementam, sêniors revisam</strong>. Não porque a IA não seja capaz — mas porque o humano traz julgamento sobre contexto de negócio, arquitetura de longo prazo e implicações de segurança que o agente não pode inferir do código.
+      </p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔄 O Fluxo que Funciona</h3>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-7 h-7 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-xs flex-shrink-0">1</div>
+            <div class="text-sm text-neutral-300">Dev junior ou agente autônomo <strong>implementa feature</strong> baseada no ticket</div>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-7 h-7 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-xs flex-shrink-0">2</div>
+            <div class="text-sm text-neutral-300"><strong>CI/CD automático</strong>: lint, testes, SAST rodam. PR só avança se tudo passa.</div>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-7 h-7 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-xs flex-shrink-0">3</div>
+            <div class="text-sm text-neutral-300">Dev sênior <strong>revisa</strong> focando em: arquitetura, segurança, lógica de negócio</div>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-7 h-7 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-xs flex-shrink-0">4</div>
+            <div class="text-sm text-neutral-300">Aprovação humana explícita antes do <strong>merge em main</strong></div>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-7 h-7 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs flex-shrink-0">5</div>
+            <div class="text-sm text-neutral-300"><strong>Deploy automático</strong> após aprovação. Monitoramento pós-deploy.</div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 O Reviewer Precisa Entender o Código</h3>
+        <p class="text-neutral-300 text-sm">Revisores que não entendem o código que estão revisando são uma vulnerabilidade de governança. "Aprova tudo que o CI passou" não é revisão — é rubber stamp. Sêniors precisam conseguir identificar problemas de lógica de autorização, falhas de segurança sutis e violações de padrões arquiteturais.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🛠️ Múltiplas ferramentas por papel — IDE certa para cada função</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Times de vibe coding profissional não usam uma ferramenta para tudo. A escolha de ferramenta por papel e tipo de tarefa otimiza produtividade e reduz riscos. <strong class="text-blue-400">Padronizar a ferramenta por tipo de trabalho</strong>, não por preferência individual, é a política que funciona.
+      </p>
+      <div class="overflow-x-auto mb-6">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-dark-600">
+              <th class="text-left py-2 px-3 text-neutral-400">Papel / Tarefa</th>
+              <th class="text-left py-2 px-3 text-blue-400">Ferramenta Recomendada</th>
+              <th class="text-left py-2 px-3 text-neutral-400">Por quê</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-700">
+            <tr><td class="py-2 px-3 text-neutral-300">Desenvolvimento diário</td><td class="py-2 px-3 text-blue-300">Cursor</td><td class="py-2 px-3 text-neutral-400">Contexto de projeto, multi-arquivo, extensões</td></tr>
+            <tr><td class="py-2 px-3 text-neutral-300">Automação e CI/CD</td><td class="py-2 px-3 text-blue-300">Claude Code</td><td class="py-2 px-3 text-neutral-400">Terminal-first, ideal para pipelines e scripts</td></tr>
+            <tr><td class="py-2 px-3 text-neutral-300">Protótipos rápidos</td><td class="py-2 px-3 text-blue-300">Windsurf ou Lovable</td><td class="py-2 px-3 text-neutral-400">Velocidade máxima, revisão depois</td></tr>
+            <tr><td class="py-2 px-3 text-neutral-300">Compliance / Enterprise</td><td class="py-2 px-3 text-blue-300">GitHub Copilot Enterprise</td><td class="py-2 px-3 text-neutral-400">Isolamento de dados, auditoria, conformidade SOC 2</td></tr>
+            <tr><td class="py-2 px-3 text-neutral-300">Análise arquitetural</td><td class="py-2 px-3 text-blue-300">Claude.ai (Opus)</td><td class="py-2 px-3 text-neutral-400">Raciocínio profundo sem contexto de IDE</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📋 Política de Ferramentas no Handbook</h3>
+        <p class="text-neutral-300 text-sm">Documente as ferramentas aprovadas pelo time no handbook de engenharia. Inclua: quais são aprovadas, para qual tipo de tarefa, e quais são proibidas (ex: ferramentas que enviam código para servidores não auditados). Consistência de ferramentas reduz surface de ataque e facilita onboarding.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🔒 PRs obrigatórios — nenhum código de IA vai para main sem review</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Esta é a política de governança mais importante para vibe coding em times: <strong class="text-blue-400">nenhum código — gerado por IA ou por humano — vai para a branch principal sem passar por review e CI/CD</strong>. Sem exceções. Nem para "hotfixes urgentes".
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Política de Branch Protection</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Require pull request reviews (mínimo 1 aprovação)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Require status checks (CI deve passar)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Require branches to be up to date</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Restrict who can push to main (apenas tech lead)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Include administrators (sem exceções)</span></li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-blue-400 mb-4">Configuração no GitHub</h4>
+          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3"><code># Settings → Branches → Branch rules
+# Branch name pattern: main
+
+[✓] Require a pull request
+    Min approvals: 1
+[✓] Require status checks:
+    - CI / quality
+    - CI / security
+[✓] Require branches up to date
+[✓] Include administrators
+[✓] Allow force pushes: NUNCA</code></pre>
+        </div>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ O "Hotfix Urgente" que Destruiu o Banco</h3>
+        <p class="text-neutral-300 text-sm">Um dos casos mais comuns de desastre com vibe coding: CTO faz push direto em main para "resolver urgente em produção". O agente gerou código que parecia correto mas tinha um bug crítico que o CI teria capturado. Sem review, sem CI — sem proteção. A política sem exceções existe exatamente para momentos de pressão.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">📋 Padronização de prompts e regras — CLAUDE.md compartilhado</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Em um time, cada desenvolvedor com seu próprio conjunto de regras e prompts resulta em codebase inconsistente — o mesmo problema do patchwork, mas em escala de time. <strong class="text-blue-400">Regras e prompts devem ser assets de equipe, versionados no repositório</strong>.
+      </p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🗂️ Estrutura de Arquivos de Time</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>repositorio/
+├── CLAUDE.md              # Regras globais para Claude Code
+├── .cursorrules           # Regras globais para Cursor
+├── docs/
+│   ├── prompts/
+│   │   ├── feature.md     # Template para novas features
+│   │   ├── bugfix.md      # Template para bugfixes
+│   │   ├── refactor.md    # Template para refatoração
+│   │   └── security-review.md  # Checklist de segurança
+│   ├── decisions/         # ADRs (Architecture Decision Records)
+│   └── ai-guidelines.md   # Política de uso de IA no time</code></pre>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Templates de Prompts como Padrão de Time</h3>
+        <p class="text-neutral-300 text-sm">Crie templates de prompt para os tipos de tarefa mais comuns (feature, bugfix, refactor) e coloque em docs/prompts/. Quando um dev precisa implementar uma feature, começa com o template e adapta. Consistência de input gera consistência de output do agente.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🔐 Testes de segurança no processo — SAST/DAST integrado</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Segurança como processo contínuo, não como fase final. SAST analisa código estático; DAST (Dynamic Application Security Testing) testa a aplicação em execução. <strong class="text-blue-400">Ambos devem ser automáticos e obrigatórios</strong> no processo de desenvolvimento com IA.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-blue-400 mb-3">SAST (Estático — antes do deploy)</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• <strong>CodeQL</strong> — em cada PR automaticamente</li>
+            <li>• <strong>Semgrep</strong> — regras customizadas do projeto</li>
+            <li>• <strong>npm audit</strong> — vulnerabilidades em dependências</li>
+            <li>• <strong>truffleHog</strong> — secrets em commits</li>
+          </ul>
+          <p class="text-xs text-neutral-500 mt-3">Custo: gratuito (ferramentas open-source no CI)</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-blue-400 mb-3">DAST (Dinâmico — em staging)</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• <strong>OWASP ZAP</strong> — scan automático de aplicação rodando</li>
+            <li>• <strong>Burp Suite Community</strong> — análise manual de endpoints</li>
+            <li>• <strong>Nuclei</strong> — templates de vulnerabilidades conhecidas</li>
+            <li>• <strong>Penetration testing</strong> — anual para sistemas críticos</li>
+          </ul>
+          <p class="text-xs text-neutral-500 mt-3">Custo: ferramentas gratuitas + tempo para configuração</p>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📋 Política: Security Gate no Pipeline</h3>
+        <p class="text-neutral-300 text-sm">Configure o pipeline para bloquear merges quando SAST detecta vulnerabilidades de alta severidade. Médias geram alertas mas não bloqueiam. Baixas são registradas para revisão futura. O time decide os thresholds — mas a automação aplica consistentemente.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">📊 Medindo produtividade — métricas que realmente importam</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Métricas incorretas criam incentivos perversos. "Linhas de código por dia" foi inútil antes da IA; com IA é ainda mais inútil. <strong class="text-blue-400">As métricas que importam medem resultado de negócio e qualidade de software</strong>, não velocidade de geração de código.
+      </p>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Framework DORA Adaptado para Vibe Coding</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-2 px-3 text-neutral-400">Métrica</th>
+                <th class="text-left py-2 px-3 text-neutral-400">O que mede</th>
+                <th class="text-left py-2 px-3 text-blue-400">Target Elite</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-700">
+              <tr><td class="py-2 px-3 text-neutral-300">Deployment Frequency</td><td class="py-2 px-3 text-neutral-400">Com que frequência vai a produção</td><td class="py-2 px-3 text-blue-300">Múltiplos/dia</td></tr>
+              <tr><td class="py-2 px-3 text-neutral-300">Lead Time for Changes</td><td class="py-2 px-3 text-neutral-400">Ticket → deploy em produção</td><td class="py-2 px-3 text-blue-300">&lt;1 hora</td></tr>
+              <tr><td class="py-2 px-3 text-neutral-300">Change Failure Rate</td><td class="py-2 px-3 text-neutral-400">% deploys que causam incidente</td><td class="py-2 px-3 text-blue-300">&lt;5%</td></tr>
+              <tr><td class="py-2 px-3 text-neutral-300">Time to Restore</td><td class="py-2 px-3 text-neutral-400">Incidente → serviço restaurado</td><td class="py-2 px-3 text-blue-300">&lt;1 hora</td></tr>
+              <tr><td class="py-2 px-3 text-neutral-300">Test Coverage</td><td class="py-2 px-3 text-neutral-400">Cobertura de testes automatizados</td><td class="py-2 px-3 text-blue-300">&gt;80%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5">
+          <h4 class="font-semibold text-emerald-400 mb-3">Métricas úteis com IA</h4>
+          <ul class="space-y-1 text-sm text-neutral-300">
+            <li>• Lead time para features (ticket → produção)</li>
+            <li>• Taxa de bugs por feature em produção</li>
+            <li>• Cobertura de testes e tendência</li>
+            <li>• Taxa de aceitação de código de IA em review</li>
+            <li>• Custo de API por feature entregue</li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+          <h4 class="font-semibold text-red-400 mb-3">Métricas inúteis ou prejudiciais</h4>
+          <ul class="space-y-1 text-sm text-neutral-300">
+            <li>• Linhas de código por dia (IA infla artificialmente)</li>
+            <li>• Número de commits (agentes fazem commits granulares)</li>
+            <li>• Velocidade de sprint (incentiva code dumping)</li>
+            <li>• Features completadas sem considerar bugs introduzidos</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">💀 O que deu errado — 16 de 18 CTOs reportaram desastres</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Em pesquisa com 18 CTOs que adotaram vibe coding sem estrutura de governança, <strong class="text-red-400">16 reportaram problemas sérios</strong>. Os padrões de falha são consistentes e preveníveis — mas apenas se você os conhecer antes de cometê-los.
+      </p>
+      <div class="space-y-4 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h4 class="font-semibold text-red-400">Padrão 1: Velocidade sem processo (8/16 CTOs)</h4>
+          </div>
+          <p class="text-sm text-neutral-300 mb-2">"Velocidade de vibe coding sem PRs ou review. Em 3 meses, o codebase estava inutilizável — ninguém entendia o que o sistema fazia, nenhum teste, bugs críticos de segurança em produção."</p>
+          <p class="text-sm text-blue-400">Solução: implementar PRs e CI/CD desde o primeiro dia, não "quando o projeto crescer".</p>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h4 class="font-semibold text-red-400">Padrão 2: Júniores sem supervisão (5/16 CTOs)</h4>
+          </div>
+          <p class="text-sm text-neutral-300 mb-2">"Demos vibe coding para desenvolvedores juniores e os deixamos trabalhar autonomamente. Eles aceitavam tudo que a IA gerava sem entender. Resultado: dívida técnica massiva e vulnerabilidades de segurança que levamos meses para limpar."</p>
+          <p class="text-sm text-blue-400">Solução: sênior como reviewer obrigatório. Juniors aprendem com IA, sêniors validam resultado.</p>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h4 class="font-semibold text-red-400">Padrão 3: Sem contexto de arquitetura (3/16 CTOs)</h4>
+          </div>
+          <p class="text-sm text-neutral-300 mb-2">"Cada dev usava IA com seus próprios prompts. O codebase ficou inconsistente: 4 padrões diferentes de autenticação, 3 frameworks de validação, nomenclatura caótica. Refactoring levou mais tempo do que construir do zero."</p>
+          <p class="text-sm text-blue-400">Solução: CLAUDE.md e .cursorrules compartilhados no repositório desde o início.</p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">✅ O que os 2 CTOs sem desastres fizeram diferente</h3>
+        <ul class="space-y-3 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>Processo antes de velocidade:</strong> implementaram PRs, CI/CD e code review antes de usar IA extensivamente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>Arquitetura documentada:</strong> CLAUDE.md com regras claras antes de dar IA para o time</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>Sêniors revisando:</strong> nunca delegaram revisão para júniores sem supervisão</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>Gradualidade:</strong> piloto com 1 time, aprendeu, ajustou processo, depois expandiu</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>Treinamento real:</strong> não assumiram que "é intuitivo". Treinaram o time em prompting e revisão de código de IA.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL DO CURSO COMPLETO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8 mb-6">
+        <h2 class="text-2xl font-bold mb-6">✅ Resumo do Módulo 4.8</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">IA gera, sênior revisa</strong><span class="text-neutral-400"> — o modelo que funciona. Reviewer deve entender o código, não apenas aprovar.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Ferramenta por papel</strong><span class="text-neutral-400"> — Cursor para diário, Claude Code para automação, enterprise para compliance.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">PRs obrigatórios</strong><span class="text-neutral-400"> — sem exceções, nem para hotfixes. Branch protection configurado no GitHub.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">CLAUDE.md compartilhado</strong><span class="text-neutral-400"> — regras e templates no repositório. Consistência de input gera consistência de output.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">SAST/DAST obrigatório</strong><span class="text-neutral-400"> — CodeQL em cada PR, OWASP ZAP em staging. Automático, não manual.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Métricas DORA</strong><span class="text-neutral-400"> — lead time, change failure rate, time to restore. Não linhas de código.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">16/18 desastres preveníveis</strong><span class="text-neutral-400"> — velocidade sem processo, juniores sem supervisão, sem arquitetura definida.</span></div></div>
+        </div>
+      </div>
+
+      <!-- CONCLUSÃO DO CURSO COMPLETO -->
+      <div class="bg-gradient-to-br from-primary/20 via-dark-800 to-dark-800 rounded-xl border border-primary/40 p-8">
+        <div class="text-center mb-8">
+          <div class="text-5xl mb-4">🏆</div>
+          <h2 class="text-3xl font-bold mb-3">Parabéns! Você concluiu o curso completo.</h2>
+          <p class="text-lg text-neutral-400 max-w-2xl mx-auto">Você percorreu as 4 trilhas do Vibe Coding — de fundamentos a agentic engineering. Agora você tem o conhecimento para usar IA no desenvolvimento de software de forma profissional, segura e escalável.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-dark-800/50 rounded-xl p-5 border border-dark-600">
+            <h3 class="font-semibold text-emerald-400 mb-3">✅ O que você aprendeu</h3>
+            <ul class="space-y-1 text-sm text-neutral-300">
+              <li>• Fundamentos e mentalidade do vibe coding</li>
+              <li>• Stack técnico avançado e configuração profissional</li>
+              <li>• Prompt engineering para resultados precisos</li>
+              <li>• Arquitetura que agentes respeitam</li>
+              <li>• Segurança em código gerado por IA</li>
+              <li>• Testes automatizados como guardrail</li>
+              <li>• CI/CD e deploy com feature flags</li>
+              <li>• Agentes autônomos e multi-agent workflows</li>
+              <li>• Governança de vibe coding em times</li>
+            </ul>
+          </div>
+          <div class="bg-dark-800/50 rounded-xl p-5 border border-dark-600">
+            <h3 class="font-semibold text-blue-400 mb-3">🚀 Próximos passos</h3>
+            <ul class="space-y-1 text-sm text-neutral-300">
+              <li>• Configure seu CLAUDE.md em um projeto real</li>
+              <li>• Implemente pipeline CI/CD com SAST</li>
+              <li>• Experimente uma sessão autônoma do Claude Code</li>
+              <li>• Configure MCP para o seu banco de dados</li>
+              <li>• Apresente o modelo de governança ao seu time</li>
+              <li>• Meça produtividade com métricas DORA</li>
+              <li>• Participe da comunidade INEMA.CLUB</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-center mb-8">
+          <p class="text-neutral-400 text-sm mb-4">O campo de vibe coding evolui rapidamente. Acompanhe as atualizações em:</p>
+          <a href="https://inema.club" target="_blank" class="inline-flex items-center space-x-2 px-6 py-3 bg-sky-500/20 border border-sky-500/40 rounded-lg text-sky-400 font-semibold hover:bg-sky-500/30 transition-colors">
+            <span>🌐</span>
+            <span>INEMA.CLUB</span>
+          </a>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-start gap-4">
+          <a href="modulo-4-7.html" class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo 4.7
+          </a>
+          <a href="index.html" class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Trilha 4: Início
+          </a>
+          <a href="../../index.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">
+            ← Voltar ao Início do Curso
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 4.8 · Último módulo do curso · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+  </script>
+</body>
+</html>

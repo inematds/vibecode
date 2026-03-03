@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3.7 — Criando Soluções de Fluxo e Automação | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Vibe Coding</span></a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span></a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-amber-400">Início</a><span>/</span>
+      <a href="index.html" class="hover:text-amber-400">Executivos</a><span>/</span>
+      <span class="text-amber-400">Módulo 3.7</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.7</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔄 Criando Soluções de Fluxo e Automação</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Módulo prático com casos reais de negócio. Você vai mapear, criar e publicar um fluxo de automação — da aprovação de despesas ao onboarding de colaborador.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">7</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Prático</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Negócio</div><div class="text-xs text-neutral-400">Foco</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🔄 O que é um fluxo</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Um fluxo (ou workflow) é uma sequência de ações disparadas por um evento. Quando <strong class="text-amber-400">X acontece</strong>, o sistema faz <strong class="text-amber-400">Y automaticamente</strong>. Você provavelmente já participa de vários fluxos manuais todos os dias sem perceber.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Exemplos de fluxos que existem hoje de forma manual</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold mt-0.5 flex-shrink-0">Aprovação de despesa:</span>
+            <span class="text-neutral-300 text-sm">Funcionário preenche formulário → envia para gestor → gestor aprova → financeiro registra → funcionário é avisado</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold mt-0.5 flex-shrink-0">Onboarding:</span>
+            <span class="text-neutral-300 text-sm">RH confirma contratação → TI cria acesso → gestor agenda 1:1 → treinamentos são enviados → equipamentos requisitados</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold mt-0.5 flex-shrink-0">Suporte ao cliente:</span>
+            <span class="text-neutral-300 text-sm">Cliente abre chamado → é categorizado → atribuído ao agente certo → SLA monitorado → escalado se necessário</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 A oportunidade</h3>
+        <p class="text-neutral-300">Cada um desses fluxos manuais consome tempo humano em tarefas que poderiam ser automáticas. Cada e-mail de notificação enviado manualmente, cada planilha de controle atualizada à mão, cada aprovação que espera alguém lembrar de agir — são candidatos a automação.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🗺️ Mapeando o processo atual</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Antes de pedir para a IA criar a automação, você precisa descrever o processo atual com clareza. Esse é o passo mais importante — e mais subestimado. A IA é boa em executar; ela não sabe o que você quer se você não descrever com precisão.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-neutral-300 mb-4">O template de mapeamento de fluxo (use este antes do prompt)</h3>
+        <div class="space-y-4">
+          <div>
+            <h4 class="font-medium text-amber-400 mb-1">1. Gatilho — o que inicia o processo?</h4>
+            <p class="text-neutral-400 text-sm">Ex: "Quando um funcionário preenche o formulário de reembolso no Google Forms"</p>
+          </div>
+          <div>
+            <h4 class="font-medium text-amber-400 mb-1">2. Passos — o que acontece na sequência?</h4>
+            <p class="text-neutral-400 text-sm">Liste cada passo em ordem: quem faz o quê, o que decide, quem é notificado</p>
+          </div>
+          <div>
+            <h4 class="font-medium text-amber-400 mb-1">3. Decisões — quais são as condições?</h4>
+            <p class="text-neutral-400 text-sm">Ex: "Se o valor for acima de R$500, requer aprovação do diretor"</p>
+          </div>
+          <div>
+            <h4 class="font-medium text-amber-400 mb-1">4. Resultado — o que é o sucesso?</h4>
+            <p class="text-neutral-400 text-sm">Ex: "Funcionário recebe confirmação e o valor é registrado na planilha de controle"</p>
+          </div>
+          <div>
+            <h4 class="font-medium text-amber-400 mb-1">5. Sistemas envolvidos — quais ferramentas participam?</h4>
+            <p class="text-neutral-400 text-sm">Ex: Google Forms, Gmail, Slack, Google Sheets, sistema financeiro</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🔔 Automação de notificações</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O primeiro tipo de automação que qualquer executivo deve criar é a de notificações — porque é a mais simples, tem ROI imediato e resolve um dos maiores problemas de processo: informação que não chega para quem precisa.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-5">
+          <div class="text-2xl mb-3">📧</div>
+          <h4 class="font-bold text-amber-400 mb-2">Por Email</h4>
+          <p class="text-neutral-300 text-sm mb-3">Notification automática quando uma condição é atendida. Ideal para aprovações, alertas de prazo e confirmações.</p>
+          <p class="text-neutral-400 text-xs">Ferramenta: Make, Zapier, Google Apps Script</p>
+        </div>
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-5">
+          <div class="text-2xl mb-3">💬</div>
+          <h4 class="font-bold text-amber-400 mb-2">Por Slack</h4>
+          <p class="text-neutral-300 text-sm mb-3">Mensagem automática em canal específico quando evento acontece. Ideal para alertas de equipe e status de processo.</p>
+          <p class="text-neutral-400 text-xs">Ferramenta: Zapier, Make, Slack Workflows</p>
+        </div>
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-5">
+          <div class="text-2xl mb-3">📱</div>
+          <h4 class="font-bold text-amber-400 mb-2">Por WhatsApp</h4>
+          <p class="text-neutral-300 text-sm mb-3">Mensagem no WhatsApp Business API quando evento ocorre. Ideal para notificar clientes ou equipes de campo.</p>
+          <p class="text-neutral-400 text-xs">Ferramenta: Make + Twilio, ou Typebot</p>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-3">Exemplo de prompt para criar notificação</h3>
+        <div class="bg-dark-900/50 rounded-lg p-4 font-mono text-sm text-neutral-300">
+          <p>Crie um fluxo no Make que:</p>
+          <p>1. Monitora o Google Forms de solicitação de reembolso</p>
+          <p>2. Quando uma nova resposta chega, envia um email para gestor@empresa.com com:</p>
+          <p>   - Nome do funcionário</p>
+          <p>   - Valor solicitado</p>
+          <p>   - Descrição da despesa</p>
+          <p>   - Link para o formulário de aprovação</p>
+          <p>3. Se não houver resposta em 48h, envia lembrete automático</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">✅ Fluxo de aprovação</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O fluxo de aprovação é o caso de uso mais comum e mais transformador para executivos. Substitui cadeias de e-mail interminável por um processo estruturado, auditável e com prazo definido.</p>
+      <div class="space-y-3 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-xs">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-lg p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Gatilho: Formulário enviado</h4>
+            <p class="text-neutral-300 text-sm">Funcionário preenche formulário Google Forms ou Typeform com todas as informações da solicitação</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-xs">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-lg p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Notificação: Aprovador é avisado</h4>
+            <p class="text-neutral-300 text-sm">Email ou Slack com resumo da solicitação + botões de Aprovar / Rejeitar diretamente na mensagem</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-xs">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-lg p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Decisão: Aprovação ou rejeição</h4>
+            <p class="text-neutral-300 text-sm">Aprovador clica no link ou responde à mensagem. O fluxo registra a decisão, o responsável e o horário automaticamente</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-xs">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-lg p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Registro: Planilha atualizada</h4>
+            <p class="text-neutral-300 text-sm">Linha adicionada automaticamente na planilha de controle com todos os dados: solicitante, valor, data, decisão, aprovador</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-xs">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-lg p-4 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Confirmação: Solicitante é avisado</h4>
+            <p class="text-neutral-300 text-sm">Email automático para o funcionário informando a decisão, com justificativa se rejeitado e próximos passos se aprovado</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🔌 Integrações com sistemas existentes</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O poder real da automação está em conectar sistemas que hoje não se falam. Ferramentas como Make e Zapier funcionam como "cola digital" — conectam qualquer aplicativo com qualquer outro sem código.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-neutral-300 mb-4">Integrações mais comuns em empresas</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span><strong>CRM → Slack:</strong> Deal fechado → alerta no canal de vendas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span><strong>Forms → Sheets → Email:</strong> Solicitação → registro → notificação</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span><strong>Calendário → WhatsApp:</strong> Reunião amanhã → lembrete automático</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span><strong>ERP → Sheets:</strong> Nota fiscal → planilha de controle atualizada</span></li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-neutral-300 mb-4">Ferramentas de automação sem código</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span><strong>Make (ex-Integromat):</strong> Visual, 1000+ integrações, plano free disponível</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span><strong>Zapier:</strong> Mais simples, 6000+ apps, melhor para iniciantes</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span><strong>n8n:</strong> Open source, auto-hospedado, mais controle</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span><strong>Google Apps Script:</strong> Gratuito, integra Gmail/Sheets/Calendar</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Como a IA ajuda nas integrações</h3>
+        <p class="text-neutral-300">Descreva o fluxo para o Claude.ai ou ChatGPT e peça: "Crie um fluxo no Make para fazer isso". A IA gera o JSON de configuração do fluxo que você importa diretamente na plataforma — sem configurar cada passo manualmente.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">📡 Monitoramento do fluxo</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">Uma automação que ninguém monitora eventualmente quebra silenciosamente — e você só descobre quando alguém reclama que não recebeu a notificação ou a aprovação não foi processada. Monitoramento básico é obrigatório.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
+          <h4 class="font-bold text-amber-400 mb-4">O que monitorar</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Quantas execuções ocorreram no período</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Quantas falharam (e por qual motivo)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Tempo médio de execução (útil para fluxos de aprovação)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Alertas quando o fluxo para de funcionar</span></li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-neutral-300 mb-4">Como monitorar sem esforço</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Make e Zapier têm dashboards nativos de histórico de execução</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Configure alerta por email se o fluxo falhar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Crie uma linha de log em Google Sheets a cada execução</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">•</span><span>Revisão semanal de 10 minutos do histórico de execuções</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">🏢 Caso real — onboarding de colaborador automatizado</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">O onboarding de um novo colaborador normalmente envolve 15-20 ações manuais distribuídas entre RH, TI, financeiro e o gestor direto. Com automação, 80% dessas ações acontecem sem intervenção humana.</p>
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Fluxo de onboarding automatizado — passo a passo</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold text-sm mt-0.5 w-20 flex-shrink-0">Gatilho</span>
+            <span class="text-neutral-300 text-sm">RH preenche formulário "Novo Colaborador" com nome, cargo, gestor, data de início e e-mail</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold text-sm mt-0.5 w-20 flex-shrink-0">Auto. 1</span>
+            <span class="text-neutral-300 text-sm">E-mail de boas-vindas enviado ao colaborador com manual do primeiro dia, links de acesso e contatos importantes</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold text-sm mt-0.5 w-20 flex-shrink-0">Auto. 2</span>
+            <span class="text-neutral-300 text-sm">TI recebe notificação para criar email, acesso a sistemas e provisionar equipamentos</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold text-sm mt-0.5 w-20 flex-shrink-0">Auto. 3</span>
+            <span class="text-neutral-300 text-sm">Gestor recebe notificação para agendar 1:1 de boas-vindas e agenda do primeiro dia no Google Calendário</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold text-sm mt-0.5 w-20 flex-shrink-0">Auto. 4</span>
+            <span class="text-neutral-300 text-sm">Treinamentos obrigatórios são enviados por email com links e prazos de conclusão</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold text-sm mt-0.5 w-20 flex-shrink-0">Auto. 5</span>
+            <span class="text-neutral-300 text-sm">Planilha de onboarding atualizada automaticamente com status de cada etapa</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 font-bold text-sm mt-0.5 w-20 flex-shrink-0">Dia 30</span>
+            <span class="text-neutral-300 text-sm">Pesquisa de experiência de onboarding enviada automaticamente ao colaborador e ao gestor</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">Resultado documentado em empresas que implementaram</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• Redução de 70-80% no tempo de RH gasto por onboarding</li>
+          <li>• Zero etapas esquecidas — o fluxo não pula nenhuma etapa</li>
+          <li>• Colaborador inicia com todos os acessos configurados desde o dia 1</li>
+          <li>• Histórico auditável de quem fez o quê e quando</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 3.7</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Fluxo = gatilho + ações automáticas</strong><span class="text-neutral-400"> — qualquer processo manual repetitivo é candidato a automação</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Mapear antes de automatizar</strong><span class="text-neutral-400"> — 5 perguntas: gatilho, passos, decisões, resultado e sistemas</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Email, Slack e WhatsApp</strong><span class="text-neutral-400"> — notificações automáticas por qualquer canal com Make ou Zapier</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Fluxo de aprovação completo</strong><span class="text-neutral-400"> — formulário → notificação → decisão → registro → confirmação, sem e-mails manuais</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Onboarding automatizado</strong><span class="text-neutral-400"> — 80% das tarefas manuais eliminadas, zero etapas esquecidas</span></div></div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">3.8 — 🤖 Criando um Assistente Personalizado: do ChatGPT genérico ao assistente treinado no contexto da sua empresa</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-3-6.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 3.6</a>
+          <a href="modulo-3-8.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Próximo Módulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 3.7 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+  </script>
+</body>
+</html>

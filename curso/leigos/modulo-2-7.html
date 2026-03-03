@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2.7 — O Que Pode Dar Errado | ⚡ Vibe Coding</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Para Leigos</a>
+      <span>/</span>
+      <span class="text-purple-400">Módulo 2.7</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.7</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">⚠️ O Que Pode Dar Errado (e Como Evitar)</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Casos reais de vazamento de dados, o que são senhas e chaves secretas, LGPD em 5 minutos, backup, plano de contingência e o checklist final antes de lançar.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">25</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Essencial</div>
+          <div class="text-xs text-neutral-400">Importância</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-purple-400">Prático</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🔓 Apps que expuseram dados — O caso Lovable</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Em 2025, pesquisadores de segurança analisaram apps construídos com Lovable e encontraram um padrão preocupante: muitos tinham o banco de dados configurado como "público" — qualquer pessoa na internet conseguia ver os dados de todos os usuários. Isso não é falha do Lovable, é falha de configuração do desenvolvedor.
+      </p>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-4">🚨 O que aconteceu (em linguagem acessível)</h3>
+        <div class="space-y-3 text-neutral-300 text-sm">
+          <p>O Lovable usa o Supabase como banco de dados. O Supabase tem um sistema de segurança chamado RLS (Row Level Security) — pense nele como um segurança de boate que verifica quem pode ver quais dados.</p>
+          <p>Muitos apps construídos no Lovable saíram com o RLS desativado — sem o segurança. Resultado: qualquer pessoa com um pouco de conhecimento técnico poderia acessar os dados de todos os 18.000+ usuários de alguns apps.</p>
+          <p>Os dados expostos incluíam nomes, emails, histórico de uso e em alguns casos informações mais sensíveis.</p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">✅ Como evitar — O que pedir para a IA fazer</h3>
+        <div class="space-y-2 text-sm">
+          <div class="bg-dark-700/50 rounded p-3 text-neutral-300 font-mono">"Certifique-se que o RLS (Row Level Security) está ativado no Supabase. Usuários devem ver apenas seus próprios dados."</div>
+          <div class="bg-dark-700/50 rounded p-3 text-neutral-300 font-mono">"Revise as políticas de segurança do banco. Nenhum dado deve ser acessível publicamente sem autenticação."</div>
+          <div class="bg-dark-700/50 rounded p-3 text-neutral-300 font-mono">"Adicione validação de autenticação em todas as rotas que acessam dados de usuário."</div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 A lição principal</h3>
+        <p class="text-neutral-300">Ferramentas de vibe coding geram código funcional, mas não necessariamente seguro por padrão. Segurança requer intenção explícita — você precisa pedir especificamente que os dados estejam protegidos.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🔑 O problema das senhas e chaves secretas</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Imagine que você tem a chave mestra de um cofre bancário. Se você fosse mostrar o cofre para alguém, jamais deixaria a chave visível, certo? Em desenvolvimento de software, existem "chaves" digitais chamadas API Keys e Secrets — e elas devem ser tratadas com o mesmo cuidado.
+      </p>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-4">⛔ NUNCA faça isso</h3>
+        <ul class="space-y-3 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2">
+            <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+            <div><strong>Compartilhar o código publicamente com chaves no arquivo</strong> — se seu código está no GitHub público com a chave do Stripe no meio, qualquer pessoa pode cobrar cartões usando sua conta</div>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+            <div><strong>Mandar screenshot do código com chaves visíveis</strong> — num grupo de WhatsApp ou Telegram, qualquer um pode usar</div>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+            <div><strong>Usar a mesma chave para teste e produção</strong> — se a chave de teste vazar, não é um desastre; se a de produção vazar, é</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">✅ Como gerenciar chaves com segurança</h3>
+        <div class="space-y-3 text-neutral-300 text-sm">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">1.</span>
+            <div>Use <strong class="text-white">variáveis de ambiente</strong> — o Lovable e Vercel têm uma seção específica para isso. Você digita a chave uma vez em um campo seguro, e ela nunca fica no código.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">2.</span>
+            <div>Nunca cole chaves diretamente no chat da IA. Diga: "A chave do Stripe deve ser lida da variável de ambiente STRIPE_SECRET_KEY" — e configure a variável separadamente no painel.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">3.</span>
+            <div>Se por acidente uma chave vazar, <strong class="text-white">invalide imediatamente</strong> no painel da ferramenta (Stripe, OpenAI, etc.) e gere uma nova.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">📋 Dados de usuários — LGPD em 5 minutos</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A LGPD (Lei Geral de Proteção de Dados) entrou em vigor no Brasil em 2020 e se aplica a qualquer aplicativo que coleta dados de brasileiros — incluindo apps construídos com vibe coding. Ignorá-la pode resultar em multas de até 2% do faturamento, limitadas a R$50 milhões por infração.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">📝 O mínimo que você PRECISA ter</h3>
+        <div class="space-y-3 text-neutral-300 text-sm">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">1.</span>
+            <div><strong class="text-white">Política de Privacidade:</strong> Um documento explicando quais dados você coleta, para quê, por quanto tempo e quem tem acesso. Pode ser gerado pela IA e revisado por você.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">2.</span>
+            <div><strong class="text-white">Consentimento explícito:</strong> O usuário deve concordar com a política antes de usar. Um checkbox "Li e concordo com a Política de Privacidade" já resolve.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">3.</span>
+            <div><strong class="text-white">Direito de exclusão:</strong> O usuário pode pedir para deletar todos os dados dele. Você precisa conseguir fazer isso — e idealmente ter um botão de "Excluir minha conta".</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold w-6 flex-shrink-0">4.</span>
+            <div><strong class="text-white">Notificação de incidente:</strong> Se dados vazarem, você tem 72 horas para notificar a ANPD (autoridade regulatória) e os usuários afetados.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Como pedir para a IA gerar a Política de Privacidade</h3>
+        <div class="bg-dark-700/50 rounded p-3 text-sm text-neutral-300 font-mono mt-2">"Gere uma Política de Privacidade em português para um app chamado [NOME] que coleta [LISTA DE DADOS] para [FINALIDADE]. O usuário pode pedir exclusão dos dados enviando email para [EMAIL]. Deve estar em conformidade com a LGPD."</div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">📉 Quando o app cai — Plano de contingência</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Todo app cai eventualmente. Servidores têm manutenção, bancos de dados ficam sobrecarregados, deploys dão errado. A diferença entre um fundador amador e um profissional não é não ter problemas — é saber como reagir quando eles acontecem.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-3">Como saber se o app caiu</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• Configure alertas no Vercel/Lovable/Render</li>
+            <li>• Use UptimeRobot.com (gratuito) para monitorar</li>
+            <li>• Ele envia email/WhatsApp se o site cair</li>
+            <li>• Configure página de status simples</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-3">Comunicação com usuários</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• Avise proativamente, não espere reclamação</li>
+            <li>• Email simples: "Estamos cientes do problema e trabalhando"</li>
+            <li>• Informe previsão de resolução (mesmo que estimativa)</li>
+            <li>• Quando resolver, envie confirmação e peça desculpas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="space-y-3 mb-6">
+        <h3 class="text-lg font-semibold text-white">Plano de ação quando o app cai</h3>
+        <div class="flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 text-red-400 font-bold text-sm">1</div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <p class="font-semibold text-sm text-white mb-1">Primeiros 5 minutos: diagnóstico</p>
+            <p class="text-sm text-neutral-400">Acesse o dashboard da ferramenta (Lovable/Vercel) e veja se há mensagem de erro. Verifique o Supabase/banco de dados. Leia os logs de erro.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 text-red-400 font-bold text-sm">2</div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <p class="font-semibold text-sm text-white mb-1">Primeiros 15 minutos: comunicar</p>
+            <p class="text-sm text-neutral-400">Antes de tentar resolver, avise os usuários. "Estamos cientes de uma instabilidade e trabalhando para resolver. Previsão: X horas."</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 text-red-400 font-bold text-sm">3</div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-4 border border-dark-600">
+            <p class="font-semibold text-sm text-white mb-1">Se não conseguir resolver: reverter</p>
+            <p class="text-sm text-neutral-400">Volte para a última versão estável (snapshot). Um app funcionando em versão anterior é melhor que um app quebrado em versão nova.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">💾 Backup — Como garantir que seus dados não desaparecem</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Backup é como um seguro de carro — você paga e torce para nunca precisar. Mas quando precisa, é o backup que salva o negócio. Dados de usuários perdidos não se recuperam, e isso pode destruir a confiança que você levou meses para construir.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🛡️ Estratégia de backup em 3 camadas</h3>
+        <div class="space-y-4 text-neutral-300 text-sm">
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <p class="font-semibold text-white mb-1">Camada 1: Backup automático do provedor</p>
+            <p>Supabase faz backup automático diário dos dados. Vercel mantém histórico de deploys. Lovable mantém histórico de versões. Esses backups existem, mas com retenção limitada — geralmente 7-30 dias.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <p class="font-semibold text-white mb-1">Camada 2: Export manual semanal</p>
+            <p>Uma vez por semana, exporte os dados do Supabase (botão de export no dashboard). Salve num Google Drive seu. Isso garante que você tem uma cópia que não depende do provedor.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <p class="font-semibold text-white mb-1">Camada 3: Backup automático via Zapier</p>
+            <p>Configure uma automação no Zapier que exporta dados críticos para uma planilha do Google Sheets toda madrugada. Assim você tem backup diário automático sem depender de lembrar manualmente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ O teste de backup</h3>
+        <p class="text-neutral-300">Backup não testado não é backup. Uma vez por mês, teste restaurar um backup — mesmo que seja só abrir a planilha e verificar que os dados estão lá e corretos. Backup que existe mas não funciona é pior do que não ter backup: dá falsa segurança.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">✅ Checklist antes de lançar — 10 perguntas</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Antes de divulgar o link do seu produto para qualquer pessoa que não seja amigo de confiança, passe por este checklist. São as 10 perguntas que separam um lançamento profissional de um amador.
+      </p>
+
+      <div class="space-y-3 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 flex items-start space-x-4">
+          <span class="text-purple-400 text-lg flex-shrink-0">1.</span>
+          <div>
+            <p class="font-semibold text-white">O fluxo principal funciona do começo ao fim?</p>
+            <p class="text-sm text-neutral-400">Execute a ação mais importante do zero, como um usuário que nunca viu o produto. Se travar, não lança.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 flex items-start space-x-4">
+          <span class="text-purple-400 text-lg flex-shrink-0">2.</span>
+          <div>
+            <p class="font-semibold text-white">O app funciona bem no celular?</p>
+            <p class="text-sm text-neutral-400">Teste no iPhone e Android. Mais de 60% dos usuários vão acessar pelo celular.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 flex items-start space-x-4">
+          <span class="text-purple-400 text-lg flex-shrink-0">3.</span>
+          <div>
+            <p class="font-semibold text-white">O RLS (segurança do banco) está ativo?</p>
+            <p class="text-sm text-neutral-400">Cada usuário deve ver apenas seus próprios dados. Verifique no Supabase dashboard.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 flex items-start space-x-4">
+          <span class="text-purple-400 text-lg flex-shrink-0">4.</span>
+          <div>
+            <p class="font-semibold text-white">As chaves secretas estão em variáveis de ambiente?</p>
+            <p class="text-sm text-neutral-400">Nenhuma chave de API deve estar visível no código que pode ser compartilhado.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 flex items-start space-x-4">
+          <span class="text-purple-400 text-lg flex-shrink-0">5.</span>
+          <div>
+            <p class="font-semibold text-white">Existe uma Política de Privacidade?</p>
+            <p class="text-sm text-neutral-400">Deve estar acessível no rodapé ou no cadastro. LGPD obriga isso.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 flex items-start space-x-4">
+          <span class="text-purple-400 text-lg flex-shrink-0">6.</span>
+          <div>
+            <p class="font-semibold text-white">O pagamento foi testado no modo sandbox?</p>
+            <p class="text-sm text-neutral-400">Teste uma compra completa com cartão de teste antes de ativar modo produção.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 flex items-start space-x-4">
+          <span class="text-purple-400 text-lg flex-shrink-0">7.</span>
+          <div>
+            <p class="font-semibold text-white">Existe monitoramento de disponibilidade?</p>
+            <p class="text-sm text-neutral-400">UptimeRobot ou similar configurado para notificar quando o app cair.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 flex items-start space-x-4">
+          <span class="text-purple-400 text-lg flex-shrink-0">8.</span>
+          <div>
+            <p class="font-semibold text-white">O backup automático está configurado?</p>
+            <p class="text-sm text-neutral-400">Verifique que o Supabase está fazendo backup e salve um export manual antes do lançamento.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 flex items-start space-x-4">
+          <span class="text-purple-400 text-lg flex-shrink-0">9.</span>
+          <div>
+            <p class="font-semibold text-white">5 usuários de fora testaram e aprovaram?</p>
+            <p class="text-sm text-neutral-400">Pessoas do público-alvo real, não amigos que querem te agradar. Pelo menos 5.</p>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 flex items-start space-x-4">
+          <span class="text-purple-400 text-lg flex-shrink-0">10.</span>
+          <div>
+            <p class="font-semibold text-white">Você tem email de suporte e sabe como responder?</p>
+            <p class="text-sm text-neutral-400">Os primeiros usuários vão ter dúvidas. Você precisa de um canal de suporte e tempo para responder em menos de 24h.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">7</span>
+        <h2 class="text-2xl font-bold">🔒 Seguro técnico — Quando contratar revisão profissional</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Assim como um consultor jurídico revisa um contrato importante antes de assinar, existe a figura do desenvolvedor que faz "revisão de segurança" de um produto antes de ele ir ao ar com usuários reais. Isso se chama auditoria de código ou pentest (teste de penetração).
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">📋 Quando vale a pena contratar auditoria</h3>
+        <div class="space-y-3 text-neutral-300 text-sm">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold flex-shrink-0">✓</span>
+            <div>Você vai coletar dados sensíveis de saúde, financeiros ou de menores</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold flex-shrink-0">✓</span>
+            <div>Você atingiu 500+ usuários e receita relevante — o custo de um incidente supera o da auditoria</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold flex-shrink-0">✓</span>
+            <div>Um cliente B2B exige relatório de segurança como pré-requisito para assinar</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 font-bold flex-shrink-0">✓</span>
+            <div>Você vai receber investimento e os investidores fazem due diligence técnica</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-3">Onde encontrar desenvolvedores para revisar</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• 99Freelas, Workana — plataformas BR</li>
+            <li>• Upwork, Toptal — internacional</li>
+            <li>• LinkedIn — desenvolvedores de segurança</li>
+            <li>• Comunidades dev no Discord/Slack</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-purple-400 mb-3">Custo estimado de auditoria</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li>• Revisão básica de código: R$500-2.000</li>
+            <li>• Pentest simples: R$2.000-8.000</li>
+            <li>• Auditoria completa com relatório: R$8.000+</li>
+            <li>• Investimento que protege receita e reputação</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 O mínimo gratuito antes da auditoria</h3>
+        <p class="text-neutral-300">Antes de pagar por auditoria, use ferramentas gratuitas: OWASP ZAP para testar vulnerabilidades básicas, Lighthouse do Chrome para acessibilidade e performance, e SSL Labs para verificar a configuração do HTTPS do seu domínio.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 2.7
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Caso Lovable</strong><span class="text-neutral-400"> — RLS desativado expôs dados de 18K+ usuários; ative explicitamente no Supabase</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Chaves secretas</strong><span class="text-neutral-400"> — nunca no código visível, sempre em variáveis de ambiente; invalide imediatamente se vazar</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">LGPD mínimo</strong><span class="text-neutral-400"> — política de privacidade, consentimento, botão de exclusão de conta, notificação de incidente</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Plano de contingência</strong><span class="text-neutral-400"> — UptimeRobot para monitorar, comunicar primeiro, resolver depois, reverter se necessário</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Backup em 3 camadas</strong><span class="text-neutral-400"> — provedor automático + export manual semanal + automação via Zapier</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Checklist de 10 perguntas</strong><span class="text-neutral-400"> — passe por todas antes de qualquer lançamento público</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Auditoria profissional</strong><span class="text-neutral-400"> — quando dados sensíveis, 500+ usuários, cliente B2B ou investimento</span></div>
+          </div>
+        </div>
+
+        <div class="bg-purple-900/30 rounded-xl border border-purple-500/30 p-6 mb-8">
+          <h3 class="text-lg font-semibold text-purple-400 mb-3">🎉 Parabéns — Você concluiu a Trilha 2!</h3>
+          <p class="text-neutral-300">Você passou de não saber o que era vibe coding a ter o conhecimento completo para construir, publicar, monetizar e proteger um produto digital real. Agora é hora de agir.</p>
+          <p class="text-neutral-300 mt-3">A próxima trilha — Para Executivos — aprofunda decisões estratégicas, gestão de times com IA e como usar vibe coding para acelerar decisões de negócio.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Trilha 2: Início
+          </a>
+          <a href="../executivos/index.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">
+            Próxima Trilha: Executivos →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>⚡ Vibe Coding — Módulo 2.7 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>
