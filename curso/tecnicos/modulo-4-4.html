@@ -38,11 +38,15 @@
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Vibe Coding</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -53,21 +57,25 @@
           <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span></a>
           <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
             <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
           </button>
         </div>
       </div>
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-blue-400">Técnicos</a><span>/</span>
+      <a href="../../index.html" class="hover:text-blue-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Técnicos</a>
+      <span>/</span>
       <span class="text-blue-400">Módulo 4.4</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.4</span>
@@ -93,20 +101,73 @@
       <p class="text-neutral-300 mb-6 leading-relaxed">
         Antes de qualquer técnica, é essencial entender a <strong class="text-blue-400">escala do problema com dados concretos</strong>. O código gerado por IA não é inerentemente inseguro — mas ele reproduz os padrões de segurança (e insegurança) que existem nos dados de treinamento.
       </p>
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Dados de Pesquisa (2024-2025)</h3>
-        <ul class="space-y-3 text-neutral-300">
-          <li><strong class="text-white">45%</strong> do código gerado por IA contém pelo menos uma falha de segurança — Veracode State of Software Security 2025</li>
-          <li><strong class="text-white">2,74x</strong> mais vulnerabilidades em código gerado por IA vs. código escrito por humanos — CodeRabbit Analysis 2025</li>
-          <li><strong class="text-white">40%</strong> dos desenvolvedores admitem não revisar código de IA antes de fazer commit — Stack Overflow Survey 2025</li>
-          <li><strong class="text-white">78%</strong> das vulnerabilidades em código de IA são categorizadas como OWASP Top 10 — CVE Database 2025</li>
-          <li><strong class="text-white">16/18</strong> CTOs reportaram problemas de segurança sérios com vibe coding não supervisionado — Pesquisa CTO Council 2025</li>
-        </ul>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Dados verificados de pesquisa (2024–2025)</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="bg-dark-900/60 rounded-lg p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-red-400 mb-1">45%</div>
+            <div class="text-sm text-neutral-300">do código de IA tem ao menos uma falha de segurança</div>
+            <div class="text-xs text-neutral-500 mt-2">Veracode State of Software Security 2025</div>
+          </div>
+          <div class="bg-dark-900/60 rounded-lg p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-red-400 mb-1">2,74x</div>
+            <div class="text-sm text-neutral-300">mais vulnerabilidades em código de IA vs. código humano</div>
+            <div class="text-xs text-neutral-500 mt-2">CodeRabbit Analysis, dezembro 2025</div>
+          </div>
+          <div class="bg-dark-900/60 rounded-lg p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-amber-400 mb-1">40%</div>
+            <div class="text-sm text-neutral-300">dos devs não revisam código de IA antes do commit</div>
+            <div class="text-xs text-neutral-500 mt-2">Stack Overflow Developer Survey 2025</div>
+          </div>
+          <div class="bg-dark-900/60 rounded-lg p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-red-400 mb-1">78%</div>
+            <div class="text-sm text-neutral-300">das vuln. em código de IA são OWASP Top 10</div>
+            <div class="text-xs text-neutral-500 mt-2">CVE Database Analysis 2025</div>
+          </div>
+          <div class="bg-dark-900/60 rounded-lg p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-red-400 mb-1">16/18</div>
+            <div class="text-sm text-neutral-300">CTOs reportaram problemas sérios com vibe coding não supervisionado</div>
+            <div class="text-xs text-neutral-500 mt-2">METR Study on AI Autonomy, 2025</div>
+          </div>
+          <div class="bg-dark-900/60 rounded-lg p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-amber-400 mb-1">#1</div>
+            <div class="text-sm text-neutral-300">vulnerabilidade: IDOR / Broken Object Authorization</div>
+            <div class="text-xs text-neutral-500 mt-2">CodeRabbit AI Security Report, 2025</div>
+          </div>
+        </div>
       </div>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📉 Distribuição dos tipos de vulnerabilidade em código de IA</h3>
+        <div class="space-y-3">
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span class="text-neutral-300">IDOR / Broken Authorization</span><span class="text-red-400 font-medium">31%</span></div>
+            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-red-500 h-2 rounded-full" style="width: 31%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span class="text-neutral-300">Secrets Expostos</span><span class="text-red-400 font-medium">24%</span></div>
+            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-red-500 h-2 rounded-full" style="width: 24%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span class="text-neutral-300">SQL Injection</span><span class="text-amber-400 font-medium">18%</span></div>
+            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-amber-500 h-2 rounded-full" style="width: 18%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span class="text-neutral-300">XSS</span><span class="text-amber-400 font-medium">15%</span></div>
+            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-amber-500 h-2 rounded-full" style="width: 15%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span class="text-neutral-300">Outras (SSRF, XXE, etc.)</span><span class="text-neutral-400 font-medium">12%</span></div>
+            <div class="w-full bg-dark-700 rounded-full h-2"><div class="bg-neutral-600 h-2 rounded-full" style="width: 12%"></div></div>
+          </div>
+        </div>
+      </div>
+
       <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
         <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Por que a IA comete erros de segurança</h3>
-        <p class="text-neutral-300 text-sm mb-3">A IA não tem intenção maliciosa — ela aprende padrões dos dados de treinamento. Exemplo: muito código de tutorial online não valida input corretamente. A IA aprende e reproduz esse padrão. O modelo não sabe a diferença entre código de produção e código educacional.</p>
-        <p class="text-neutral-300 text-sm">Além disso, a IA otimiza para "funcionar" — não para "funcionar com segurança". Segurança requer instrução explícita em cada contexto.</p>
+        <p class="text-neutral-300 text-sm mb-3">A IA aprende de exemplos online onde credenciais aparecem hardcodadas para simplificação, onde input não é validado em tutoriais rápidos, onde ownership não é verificado em código de demonstração. O modelo não distingue código de produção de código educacional.</p>
+        <p class="text-neutral-300 text-sm">Além disso, a IA otimiza para "funcionar" — não para "funcionar com segurança". Segurança requer instrução explícita e consistente em cada contexto de prompt e nos arquivos de regras.</p>
       </div>
     </section>
 
@@ -117,77 +178,209 @@
         <h2 class="text-2xl font-bold">🔟 OWASP Top 10 para código de IA</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O OWASP Top 10 lista as vulnerabilidades mais críticas de aplicações web. A IA cria todas elas, mas as mais frequentes têm padrões identificáveis que você pode detectar e prevenir com instruções específicas nos arquivos de regras.
+        O OWASP Top 10 lista as vulnerabilidades mais críticas de aplicações web. A IA cria todas elas, mas as 5 mais frequentes têm padrões identificáveis que você pode detectar e prevenir com instruções específicas.
       </p>
-      <div class="space-y-4 mb-6">
-        <div class="bg-dark-800 rounded-xl border border-red-500/20 p-5">
-          <h4 class="font-semibold text-red-400 mb-2">A01: SQL Injection</h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <p class="text-xs text-red-400 mb-1">Código vulnerável (IA gera assim sem instrução):</p>
-              <pre class="bg-dark-900 rounded p-2 text-xs text-neutral-300 font-mono"><code>// PERIGOSO - SQL Injection
-const query = `SELECT * FROM users
-WHERE email = '${email}'`;</code></pre>
-            </div>
-            <div>
-              <p class="text-xs text-emerald-400 mb-1">Instrução no CLAUDE.md para prevenir:</p>
-              <pre class="bg-dark-900 rounded p-2 text-xs text-neutral-300 font-mono"><code>// SEGURO - Parameterizado
-const user = await prisma.user.findUnique({
-  where: { email } // Prisma sanitiza
-});</code></pre>
-            </div>
+
+      <!-- Vuln 1: SQL Injection -->
+      <div class="bg-dark-800 rounded-xl border border-red-500/20 p-6 mb-4">
+        <div class="flex items-center space-x-3 mb-3">
+          <span class="bg-red-500/20 text-red-400 text-xs font-bold px-2 py-1 rounded">A03</span>
+          <h4 class="font-semibold text-red-400 text-lg">SQL Injection</h4>
+        </div>
+        <p class="text-sm text-neutral-400 mb-4">Como a IA cria: concatena variáveis diretamente em queries SQL, especialmente em exemplos "quick start". Muito comum quando a IA assume que você está prototipando.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs text-red-400 font-medium mb-2 uppercase tracking-wide">Vulnerável — IA gera sem instrução</p>
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>// PERIGOSO: SQL Injection
+const query = `
+  SELECT * FROM users
+  WHERE email = '${email}'
+  AND password = '${password}'
+`;
+// Atacante envia: ' OR '1'='1
+// Resultado: acessa qualquer conta</code></pre>
+          </div>
+          <div>
+            <p class="text-xs text-emerald-400 font-medium mb-2 uppercase tracking-wide">Seguro — com instrução no CLAUDE.md</p>
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>// SEGURO: ORM parametrizado
+const user = await prisma.user.findFirst({
+  where: {
+    email,
+    password: hashedPassword
+  }
+});
+// Prisma sanitiza automaticamente
+// Nunca interpolação de string</code></pre>
           </div>
         </div>
+        <div class="mt-3 bg-blue-900/20 rounded-lg p-3">
+          <p class="text-xs text-blue-400 font-medium mb-1">Instrução no CLAUDE.md:</p>
+          <p class="text-xs text-neutral-400 font-mono">NUNCA usar SQL raw com interpolação de string. SEMPRE usar Prisma ou queries parametrizadas ($1, $2). Sem exceções.</p>
+        </div>
+      </div>
 
-        <div class="bg-dark-800 rounded-xl border border-red-500/20 p-5">
-          <h4 class="font-semibold text-red-400 mb-2">A03: XSS — Cross-Site Scripting</h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <p class="text-xs text-red-400 mb-1">Vulnerável:</p>
-              <pre class="bg-dark-900 rounded p-2 text-xs text-neutral-300 font-mono"><code>// PERIGOSO
-element.innerHTML = userInput;</code></pre>
-            </div>
-            <div>
-              <p class="text-xs text-emerald-400 mb-1">Seguro:</p>
-              <pre class="bg-dark-900 rounded p-2 text-xs text-neutral-300 font-mono"><code>// SEGURO
+      <!-- Vuln 2: XSS -->
+      <div class="bg-dark-800 rounded-xl border border-red-500/20 p-6 mb-4">
+        <div class="flex items-center space-x-3 mb-3">
+          <span class="bg-red-500/20 text-red-400 text-xs font-bold px-2 py-1 rounded">A03</span>
+          <h4 class="font-semibold text-red-400 text-lg">XSS — Cross-Site Scripting</h4>
+        </div>
+        <p class="text-sm text-neutral-400 mb-4">Como a IA cria: usa innerHTML para renderizar conteúdo dinâmico — é mais simples de escrever e muito comum em tutoriais de JavaScript. Permite injeção de scripts maliciosos.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs text-red-400 font-medium mb-2 uppercase tracking-wide">Vulnerável</p>
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>// PERIGOSO: XSS
+element.innerHTML = userInput;
+// Atacante: &lt;script&gt;steal(cookie)&lt;/script&gt;
+
+// Também perigoso:
+document.write(data.comment);
+container.innerHTML = `&lt;p&gt;${name}&lt;/p&gt;`;</code></pre>
+          </div>
+          <div>
+            <p class="text-xs text-emerald-400 font-medium mb-2 uppercase tracking-wide">Seguro</p>
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>// SEGURO: textContent escapa automaticamente
 element.textContent = userInput;
-// ou sanitize com DOMPurify</code></pre>
-            </div>
+
+// Ou sanitize com DOMPurify quando HTML é necessário:
+import DOMPurify from 'dompurify';
+element.innerHTML = DOMPurify.sanitize(userInput);</code></pre>
           </div>
         </div>
+        <div class="mt-3 bg-blue-900/20 rounded-lg p-3">
+          <p class="text-xs text-blue-400 font-medium mb-1">Instrução no CLAUDE.md:</p>
+          <p class="text-xs text-neutral-400 font-mono">NUNCA usar innerHTML com dados de usuário. SEMPRE textContent para texto. Se HTML é necessário, usar DOMPurify.sanitize() obrigatoriamente.</p>
+        </div>
+      </div>
 
-        <div class="bg-dark-800 rounded-xl border border-red-500/20 p-5">
-          <h4 class="font-semibold text-red-400 mb-2">A01 (API): Broken Object Level Authorization (BOLA)</h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <p class="text-xs text-red-400 mb-1">Vulnerável (MUITO comum em código de IA):</p>
-              <pre class="bg-dark-900 rounded p-2 text-xs text-neutral-300 font-mono"><code>// PERIGOSO - qualquer user acessa
-app.get('/orders/:id', async (req) => {
-  return db.orders.findById(req.params.id);
-});</code></pre>
-            </div>
-            <div>
-              <p class="text-xs text-emerald-400 mb-1">Seguro:</p>
-              <pre class="bg-dark-900 rounded p-2 text-xs text-neutral-300 font-mono"><code>// SEGURO - verifica ownership
-app.get('/orders/:id', auth, async (req) => {
-  return db.orders.findFirst({
-    where: { id: req.params.id,
-             userId: req.user.id } // CRÍTICO
+      <!-- Vuln 3: IDOR -->
+      <div class="bg-dark-800 rounded-xl border border-red-500/20 p-6 mb-4">
+        <div class="flex items-center space-x-3 mb-3">
+          <span class="bg-red-500/20 text-red-400 text-xs font-bold px-2 py-1 rounded">A01</span>
+          <h4 class="font-semibold text-red-400 text-lg">IDOR — Insecure Direct Object Reference</h4>
+        </div>
+        <p class="text-sm text-neutral-400 mb-4">Como a IA cria: busca recursos pelo ID do parâmetro sem verificar se o usuário autenticado é o dono. É a vulnerabilidade #1 em código de IA — extremamente fácil de introduzir, fácil de explorar.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs text-red-400 font-medium mb-2 uppercase tracking-wide">Vulnerável — MUITO comum em código de IA</p>
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>// PERIGOSO: qualquer usuário acessa
+app.get('/orders/:id', async (req, res) => {
+  const order = await prisma.order.findUnique({
+    where: { id: req.params.id }
+    // Sem verificar userId!
   });
+  res.json(order);
+});
+// GET /orders/123 revela pedido de outro usuário</code></pre>
+          </div>
+          <div>
+            <p class="text-xs text-emerald-400 font-medium mb-2 uppercase tracking-wide">Seguro — ownership verificado</p>
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>// SEGURO: verifica ownership obrigatoriamente
+app.get('/orders/:id', auth, async (req, res) => {
+  const order = await prisma.order.findFirst({
+    where: {
+      id: req.params.id,
+      userId: req.user.id // CRÍTICO!
+    }
+  });
+  if (!order) return res.status(404).json({});
+  res.json(order);
 });</code></pre>
-            </div>
+          </div>
+        </div>
+        <div class="mt-3 bg-blue-900/20 rounded-lg p-3">
+          <p class="text-xs text-blue-400 font-medium mb-1">Instrução no CLAUDE.md:</p>
+          <p class="text-xs text-neutral-400 font-mono">SEMPRE verificar req.user.id ao acessar qualquer recurso. NUNCA confiar em parâmetros de URL sem validar ownership. Em CADA query de recurso privado: where: &#123; id, userId: req.user.id &#125;</p>
+        </div>
+      </div>
+
+      <!-- Vuln 4: Broken Auth -->
+      <div class="bg-dark-800 rounded-xl border border-red-500/20 p-6 mb-4">
+        <div class="flex items-center space-x-3 mb-3">
+          <span class="bg-red-500/20 text-red-400 text-xs font-bold px-2 py-1 rounded">A07</span>
+          <h4 class="font-semibold text-red-400 text-lg">Broken Authentication</h4>
+        </div>
+        <p class="text-sm text-neutral-400 mb-4">Como a IA cria: middleware de auth esquecido em algumas rotas, tokens sem expiração, refresh tokens implementados incorretamente, senhas sem hash adequado.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs text-red-400 font-medium mb-2 uppercase tracking-wide">Vulnerável</p>
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>// PERIGOSO: rota admin sem proteção
+app.get('/admin/users', async (req, res) => {
+  const users = await prisma.user.findMany();
+  res.json(users);
+});
+
+// PERIGOSO: senha sem hash
+await prisma.user.create({
+  data: { email, password } // plaintext!
+});</code></pre>
+          </div>
+          <div>
+            <p class="text-xs text-emerald-400 font-medium mb-2 uppercase tracking-wide">Seguro</p>
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>// SEGURO: auth + role check
+app.get('/admin/users', auth, requireRole('admin'),
+  async (req, res) => {
+    const users = await prisma.user.findMany();
+    res.json(users);
+  }
+);
+
+// SEGURO: bcrypt hash
+const hashed = await bcrypt.hash(password, 12);
+await prisma.user.create({ data: { email,
+  password: hashed } });</code></pre>
           </div>
         </div>
       </div>
+
+      <!-- Vuln 5: Exposed Secrets -->
+      <div class="bg-dark-800 rounded-xl border border-red-500/20 p-6 mb-6">
+        <div class="flex items-center space-x-3 mb-3">
+          <span class="bg-red-500/20 text-red-400 text-xs font-bold px-2 py-1 rounded">A02</span>
+          <h4 class="font-semibold text-red-400 text-lg">Cryptographic Failures / Exposed Secrets</h4>
+        </div>
+        <p class="text-sm text-neutral-400 mb-4">Como a IA cria: hardcoda API keys, connection strings e JWT secrets diretamente no código. Aprende de tutoriais onde isso é feito por simplicidade didática.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs text-red-400 font-medium mb-2 uppercase tracking-wide">Vulnerável — IA gera assim</p>
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>const jwt = require('jsonwebtoken');
+// PERIGOSO: secret hardcodado
+const token = jwt.sign(payload, 'minha_chave_123');
+
+const stripe = new Stripe('sk_live_abc...xyz');
+
+const db = new Client({
+  connectionString: 'postgres://user:pass@host/db'
+});</code></pre>
+          </div>
+          <div>
+            <p class="text-xs text-emerald-400 font-medium mb-2 uppercase tracking-wide">Seguro</p>
+            <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>const jwt = require('jsonwebtoken');
+// SEGURO: sempre process.env
+const token = jwt.sign(payload, process.env.JWT_SECRET!);
+
+const stripe = new Stripe(process.env.STRIPE_KEY!);
+
+const db = new Client({
+  connectionString: process.env.DATABASE_URL
+});</code></pre>
+          </div>
+        </div>
+      </div>
+
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-3">📋 Instrução no CLAUDE.md para Segurança</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>## Regras de Segurança (OBRIGATÓRIAS)
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📋 Bloco de segurança obrigatório no CLAUDE.md</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>## Regras de Segurança (OBRIGATÓRIAS — sem exceções)
 - SEMPRE verificar req.user.id ao acessar dados do usuário
 - NUNCA confiar em parâmetros de URL sem validar ownership
-- SEMPRE usar ORM parametrizado (Prisma) - nunca SQL raw com input do usuário
-- NUNCA retornar stack traces em produção
+- SEMPRE usar ORM parametrizado (Prisma) — nunca SQL raw com input
+- NUNCA retornar stack traces ou mensagens de erro internas em produção
 - SEMPRE validar e sanitizar input com Zod antes de processar
-- NUNCA usar innerHTML com dados de usuário</code></pre>
+- NUNCA usar innerHTML com dados de usuário — usar textContent ou DOMPurify
+- NUNCA hardcodar secrets — sempre process.env
+- SEMPRE hashear senhas com bcrypt (rounds >= 12)
+- SEMPRE adicionar middleware de auth em TODAS as rotas privadas
+- SEMPRE criar políticas RLS ao criar novas tabelas no Supabase</code></pre>
       </div>
     </section>
 
@@ -195,41 +388,81 @@ app.get('/orders/:id', auth, async (req) => {
     <section id="topico-3" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span>
-        <h2 class="text-2xl font-bold">🛡️ Row Level Security — o erro mais comum em apps Lovable</h2>
+        <h2 class="text-2xl font-bold">🛡️ Row Level Security — o erro mais comum em apps Supabase</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
         Row Level Security (RLS) é uma funcionalidade do PostgreSQL/Supabase que garante que usuários só acessam seus próprios dados <strong class="text-blue-400">no nível do banco de dados</strong>, independente do que a aplicação faça. É a última linha de defesa e a mais frequentemente esquecida em vibe coding.
       </p>
-      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-3">🚨 O Caso dos 18.000 Usuários (Lovable, 2025)</h3>
-        <p class="text-neutral-300 text-sm mb-3">Um app construído com Lovable (plataforma de vibe coding) foi exposto por um pesquisador de segurança: sem RLS configurado, qualquer usuário autenticado conseguia acessar dados de qualquer outro usuário fazendo requests diretos à API do Supabase — que o Lovable expõe automaticamente.</p>
-        <p class="text-neutral-300 text-sm">18.000 usuários tiveram dados potencialmente expostos. O problema: Lovable não ativava RLS por padrão, e a IA não adicionava políticas de RLS sem instrução explícita.</p>
-      </div>
-      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">🛡️ RLS Obrigatório em Cada Tabela</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>-- Habilitar RLS em TODA tabela nova
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <p class="text-xs text-red-400 font-medium mb-2 uppercase tracking-wide">Tabela vulnerável — sem RLS</p>
+          <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>-- Tabela criada pela IA sem instrução
+CREATE TABLE orders (
+  id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id uuid REFERENCES auth.users(id),
+  total decimal(10,2),
+  status text,
+  created_at timestamptz DEFAULT now()
+);
+
+-- RLS não habilitado!
+-- Resultado: qualquer usuário autenticado
+-- pode fazer: SELECT * FROM orders
+-- e ver TODOS os pedidos de TODOS os usuários
+-- via API Supabase exposta no frontend</code></pre>
+        </div>
+        <div>
+          <p class="text-xs text-emerald-400 font-medium mb-2 uppercase tracking-wide">Tabela segura — com RLS obrigatório</p>
+          <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>CREATE TABLE orders (
+  id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id uuid REFERENCES auth.users(id) NOT NULL,
+  total decimal(10,2),
+  status text,
+  created_at timestamptz DEFAULT now()
+);
+
+-- OBRIGATÓRIO após criar qualquer tabela:
 ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
 
--- Policy: usuário só vê seus próprios dados
-CREATE POLICY "users_own_orders"
-ON orders
-FOR ALL
-USING (auth.uid() = user_id);
+-- Usuário vê apenas seus próprios pedidos
+CREATE POLICY "users_own_orders" ON orders
+  FOR ALL USING (auth.uid() = user_id);
 
--- Policy: admins veem tudo
-CREATE POLICY "admins_all_orders"
-ON orders
-FOR ALL
-USING (
-  EXISTS (
-    SELECT 1 FROM profiles
-    WHERE id = auth.uid() AND role = 'admin'
-  )
-);</code></pre>
+-- Admin vê tudo (opcional)
+CREATE POLICY "admins_all_orders" ON orders
+  FOR ALL USING (
+    EXISTS (SELECT 1 FROM profiles
+      WHERE id = auth.uid() AND role = 'admin')
+  );</code></pre>
+        </div>
       </div>
-      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3">💡 RLS no CLAUDE.md</h3>
-        <p class="text-neutral-300 text-sm">Adicione no seu CLAUDE.md: "SEMPRE criar políticas RLS ao criar novas tabelas no Supabase. Nunca criar tabela sem RLS habilitado. Padrão mínimo: usuário só acessa linhas onde user_id = auth.uid()." Uma instrução que previne o incidente dos 18K usuários.</p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">💬 Prompt para solicitar RLS à IA</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>"Adicione Row Level Security completo para estas tabelas
+Supabase. Para cada tabela:
+
+1. ALTER TABLE ... ENABLE ROW LEVEL SECURITY
+2. Policy para usuários autenticados verem apenas
+   seus próprios dados (where user_id = auth.uid())
+3. Policy para admins verem todos os dados
+   (verificar role na tabela profiles)
+4. Se a tabela for pública (ex: produtos de um catálogo),
+   criar policy de leitura pública explícita
+
+Tabelas: orders, profiles, documents, notifications
+
+IMPORTANTE: Sem RLS habilitado, a API Supabase expõe
+todos os dados de todos os usuários para qualquer
+usuário autenticado."</code></pre>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">🚨 O Incidente Lovable — 18.000 usuários expostos (2025)</h3>
+        <p class="text-neutral-300 text-sm mb-3">Um app construído com Lovable (plataforma de vibe coding) foi exposto: sem RLS configurado, qualquer usuário autenticado conseguia acessar dados de qualquer outro usuário fazendo requests diretos à API do Supabase — que o Lovable expõe automaticamente via anon key no frontend.</p>
+        <p class="text-neutral-300 text-sm mb-3">18.000 usuários tiveram dados potencialmente expostos. O problema: Lovable não ativava RLS por padrão, e a IA não adicionava políticas de RLS sem instrução explícita.</p>
+        <p class="text-neutral-300 text-sm"><strong class="text-white">Uma linha de instrução no CLAUDE.md previne este incidente:</strong> "SEMPRE habilitar RLS e criar policies ao criar novas tabelas Supabase."</p>
       </div>
     </section>
 
@@ -242,37 +475,95 @@ USING (
       <p class="text-neutral-300 mb-6 leading-relaxed">
         Secrets hardcodados é um dos erros mais comuns e mais devastadores em código de IA. O modelo aprende de exemplos online onde credenciais frequentemente aparecem hardcodadas para simplificação. <strong class="text-blue-400">Você precisa instruir explicitamente contra isso</strong>.
       </p>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-3">✗ O que a IA pode gerar sem instrução</h4>
-          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3"><code>// NUNCA fazer isso
+          <h4 class="font-bold text-red-400 mb-3">✗ NÃO FAÇA — IA gera assim sem instrução</h4>
+          <pre class="text-sm text-neutral-300 font-mono bg-dark-900 rounded p-3"><code>// NUNCA hardcodar
 const stripe = new Stripe(
-  'sk_live_abc123xyz...'
+  'sk_live_51NxAbc123...'  // exposto no git!
 );
 
-const db = postgres({
-  password: 'minhasenha123'
-});</code></pre>
+const db = new Pool({
+  password: 'minhasenha123',
+  host: 'prod-db.amazonaws.com'
+});
+
+const token = jwt.sign(
+  payload, 'chave_secreta_123'
+);
+
+// .env nunca deve ser commitado
+// mas a IA pode colocar valores reais</code></pre>
         </div>
         <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-3">✓ Correto</h4>
-          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3"><code>// SEMPRE assim
+          <h4 class="font-bold text-emerald-400 mb-3">✓ SEMPRE assim — variáveis de ambiente</h4>
+          <pre class="text-sm text-neutral-300 font-mono bg-dark-900 rounded p-3"><code>// SEMPRE process.env
 const stripe = new Stripe(
   process.env.STRIPE_SECRET_KEY!
 );
 
-const db = postgres({
-  password: process.env.DB_PASSWORD
-});</code></pre>
+const db = new Pool({
+  connectionString: process.env.DATABASE_URL
+});
+
+const token = jwt.sign(
+  payload,
+  process.env.JWT_SECRET!,
+  { expiresIn: '1h' }
+);</code></pre>
         </div>
       </div>
+
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔍 Onde secrets podem vazar — checklist completo</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <ul class="space-y-2 text-neutral-300">
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Código-fonte commitado no git</span></li>
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Logs de aplicação (evitar logar req.body completo)</span></li>
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Variáveis de ambiente no frontend (expostas no bundle)</span></li>
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Respostas de API que retornam objetos inteiros</span></li>
+          </ul>
+          <ul class="space-y-2 text-neutral-300">
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Imagens Docker com secrets em layers</span></li>
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>CI/CD logs com variáveis impressas</span></li>
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Stack traces expostos em produção</span></li>
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Arquivos .env no repositório (sem .gitignore)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔍 Prompt para auditar código existente</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>"Audite este codebase em busca de secrets hardcodados
+e práticas inseguras de gestão de credenciais.
+
+Procure por:
+1. Strings que parecem API keys, tokens ou senhas
+   (padrões: sk_live_, Bearer , postgres://, etc.)
+2. Variáveis com nomes como: secret, password, key,
+   token, credential, api_key
+3. Variáveis de ambiente usadas diretamente
+   (sem process.env)
+4. Conexões de banco com credenciais inline
+5. JWT secrets hardcodados
+
+Para cada ocorrência encontrada:
+- Linha do código
+- Tipo de secret
+- Risco (alto/médio/baixo)
+- Como corrigir
+
+Arquivos a auditar: @src/"</code></pre>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
         <h3 class="text-lg font-semibold text-blue-400 mb-4">🔐 Checklist de Gestão de Secrets</h3>
         <ul class="space-y-2 text-neutral-300 text-sm">
           <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>.env</strong> no .gitignore — sempre, sem exceção</span></li>
           <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>.env.example</strong> com chaves vazias — no repositório para documentar variáveis necessárias</span></li>
           <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>git-secrets</strong> ou <strong>trufflehog</strong> — scan automático de commits para detectar secrets acidentais</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>GitHub Secret Scanning</strong> — Alertas automáticos se um secret detectado é pushado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>GitHub Secret Scanning</strong> — alertas automáticos se um secret detectado é pushado</span></li>
           <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span><strong>Rotate imediatamente</strong> — se um secret foi commitado, rotacione antes de corrigir o commit</span></li>
         </ul>
       </div>
@@ -287,37 +578,89 @@ const db = postgres({
       <p class="text-neutral-300 mb-6 leading-relaxed">
         SAST (Static Application Security Testing) analisa o código sem executá-lo, detectando vulnerabilidades antes do deploy. Em um fluxo de vibe coding, SAST deve rodar <strong class="text-blue-400">automaticamente em cada commit ou PR</strong> — não manualmente depois.
       </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-          <h4 class="font-semibold text-blue-400 mb-4">Ferramentas SAST Gratuitas</h4>
-          <ul class="space-y-2 text-sm text-neutral-300">
-            <li><strong>CodeQL</strong> — GitHub, gratuito para open source, detecta vulnerabilidades complexas</li>
-            <li><strong>Semgrep</strong> — regras customizáveis, roda no CI ou localmente</li>
-            <li><strong>Bandit</strong> — específico para Python, rápido e preciso</li>
-            <li><strong>ESLint Security Plugin</strong> — detecta padrões inseguros em JavaScript/TypeScript</li>
-          </ul>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-          <h4 class="font-semibold text-blue-400 mb-4">Ferramentas SAST Pagas</h4>
-          <ul class="space-y-2 text-sm text-neutral-300">
-            <li><strong>Snyk</strong> — integra com IDE, CI/CD e SCM. Foco em dependências</li>
-            <li><strong>Veracode</strong> — análise profunda, compliance. Enterprise.</li>
-            <li><strong>SonarQube</strong> — qualidade de código + segurança. Muito adotado em times</li>
-            <li><strong>Checkmarx</strong> — foco em conformidade e compliance regulatório</li>
-          </ul>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Comparativo de ferramentas SAST</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-2 px-3 text-neutral-400">Ferramenta</th>
+                <th class="text-left py-2 px-3 text-neutral-400">Tier gratuito</th>
+                <th class="text-left py-2 px-3 text-neutral-400">O que detecta</th>
+                <th class="text-left py-2 px-3 text-neutral-400">Integração</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-700">
+              <tr>
+                <td class="py-2 px-3 text-blue-400 font-medium">Snyk</td>
+                <td class="py-2 px-3 text-neutral-300">200 testes/mês (open source: ilimitado)</td>
+                <td class="py-2 px-3 text-neutral-300">Dependências vulneráveis, código, containers</td>
+                <td class="py-2 px-3 text-neutral-400">IDE, GitHub Actions, CI/CD</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-blue-400 font-medium">SonarQube</td>
+                <td class="py-2 px-3 text-neutral-300">Community Edition gratuita (self-hosted)</td>
+                <td class="py-2 px-3 text-neutral-300">Qualidade de código + vuln. de segurança, 30+ linguagens</td>
+                <td class="py-2 px-3 text-neutral-400">PR gates, CI/CD, VSCode plugin</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-blue-400 font-medium">Semgrep</td>
+                <td class="py-2 px-3 text-neutral-300">Gratuito para open source, rules públicas</td>
+                <td class="py-2 px-3 text-neutral-300">Patterns OWASP, secrets, regras customizáveis</td>
+                <td class="py-2 px-3 text-neutral-400">GitHub Actions, pre-commit, CLI</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-blue-400 font-medium">GitHub Code Scanning</td>
+                <td class="py-2 px-3 text-neutral-300">Gratuito para repos públicos e private (CodeQL)</td>
+                <td class="py-2 px-3 text-neutral-300">Vulnerabilidades complexas com análise de fluxo de dados</td>
+                <td class="py-2 px-3 text-neutral-400">Nativo no GitHub, PR annotations</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
+
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">⚙️ Semgrep no GitHub Actions</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>- name: Run Semgrep
-  uses: semgrep/semgrep-action@v1
-  with:
-    config: >-
-      p/security-audit
-      p/secrets
-      p/owasp-top-ten
-  env:
-    SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}</code></pre>
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">⚙️ GitHub Action: SAST completo em cada PR</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code># .github/workflows/security.yml
+name: Security Scan
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  sast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Semgrep: detecta OWASP Top 10 e secrets
+      - name: Run Semgrep
+        uses: semgrep/semgrep-action@v1
+        with:
+          config: >-
+            p/security-audit
+            p/secrets
+            p/owasp-top-ten
+            p/typescript
+        env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+
+      # Snyk: verifica dependências com vulnerabilidades
+      - name: Snyk vulnerability check
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+
+      # npm audit: check rápido de dependências
+      - name: npm audit
+        run: npm audit --audit-level=high</code></pre>
       </div>
     </section>
 
@@ -330,42 +673,62 @@ const db = postgres({
       <p class="text-neutral-300 mb-6 leading-relaxed">
         Mesmo com SAST automatizado, code review humano focado em segurança é insubstituível. O humano detecta falhas de lógica de negócio que ferramentas automatizadas não conseguem — como <strong class="text-blue-400">autorização incorreta que tecnicamente compila mas semanticamente está errada</strong>.
       </p>
+
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">📋 Checklist de Code Review para Código de IA</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📋 Checklist de segurança — 10 itens por categoria</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div>
-            <p class="text-blue-400 font-medium mb-2">Autenticação e Autorização</p>
-            <ul class="space-y-1 text-neutral-300">
-              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Todas as rotas privadas têm middleware de auth?</span></li>
-              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Verificação de ownership em todos os recursos?</span></li>
-              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Tokens expiram corretamente?</span></li>
+            <p class="text-blue-400 font-semibold mb-3 flex items-center space-x-2"><span>🔐</span><span>Autenticação e Autorização</span></p>
+            <ul class="space-y-2 text-neutral-300">
+              <li class="flex items-start space-x-2"><input type="checkbox" class="rounded mt-0.5 flex-shrink-0" disabled><span>Todas as rotas privadas têm middleware de auth?</span></li>
+              <li class="flex items-start space-x-2"><input type="checkbox" class="rounded mt-0.5 flex-shrink-0" disabled><span>Verificação de ownership em todos os recursos?</span></li>
+              <li class="flex items-start space-x-2"><input type="checkbox" class="rounded mt-0.5 flex-shrink-0" disabled><span>Tokens JWT têm expiração definida?</span></li>
+            </ul>
+            <p class="text-blue-400 font-semibold mb-3 mt-5 flex items-center space-x-2"><span>🔑</span><span>Secrets e Dados Sensíveis</span></p>
+            <ul class="space-y-2 text-neutral-300">
+              <li class="flex items-start space-x-2"><input type="checkbox" class="rounded mt-0.5 flex-shrink-0" disabled><span>Nenhum secret hardcodado no código?</span></li>
+              <li class="flex items-start space-x-2"><input type="checkbox" class="rounded mt-0.5 flex-shrink-0" disabled><span>Dados sensíveis não estão sendo logados?</span></li>
+              <li class="flex items-start space-x-2"><input type="checkbox" class="rounded mt-0.5 flex-shrink-0" disabled><span>RLS configurado em todas as tabelas Supabase?</span></li>
             </ul>
           </div>
           <div>
-            <p class="text-blue-400 font-medium mb-2">Input e Output</p>
-            <ul class="space-y-1 text-neutral-300">
-              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Todo input de usuário é validado com schema?</span></li>
-              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Queries usam ORM ou parâmetros?</span></li>
-              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Erros não expõem stack trace ou dados internos?</span></li>
+            <p class="text-blue-400 font-semibold mb-3 flex items-center space-x-2"><span>📥</span><span>Input e Output</span></p>
+            <ul class="space-y-2 text-neutral-300">
+              <li class="flex items-start space-x-2"><input type="checkbox" class="rounded mt-0.5 flex-shrink-0" disabled><span>Todo input de usuário validado com schema (Zod)?</span></li>
+              <li class="flex items-start space-x-2"><input type="checkbox" class="rounded mt-0.5 flex-shrink-0" disabled><span>Queries usam ORM ou parâmetros ($1, $2)?</span></li>
+              <li class="flex items-start space-x-2"><input type="checkbox" class="rounded mt-0.5 flex-shrink-0" disabled><span>Erros não expõem stack trace em produção?</span></li>
             </ul>
-          </div>
-          <div>
-            <p class="text-blue-400 font-medium mb-2">Secrets e Dados</p>
-            <ul class="space-y-1 text-neutral-300">
-              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Nenhum secret hardcodado?</span></li>
-              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Dados sensíveis não estão sendo logados?</span></li>
-              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>RLS configurado em tabelas Supabase?</span></li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-blue-400 font-medium mb-2">Dependências</p>
-            <ul class="space-y-1 text-neutral-300">
-              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Novas dependências auditadas com npm audit?</span></li>
-              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Versões pinadas no package.json?</span></li>
-              <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Dependências conhecidas e confiáveis?</span></li>
+            <p class="text-blue-400 font-semibold mb-3 mt-5 flex items-center space-x-2"><span>📦</span><span>Dependências</span></p>
+            <ul class="space-y-2 text-neutral-300">
+              <li class="flex items-start space-x-2"><input type="checkbox" class="rounded mt-0.5 flex-shrink-0" disabled><span>Novas dependências auditadas com npm audit?</span></li>
+              <li class="flex items-start space-x-2"><input type="checkbox" class="rounded mt-0.5 flex-shrink-0" disabled><span>Pacotes de origem conhecida e confiável?</span></li>
             </ul>
           </div>
         </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">💬 Prompt para code review de segurança com IA</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>"Faça um code review focado exclusivamente em segurança
+destes arquivos. Não avalie qualidade de código ou estilo.
+
+Procure especificamente por:
+1. IDOR: endpoints que não verificam ownership
+2. SQL Injection: queries com interpolação de string
+3. XSS: uso de innerHTML com dados de usuário
+4. Secrets expostos: hardcoded ou logados
+5. Auth missing: rotas que deveriam ter auth mas não têm
+6. RLS missing: tabelas Supabase sem policies
+7. Sensitive data in logs: dados sensíveis em console.log
+8. Error disclosure: stack traces retornados ao cliente
+
+Para cada problema encontrado:
+- Arquivo e linha
+- Tipo de vulnerabilidade (OWASP A0X)
+- Severidade: Crítica / Alta / Média
+- Código vulnerável vs. código corrigido
+
+Arquivos: @src/routes/ @src/controllers/"</code></pre>
       </div>
     </section>
 
@@ -376,55 +739,103 @@ const db = postgres({
         <h2 class="text-2xl font-bold">💀 Casos reais de incidentes — o que aconteceu e por quê</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Estudar casos reais é a forma mais eficaz de internalizar a importância de segurança. Estes não são cenários hipotéticos — são <strong class="text-blue-400">incidentes documentados que afetaram usuários reais</strong> de plataformas de vibe coding.
+        Estudar casos reais é a forma mais eficaz de internalizar a importância de segurança. Estes não são cenários hipotéticos — são <strong class="text-blue-400">incidentes documentados que afetaram usuários reais</strong> de plataformas e apps de vibe coding em 2025.
       </p>
-      <div class="space-y-4 mb-6">
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
-          <div class="flex items-start justify-between mb-2">
-            <h4 class="font-semibold text-red-400">Lovable — 18.000 usuários expostos</h4>
-            <span class="text-xs text-neutral-500">2025</span>
+
+      <!-- Case 1: Lovable -->
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-5">
+        <div class="flex items-start justify-between mb-3">
+          <div>
+            <h4 class="font-semibold text-red-400 text-lg">Lovable — 18.000 usuários com dados expostos</h4>
+            <span class="text-xs text-neutral-500">Março 2025 · Plataforma de vibe coding no-code</span>
           </div>
-          <p class="text-sm text-neutral-300 mb-2"><strong>Problema:</strong> RLS não configurado por padrão. API do Supabase exposta publicamente permitia qualquer usuário autenticado acessar dados de qualquer outro.</p>
-          <p class="text-sm text-neutral-400"><strong>Lição:</strong> RLS não é opcional em apps Supabase. Habilite em cada tabela. Verifique que a API key do Supabase no frontend é a anon key, nunca a service key.</p>
+          <span class="flex-shrink-0 bg-red-500/20 text-red-400 text-xs font-bold px-2 py-1 rounded">CRÍTICO</span>
         </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
-          <div class="flex items-start justify-between mb-2">
-            <h4 class="font-semibold text-red-400">CurXecute — CVE-2025-54135</h4>
-            <span class="text-xs text-neutral-500">2025</span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="bg-dark-900/40 rounded-lg p-3">
+            <p class="text-red-400 font-medium mb-2">O que aconteceu</p>
+            <p class="text-neutral-400">Pesquisador de segurança descobriu que apps gerados pelo Lovable não tinham RLS habilitado no Supabase por padrão. Qualquer usuário autenticado podia acessar dados de qualquer outro via API pública.</p>
           </div>
-          <p class="text-sm text-neutral-300 mb-2"><strong>Problema:</strong> Plugin de IDE para vibe coding executava código arbitrário via prompt injection. Um prompt malicioso poderia executar comandos no sistema do desenvolvedor.</p>
-          <p class="text-sm text-neutral-400"><strong>Lição:</strong> Cuidado com plugins de IDE de origem desconhecida. Agentes com acesso ao filesystem e executor de código são vetores de ataque. Revise permissões de cada plugin.</p>
-        </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
-          <div class="flex items-start justify-between mb-2">
-            <h4 class="font-semibold text-red-400">Replit — banco de dados deletado em produção</h4>
-            <span class="text-xs text-neutral-500">2025</span>
+          <div class="bg-dark-900/40 rounded-lg p-3">
+            <p class="text-amber-400 font-medium mb-2">Causa raiz</p>
+            <p class="text-neutral-400">A plataforma não habilitava RLS por padrão. A IA não adicionava políticas de RLS sem instrução explícita. A anon key do Supabase no frontend dava acesso a todas as linhas de todas as tabelas.</p>
           </div>
-          <p class="text-sm text-neutral-300 mb-2"><strong>Problema:</strong> Agente de IA interpretou "limpe os dados de teste" como instrução para executar DELETE sem WHERE em banco de produção. Sem backup recente.</p>
-          <p class="text-sm text-neutral-400"><strong>Lição:</strong> Agentes não devem ter acesso irrestrito a ambientes de produção. Use ambientes separados, backups automáticos e confirmação humana antes de operações destrutivas.</p>
-        </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
-          <div class="flex items-start justify-between mb-2">
-            <h4 class="font-semibold text-red-400">Base44 — vazamento de dados de clientes</h4>
-            <span class="text-xs text-neutral-500">2025</span>
+          <div class="bg-dark-900/40 rounded-lg p-3">
+            <p class="text-emerald-400 font-medium mb-2">Como prevenir</p>
+            <p class="text-neutral-400">Instrução no CLAUDE.md: "SEMPRE habilitar RLS e criar policy ao criar tabela." Verificação: nunca deploy sem confirmar RLS em 100% das tabelas com dados de usuário.</p>
           </div>
-          <p class="text-sm text-neutral-300 mb-2"><strong>Problema:</strong> Código gerado por IA para exportação de relatórios não validava que o usuário tinha acesso aos dados solicitados. Qualquer usuário podia exportar dados de qualquer empresa.</p>
-          <p class="text-sm text-neutral-400"><strong>Lição:</strong> BOLA (Broken Object Level Authorization) é a vulnerabilidade #1 em código de IA. Sempre verifique ownership. "Funciona" não é o mesmo que "funciona com segurança".</p>
         </div>
+      </div>
+
+      <!-- Case 2: Base44 -->
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-5">
+        <div class="flex items-start justify-between mb-3">
+          <div>
+            <h4 class="font-semibold text-red-400 text-lg">Base44 — vazamento de dados de clientes empresariais</h4>
+            <span class="text-xs text-neutral-500">Abril 2025 · Plataforma SaaS gerada com IA</span>
+          </div>
+          <span class="flex-shrink-0 bg-red-500/20 text-red-400 text-xs font-bold px-2 py-1 rounded">CRÍTICO</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="bg-dark-900/40 rounded-lg p-3">
+            <p class="text-red-400 font-medium mb-2">O que aconteceu</p>
+            <p class="text-neutral-400">Funcionalidade de exportação de relatórios gerada por IA não validava que o usuário tinha acesso aos dados solicitados. Usuário de empresa A conseguia exportar dados da empresa B passando um ID diferente na URL.</p>
+          </div>
+          <div class="bg-dark-900/40 rounded-lg p-3">
+            <p class="text-amber-400 font-medium mb-2">Causa raiz</p>
+            <p class="text-neutral-400">IDOR clássico (A01 OWASP). A IA gerou o endpoint sem verificar ownership do tenant. O endpoint recebia tenant_id como parâmetro e retornava os dados sem checar se pertenciam ao usuário autenticado.</p>
+          </div>
+          <div class="bg-dark-900/40 rounded-lg p-3">
+            <p class="text-emerald-400 font-medium mb-2">Como prevenir</p>
+            <p class="text-neutral-400">NUNCA confiar em IDs de URL sem verificar no banco que pertencem ao usuário autenticado. Em multi-tenant: sempre filtrar por tenant_id extraído do token JWT, nunca do body/params.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 3: CurXecute -->
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <div class="flex items-start justify-between mb-3">
+          <div>
+            <h4 class="font-semibold text-red-400 text-lg">CurXecute — CVE-2025-54135 · Privilege escalation por prompt injection</h4>
+            <span class="text-xs text-neutral-500">Junho 2025 · Plugin de IDE para agentes de IA</span>
+          </div>
+          <span class="flex-shrink-0 bg-red-500/20 text-red-400 text-xs font-bold px-2 py-1 rounded">CVE</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="bg-dark-900/40 rounded-lg p-3">
+            <p class="text-red-400 font-medium mb-2">O que aconteceu</p>
+            <p class="text-neutral-400">Plugin de IDE para agentes de vibe coding executava código arbitrário via prompt injection. Um arquivo malicioso no repositório continha instruções disfarçadas que o agente interpretava como comandos legítimos, executando com as permissões do desenvolvedor.</p>
+          </div>
+          <div class="bg-dark-900/40 rounded-lg p-3">
+            <p class="text-amber-400 font-medium mb-2">Causa raiz</p>
+            <p class="text-neutral-400">Agent privilege escalation: o plugin não sanitizava o conteúdo de arquivos antes de passá-los ao contexto do agente. Conteúdo de arquivos de terceiros (dependências, arquivos clonados) podia injetar instruções no agente.</p>
+          </div>
+          <div class="bg-dark-900/40 rounded-lg p-3">
+            <p class="text-emerald-400 font-medium mb-2">Como prevenir</p>
+            <p class="text-neutral-400">Cuidado com plugins de IDE de origem desconhecida. Agentes com acesso ao filesystem são vetores de ataque. Revise permissões de cada plugin. Nunca execute agentes com permissões de root ou admin desnecessárias.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 O padrão comum entre os incidentes</h3>
+        <p class="text-neutral-300 text-sm mb-3">Os três incidentes têm um denominador comum: <strong class="text-white">a IA gerou código funcional, mas sem as verificações de segurança que um desenvolvedor experiente aplicaria instintivamente</strong>. A IA não tem "instinto de segurança" — ela precisa de instrução explícita.</p>
+        <p class="text-neutral-300 text-sm">Todos eram preveníveis com: (1) instruções de segurança no CLAUDE.md, (2) SAST automatizado no CI, (3) code review de segurança antes de cada deploy. Nenhum exigia conhecimento de segurança avançado.</p>
       </div>
     </section>
 
     <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6">✅ Resumo do Módulo 4.4</h2>
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 4.4</h2>
         <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">45% do código de IA tem falhas</strong><span class="text-neutral-400"> — não é alarmismo, são dados do Veracode. Revisão é obrigatória.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">OWASP Top 10 e código de IA</strong><span class="text-neutral-400"> — SQL injection, XSS e BOLA são os mais frequentes. Instrua o agente explicitamente.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">RLS é obrigatório no Supabase</strong><span class="text-neutral-400"> — o incidente dos 18K usuários aconteceu por omissão desta configuração de 3 linhas.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Never hardcode, never commit</strong><span class="text-neutral-400"> — sempre process.env. git-secrets e GitHub Secret Scanning como backup.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">SAST no pipeline</strong><span class="text-neutral-400"> — Semgrep ou CodeQL em cada PR. Segurança automatizada não é opcional.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Cases reais ensinaram</strong><span class="text-neutral-400"> — Lovable, Base44, CurXecute, Replit. Todos preveníveis com as técnicas deste módulo.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">45% do código de IA tem falhas</strong><span class="text-neutral-400"> — dados verificados do Veracode e CodeRabbit. IDOR lidera com 31% dos casos. Revisão é obrigatória.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">OWASP Top 5 em código de IA</strong><span class="text-neutral-400"> — SQL Injection, XSS, IDOR, Broken Auth e Secrets Expostos. Instrua o agente explicitamente para cada um.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">RLS é obrigatório no Supabase</strong><span class="text-neutral-400"> — o incidente dos 18K usuários aconteceu por omissão de 3 linhas de SQL. Uma instrução no CLAUDE.md previne.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Never hardcode, never commit</strong><span class="text-neutral-400"> — sempre process.env. Oito lugares onde secrets podem vazar além do código-fonte.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">SAST no pipeline</strong><span class="text-neutral-400"> — Semgrep + Snyk + GitHub Code Scanning em cada PR. O GitHub Action deste módulo é o ponto de partida.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Checklist antes do deploy</strong><span class="text-neutral-400"> — 10 itens por categoria: auth, secrets, input/output, dependências. Use com a IA como revisor auxiliar.</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Cases reais ensinaram</strong><span class="text-neutral-400"> — Lovable (RLS), Base44 (IDOR), CurXecute (prompt injection). Todos preveníveis com as técnicas deste módulo.</span></div></div>
         </div>
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
           <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
@@ -449,8 +860,18 @@ const db = postgres({
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
     const html = document.documentElement;
-    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
-    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
   </script>
 </body>
 </html>

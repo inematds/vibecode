@@ -430,27 +430,583 @@
       </div>
     </div>
 
-    <!-- MÓDULOS 1.4 a 1.8 — Headers compactos -->
-    <div id="remaining-modules" class="space-y-4">
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 flex items-center justify-between group hover:border-emerald-500/40 transition-colors">
-        <div><div class="flex items-center space-x-3 mb-1"><span class="text-emerald-400 font-bold text-sm">1.4</span><span class="text-xs text-neutral-500">~35 min</span></div><h3 class="text-lg font-bold">🚀 Seu Primeiro Projeto com IA</h3><p class="text-neutral-400 text-sm mt-1">Do zero ao primeiro resultado funcional — hands-on completo.</p></div>
-        <a href="modulo-1-4.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors flex-shrink-0 ml-4">Ver Completo</a>
+    <!-- MÓDULO 1.4 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-emerald-400 font-bold">1.4</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🚀 Seu Primeiro Projeto com IA</h3>
+        <p class="text-neutral-400 text-sm">Do setup ao primeiro resultado funcional. Aprenda a escolher o projeto certo, escrever o primeiro prompt eficaz e estabelecer o ciclo aceitar-testar-ajustar desde o início.</p>
       </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 flex items-center justify-between group hover:border-emerald-500/40 transition-colors">
-        <div><div class="flex items-center space-x-3 mb-1"><span class="text-emerald-400 font-bold text-sm">1.5</span><span class="text-xs text-neutral-500">~30 min</span></div><h3 class="text-lg font-bold">💬 Prompt Engineering Básico</h3><p class="text-neutral-400 text-sm mt-1">Como pedir código de forma que a IA entenda e entregue bem.</p></div>
-        <a href="modulo-1-5.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors flex-shrink-0 ml-4">Ver Completo</a>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">⚙️</span>
+            <div><span class="font-medium">Setup em 10 minutos</span><span class="text-neutral-500 text-sm ml-2">— ambiente funcionando rapidamente</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Em 10 minutos você consegue ter um ambiente funcional. O segredo é não instalar mais do que o necessário — adicione ferramentas conforme o projeto exigir. Cursor gratuito, configuração do modelo padrão e criação do arquivo .cursorrules são os três passos principais.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A barreira de entrada para vibe coding é menor do que parece. Para plataformas prompt-to-app como Lovable ou Bolt.new, o setup é ainda mais simples: basta criar uma conta e abrir o browser.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Cursor gratuito (2.000 completions/mês) · Configuração de modelo padrão · Pasta de projeto indexada · Arquivo .cursorrules · Plataformas prompt-to-app como alternativa.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">Escolhendo o projeto certo para começar</span><span class="text-neutral-500 text-sm ml-2">— pequeno e real</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O projeto inicial tem que ser pequeno o suficiente para terminar em um dia e real o suficiente para ser útil. Projetos didáticos sem propósito real são menos eficazes do que resolver um problema que você realmente tem. O critério do "testável hoje" define bons primeiros projetos.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Escolher o projeto errado é a causa mais comum de desistência no primeiro dia. Projetos grandes demais geram frustração, projetos sem propósito real não geram motivação para continuar.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Dashboard de dados que você já acompanha · Formulário para substituir planilha · Script de automação · Landing page simples · Evitar clones complexos · Testável sem outros usuários.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">✍️</span>
+            <div><span class="font-medium">O primeiro prompt</span><span class="text-neutral-500 text-sm ml-2">— descrevendo o que você quer</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O primeiro prompt define o ritmo do projeto. Um bom primeiro prompt não tenta descrever o app inteiro — ele define o contexto, a stack e a funcionalidade central. Pense nele como um briefing para um desenvolvedor que nunca viu seu projeto.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Listar explicitamente o que você não quer é tão importante quanto listar o que quer. A IA tende a adicionar funcionalidades que "fazem sentido" no contexto, aumentando a complexidade desnecessariamente no primeiro dia.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Contexto do projeto · Stack tecnológica definida · Funcionalidade central apenas · "Não precisa agora" como instrução explícita · Prompt fraco vs. prompt forte.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🔄</span>
+            <div><span class="font-medium">Iteração na prática</span><span class="text-neutral-500 text-sm ml-2">— aceitar, testar, ajustar, repetir</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Depois do primeiro prompt, entra o ciclo que vai definir sua produtividade: aceitar → testar → ajustar → repetir. Cada rodada do ciclo deve resolver um problema específico e ser pequena o suficiente para testar em minutos, não horas.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Se cada ciclo de iteração está levando mais de 15 minutos, o escopo está grande demais. Se está levando menos de 2 minutos, você pode estar iterando em algo trivial. A velocidade do ciclo é um indicador de saúde do processo.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Aceitar → Testar → Ajustar → Repetir · Feedback específico vs. genérico · "Quando clico em X, o resultado Y não acontece" · Velocidade do ciclo como indicador.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🐛</span>
+            <div><span class="font-medium">Quando o erro aparece — copiar e colar de volta</span><span class="text-neutral-500 text-sm ml-2">— a técnica mais subestimada</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A técnica mais subestimada e mais poderosa do vibe coding: quando o código quebra, copie o erro completo e cole diretamente no chat. A maioria das pessoas tenta descrever o erro em palavras — perde tempo e perde contexto. A mensagem de erro é exatamente o que o agente precisa.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Stack traces contêm o arquivo, linha exata e tipo do erro — informação suficiente para diagnóstico preciso. Os LLMs foram treinados em milhões de issues e bug reports. Esse ciclo resolve ~80% dos bugs de front-end sem precisar entender o código.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Console F12 · Copiar stack trace completo · Cole com contexto mínimo · Tab Console para JS, tab Network para APIs · ~80% dos bugs de front-end resolvidos assim.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">💾</span>
+            <div><span class="font-medium">Salvando o progresso — commits estratégicos</span><span class="text-neutral-500 text-sm ml-2">— sua rede de segurança</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Git é a sua rede de segurança. Em vibe coding, onde mudanças podem ser grandes e rápidas, commits frequentes são proteção contra desastres. A regra é simples: se o que está na tela está funcionando, commite agora. Não espere uma versão "perfeita".</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">16 dos 18 CTOs consultados sobre desastres com vibe coding mencionaram "aceitar mudanças sem commit prévio" como fator contribuinte. O agente pode reescrever um componente e quebrar algo — sem commit, não há como voltar.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Commite após cada funcionalidade funcionando · Mensagens descritivas · Antes de refatorações grandes · Branches para experimentos · git checkout HEAD arquivo.tsx como saída de emergência.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🏁</span>
+            <div><span class="font-medium">Quando o primeiro projeto está "pronto"</span><span class="text-neutral-500 text-sm ml-2">— definindo conclusão</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">"Pronto" em vibe coding não significa perfeito — significa funcional para o propósito original. Definir critérios de conclusão antes de começar evita o "feature creep" (adicionar funcionalidades infinitamente porque é fácil pedir à IA).</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O critério definitivo: você usaria o projeto ao invés de como resolvia o problema antes. Se ainda prefere a planilha, o post-it ou o processo manual — o projeto não resolve o problema real ainda.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Funcionalidade central sem erros · Outro usuário consegue usar sem instrução · Dados persistem · Código commitado · Checklist de conclusão · Mostrar para alguém real como próximo passo.</p></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 flex items-center justify-between group hover:border-emerald-500/40 transition-colors">
-        <div><div class="flex items-center space-x-3 mb-1"><span class="text-emerald-400 font-bold text-sm">1.6</span><span class="text-xs text-neutral-500">~30 min</span></div><h3 class="text-lg font-bold">🔄 Ciclo de Desenvolvimento com IA</h3><p class="text-neutral-400 text-sm mt-1">O workflow validado: Explore → Plan → Implement → Verify.</p></div>
-        <a href="modulo-1-6.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors flex-shrink-0 ml-4">Ver Completo</a>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-1-4.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors">Ver Completo</a>
       </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 flex items-center justify-between group hover:border-emerald-500/40 transition-colors">
-        <div><div class="flex items-center space-x-3 mb-1"><span class="text-emerald-400 font-bold text-sm">1.7</span><span class="text-xs text-neutral-500">~30 min</span></div><h3 class="text-lg font-bold">🔐 Controle, Qualidade e Segurança Básica</h3><p class="text-neutral-400 text-sm mt-1">O que todo vibe coder precisa saber para não se arrepender depois.</p></div>
-        <a href="modulo-1-7.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors flex-shrink-0 ml-4">Ver Completo</a>
+    </div>
+
+    <!-- MÓDULO 1.5 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-emerald-400 font-bold">1.5</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">💬 Prompt Engineering Básico</h3>
+        <p class="text-neutral-400 text-sm">A mesma IA, prompts diferentes, resultados completamente diferentes. Aprenda a estrutura que separa prompts mediocres de prompts que geram código preciso na primeira tentativa.</p>
       </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 flex items-center justify-between group hover:border-emerald-500/40 transition-colors">
-        <div><div class="flex items-center space-x-3 mb-1"><span class="text-emerald-400 font-bold text-sm">1.8</span><span class="text-xs text-neutral-500">~25 min</span></div><h3 class="text-lg font-bold">🌐 Deploy: Publicando seu Projeto</h3><p class="text-neutral-400 text-sm mt-1">Do localhost para o mundo em menos de uma hora.</p></div>
-        <a href="modulo-1-8.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors flex-shrink-0 ml-4">Ver Completo</a>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">💡</span>
+            <div><span class="font-medium">Por que o prompt importa tanto</span><span class="text-neutral-500 text-sm ml-2">— a habilidade central do vibe coder</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Dois desenvolvedores, a mesma ferramenta, o mesmo modelo de IA. Um recebe código preciso que funciona na primeira tentativa. O outro recebe código genérico que precisa de 5 rodadas de correção. A diferença quase nunca é a ferramenta — é a qualidade do prompt.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Prompts bem estruturados reduzem as rodadas de iteração em ~60%. Desenvolvedores que aprendem prompt engineering reportam 2-3x mais produtividade com as mesmas ferramentas. O custo de tokens também cai.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Prompt vago vs. prompt específico · ~60% menos iterações com prompts melhores · 2-3x produtividade · Custo de tokens menor · Prompt engineering como habilidade central.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">👑</span>
+            <div><span class="font-medium">Contexto é rei — a estrutura de 4 partes</span><span class="text-neutral-500 text-sm ml-2">— C+T+R+E</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Todo prompt eficaz para código tem quatro componentes: Contexto + Tarefa + Restrições + Resultado Esperado. Você não precisa de todos em todos os prompts — mas quanto mais presentes, mais preciso o resultado.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Você não precisa escrever "Contexto:", "Tarefa:" como cabeçalhos. O importante é que o prompt contenha essas informações de forma natural. O agente extrai a estrutura do texto.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Contexto (onde estamos) · Tarefa (o que fazer, com verbo claro) · Restrições (o que não fazer) · Resultado Esperado (comportamento final) · Estrutura natural, não formal.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📐</span>
+            <div><span class="font-medium">Especificar entrada e saída</span><span class="text-neutral-500 text-sm ml-2">— o nível de precisão que gera integração perfeita</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Para funções e componentes, o nível de precisão mais eficaz é especificar exatamente o que entra e o que sai. "Faça uma função" é vago. "Função que recebe X e retorna Y" gera código que integra perfeitamente com o resto do sistema.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para funções: "formatDate(date: Date) → string no formato dd/mm/yyyy". Para APIs: especificar o schema de entrada e saída. Para componentes: definir as props e callbacks. Cada tipo tem seu padrão de especificação ideal.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Funções: nome(param: tipo) → tipo retorno · APIs: schema de entrada e saída com tipos · Componentes: props e callbacks explícitos · Tipos TypeScript como especificação · Exemplos de entrada e saída esperada.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📌</span>
+            <div><span class="font-medium">Fornecer exemplos no prompt</span><span class="text-neutral-500 text-sm ml-2">— few-shot prompting</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Exemplos são o atalho mais eficaz para resultados precisos. Quando você mostra o que quer, a IA infere o padrão e replica — mais rápido e mais fiel do que qualquer descrição verbal. Isso é chamado de few-shot prompting e é tecnicamente validado em pesquisas sobre LLMs.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">No Cursor, use @componente.tsx para incluir um arquivo existente como exemplo. "Crie um componente similar ao @HabitCard.tsx mas para metas semanais" é mais eficaz do que descrever o padrão em palavras.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Few-shot prompting · Zero-shot vs. exemplos concretos · @referências no Cursor · Essencial para estilo de código · Formato de output · Componentes consistentes.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">✂️</span>
+            <div><span class="font-medium">Dividir problemas grandes</span><span class="text-neutral-500 text-sm ml-2">— decomposição é responsabilidade do arquiteto</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Nunca peça tudo de uma vez. Quanto maior e mais complexo o pedido, maior a probabilidade de a IA "alucinar" partes, gerar inconsistências entre arquivos e produzir código que funciona individualmente mas quebra quando integrado. Decompor o problema é responsabilidade do arquiteto — você.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para features complexas, comece com "Antes de escrever qualquer código, me dê um plano de como você implementaria [feature]". Revise o plano, ajuste a abordagem, e só então peça a implementação passo a passo. Isso elimina 90% dos retrabalhos.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Pedido monolítico vs. passos sequenciais · Plano antes do código · 90% menos retrabalho · Cada passo verificável antes do próximo · Decomposição como habilidade de arquiteto.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔁</span>
+            <div><span class="font-medium">Pedir revisão e refatoração</span><span class="text-neutral-500 text-sm ml-2">— a IA melhorando o que ela mesma gerou</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Uma das capacidades mais subutilizadas: usar a IA para melhorar o código que ela mesma gerou. Depois de ter algo funcionando, você pode pedir revisão de segurança, performance, legibilidade e manutenibilidade — tudo em prompts separados.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quando você pede segurança + performance + legibilidade em um único prompt, a IA faz tudo de forma superficial. Quando você pede um aspecto por vez, ela vai a fundo em cada dimensão. A qualidade do output melhora substancialmente com prompts focados.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Sequência: fazer funcionar → commitar → revisar segurança → revisar performance → refatorar legibilidade · Revisões separadas têm mais profundidade · Prompts focados por dimensão.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">❌</span>
+            <div><span class="font-medium">Os 5 erros mais comuns em prompts de código</span><span class="text-neutral-500 text-sm ml-2">— padrões a evitar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Os 5 erros mais comuns: (1) pedir muito de uma vez, (2) não especificar a stack, (3) feedback genérico de erro como "não funcionou, tente de novo", (4) aceitar sem testar, (5) não especificar o que não mudar. Cada um tem uma correção simples e direta.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Depois de analisar centenas de sessões de vibe coding, esses cinco padrões aparecem repetidamente. Conhecê-los antes de cometê-los economiza horas de frustração. Cada erro tem uma anti-solução praticável.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Escopo limitado por pedido · Stack sempre especificada · Erro completo do console no feedback · Testar imediatamente após aceitar · "Não mude X" como instrução explícita · Sempre testar após aceitar mudanças.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-1-5.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 1.6 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-emerald-400 font-bold">1.6</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔄 Ciclo de Desenvolvimento com IA</h3>
+        <p class="text-neutral-400 text-sm">O workflow EPIV — Explore, Plan, Implement, Verify. O processo estruturado que transforma vibe coding de caótico em sistemático, com branches, incrementos testáveis e documentação automática.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🗺️</span>
+            <div><span class="font-medium">O workflow EPIV</span><span class="text-neutral-500 text-sm ml-2">— Explore, Plan, Implement, Verify</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O maior problema do vibe coding não é a qualidade do código gerado — é a falta de processo. Sem estrutura, as sessões se tornam caóticas. O EPIV (Explore, Plan, Implement, Verify) resolve isso com um workflow deliberado de 4 fases.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Times que adotam um workflow estruturado reportam: 70% menos retrabalho causado por mudanças não intencionais, 3x menos bugs chegando à branch principal e histórico de git compreensível por qualquer membro do time.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Explore (entenda antes de modificar) · Plan (planeje antes de executar) · Implement (execute em partes testáveis) · Verify (valide antes de aceitar) · 70% menos retrabalho · 3x menos bugs.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔍</span>
+            <div><span class="font-medium">Fase Explore — entenda antes de mudar</span><span class="text-neutral-500 text-sm ml-2">— análise sem modificação</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Antes de qualquer modificação, instrua o agente a entender o codebase sem modificar nada. Essa fase é especialmente crítica em projetos existentes, mas essencial mesmo em projetos novos maiores de 3 arquivos. O agente que entende o contexto gera código mais consistente.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">No início de cada sessão com um projeto existente, comece com: "Quais foram as últimas mudanças feitas nesse projeto? Onde estava sendo desenvolvido?" O agente vai ler o histórico do git e reconstruir o contexto da sessão anterior.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">"Não modifique nada ainda" · "Apenas análise, sem código" · Mapeamento de dependências ocultas · Padrões existentes para replicar · Contexto de sessões anteriores via histórico git.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📋</span>
+            <div><span class="font-medium">Fase Plan — planeje antes de escrever</span><span class="text-neutral-500 text-sm ml-2">— plano aprovado antes do código</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O erro mais caro em vibe coding: deixar a IA implementar sem ter um plano aprovado. A fase Plan força o agente a pensar antes de escrever. Você revisa o plano, identifica problemas na abordagem, e só então dá o sinal verde.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Adicione "aguarde minha aprovação" em todo pedido de planejamento. Isso impede que o agente comece a implementar enquanto ainda está planejando. A separação entre plano e execução é o coração do EPIV.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Prompt de planejamento estruturado · Arquivos afetados · Estrutura de dados · Sequência de implementação · Dependências externas · Pontos de falha potenciais · "Aguarde aprovação".</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">⚙️</span>
+            <div><span class="font-medium">Fase Implement — execução em partes testáveis</span><span class="text-neutral-500 text-sm ml-2">— granularidade fina</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Com o plano aprovado, a implementação começa — mas ainda em partes. A regra: cada passo deve ser testável antes de avançar para o próximo. Não implemente tudo de uma vez, mesmo que o plano cubra a feature completa.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Um bom passo de implementação pode ser testado em menos de 5 minutos. Se levar mais de 10 minutos para testar, o passo está grande demais. Use "anote mas não altere" para manter o escopo controlado.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">"Implemente apenas o passo 1" · Cada passo verificável em menos de 5 min · "Se perceber algo a melhorar, anote mas não altere" · Rollback simples de cada passo · Sem refatoração não solicitada.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">✅</span>
+            <div><span class="font-medium">Fase Verify — valide antes de aceitar</span><span class="text-neutral-500 text-sm ml-2">— julgamento humano insubstituível</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A fase Verify é onde o julgamento humano é insubstituível. O agente pode ter gerado código que compila e passa nos testes — mas que tem comportamento indesejado em edge cases. Verificar é diferente de testar: inclui verificação funcional, de edge cases e de regressão.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Antes de implementar, peça: "Qual seria o checklist de verificação que eu deveria usar para confirmar que esse passo funcionou corretamente?" O agente vai listar os casos de teste relevantes — use essa lista na fase Verify.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Verificação funcional (funciona?) · Verificação de edge cases (dados inválidos, campos vazios) · Verificação de regressão (o que existia ainda funciona?) · Checklist gerado pelo agente antes de implementar.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🌿</span>
+            <div><span class="font-medium">Branches para cada feature</span><span class="text-neutral-500 text-sm ml-2">— nunca vibe code na main</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Uma das regras mais importantes do vibe coding profissional: nunca vibe code diretamente na branch main. Cada feature, cada experimento, cada refatoração significativa começa em uma branch dedicada. Isso permite descartar trabalho problemático sem consequências.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Vibe coding na main sem branches é como fazer experimentos sem proteção — geralmente fica tudo bem, até o dia que não fica. Se você não se sente à vontade para descartar tudo que foi feito nos últimos 30 minutos, você está atrasado em criar uma branch.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">git checkout -b feat/nome · Commits descritivos ao longo da feature · Merge para main só quando aprovado e testado · git branch -D para descartar sem prejuízo · Branches de backup antes de mudanças grandes.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">📄</span>
+            <div><span class="font-medium">Documentação automática</span><span class="text-neutral-500 text-sm ml-2">— feature só está pronta com docs atualizadas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Um dos maiores benefícios subutilizados do vibe coding: pedir ao agente que documente o que fez e por quê. Documentação gerada pela IA é mais fácil de manter, mais consistente em estilo e muitas vezes mais clara do que a escrita por humanos sob pressão de deadline.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Inclua no seu processo: uma feature só está "pronta" quando a documentação está atualizada. Como o agente escreve documentação rapidamente, esse critério extra adiciona quase zero tempo ao processo — mas transforma projetos vibe coding em projetos mantíveis.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">JSDoc para funções e componentes · DECISIONS.md para escolhas de arquitetura · CLAUDE.md / .cursorrules atualizado · README gerado pelo agente · Documentação como parte do Definition of Done.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-1-6.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 1.7 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-emerald-400 font-bold">1.7</span>
+          <span class="text-xs text-neutral-500">~30 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🔐 Controle, Qualidade e Segurança Básica</h3>
+        <p class="text-neutral-400 text-sm">2,74x mais vulnerabilidades em código de IA. Os riscos são reais e documentados. Aprenda as práticas mínimas que todo vibe coder precisa dominar antes de colocar qualquer coisa em produção.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">⚠️</span>
+            <div><span class="font-medium">O dado que assusta</span><span class="text-neutral-500 text-sm ml-2">— 2,74x mais vulnerabilidades</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O relatório CodeRabbit 2025 analisou mais de 1 milhão de pull requests: código assistido por IA tem 2,74x mais vulnerabilidades do que código escrito por humanos sem assistência. 45% do código gerado por IA contém pelo menos uma falha de segurança (Veracode).</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Esses números não significam que vibe coding é perigoso por natureza — significam que sem processo de revisão, qualquer metodologia de desenvolvimento é perigosa. Os riscos são gerenciáveis com as práticas deste módulo.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">2,74x mais vulnerabilidades (CodeRabbit 2025) · 45% com falha de segurança (Veracode) · 16 de 18 CTOs reportaram incidentes · Top: SQL injection, XSS, dados hardcodados, IDOR · Revisão como mitigação principal.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔒</span>
+            <div><span class="font-medium">Git como rede de segurança</span><span class="text-neutral-500 text-sm ml-2">— commits frequentes como apólice de seguro</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Git não é só controle de versão — é sua apólice de seguro para vibe coding. Commits frequentes criam um histórico de estados funcionais que você pode acessar a qualquer momento. O momento em que você vai precisar de rollback é o pior momento para perceber que não fez commits.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Os comandos de segurança mais importantes: git diff (ver o que mudou), git checkout HEAD -- arquivo.tsx (reverter um arquivo), git checkout abc1234 (voltar a um commit), git log --oneline (histórico rápido).</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Commit a cada funcionalidade funcionando · Antes de cada mudança grande · Antes do final do dia (WIP:) · Antes de experimentos · git diff antes de commitar · Branch de backup antes de refatorações.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔑</span>
+            <div><span class="font-medium">Variáveis de ambiente — segredos fora do código</span><span class="text-neutral-500 text-sm ml-2">— a vulnerabilidade #1</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A vulnerabilidade número 1 em projetos vibe coding: chaves de API, tokens e senhas hardcodadas no código. A IA frequentemente coloca valores diretamente no código para "facilitar o exemplo". O tempo médio entre o commit de uma chave real e seu primeiro uso malicioso é de 4 a 24 horas.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Adicione no seu .cursorrules ou CLAUDE.md: "Nunca coloque valores de chaves de API, tokens ou senhas diretamente no código. Sempre use process.env.NOME_DA_VARIAVEL e adicione a instrução no .env.example."</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Arquivo .env local (nunca commitado) · .gitignore com .env, .env.local, .env.production · process.env.NOME_DA_VARIAVEL · Bots escaneiam repositórios GitHub · 4-24h para uso malicioso.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">👁️</span>
+            <div><span class="font-medium">Revisar o diff antes de commitar</span><span class="text-neutral-500 text-sm ml-2">— última linha de defesa</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Ler antes de aceitar é o hábito de segurança mais importante do vibe coder. O agente pode ter feito mudanças além do que você pediu, introduzido padrões diferentes ou modificado arquivos que não deveriam ser tocados. O diff é sua última linha de defesa antes do commit.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O que procurar no diff: arquivos não esperados modificados, strings suspeitas (tokens, URLs, senhas), linhas deletadas sem motivo claro, dependências novas em package.json. No Cursor/Windsurf, prefira "Accept individual changes" ao "Accept All".</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">git diff (unstaged) · git diff --staged (o que vai no commit) · git diff HEAD~1 (vs commit anterior) · Padrões suspeitos: "sk_", "AIza", "Bearer", "postgresql://" · Linhas em vermelho = código removido.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🛡️</span>
+            <div><span class="font-medium">Validação de dados — o mínimo necessário</span><span class="text-neutral-500 text-sm ml-2">— SQL injection, XSS, IDOR</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Uma das vulnerabilidades mais comuns em código de IA: ausência de validação de dados de entrada. A IA foca em fazer o fluxo "feliz" funcionar e frequentemente ignora o que acontece quando o usuário envia dados inesperados, maliciosos ou simplesmente incorretos.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">SQL Injection, XSS (Cross-Site Scripting) e IDOR (Insecure Direct Object Reference) são preveníveis com práticas básicas: Zod/Yup para validação de schemas, ORMs ao invés de queries manuais, DOMPurify para HTML, e verificação de autorização em cada endpoint.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Zod ou Yup para schemas no servidor · ORMs (Prisma, Drizzle) previnem injection · DOMPurify sanitiza HTML · Verificação de autorização em todo endpoint · Nunca confiar apenas na validação do front-end.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🚫</span>
+            <div><span class="font-medium">O que NÃO fazer em produção</span><span class="text-neutral-500 text-sm ml-2">— checklist de bloqueadores críticos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Produção é diferente de desenvolvimento. Em dev, um bug é um aprendizado. Em produção, um bug pode significar dados perdidos, usuários prejudicados e responsabilidade legal. Este checklist representa os bloqueadores críticos — coisas que devem estar resolvidas ANTES de qualquer deploy.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Antes de qualquer deploy de produção: "Faça uma auditoria de segurança básica desse projeto. Liste: chaves hardcodadas, endpoints sem autenticação, inputs sem validação, e console.logs que deveriam ser removidos."</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Sem chaves hardcodadas · Backup do banco antes do primeiro deploy · Auth testada com usuários reais · Sem console.log de dados sensíveis · HTTPS obrigatório · Rate limiting nas APIs · Validação no servidor.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🆘</span>
+            <div><span class="font-medium">Quando chamar um profissional</span><span class="text-neutral-500 text-sm ml-2">— saber os limites é habilidade de maturidade</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Vibe coding democratizou o desenvolvimento, mas não eliminou a necessidade de expertise especializada em contextos críticos. Saber quando pedir ajuda profissional é uma habilidade de maturidade — não uma admissão de fraqueza.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sinais que indicam necessidade de revisão externa: dados de usuários reais (PII), processamento de pagamentos real, mais de 1.000 usuários ativos, ou código em produção que você não consegue explicar como funciona.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">PII exige conformidade LGPD · Pagamentos reais requerem revisão de webhooks · 1.000+ usuários = problemas de escala · Codementor para code review pontual · Freelancer sênior por uma semana · Pentest para dados sensíveis.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-7')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-1-7.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 1.8 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-emerald-400 font-bold">1.8</span>
+          <span class="text-xs text-neutral-500">~25 min</span>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">🌐 Deploy: Publicando seu Projeto</h3>
+        <p class="text-neutral-400 text-sm">Do localhost para a internet em minutos. Vercel, Render, Railway, domínio personalizado e monitoramento básico — tudo o que você precisa para colocar seu projeto no ar com segurança.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🖥️</span>
+            <div><span class="font-medium">O que é deploy</span><span class="text-neutral-500 text-sm ml-2">— do localhost para o mundo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Deploy é o processo de mover seu projeto da sua máquina local para um servidor que fica acessível na internet, 24 horas por dia, para qualquer pessoa com o link. Em 2025, deploy ficou tão simples quanto um push no git — a plataforma detecta, constrói e publica automaticamente.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O deploy evoluiu radicalmente: 2010 (SSH manual) → 2015 (Heroku com git push) → 2020 (Vercel em 30 segundos) → 2025 (deploy completo com front + back + banco em menos de 5 minutos com Railway ou Render).</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Localhost → GitHub push → Plataforma detecta → Build → URL pública · HTTPS automático · Deploy contínuo (todo push = novo deploy) · Vercel, Render e Railway como plataformas principais.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">▲</span>
+            <div><span class="font-medium">Vercel — deploy em 1 clique para Next.js</span><span class="text-neutral-500 text-sm ml-2">— 60 segundos para URL pública</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A Vercel criou o Next.js e é a plataforma de deploy mais otimizada para projetos React/Next.js. O fluxo é: conecte o GitHub, selecione o repositório, clique em Deploy. Em 60 segundos você tem uma URL pública com HTTPS automático e deploy contínuo a cada push.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A Vercel detecta automaticamente o framework e configura o build command correto. Inclui gratuitamente: 100GB de bandwidth/mês, preview deployments por branch, analytics básico e funções serverless sem configuração adicional.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Conectar GitHub → Selecionar repo → Deploy (60s) · Todo push na main = novo deploy · Preview URLs para branches · HTTPS via Let's Encrypt · 100GB bandwidth gratuito · Funções serverless incluídas.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎨</span>
+            <div><span class="font-medium">Render — backends e APIs</span><span class="text-neutral-500 text-sm ml-2">— o Heroku moderno</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Quando seu projeto tem um backend Node.js, Python, Go ou Ruby que precisa ficar rodando 24/7, o Render é uma das melhores opções. É o Heroku moderno — simples, confiável e com plano gratuito funcional para desenvolvimento.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Use Vercel para front-ends React/Next.js e APIs leves (serverless functions). Use Render para servidores Node.js/Python que precisam ficar rodando, WebSockets, processamento em background e workers de fila.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Web Services (backends sempre rodando) · Static Sites · Background Workers · PostgreSQL gerenciado · Redis gerenciado · Deploy automático via GitHub · Vercel para front, Render para back.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🚂</span>
+            <div><span class="font-medium">Railway — banco + backend com setup mínimo</span><span class="text-neutral-500 text-sm ml-2">— integração automática</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O Railway resolve o problema mais comum de quem está começando: como rodar backend + banco de dados juntos de forma simples. Com alguns cliques, você provisiona um Postgres, um Redis e um serviço Node.js, todos conectados automaticamente com variáveis de ambiente injetadas.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Stack recomendada para iniciantes: Front-end na Vercel + Back-end + Banco no Railway. Essa combinação cobre 95% dos projetos de aprendizado e MVPs. É gratuita até um certo ponto e escala facilmente quando necessário.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Add service → Database → PostgreSQL (provisionado em segundos) · DATABASE_URL injetada automaticamente · $5/mês plano Hobby · 1GB RAM por serviço · Serviços ilimitados por projeto · Vercel front + Railway back+banco.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🌐</span>
+            <div><span class="font-medium">Configurando domínio — DNS e SSL</span><span class="text-neutral-500 text-sm ml-2">— projeto para produto em ~10 min</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Domínios custam ~R$50/ano e transformam "projeto" em "produto". A configuração que parece complexa (DNS, SSL, HTTPS) foi simplificada ao ponto de levar menos de 10 minutos nas plataformas modernas. A Vercel provisiona e renova o certificado SSL automaticamente.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">DNS (Domain Name System) é a agenda telefônica da internet: transforma "meuapp.com" no endereço IP do servidor. SSL/HTTPS é o cadeado no browser — garante que a comunicação é criptografada. Sem SSL, dados trafegam em texto puro.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Registro.br (domínios .com.br) · Cloudflare (melhor preço, sem taxas surpresa) · Settings → Domains na Vercel · Registros A e CNAME · Propagação 5 min a 48h · SSL automático via Let's Encrypt.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔑</span>
+            <div><span class="font-medium">Variáveis de ambiente no deploy</span><span class="text-neutral-500 text-sm ml-2">— "funciona local, quebra em produção"</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Suas variáveis de ambiente do arquivo .env local não vão para o servidor sozinhas. Você precisa configurá-las na plataforma de deploy antes de fazer o primeiro push. Esse é o passo que mais gera bugs de "funciona local, quebra em produção".</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Cada plataforma tem seu caminho: Vercel (Settings → Environment Variables), Render (Dashboard → Environment), Railway (Serviço → Variables com injeção automática dos serviços conectados). Separe sempre chaves de test de chaves de produção.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">.env.example no repositório (sem valores) · Valores reais só no painel da plataforma · sk_test_ para dev vs. sk_live_ para produção · Erros comuns: commitar .env, usar prod em dev, esquecer de configurar antes do deploy.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Monitoramento básico</span><span class="text-neutral-500 text-sm ml-2">— saber quando algo quebra antes do usuário reportar</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-emerald-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Colocar no ar é o começo — saber quando algo quebra é o que mantém o projeto de pé. Monitoramento básico não precisa ser caro ou complexo. Com três ferramentas gratuitas, você tem visibilidade suficiente: Uptime Robot (uptime a cada 5 min), logs da plataforma e Sentry (tracking de erros).</p></div>
+              <div><span class="text-emerald-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para projetos Next.js, peça ao agente: "Integre o Sentry ao projeto seguindo a documentação oficial. Configure para capturar erros de front-end e back-end. Use a variável de ambiente SENTRY_DSN." O agente instala, configura e cria os handlers automaticamente.</p></div>
+              <div><span class="text-emerald-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Uptime Robot (gratuito, até 50 monitores, a cada 5 min) · Logs da plataforma em tempo real · Sentry (5.000 erros/mês gratuito, stack trace completo) · Verificar logs após cada deploy · Hábito de monitoramento pró-ativo.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-8')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-1-8.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors">Ver Completo</a>
       </div>
     </div>
 
@@ -488,6 +1044,51 @@
         <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
       </div>
       <iframe src="modulo-1-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-1-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-emerald-400 font-bold">1.4</span><span class="font-semibold">Seu Primeiro Projeto com IA</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-1-4.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-1-5" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-emerald-400 font-bold">1.5</span><span class="font-semibold">Prompt Engineering Básico</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-1-5.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-1-6" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-emerald-400 font-bold">1.6</span><span class="font-semibold">Ciclo de Desenvolvimento com IA</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-1-6.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-1-7" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-emerald-400 font-bold">1.7</span><span class="font-semibold">Controle, Qualidade e Segurança Básica</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-1-7.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-1-8" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-emerald-400 font-bold">1.8</span><span class="font-semibold">Deploy: Publicando seu Projeto</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-1-8.html" class="flex-1 w-full rounded-b-xl"></iframe>
     </div>
   </div>
 

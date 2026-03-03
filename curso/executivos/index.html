@@ -569,7 +569,7 @@
       </div>
     </div>
 
-    <!-- MÓDULOS 3.3 a 3.8 — Compactos -->
+    <!-- MÓDULO 3.3 — Detalhado -->
     <div id="modulo-3-3" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
@@ -577,18 +577,210 @@
           <span class="text-xs text-neutral-500">~35 min</span>
         </div>
         <h3 class="text-2xl font-bold mb-2">🗺️ Estratégia de Adoção na sua Empresa</h3>
-        <p class="text-neutral-400 text-sm">Os 3 modelos de adoção, quem treinar primeiro, quais ferramentas selecionar e um roadmap de 90 dias do piloto ao processo padrão.</p>
+        <p class="text-neutral-400 text-sm">Os 3 modelos de adoção, quem treinar primeiro, como selecionar ferramentas e um roadmap prático de 90 dias — do piloto ao processo padrão de desenvolvimento.</p>
       </div>
-      <div class="p-4 px-6 text-sm text-neutral-400">
-        7 tópicos: Modelos de adoção · MVP interno · Quem treinar primeiro · Selecionando ferramentas · Governança de uso · Change management · Roadmap de 90 dias
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔀</span>
+            <div>
+              <span class="font-medium">Os 3 modelos de adoção</span>
+              <span class="text-neutral-500 text-sm ml-2">— gradual, paralelo ou total: cada um com velocidade, risco e impacto diferentes</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Não existe uma única forma de implementar vibe coding em uma empresa. Os três modelos diferem em velocidade, risco e impacto cultural: Gradual (piloto → expansão, 6-12 meses, mais seguro), Paralelo (time dedicado de IA + time tradicional, 3-6 meses) e Total (adoção simultânea, 0-3 meses, mais arriscado).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A escolha certa do modelo depende do contexto, tolerância a risco e urgência competitiva da empresa. Escolher o modelo errado é o erro mais comum que leva a adoções fracassadas ou rollbacks custosos.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Modelo Gradual vs. Paralelo vs. Total; critérios de escolha por perfil de empresa; quando cada modelo é indicado; papel da liderança técnica em cada modelo de adoção.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🛠️</span>
+            <div>
+              <span class="font-medium">Começando pelo MVP interno</span>
+              <span class="text-neutral-500 text-sm ml-2">— dashboards, automações e painéis: menor risco, aprendizado máximo</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">A forma mais segura de iniciar é com ferramentas internas — dashboards de dados, automações de processos, painéis de gestão. São sistemas onde o usuário é seu próprio time, o impacto de um bug é controlável e o aprendizado é acelerado.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Bug em ferramenta interna não afeta cliente nem receita. O ROI é visível rapidamente em horas economizadas por semana. Permite treinar o time em contexto real sem pressão de produção — o ambiente ideal para aprender.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">MVP interno vs. produto externo; exemplos práticos (dashboard de KPIs, formulário de férias com aprovação automática, relatório semanal automatizado); como medir ROI de ferramentas internas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">👤</span>
+            <div>
+              <span class="font-medium">Quem treinar primeiro</span>
+              <span class="text-neutral-500 text-sm ml-2">— seniors como multiplicadores vs. juniors como early adopters</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">A decisão de quem treinar primeiro tem impacto direto na velocidade e qualidade da adoção. Duas filosofias opostas: Estratégia A (seniors primeiro — conseguem avaliar criticamente o output da IA, criam padrões internos) ou Estratégia B (juniors primeiro — mais receptivos, aprendizado mais rápido, mas sem capacidade de revisão crítica).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A recomendação é treinar seniors primeiro (2-3 semanas) para criar os guardrails e a cultura de revisão, depois expandir para o time completo. Juniors sem revisor sênior acumulam dívida técnica sem perceber.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Multiplicadores vs. early adopters; papel do senior como revisor permanente; como criar um programa de treinamento sequencial; gestão de resistência de seniors à mudança.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🔧</span>
+            <div>
+              <span class="font-medium">Selecionando as ferramentas corretas</span>
+              <span class="text-neutral-500 text-sm ml-2">— Cursor, Lovable, Claude Code, Replit: a ferramenta certa para o perfil certo</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Cada ferramenta tem um perfil de usuário diferente: Cursor ($20/mês) para desenvolvedores em projetos existentes; Lovable ($25/mês) para PMs e não-técnicos criando produtos web; Claude Code ($20/mês) para automação e tarefas agentic; Replit para prototipagem e educação; GitHub Copilot ($19/mês) para autocomplete.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Escolher a ferramenta errada para o perfil errado é o erro mais comum nos projetos de adoção que falham. Um PM usando Cursor ficará frustrado. Um dev usando Lovable terá limitações. O match correto define a taxa de adoção.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Mapeamento de ferramenta por perfil; custo total de licenças por tipo de time; como fazer a seleção de ferramenta em um piloto; critérios de avaliação de ferramentas de vibe coding.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🛡️</span>
+            <div>
+              <span class="font-medium">Governança de uso</span>
+              <span class="text-neutral-500 text-sm ml-2">— 3 políticas mínimas antes de escalar: code review, dados sensíveis e SAST</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Governança não é burocracia — é o conjunto mínimo de regras que permite adotar vibe coding com velocidade sem criar passivos jurídicos, de segurança ou manutenção. As 3 políticas essenciais: (1) Code Review obrigatório, (2) Proibição de dados sensíveis em LLMs externos, (3) SAST obrigatório no pipeline.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Empresas que escalam sem essas 3 políticas enfrentam incidentes de segurança, exposição de dados e dívida técnica acumulada. As políticas são simples de implementar mas difíceis de corrigir depois que o problema já aconteceu.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">SAST (Static Application Security Testing); ferramentas recomendadas (SonarQube, Snyk, GitLeaks); template de PR com checklist de IA; como documentar o uso de IA no processo de desenvolvimento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🧠</span>
+            <div>
+              <span class="font-medium">Change management</span>
+              <span class="text-neutral-500 text-sm ml-2">— resistência do time técnico: o fator mais subestimado nas adoções que falham</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">A resistência do time técnico é o fator mais subestimado nas falhas de adoção. Engenheiros seniors frequentemente percebem a mudança como ameaça à sua identidade profissional. As resistências mais comuns: "código gerado é de baixa qualidade", "isso vai nos substituir", "não entendo o que o código está fazendo".</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Líderes que ignoram a dimensão humana da adoção falham mesmo com as ferramentas e processos corretos. Estratégias que funcionam: envolver seniors na criação das políticas, deixar claro que o objetivo é multiplicar capacidade (não reduzir headcount), mostrar exemplos concretos de seniors valorizados com IA.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Fontes de resistência por perfil de engenheiro; abordagens de gestão de mudança; estratégia de voluntários vs. mandato; como comunicar a adoção sem criar ansiedade no time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">📅</span>
+            <div>
+              <span class="font-medium">Roadmap de 90 dias</span>
+              <span class="text-neutral-500 text-sm ml-2">— do piloto controlado ao processo padrão de desenvolvimento</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Um cronograma realista em 3 fases: Dias 1-30 (Piloto Controlado — 2-5 devs, ferramentas instaladas, métricas baseline, primeiros projetos internos), Dias 31-60 (Estrutura e Governança — políticas, checklist, SAST no pipeline, expansão para 30-50% do time), Dias 61-90 (Processo Padrão — integrado ao desenvolvimento padrão, métricas contínuas, relatório de ROI ao board).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Um roadmap sem fases claras transforma o piloto em um projeto sem fim. As 3 fases têm objetivos, métricas de sucesso e gates de decisão bem definidos — o que permite ao board aprovar continuidade com confiança baseada em dados.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Gates de decisão por fase; métricas de sucesso do piloto; como documentar o baseline antes de começar; template de relatório de ROI para apresentar ao board após 90 dias.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
         <a href="modulo-3-3.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
           Ver Completo
         </a>
       </div>
     </div>
 
+    <!-- MÓDULO 3.4 — Detalhado -->
     <div id="modulo-3-4" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
@@ -596,18 +788,210 @@
           <span class="text-xs text-neutral-500">~30 min</span>
         </div>
         <h3 class="text-2xl font-bold mb-2">🛡️ Riscos, Governança e Segurança</h3>
-        <p class="text-neutral-400 text-sm">16 de 18 CTOs reportaram desastres em produção. Incidentes reais, propriedade intelectual, LGPD e quando NÃO usar vibe coding.</p>
+        <p class="text-neutral-400 text-sm">Os incidentes reais que aconteceram, os dados de risco que o seu CTO precisa conhecer, e o framework de governança que permite adotar com segurança.</p>
       </div>
-      <div class="p-4 px-6 text-sm text-neutral-400">
-        7 tópicos: Dados de risco · Incidentes reais · Propriedade intelectual · LGPD e código de IA · Política de uso seguro · Arquitetura de governança · Quando NÃO usar
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📊</span>
+            <div>
+              <span class="font-medium">Os dados de risco</span>
+              <span class="text-neutral-500 text-sm ml-2">— 2,74x mais vulnerabilidades, 45% de código com falhas, 16 de 18 CTOs com desastres</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Os dados de pesquisas independentes revelam: 16 de 18 CTOs consultados sobre vibe coding em produção reportaram desastres; código gerado por IA sem revisão tem 2,74x mais vulnerabilidades (Veracode 2025); 45% do código gerado por IA contém pelo menos uma vulnerabilidade conhecida; e há -19% de velocidade em tarefas complexas (METR 2025).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Esses dados não invalidam o vibe coding — definem as condições nas quais ele deve ser aplicado. Assim como sistemas de aviação têm altas taxas de acidente quando operados sem treinamento, a ferramenta não é o problema; a ausência de processo é.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Veracode Research 2025; METR 2025; diferença entre risco inerente e risco de processo; como apresentar dados de risco ao board de forma equilibrada.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">💥</span>
+            <div>
+              <span class="font-medium">Os incidentes reais</span>
+              <span class="text-neutral-500 text-sm ml-2">— Lovable (18K usuários), Base44, Replit: casos documentados públicamente</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Casos documentados públicamente: Lovable — bug na lógica de autenticação gerada por IA expôs 18.000 usuários (nenhum dev tinha lido o código); Base44 — falha de controle de acesso ficou em produção 72h; Replit — agente interpretou "limpar dados de teste" de forma ampla e deletou todo o banco de desenvolvimento.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Esses não são hipotéticos — são relatos de empresas reais com usuários reais afetados. Funcionam como argumentos concretos para justificar investimento em governança ao board e como casos de estudo para treinar o time sobre o que NÃO fazer.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Análise de causa raiz de cada incidente; padrão comum entre os três casos (código não revisado); lições aprendidas aplicáveis à sua empresa; como documentar e comunicar incidentes internamente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">⚖️</span>
+            <div>
+              <span class="font-medium">Propriedade intelectual</span>
+              <span class="text-neutral-500 text-sm ml-2">— quem é dono do código gerado, licenças de terceiros e segredos comerciais</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Três dimensões de PI: (1) Quem é dono do código — maioria dos ToS concede direitos ao usuário, mas USCO pode não proteger código 100% gerado por IA; (2) Risco de licenças de terceiros — LLMs treinados em código GPL/AGPL podem reproduzir trechos incompatíveis com uso comercial; (3) Código-fonte como segredo comercial — enviar código proprietário para LLMs externos pode comprometer confidencialidade.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A questão de PI em código de IA é uma das mais complexas e menos resolvidas do direito de tecnologia em 2025-2026. Seu time jurídico precisa estar informado antes de uma adoção em escala — o passivo potencial é significativo.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">US Copyright Office e código gerado por IA; licenças GPL/AGPL e risco de contaminação; política de retenção de dados dos principais LLMs; como proteger segredos comerciais ao usar ferramentas de IA.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📋</span>
+            <div>
+              <span class="font-medium">LGPD e código de IA</span>
+              <span class="text-neutral-500 text-sm ml-2">— o que nunca enviar para LLMs externos e como documentar no ROPA</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">A LGPD cria responsabilidades específicas quando LLMs são usados no desenvolvimento de software que processa dados pessoais. O que NUNCA enviar: dados pessoais reais em prompts, dados de produção com CPFs/emails sem anonimização, descrições de vulnerabilidades específicas de usuários. O que fazer: dados sintéticos, ferramentas com política de não retenção, documentação no ROPA.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Uma violação de LGPD via uso inadequado de LLMs em desenvolvimento pode resultar em multas de até 2% do faturamento. A maior parte dos riscos de LGPD em vibe coding é evitada com uma política de uso simples e clara.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">ROPA (Registro de Operações de Tratamento); dados sintéticos vs. anonimizados; enterprise tiers com política de não retenção; como adaptar o fluxo de desenvolvimento para conformidade com LGPD.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔒</span>
+            <div>
+              <span class="font-medium">Política de uso seguro</span>
+              <span class="text-neutral-500 text-sm ml-2">— o checklist de "pode enviar / nunca enviar" que previne a maioria dos incidentes</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Uma política de uso seguro de uma página com duas listas: PODE enviar (código novo sem dados de produção, código de projetos open source, dados sintéticos, descrições abstratas) e NUNCA enviar (chaves de API, CPFs, dados financeiros de clientes, código-fonte classificado como segredo comercial, arquivos de configuração com credenciais de produção).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Uma política simples e clara, distribuída e assinada por todos os devs antes de usar ferramentas de IA, previne a maioria dos incidentes sem criar burocracia. Documentos de 50 páginas não são lidos; checklists de uma página são seguidos.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Template de política de uso seguro; como distribuir e assinar digitalmente; como integrar a política ao onboarding de novos devs; revisão semestral da política.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🏗️</span>
+            <div>
+              <span class="font-medium">Arquitetura de governança</span>
+              <span class="text-neutral-500 text-sm ml-2">— 5 camadas de defesa: política, PR, SAST, revisão de senior e monitoramento</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Governança eficaz construída em 5 camadas: Camada 1 (Política de uso — documento de uma página, assinado por todos), Camada 2 (Pull Request obrigatório com checklist específico de IA), Camada 3 (SAST automatizado no CI/CD — vulnerabilidades críticas bloqueiam o pipeline), Camada 4 (Revisão de senior obrigatória em sistemas críticos), Camada 5 (Monitoramento com alertas e processo de rollback documentado).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Cada camada é uma linha de defesa que impede que problemas cheguem ao usuário final. A ausência de qualquer camada cria pontos de falha. Não é burocracia — é engenharia de processo que permite escalar com segurança.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Defense in depth aplicado a vibe coding; como configurar SAST no GitHub Actions ou GitLab CI; template de checklist de PR para código de IA; critérios para exigir revisão de senior.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🚫</span>
+            <div>
+              <span class="font-medium">Quando NÃO usar vibe coding</span>
+              <span class="text-neutral-500 text-sm ml-2">— sistemas financeiros, saúde e infraestrutura crítica: o critério decisivo</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Existem contextos onde o risco de vibe coding é estruturalmente muito alto: Sistemas Financeiros (lógica de pagamentos, cálculo de juros — bug resulta em perda financeira direta), Sistemas de Saúde (dosagem de medicamentos, diagnósticos — falhas têm impacto direto em vidas) e Infraestrutura Crítica (energia, telecomunicações, SCADA — falhas com impacto em escala de população e irreversíveis).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">O critério decisivo: se uma falha pode resultar em perda irreversível — de vida, de dados críticos, de dinheiro em escala — o custo de verificação exaustiva cancela o benefício de velocidade. Nesses casos, a velocidade correta é a velocidade segura.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Framework de classificação de sistemas por criticidade; diferença entre risco de processo e risco estrutural; como comunicar limitações ao time de desenvolvimento; alternativas para sistemas críticos (wrapping, revisão exaustiva, reescrita incremental).</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
         <a href="modulo-3-4.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
           Ver Completo
         </a>
       </div>
     </div>
 
+    <!-- MÓDULO 3.5 — Detalhado -->
     <div id="modulo-3-5" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
@@ -615,18 +999,210 @@
           <span class="text-xs text-neutral-500">~30 min</span>
         </div>
         <h3 class="text-2xl font-bold mb-2">🔭 O Futuro: Do Vibe Coding ao Agentic Engineering</h3>
-        <p class="text-neutral-400 text-sm">Karpathy em fevereiro de 2026, agentes em paralelo, impacto no mercado de trabalho e como se posicionar estrategicamente.</p>
+        <p class="text-neutral-400 text-sm">Karpathy declarou em fevereiro de 2026 que vibe coding "já está ultrapassado". O próximo estágio é agentic engineering — e isso muda o posicionamento estratégico que sua empresa precisa fazer agora.</p>
       </div>
-      <div class="p-4 px-6 text-sm text-neutral-400">
-        7 tópicos: Karpathy fev/2026 · O que é agentic engineering · 40% via agentes até 2026 · Novo perfil de engenheiro · Impacto no mercado de trabalho · Posicionamento estratégico · O investimento que vale
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">💬</span>
+            <div>
+              <span class="font-medium">Karpathy em fevereiro de 2026</span>
+              <span class="text-neutral-500 text-sm ml-2">— "vibe coding já está ultrapassado": o próximo estágio chegou</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Exatamente um ano depois de cunhar "vibe coding", Andrej Karpathy declarou que o conceito que ele mesmo criou já estava ultrapassado: "O futuro é agentic engineering — múltiplos agentes especializados trabalhando em paralelo, com o humano como orquestrador e revisor. O programador do futuro não escreve código — ele dirige uma orquestra de agentes."</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Karpathy tem histórico de prever com precisão os próximos 12-18 meses do setor. A empresa que hoje ainda está avaliando vibe coding pode estar se preparando para a batalha de ontem. A estratégia correta é implementar vibe coding agora — exatamente para estar pronto para agentic engineering amanhã.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Andrej Karpathy como referência de credibilidade técnica; velocidade da evolução do paradigma (vibe coding → agentic em 12 meses); implicações estratégicas para empresas em diferentes estágios de adoção.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🤖</span>
+            <div>
+              <span class="font-medium">O que é agentic engineering</span>
+              <span class="text-neutral-500 text-sm ml-2">— múltiplos agentes em paralelo: de 5x para 20-50x de ganho de produtividade</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Enquanto vibe coding é 1 humano + 1 agente em sequência, agentic engineering é 1 humano orquestrando múltiplos agentes especializados em paralelo: Agente A planeja, Agente B codifica, Agente C testa — simultaneamente. O humano define objetivos e aprova gates de qualidade. Velocidade projetada: 20-50x de ganho (vs. 5-10x do vibe coding).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A diferença entre vibe coding e agentic engineering é a diferença entre usar um assistente e dirigir uma orquestra. As habilidades de orquestração que o agentic engineering exige precisam ser desenvolvidas agora — e vibe coding é o treinamento para isso.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Agentes especializados vs. agente único; paralelismo como salto de produtividade; humano como orquestrador e revisor; diferença entre workflow sequencial e pipeline paralelo de agentes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📊</span>
+            <div>
+              <span class="font-medium">40% do software enterprise via agentes até 2026</span>
+              <span class="text-neutral-500 text-sm ml-2">— projeção Gartner confirmada: GitHub, Cursor, Claude Code e Devin em adoção</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">A Gartner projetou que 40% do software enterprise será desenvolvido ou modificado por agentes de IA até o final de 2026. Em março de 2026, essa projeção está se confirmando mais rápido do que o esperado: GitHub Copilot Workspace Agents, Cursor Background Agents, Claude Code como agente de terminal autônomo e Devin em adoção enterprise (Goldman Sachs, Santander).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Quando uma projeção da Gartner se confirma mais rápido do que o esperado, o risco de não agir aumenta proporcionalmente. Os concorrentes que adotarem agentes primeiro terão vantagem de velocidade composta — cada mês de atraso é um mês de vantagem para quem já está rodando.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Gartner 40% projections; Devin como primeiro agente enterprise; Background Agents do Cursor; Claude Code como agente autônomo de terminal; como selecionar agentes para casos de uso enterprise.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">👤</span>
+            <div>
+              <span class="font-medium">O novo perfil de engenheiro</span>
+              <span class="text-neutral-500 text-sm ml-2">— de escrever e depurar para orquestrar e supervisionar agentes</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O papel do engenheiro está passando pela maior transformação desde linguagens de alto nível. Três perfis em transição: Engenheiro Tradicional (2020-2024 — escreve código linha a linha, valor no conhecimento de sintaxe), Vibe Coder (2025 — descreve comportamento, valor na clareza de pensamento), Agentic Engineer (2026+ — define objetivos, orquestra múltiplos agentes, aprova gates de qualidade, valor na visão sistêmica).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Para o executivo, isso significa que o perfil de contratação e avaliação de performance do time técnico está mudando. As habilidades que tornam um engenheiro valioso em 2026 são diferentes das de 2024 — e seu processo de RH precisa refletir isso.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Orquestração como habilidade central; visão sistêmica vs. proficiência em linguagem; como adaptar job descriptions e critérios de avaliação; desenvolvimento de carreira para o novo perfil de engenheiro.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📈</span>
+            <div>
+              <span class="font-medium">Impacto no mercado de trabalho</span>
+              <span class="text-neutral-500 text-sm ml-2">— +28% a +43% de salário com skills de IA vs. pressão crescente para quem não tem</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Os dados sobre impacto salarial já estão emergindo: +28% a +43% de salário para profissionais com skills de IA em média (LinkedIn 2025). Bifurcação do mercado: seniors com IA tornam-se mais valiosos; juniors sem IA sofrem pressão crescente — contratações de junior caíram significativamente em startups nativas de IA.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Empresas que treinam seus engenheiros em skills de IA agora têm vantagem de talent retention — devs preferem trabalhar onde aprendem as ferramentas do futuro. Não treinar significa perder para concorrentes que oferecem esse desenvolvimento.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">LinkedIn 2025 salary data; bifurcação do mercado de trabalho técnico; talent retention como argumento para treinamento em IA; como posicionar o programa de adoção como benefício de carreira para o time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🎯</span>
+            <div>
+              <span class="font-medium">Posicionamento estratégico</span>
+              <span class="text-neutral-500 text-sm ml-2">— cultura de revisão crítica, arquitetura orientada a agentes e treinar para orquestração</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Três movimentos estratégicos para estar bem posicionado para agentic engineering: (1) Construir cultura de revisão crítica — a habilidade central do agentic engineer, desenvolvida hoje com vibe coding; (2) Investir em arquitetura orientada a agentes — sistemas modulares com APIs bem definidas; (3) Treinar para orquestração, não codificação — como definir objetivos claros para agentes, avaliar outputs em escala.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">As empresas que chegarem melhor posicionadas para agentic engineering serão as que usaram 2025-2026 para construir as fundações certas. A transição não é um evento — é um processo que começa agora.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Revisão crítica como habilidade durável e agnóstica de ferramenta; arquitetura modular como pré-requisito para agentes; como estruturar um programa de treinamento para orquestração; débito técnico como obstáculo para agentic engineering.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">💎</span>
+            <div>
+              <span class="font-medium">O investimento que vale</span>
+              <span class="text-neutral-500 text-sm ml-2">— revisão crítica de código de IA: a habilidade agnóstica de ferramenta e durável</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Com tantas ferramentas emergindo, o investimento de maior ROI de longo prazo é treinar revisão crítica de código de IA: é agnóstica de ferramenta (funciona com Cursor, Claude, Devin ou qualquer futura), é durável (enquanto ferramentas mudam a cada 6 meses, o julgamento crítico é um ativo de longo prazo), é escalável (um revisor treinado pode supervisionar múltiplos agentes) e reduz risco (única barreira entre código de IA com bugs e produção).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">O programa mínimo que faz diferença: 2 semanas de treinamento intensivo para 5 engenheiros seniors, focado em identificar padrões de vulnerabilidade em código de IA, usar SAST para validação automatizada e dar feedback de qualidade para agentes de forma que corrijam o problema certo.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Revisão crítica vs. revisão de código tradicional; padrões de vulnerabilidade comuns em código gerado por IA; SAST como complemento da revisão humana; como estruturar o programa de treinamento de 2 semanas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
         <a href="modulo-3-5.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
           Ver Completo
         </a>
       </div>
     </div>
 
+    <!-- MÓDULO 3.6 — Detalhado -->
     <div id="modulo-3-6" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
@@ -634,18 +1210,210 @@
           <span class="text-xs text-neutral-500">~35 min</span>
         </div>
         <h3 class="text-2xl font-bold mb-2">📊 Criando Dashboards a partir de Dados e Planilhas</h3>
-        <p class="text-neutral-400 text-sm">Do Excel a um dashboard interativo em minutos, sem programar. Passo a passo para executivos criarem suas próprias visualizações.</p>
+        <p class="text-neutral-400 text-sm">Módulo prático. Você vai criar um dashboard interativo a partir dos seus dados — sem programar, usando linguagem natural. Do Excel ao dashboard publicado em uma tarde.</p>
       </div>
-      <div class="p-4 px-6 text-sm text-neutral-400">
-        7 tópicos: O que é possível · Preparando seus dados · Descrevendo o dashboard · Gráficos e KPIs · Conectando dados reais · Filtros e interatividade · Publicando e compartilhando
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🌟</span>
+            <div>
+              <span class="font-medium">O que é possível</span>
+              <span class="text-neutral-500 text-sm ml-2">— do Excel a um dashboard interativo sem escrever uma linha de código</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Com uma planilha de dados de vendas, operações ou RH, é possível criar um dashboard interativo em horas — sem código. Tipos de dashboard alcançáveis: dashboard de vendas por região e período, painel de KPIs com indicadores coloridos, relatório de pipeline de leads, acompanhamento de metas de equipe. Ferramentas: Lovable, Claude.ai, Google Looker Studio.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Criar um dashboard com IA não é instantâneo — é um processo de 3-5 iterações. O poder está na velocidade dessas iterações: cada uma leva minutos, não dias. Executivos que dominam isso reduzem dependência do time técnico para visualizações de dados.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Lovable para dashboards web completos; Claude.ai para transformar dados em visualizações; Google Looker Studio para integração com Sheets; processo iterativo de criação; limitações e expectativas realistas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📋</span>
+            <div>
+              <span class="font-medium">Preparando seus dados</span>
+              <span class="text-neutral-500 text-sm ml-2">— 4 regras: cabeçalhos, um registro por linha, formatos consistentes, sem dados sensíveis</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O maior obstáculo para criar dashboards com IA não é a ferramenta — são os dados bagunçados. As 4 regras: (1) Cabeçalhos na primeira linha com nomes claros, (2) Uma linha por registro sem células mescladas, (3) Formatos consistentes (datas, valores numéricos sem texto), (4) Sem dados sensíveis antes de enviar para IA.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Dados mal formatados são a causa de 80% das falhas em criação de dashboards com IA. 30 minutos preparando a planilha corretamente economizam horas de iteração frustrante com a ferramenta.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Estrutura de dados tabular; como limpar planilhas com Excel/Sheets antes de usar IA; anonimização de dados para uso com ferramentas externas; checklist de preparação de dados.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">✍️</span>
+            <div>
+              <span class="font-medium">Descrevendo o dashboard que você quer</span>
+              <span class="text-neutral-500 text-sm ml-2">— template de prompt: quem vai usar, quais dados, KPIs e perguntas a responder</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O prompt para criar um dashboard tem uma estrutura específica: "Preciso criar um dashboard para [QUEM VAI USAR]. Os dados são de [DESCRIÇÃO DO NEGÓCIO]. As colunas são: [LISTE]. As métricas mais importantes são: [KPIs]. O dashboard deve responder: [3-5 PERGUNTAS]. Use [CORES/ESTILO] e inclua filtros por [DIMENSÕES]."</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Quanto mais contexto você der sobre o objetivo e o público, melhor o resultado. Prompts vagos geram dashboards genéricos. O template estruturado é a diferença entre um dashboard que o time usa e um que fica no link sem ninguém abrir.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Estrutura do prompt de dashboard; exemplo preenchido para dashboard de vendas; como descrever KPIs em linguagem de negócio; a regra de não descrever o dashboard inteiro de uma vez.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📈</span>
+            <div>
+              <span class="font-medium">Gráficos, tabelas e KPIs</span>
+              <span class="text-neutral-500 text-sm ml-2">— pedir em linguagem de negócio: "mostre a evolução mês a mês", "compare por região"</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Você não precisa saber o nome técnico dos tipos de gráfico. Use linguagem de negócio — a IA entende: "Mostre a evolução da receita mês a mês", "Compare as vendas por região em formato visual", "Destaque os top 5 clientes por valor". Para KPIs: card com valor grande + seta de tendência, cor verde quando meta atingida, barra de progresso, ranking de performance.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A regra dos 3 pedidos: não tente descrever o dashboard inteiro de uma vez. Comece com layout geral e 3 KPIs principais. Adicione gráficos um de cada vez. Cada pedido adicional em mensagem separada — a IA entende o contexto acumulado.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Linguagem de negócio para visualizações; tipos de KPI e como solicitá-los; regra dos 3 pedidos; como iterar e refinar o dashboard após a criação inicial.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔗</span>
+            <div>
+              <span class="font-medium">Conectando dados reais</span>
+              <span class="text-neutral-500 text-sm ml-2">— Google Sheets, CSV, Airtable: dashboard que se atualiza automaticamente</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Um dashboard com dados estáticos é útil uma vez. Um dashboard conectado a uma fonte viva se atualiza automaticamente. Três opções: Google Sheets + Looker Studio (2 cliques, tempo real, gratuito), CSV/Excel upload direto no Lovable ou Claude.ai, Airtable com API nativa para dados mais complexos de gestão.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">O valor real do dashboard está em ser consultado frequentemente — o que só acontece quando ele tem dados atuais. Um dashboard desatualizado é abandonado em dias. A conexão com dados vivos é o que transforma um projeto em uma ferramenta de gestão.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Looker Studio como ponte entre Sheets e dashboard; como fazer upload de CSV no Lovable; API do Airtable para integração; frequência de atualização e impacto na adoção.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🎛️</span>
+            <div>
+              <span class="font-medium">Filtros e interatividade</span>
+              <span class="text-neutral-500 text-sm ml-2">— seletor de período, dropdown de região, busca por cliente: o time usa sozinho</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Um dashboard que o time consegue usar sozinho precisa de filtros bem configurados. Tipos que você pode pedir: seletor de período (semana/mês/trimestre/ano), dropdown de região ou filial, checkbox de produto ou categoria, busca por nome de cliente ou vendedor. Interatividade: "quando clicar em um vendedor no ranking, mostre só os dados dele".</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Um dashboard sem filtros obriga o criador a gerar novas versões toda vez que alguém quer um recorte diferente — o que elimina o ganho de autonomia. Filtros bem configurados multiplicam a utilidade do dashboard sem esforço adicional.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Tipos de filtro e quando usar cada um; como descrever comportamento interativo para a IA; filtros que atualizam todos os gráficos simultaneamente; tooltip no hover para valores exatos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🚀</span>
+            <div>
+              <span class="font-medium">Publicando e compartilhando</span>
+              <span class="text-neutral-500 text-sm ml-2">— Lovable publica em 1 clique, Looker Studio por email, controle de acesso com senha</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Um dashboard que fica só no computador do criador não gera valor. Três formas de publicar: Via Lovable — publicação automática em subdomínio .lovable.app em 1 clique (plano gratuito inclui publicação); Via Looker Studio — compartilhamento por email com permissões, atualiza automaticamente; Controle de acesso — senha simples para dados internos sensíveis, login corporativo para dados críticos.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Após publicar, o processo não termina. A coleta de feedback na primeira semana — o que falta, o que não está claro, que filtro adicional seria útil — é o que define se o dashboard tem 10% ou 80% de adoção. Um dashboard que evolui com o uso tem 10x mais adoção do que um lançado "perfeito" mas abandonado.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Lovable .lovable.app subdomain; Looker Studio permissões de visualização vs. edição; autenticação básica para dashboards sensíveis; processo de coleta de feedback pós-lançamento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
         <a href="modulo-3-6.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
           Ver Completo
         </a>
       </div>
     </div>
 
+    <!-- MÓDULO 3.7 — Detalhado -->
     <div id="modulo-3-7" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
@@ -653,18 +1421,210 @@
           <span class="text-xs text-neutral-500">~35 min</span>
         </div>
         <h3 class="text-2xl font-bold mb-2">🔄 Criando Soluções de Fluxo e Automação</h3>
-        <p class="text-neutral-400 text-sm">Da aprovação de despesas ao onboarding de clientes. Casos reais de automação de notificações, aprovações e integrações com CRM/ERP.</p>
+        <p class="text-neutral-400 text-sm">Módulo prático com casos reais de negócio. Você vai mapear, criar e publicar um fluxo de automação — da aprovação de despesas ao onboarding de colaborador.</p>
       </div>
-      <div class="p-4 px-6 text-sm text-neutral-400">
-        7 tópicos: O que é um fluxo · Mapeando o processo · Automação de notificações · Fluxo de aprovação · Integrações com sistemas · Monitoramento · Caso real: onboarding automatizado
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔄</span>
+            <div>
+              <span class="font-medium">O que é um fluxo</span>
+              <span class="text-neutral-500 text-sm ml-2">— quando X acontece, o sistema faz Y automaticamente: aprovação, onboarding, suporte</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Um fluxo (workflow) é uma sequência de ações disparadas por um evento: quando X acontece, o sistema faz Y automaticamente. Exemplos que provavelmente existem na sua empresa de forma manual: Aprovação de despesa (formulário → gestor aprova → financeiro registra → funcionário avisado), Onboarding (RH confirma → TI cria acesso → gestor agenda 1:1 → treinamentos enviados), Suporte ao cliente (chamado → categorizado → atribuído → SLA monitorado).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Cada e-mail de notificação enviado manualmente, cada planilha atualizada à mão, cada aprovação que espera alguém lembrar de agir — são candidatos a automação. Identificar fluxos manuais na própria empresa é o primeiro passo para recuperar horas produtivas do time.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Gatilho → Ação como estrutura básica de fluxo; fluxos manuais vs. automatizados; como identificar candidatos a automação na sua operação; critérios de priorização (frequência x tempo por execução).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🗺️</span>
+            <div>
+              <span class="font-medium">Mapeando o processo atual</span>
+              <span class="text-neutral-500 text-sm ml-2">— 5 perguntas: gatilho, passos, decisões, resultado e sistemas envolvidos</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Antes de pedir à IA para criar a automação, você precisa descrever o processo com clareza. O template de mapeamento: (1) Gatilho — o que inicia o processo? (2) Passos — o que acontece na sequência? (3) Decisões — quais são as condições? (4) Resultado — o que é o sucesso? (5) Sistemas envolvidos — quais ferramentas participam?</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A IA é boa em executar; ela não sabe o que você quer se você não descrever com precisão. O mapeamento de processo é o passo mais importante e mais subestimado — prompts vagos geram automações que não funcionam no mundo real.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Template de mapeamento de fluxo; como identificar condições e decisões no processo; documentar sistemas existentes antes de automatizar; diferença entre o processo ideal e o processo como ele realmente acontece.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔔</span>
+            <div>
+              <span class="font-medium">Automação de notificações</span>
+              <span class="text-neutral-500 text-sm ml-2">— por email, Slack e WhatsApp: a primeira automação que qualquer executivo deve criar</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O primeiro tipo de automação que qualquer executivo deve criar é a de notificações — é a mais simples, tem ROI imediato e resolve um dos maiores problemas de processo: informação que não chega para quem precisa. Por email (Make, Zapier, Google Apps Script), por Slack (Zapier, Slack Workflows) e por WhatsApp (Make + Twilio, Typebot).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Notificações automáticas eliminam a dependência de alguém lembrar de avisar alguém. O ROI é imediato e mensurável: zero e-mails esquecidos, zero aprovações que ficaram esperando porque o gestor não viu. É o caso de uso de mais fácil justificativa para o board.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Make vs. Zapier: diferenças para iniciantes; Google Apps Script como opção gratuita; WhatsApp Business API e gateways (Twilio, 360Dialog); template de prompt para criar notificação no Make.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">✅</span>
+            <div>
+              <span class="font-medium">Fluxo de aprovação</span>
+              <span class="text-neutral-500 text-sm ml-2">— formulário → notificação → decisão → registro → confirmação: sem e-mails manuais</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O fluxo de aprovação substitui cadeias de e-mail interminável por um processo estruturado e auditável: (1) Funcionário preenche formulário Google Forms, (2) Aprovador recebe email/Slack com botões Aprovar/Rejeitar, (3) Aprovador clica — fluxo registra decisão, responsável e horário, (4) Linha adicionada automaticamente à planilha de controle, (5) Confirmação automática para o solicitante.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">O fluxo de aprovação é o caso de uso mais comum e mais transformador para executivos. Elimina cadeias de e-mail, cria processo com prazo definido e gera histórico auditável — o que é especialmente valioso em contextos regulatórios.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Formulário como gatilho do fluxo; botões de aprovação em email e Slack; log automático em Google Sheets; lembrete automático após 48h sem resposta; como criar o fluxo completo no Make ou Zapier.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔌</span>
+            <div>
+              <span class="font-medium">Integrações com sistemas existentes</span>
+              <span class="text-neutral-500 text-sm ml-2">— Make, Zapier, n8n: a "cola digital" que conecta qualquer app com qualquer outro</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O poder real da automação está em conectar sistemas que hoje não se falam. Integrações mais comuns: CRM → Slack (deal fechado → alerta no canal), Forms → Sheets → Email (solicitação → registro → notificação), Calendário → WhatsApp (reunião amanhã → lembrete automático), ERP → Sheets (nota fiscal → planilha atualizada). Ferramentas: Make (1000+ integrações), Zapier (6000+ apps), n8n (open source).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Descreva o fluxo para Claude.ai ou ChatGPT e peça: "Crie um fluxo no Make para fazer isso". A IA gera o JSON de configuração que você importa diretamente na plataforma — sem configurar cada passo manualmente. Isso multiplica a velocidade de criação de automações.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Make vs. Zapier vs. n8n: quando usar cada um; Google Apps Script como opção gratuita; como usar IA para gerar configuração de fluxo; integrações mais valiosas por tipo de empresa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📡</span>
+            <div>
+              <span class="font-medium">Monitoramento do fluxo</span>
+              <span class="text-neutral-500 text-sm ml-2">— uma automação sem monitoramento quebra silenciosamente: o que observar e como alertar</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Uma automação sem monitoramento eventualmente quebra silenciosamente — e você só descobre quando alguém reclama. O que monitorar: quantas execuções no período, quantas falharam (e por quê), tempo médio de execução, alertas quando o fluxo para. Como monitorar: dashboards nativos do Make/Zapier, alerta por email se o fluxo falhar, linha de log em Google Sheets a cada execução.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Uma revisão semanal de 10 minutos do histórico de execuções é suficiente para pegar problemas antes que se tornem incidentes. Sem esse hábito, automações críticas falham silenciosamente por semanas — e o custo de recuperação é muito maior que o custo de prevenção.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Dashboard de histórico do Make e Zapier; configuração de alerta por email em caso de falha; log em Google Sheets como backup de auditoria; rotina de revisão semanal de automações.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🏢</span>
+            <div>
+              <span class="font-medium">Caso real — onboarding de colaborador automatizado</span>
+              <span class="text-neutral-500 text-sm ml-2">— 80% das 15-20 ações manuais eliminadas, zero etapas esquecidas</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O onboarding de um novo colaborador normalmente envolve 15-20 ações manuais distribuídas entre RH, TI, financeiro e o gestor. Com automação: Gatilho (RH preenche formulário) → 5 automações simultâneas (e-mail de boas-vindas ao colaborador, notificação para TI criar acesso, gestor agenda 1:1, treinamentos enviados, planilha atualizada) → pesquisa de experiência no dia 30.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Resultado documentado em empresas que implementaram: redução de 70-80% no tempo de RH por onboarding, zero etapas esquecidas (o fluxo não pula nenhuma), colaborador inicia com todos os acessos configurados no dia 1, histórico auditável de quem fez o quê e quando.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Fluxo paralelo vs. sequencial no onboarding; como conectar Google Forms, Gmail, Slack, Google Sheets e Google Calendar em um único fluxo; métricas de sucesso do onboarding automatizado; como adaptar para contexto da sua empresa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-7')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
         <a href="modulo-3-7.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
           Ver Completo
         </a>
       </div>
     </div>
 
+    <!-- MÓDULO 3.8 — Detalhado -->
     <div id="modulo-3-8" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
@@ -672,12 +1632,203 @@
           <span class="text-xs text-neutral-500">~40 min</span>
         </div>
         <h3 class="text-2xl font-bold mb-2">🤖 Criando um Assistente Personalizado</h3>
-        <p class="text-neutral-400 text-sm">Diferença entre ChatGPT genérico e um assistente treinado no seu contexto. RH, vendas, suporte, onboarding — do conceito ao deploy.</p>
+        <p class="text-neutral-400 text-sm">Módulo prático e capacitador. Você vai criar um assistente de IA treinado no contexto específico da sua empresa — que qualquer colaborador consegue usar, sem precisar de desenvolvedor.</p>
       </div>
-      <div class="p-4 px-6 text-sm text-neutral-400">
-        7 tópicos: O que é um assistente personalizado · Definindo o escopo · Alimentando com conhecimento · Criando a interface · Integrando com WhatsApp ou Slack · Testando e ajustando · Governança do assistente
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🤖</span>
+            <div>
+              <span class="font-medium">O que é um assistente personalizado</span>
+              <span class="text-neutral-500 text-sm ml-2">— ChatGPT sabe tudo sobre o mundo e nada sobre a sua empresa: a diferença</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">ChatGPT genérico: conhece o mundo em geral, inventa informações quando não sabe (alucinação), sem tom de voz da sua marca, sem controle de acesso. Assistente personalizado: treinado nos seus documentos e políticas, responde apenas com base no conhecimento fornecido, tom de voz alinhado com a marca, interface simples para qualquer colaborador, controle de acesso e histórico de conversas.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">O assistente personalizado resolve o problema mais crítico dos LLMs genéricos no contexto empresarial: a alucinação. Quando o assistente só pode responder com base nos seus documentos, a confiabilidade aumenta drasticamente — e o risco de informações erradas sendo passadas para colaboradores ou clientes é eliminado.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">RAG (Retrieval Augmented Generation) como base técnica dos assistentes personalizados; alucinação vs. resposta baseada em conhecimento; casos de uso ideais para assistentes internos; diferença entre assistente interno e chatbot de atendimento ao cliente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎯</span>
+            <div>
+              <span class="font-medium">Definindo o escopo</span>
+              <span class="text-neutral-500 text-sm ml-2">— RH, vendas, suporte ou jurídico: um domínio específico funciona 10x melhor que um genérico</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O erro mais comum ao criar um assistente é tentar fazer tudo de uma vez. Quatro escopos ideais para o primeiro assistente: RH (benefícios, férias, políticas — base: manual do colaborador), Vendas (objeções, produtos, scripts — base: playbook e catálogo), Suporte (troubleshooting, FAQ — base: documentação e base de conhecimento), Jurídico Interno (contratos padrão, termos de uso — base: contratos aprovados, legislação).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Escolher o primeiro escopo pelo critério certo: (1) domínio com mais perguntas repetitivas, (2) respostas documentadas mas difíceis de encontrar, (3) custo baixo de uma resposta errada. RH e suporte interno são os melhores pontos de partida pela combinação dessas três características.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Critérios de seleção do primeiro escopo; como definir as fronteiras do que o assistente responde; documentos-base por tipo de assistente; estratégia de expansão de escopo após o primeiro sucesso.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📚</span>
+            <div>
+              <span class="font-medium">Alimentando com conhecimento</span>
+              <span class="text-neutral-500 text-sm ml-2">— "lixo entra, lixo sai": como preparar documentos e criar o FAQ que define a qualidade</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">A qualidade do assistente é diretamente proporcional à qualidade da base de conhecimento. Quatro passos: (1) Identificar os documentos-fonte (manual do colaborador, políticas), (2) Limpar e organizar (remover desatualizados, garantir texto, adicionar títulos claros), (3) Criar FAQ de 20-30 perguntas frequentes com respostas completas, (4) Remover dados sensíveis antes de subir.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">O documento de FAQ de perguntas frequentes é o mais valioso para o assistente — é a forma mais direta de treinar o comportamento desejado. Um FAQ bem estruturado com 30 perguntas vale mais do que 100 páginas de manual mal organizado.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Formatos de documento que LLMs processam melhor (texto estruturado vs. PDF escaneado); como escrever um FAQ eficaz para treinamento; processo de revisão e atualização de documentos; remoção de dados sensíveis antes de upload.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">💬</span>
+            <div>
+              <span class="font-medium">Criando a interface</span>
+              <span class="text-neutral-500 text-sm ml-2">— OpenAI GPTs, Typebot, Lovable: o prompt de sistema é o coração do assistente</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Três opções de interface: OpenAI GPTs (Custom GPT — incluso no ChatGPT Plus $20/mês, se o time já usa ChatGPT), Typebot/Voiceflow (chatbot com interface própria, embutível em site ou intranet, free/$39/mês), Lovable (descreve o assistente e cria interface de chat completa, $25/mês). O prompt de sistema é o coração: define persona, escopo, tom de voz e comportamento quando não sabe a resposta.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A interface onde os colaboradores vão interagir precisa ser simples o suficiente para qualquer pessoa usar sem treinamento. O prompt de sistema determina se o assistente responde apenas com a base de conhecimento ou inventa respostas — é a diferença entre confiável e perigoso.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Prompt de sistema: estrutura e elementos essenciais; como instruir o assistente a dizer "não sei" quando a informação não está na base; OpenAI GPTs vs. Typebot vs. Lovable: quando usar cada um; teste de prompt antes de lançar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📱</span>
+            <div>
+              <span class="font-medium">Integrando com WhatsApp ou Slack</span>
+              <span class="text-neutral-500 text-sm ml-2">— o assistente precisa estar onde o time já está: maior fator de adoção</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O maior fator de adoção é estar onde o time já está. Integração com WhatsApp: WhatsApp Business API + Typebot ou Make, número da empresa, colaboradores mandam mensagem como se fosse uma pessoa (gateway: Twilio ou 360Dialog, custo ~$30-100/mês). Integração com Slack: Slack App + OpenAI ou Anthropic API, responde mentions ou DMs, publicado como bot interno no workspace.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Um assistente acessível apenas por um link novo tem baixa adoção. O mesmo assistente integrado ao WhatsApp ou Slack tem adoção exponencialmente maior — porque elimina a fricção de ir para uma nova ferramenta. A integração é o que define se o investimento se paga.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">WhatsApp Business API vs. API regular; Twilio e 360Dialog como gateways; Slack Bolt framework para bots; Typebot com integração nativa no Slack; custo por mensagem vs. custo mensal fixo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🧪</span>
+            <div>
+              <span class="font-medium">Testando e ajustando</span>
+              <span class="text-neutral-500 text-sm ml-2">— piloto de 5 usuários por 1 semana valida 90% dos problemas antes de escalar</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Nunca libere um assistente de IA sem antes validar as respostas. Quatro etapas de teste: (1) Teste das 20 perguntas mais frequentes — se errar mais de 2-3, revisar a base de conhecimento, (2) Teste de perguntas fora do escopo — deve dizer "não sei", não inventar, (3) Piloto com 3-5 colaboradores por 1 semana com feedback estruturado, (4) Iterar antes de lançar — 90%+ de respostas corretas como critério de go/no-go.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Um assistente que dá respostas erradas e confiantes (alucinação) é pior do que nenhum assistente — porque mina a confiança do time e expõe a empresa a riscos. O teste sistemático antes do lançamento separa um assistente confiável de um que constrange quem o lançou.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Teste de regressão para assistentes de IA; critério de 90% de acurácia como gate de lançamento; como coletar feedback estruturado do piloto; como ajustar prompt de sistema vs. base de conhecimento para corrigir erros.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🔒</span>
+            <div>
+              <span class="font-medium">Governança do assistente</span>
+              <span class="text-neutral-500 text-sm ml-2">— controle de acesso, atualização mensal da base e limites de uso claros</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-amber-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Um assistente de IA é um produto que precisa de manutenção contínua, não um projeto com data de término. Três dimensões de governança: Controle de acesso (quem pode usar, login corporativo quando possível, restrição por cargo), Atualização da base (revisão mensal dos documentos-fonte, responsável designado), Limites de uso (comunicar que é IA, deixar claro quando deve falar com humano, revisar conversas para identificar gaps).</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Sem governança, o assistente fica desatualizado e começa a dar respostas erradas — o que é especialmente crítico para assistentes jurídicos ou de RH onde a informação muda com regulamentações e políticas. A governança é o que transforma um projeto de piloto em uma ferramenta de longo prazo.</p>
+              </div>
+              <div>
+                <span class="text-amber-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Disclaimer obrigatório para domínios com implicações legais ou de saúde; processo de atualização de documentos-fonte; revisão de conversas como fonte de melhoria contínua; como designar responsável pela manutenção do assistente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-8')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
         <a href="modulo-3-8.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">
           Ver Completo
         </a>
@@ -720,6 +1871,84 @@
         <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
       </div>
       <iframe src="modulo-3-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-3-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-amber-400 font-bold">3.3</span>
+          <span class="font-semibold">Estratégia de Adoção na sua Empresa</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-3-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-amber-400 font-bold">3.4</span>
+          <span class="font-semibold">Riscos, Governança e Segurança</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-4.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-3-5" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-amber-400 font-bold">3.5</span>
+          <span class="font-semibold">O Futuro: Do Vibe Coding ao Agentic Engineering</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-5.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-3-6" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-amber-400 font-bold">3.6</span>
+          <span class="font-semibold">Criando Dashboards a partir de Dados e Planilhas</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-6.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-3-7" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-amber-400 font-bold">3.7</span>
+          <span class="font-semibold">Criando Soluções de Fluxo e Automação</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-7.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-3-8" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-amber-400 font-bold">3.8</span>
+          <span class="font-semibold">Criando um Assistente Personalizado</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-3-8.html" class="flex-1 w-full rounded-b-xl"></iframe>
     </div>
   </div>
 

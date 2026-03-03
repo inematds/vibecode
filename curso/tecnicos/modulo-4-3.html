@@ -38,6 +38,7 @@
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
@@ -63,6 +64,7 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
       <a href="../../index.html" class="hover:text-blue-400">Início</a>
@@ -73,6 +75,7 @@
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.3</span>
@@ -96,8 +99,9 @@
         <h2 class="text-2xl font-bold">🔴 O problema do patchwork</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O problema mais crítico de codebases gerados por IA sem direcionamento arquitetural é o <strong class="text-blue-400">efeito patchwork</strong>: cada sessão de vibe coding adiciona código que funciona isoladamente mas não se integra coerentemente. O resultado é um sistema que cresce, mas que fica progressivamente mais difícil de manter.
+        O problema mais crítico de codebases gerados por IA sem direcionamento arquitetural é o <strong class="text-blue-400">efeito patchwork</strong>: cada sessão de vibe coding adiciona código que funciona isoladamente mas não se integra coerentemente. O resultado é um sistema que cresce, mas fica progressivamente mais difícil de manter.
       </p>
+
       <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Sinais do Patchwork</h3>
         <ul class="space-y-2 text-neutral-300 text-sm">
@@ -108,9 +112,84 @@
           <li>• Autenticação verificada de formas diferentes em cada rota</li>
         </ul>
       </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <p class="text-xs text-red-400 font-medium mb-2 uppercase tracking-wide">Patchwork — código real sem arquitetura</p>
+          <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>// userController.ts — sessão 1
+import { db } from '../db';
+export async function getUser(req, res) {
+  const user = await db.query(
+    `SELECT * FROM users WHERE id = ${req.params.id}`
+  );
+  res.json(user.rows[0]);
+}
+
+// orderService.ts — sessão 2 (padrão diferente!)
+import prisma from '@/lib/prisma';
+export const getOrder = async (orderId: string) => {
+  return await prisma.order.findUnique({
+    where: { id: orderId }
+    // Sem verificar se é do usuário!
+  });
+}
+
+// paymentRoutes.ts — sessão 3 (terceiro padrão!)
+router.post('/pay', async (req: any, res: any) => {
+  try {
+    const stripe = new Stripe('sk_live_HARDCODED!');
+    // Sem validação de schema
+    // Sem verificação de auth
+  } catch(e: any) {
+    res.json({ error: e.message }); // Expõe stack trace
+  }
+});</code></pre>
+        </div>
+        <div>
+          <p class="text-xs text-emerald-400 font-medium mb-2 uppercase tracking-wide">Com arquitetura definida — consistente</p>
+          <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>// userController.ts — segue padrão único
+import { userService } from '@/services/user';
+import { getUserSchema } from '@/schemas/user';
+
+export async function getUser(req, res) {
+  const { id } = getUserSchema.parse(req.params);
+  const user = await userService.getById(id, req.user.id);
+  res.json(user);
+}
+
+// userService.ts — lógica de negócio aqui
+export class UserService {
+  async getById(id: string, requesterId: string) {
+    return userRepository.findByIdForUser(id, requesterId);
+  }
+}
+
+// userRepository.ts — acesso ao banco aqui
+export class UserRepository {
+  async findByIdForUser(id: string, userId: string) {
+    return prisma.user.findFirst({
+      where: { id, ownerId: userId } // Ownership verificado
+    });
+  }
+}</code></pre>
+        </div>
+      </div>
+
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-3">🛡️ A Solução: Visão Arquitetural no .cursorrules</h3>
-        <p class="text-neutral-300 text-sm">Definir a arquitetura no arquivo de regras persistentes garante que cada sessão de IA respeite o padrão global. O agente não pode ver o projeto inteiro a cada sessão — mas pode ler as regras e aplicá-las consistentemente.</p>
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">✅ Checklist: sinais de patchwork no seu projeto</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <ul class="space-y-2 text-neutral-300">
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Há mais de um padrão de tratamento de erro?</span></li>
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Nomes de variáveis usam snake_case e camelCase misturados?</span></li>
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>SQL raw e ORM coexistem no mesmo módulo?</span></li>
+          </ul>
+          <ul class="space-y-2 text-neutral-300">
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Lógica de negócio aparece em controllers?</span></li>
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Imports usam caminhos relativos e absolutos misturados?</span></li>
+            <li class="flex items-center space-x-2"><input type="checkbox" class="rounded" disabled><span>Validação de input ausente em algumas rotas?</span></li>
+          </ul>
+        </div>
+        <p class="text-xs text-neutral-500 mt-3">Se marcou 2 ou mais: seu projeto tem patchwork. Corrija o .cursorrules antes de continuar codando.</p>
       </div>
     </section>
 
@@ -123,6 +202,38 @@
       <p class="text-neutral-300 mb-6 leading-relaxed">
         O padrão MVC (Model-View-Controller) existe há décadas, mas a IA tende a misturar camadas sem instrução explícita. <strong class="text-blue-400">A solução é declarar a arquitetura no .cursorrules</strong> e reforçar em cada prompt de implementação.
       </p>
+
+      <!-- Flow diagram -->
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔁 Fluxo de Dependências em Camadas</h3>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0 mb-4">
+          <div class="bg-blue-500/20 border border-blue-500/40 rounded-lg px-5 py-3 text-center min-w-[120px]">
+            <div class="text-blue-400 font-bold text-sm">Routes</div>
+            <div class="text-xs text-neutral-400 mt-1">src/routes/</div>
+            <div class="text-xs text-neutral-500 mt-1">Parse + Validação Zod</div>
+          </div>
+          <div class="text-blue-400 text-xl font-bold sm:mx-3 rotate-90 sm:rotate-0">→</div>
+          <div class="bg-blue-500/20 border border-blue-500/40 rounded-lg px-5 py-3 text-center min-w-[120px]">
+            <div class="text-blue-400 font-bold text-sm">Controllers</div>
+            <div class="text-xs text-neutral-400 mt-1">src/controllers/</div>
+            <div class="text-xs text-neutral-500 mt-1">Orquestra, monta response</div>
+          </div>
+          <div class="text-blue-400 text-xl font-bold sm:mx-3 rotate-90 sm:rotate-0">→</div>
+          <div class="bg-blue-500/20 border border-blue-500/40 rounded-lg px-5 py-3 text-center min-w-[120px]">
+            <div class="text-blue-400 font-bold text-sm">Services</div>
+            <div class="text-xs text-neutral-400 mt-1">src/services/</div>
+            <div class="text-xs text-neutral-500 mt-1">Lógica de negócio</div>
+          </div>
+          <div class="text-blue-400 text-xl font-bold sm:mx-3 rotate-90 sm:rotate-0">→</div>
+          <div class="bg-blue-500/20 border border-blue-500/40 rounded-lg px-5 py-3 text-center min-w-[120px]">
+            <div class="text-blue-400 font-bold text-sm">Repositories</div>
+            <div class="text-xs text-neutral-400 mt-1">src/repositories/</div>
+            <div class="text-xs text-neutral-500 mt-1">Queries Prisma</div>
+          </div>
+        </div>
+        <p class="text-xs text-neutral-500 text-center">Dependências fluem em uma direção. Nunca pular camadas. Nunca dependência circular.</p>
+      </div>
+
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-blue-400 mb-4">📋 Arquitetura no .cursorrules</h3>
         <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>## Arquitetura em camadas (OBRIGATÓRIO)
@@ -150,6 +261,44 @@
 # Regra de dependência: Routes → Controllers → Services → Repositories
 # NUNCA pular camadas. NUNCA criar dependências circulares.</code></pre>
       </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5">
+          <h4 class="font-bold text-emerald-400 mb-3">✓ Correto — cada camada em seu lugar</h4>
+          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3"><code>// routes/orders.ts
+router.post('/', auth, async (req, res) => {
+  const data = createOrderSchema.parse(req.body);
+  const result = await orderController.create(
+    data, req.user.id
+  );
+  res.json(result);
+});
+
+// services/order.service.ts
+async createOrder(data, userId) {
+  await this.validateInventory(data.items);
+  const order = await orderRepo.create(data, userId);
+  await notificationService.send(order);
+  return order;
+}</code></pre>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+          <h4 class="font-bold text-red-400 mb-3">✗ Errado — camadas misturadas</h4>
+          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3"><code>// routes/orders.ts — TUDO na rota!
+router.post('/', async (req, res) => {
+  // Lógica de negócio na rota
+  if (req.body.items.length === 0) return res.status(400)...
+  // Query direta na rota
+  const order = await prisma.order.create({
+    data: { ...req.body, userId: req.user.id }
+  });
+  // Notificação na rota
+  await sendEmail(req.user.email, order);
+  res.json(order);
+});</code></pre>
+        </div>
+      </div>
+
       <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
         <h3 class="text-lg font-semibold text-primary mb-3">💡 Por que documentar no arquivo e não no prompt</h3>
         <p class="text-neutral-300 text-sm">Se você colocar as regras de arquitetura apenas no prompt, precisa repetir em cada sessão. No .cursorrules, o Cursor as lê automaticamente. No CLAUDE.md, o Claude Code as segue em todas as sessões. Uma vez documentado, nunca mais precisa repetir.</p>
@@ -165,23 +314,72 @@
       <p class="text-neutral-300 mb-6 leading-relaxed">
         LLMs são excelentes em modelagem de domínio quando recebem o contexto de negócio correto. O modelo consegue identificar entidades, agregados e bounded contexts a partir de descrições de regras de negócio — <strong class="text-blue-400">se você souber como fornecer esse contexto</strong>.
       </p>
+
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-blue-400 mb-4">🎯 Prompt para Modelagem de Domínio</h3>
         <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>"Vou descrever as regras de negócio de uma
 plataforma de assinaturas. Identifique:
 1. Entidades principais e seus atributos
 2. Agregados e raízes de agregado
-3. Value Objects
+3. Value Objects (tipos imutáveis)
 4. Bounded Contexts sugeridos
+5. Gere as interfaces TypeScript resultantes
 
 Regras de negócio:
 - Um Cliente pode ter múltiplas Assinaturas
 - Cada Assinatura tem um Plano (mensal/anual)
 - Faturas são geradas automaticamente no ciclo
 - Um Cliente pode pausar (não cancelar) a assinatura
-- Assinatura pausada não gera fatura mas mantém acesso por 30 dias
-- Cancelamento imediato vs. no final do ciclo são fluxos diferentes"</code></pre>
+- Assinatura pausada não gera fatura mas mantém acesso
+  por 30 dias após o ciclo atual
+- Cancelamento imediato vs. no final do ciclo são
+  fluxos diferentes com regras distintas"</code></pre>
       </div>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📐 Resultado: interfaces TypeScript geradas pela IA</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>// Entidades e Value Objects (gerado pela IA a partir do domínio)
+
+type PlanType = 'monthly' | 'annual';
+type SubscriptionStatus = 'active' | 'paused' | 'cancelled';
+type CancellationType = 'immediate' | 'end_of_cycle';
+
+// Value Object — imutável, definido pelos atributos
+interface Money {
+  readonly amount: number;
+  readonly currency: 'BRL' | 'USD';
+}
+
+// Entidade — tem identidade própria
+interface Customer {
+  id: string;
+  email: string;
+  subscriptions: Subscription[]; // Relação 1:N
+  createdAt: Date;
+}
+
+// Agregado — Customer é a raiz deste agregado
+interface Subscription {
+  id: string;
+  customerId: string;      // FK para Customer
+  plan: PlanType;
+  status: SubscriptionStatus;
+  pausedAt?: Date;
+  pauseExpiresAt?: Date;   // 30 dias após ciclo atual
+  cancelType?: CancellationType;
+  currentPeriodEnd: Date;
+}
+
+// Entidade — Invoice pertence ao contexto de Billing
+interface Invoice {
+  id: string;
+  subscriptionId: string;
+  amount: Money;
+  dueDate: Date;
+  // Nota: NOT gerado quando status === 'paused'
+}</code></pre>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
           <h4 class="font-semibold text-blue-400 mb-3">IA é boa em modelagem para:</h4>
@@ -190,6 +388,7 @@ Regras de negócio:
             <li>• Sugerir relacionamentos entre entidades</li>
             <li>• Gerar schemas de banco a partir do domínio</li>
             <li>• Identificar invariantes de negócio</li>
+            <li>• Separar Value Objects de Entidades</li>
           </ul>
         </div>
         <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
@@ -202,6 +401,11 @@ Regras de negócio:
           </ul>
         </div>
       </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Bounded Contexts — onde a IA precisa de sua ajuda</h3>
+        <p class="text-neutral-300 text-sm">No exemplo acima, <strong class="text-white">Customer</strong> e <strong class="text-white">Subscription</strong> pertencem ao contexto de Identidade/Assinaturas. <strong class="text-white">Invoice</strong> pertence ao contexto de Billing. A IA sugere a separação, mas você decide onde traçar a fronteira — especialmente quando há trade-offs de consistência entre contextos.</p>
+      </div>
     </section>
 
     <!-- TÓPICO 4 -->
@@ -213,29 +417,76 @@ Regras de negócio:
       <p class="text-neutral-300 mb-6 leading-relaxed">
         O schema de banco é a decisão mais difícil de reverter em qualquer projeto. Um schema incorreto impacta performance, integridade de dados e segurança por toda a vida do projeto. <strong class="text-blue-400">Invista tempo aqui antes de qualquer linha de código de aplicação</strong>.
       </p>
+
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">🗄️ Prompt para Schema de Banco</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>"Crie o schema Prisma para uma plataforma
-de e-learning com as seguintes entidades:
-
-Usuários: autenticação, perfil, progresso
-Cursos: módulos, aulas, recursos (vídeos/pdfs)
-Matrículas: relaciona usuário a curso, rastreia progresso
-Certificados: gerados ao completar curso
-
-Requisitos:
-- Multi-tenant (organizações com múltiplos usuários)
-- Soft delete em todas as entidades principais
-- Timestamps de auditoria (created_at, updated_at)
-- Suporte a Row Level Security (Supabase)
-- Índices para as queries mais comuns
-
-Após o schema, mostre as queries Prisma
-mais usadas e os índices correspondentes."</code></pre>
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔍 Os 5 erros mais comuns da IA em schemas</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-2 px-3 text-neutral-400">Erro</th>
+                <th class="text-left py-2 px-3 text-red-400">Como a IA gera</th>
+                <th class="text-left py-2 px-3 text-emerald-400">Abordagem correta</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-700">
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">Tipos imprecisos</td>
+                <td class="py-2 px-3 text-neutral-400 font-mono text-xs">price String</td>
+                <td class="py-2 px-3 text-neutral-300 font-mono text-xs">price Decimal(10,2)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">Sem soft delete</td>
+                <td class="py-2 px-3 text-neutral-400">Deleta registros permanentemente</td>
+                <td class="py-2 px-3 text-neutral-300 font-mono text-xs">deletedAt DateTime?</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">Sem índices</td>
+                <td class="py-2 px-3 text-neutral-400">Apenas PK indexada</td>
+                <td class="py-2 px-3 text-neutral-300">@@index([userId, status])</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">Sem timestamps</td>
+                <td class="py-2 px-3 text-neutral-400">Sem rastreabilidade de mudanças</td>
+                <td class="py-2 px-3 text-neutral-300 font-mono text-xs">createdAt, updatedAt em toda tabela</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">Sem RLS</td>
+                <td class="py-2 px-3 text-neutral-400">Sem políticas de isolamento</td>
+                <td class="py-2 px-3 text-neutral-300">ENABLE ROW LEVEL SECURITY + policy</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3">💡 Schema Review Obrigatório</h3>
-        <p class="text-neutral-300 text-sm">Nunca aplique um schema gerado por IA em produção sem revisão humana especializada. Verifique: normalização adequada, índices corretos, tipos de dados precisos, constraints de integridade, e políticas de RLS para multi-tenant. O schema é o alicerce — não improvise aqui.</p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🗄️ Prompt para Revisão de Schema</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>"Revise este schema Prisma para uma plataforma
+de e-learning multi-tenant. Verifique e corrija:
+
+1. Tipos de dados — use Decimal para valores monetários,
+   tipos específicos (não String genérico) onde possível
+2. Soft delete — adicione deletedAt em entidades principais
+3. Timestamps de auditoria — createdAt e updatedAt em todas
+4. Índices — para as queries mais comuns (userId, status,
+   combinados)
+5. RLS readiness — certifique que há user_id ou tenant_id
+   em toda tabela que precisa de isolamento
+6. Constraints de integridade — unique constraints e
+   check constraints onde aplicável
+
+Schema atual:
+[cole o schema aqui]
+
+Após a revisão, mostre o schema corrigido e explique
+cada mudança."</code></pre>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Alerta: migrations em produção</h3>
+        <p class="text-neutral-300 text-sm mb-3">Nunca execute migrations destrutivas diretamente em produção. O fluxo correto: <strong class="text-white">1)</strong> review humano do SQL gerado, <strong class="text-white">2)</strong> teste em ambiente de staging com dados similares ao prod, <strong class="text-white">3)</strong> backup antes de executar, <strong class="text-white">4)</strong> janela de manutenção para migrations que bloqueiam tabelas grandes.</p>
+        <p class="text-neutral-300 text-sm">A IA pode gerar migrations que parecem corretas mas causam locks em tabelas com milhões de registros. Sempre inspecione o SQL antes de executar.</p>
       </div>
     </section>
 
@@ -248,6 +499,34 @@ mais usadas e os índices correspondentes."</code></pre>
       <p class="text-neutral-300 mb-6 leading-relaxed">
         O erro arquitetural mais comum em vibe coding: adicionar autenticação depois de construir as features. <strong class="text-blue-400">Autenticação é infraestrutura, não feature</strong>. Adicioná-la depois exige refatorar cada rota, cada endpoint e potencialmente o schema inteiro.
       </p>
+
+      <!-- Timeline: o que quebra ao adicionar auth depois -->
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-4">🔥 O que quebra quando você adiciona auth depois</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/30 text-red-400 text-xs font-bold flex items-center justify-center">1</span>
+            <div><strong class="text-white text-sm">Schema do banco</strong> <span class="text-neutral-400 text-sm">— todas as tabelas precisam de user_id ou tenant_id adicionados via migration, com backfill de dados existentes</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/30 text-red-400 text-xs font-bold flex items-center justify-center">2</span>
+            <div><strong class="text-white text-sm">Todas as rotas</strong> <span class="text-neutral-400 text-sm">— cada endpoint precisa de middleware de auth adicionado e verificação de ownership nas queries</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/30 text-red-400 text-xs font-bold flex items-center justify-center">3</span>
+            <div><strong class="text-white text-sm">Lógica de negócio</strong> <span class="text-neutral-400 text-sm">— todos os services precisam receber e propagar userId, mudando assinaturas de métodos em cascata</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/30 text-red-400 text-xs font-bold flex items-center justify-center">4</span>
+            <div><strong class="text-white text-sm">Testes</strong> <span class="text-neutral-400 text-sm">— todos os testes existentes quebram porque não incluem token de autenticação</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/30 text-red-400 text-xs font-bold flex items-center justify-center">5</span>
+            <div><strong class="text-white text-sm">Dados já criados</strong> <span class="text-neutral-400 text-sm">— registros sem user_id são órfãos — a quem pertencem? Problema de migração de dados sem solução limpa</span></div>
+          </div>
+        </div>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
           <h4 class="font-bold text-red-400 mb-3">✗ Ordem errada (comum em vibe coding)</h4>
@@ -268,7 +547,22 @@ mais usadas e os índices correspondentes."</code></pre>
           </ol>
         </div>
       </div>
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🛡️ Exemplo: RLS Policy no Supabase</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>-- Após criar a tabela, SEMPRE habilitar RLS:
+ALTER TABLE user_data ENABLE ROW LEVEL SECURITY;
+
+-- Policy básica: cada usuário vê apenas seus dados
+CREATE POLICY "user_own_data" ON user_data
+  FOR ALL USING (auth.uid() = user_id);
+
+-- Supabase Auth: user_id referencia auth.users
+-- Isso garante isolamento NO NÍVEL DO BANCO
+-- mesmo se a aplicação tiver um bug de auth</code></pre>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
         <h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Estratégias por Contexto</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
@@ -293,28 +587,74 @@ mais usadas e os índices correspondentes."</code></pre>
       <p class="text-neutral-300 mb-6 leading-relaxed">
         Decisões de escalabilidade feitas incorretamente no início são as mais caras de reverter. A IA tende a gerar soluções que funcionam para o caso de uso atual sem considerar como o sistema vai crescer. <strong class="text-blue-400">Você precisa fornecer esse contexto explicitamente</strong>.
       </p>
-      <div class="space-y-4 mb-6">
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold">1</div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
-            <h4 class="font-semibold mb-2">Banco de dados: SQL vs. NoSQL</h4>
-            <p class="text-sm text-neutral-400">A IA escolherá SQL (Postgres/MySQL) por padrão — e em 80% dos casos é a escolha certa. Especifique explicitamente se precisa de NoSQL e por quê. Nunca use NoSQL por "parecer mais escalável".</p>
-          </div>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Matriz de Decisão Arquitetural</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-2 px-3 text-neutral-400">Decisão</th>
+                <th class="text-left py-2 px-3 text-neutral-400">Opção A</th>
+                <th class="text-left py-2 px-3 text-neutral-400">Opção B</th>
+                <th class="text-left py-2 px-3 text-neutral-400">Quando usar A</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-700">
+              <tr>
+                <td class="py-2 px-3 text-blue-400 font-medium">Banco</td>
+                <td class="py-2 px-3 text-emerald-400">SQL (Postgres)</td>
+                <td class="py-2 px-3 text-neutral-400">NoSQL (MongoDB)</td>
+                <td class="py-2 px-3 text-neutral-300 text-xs">80% dos casos. Dados relacionais, consistência forte</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-blue-400 font-medium">Arquitetura</td>
+                <td class="py-2 px-3 text-emerald-400">Monolito modular</td>
+                <td class="py-2 px-3 text-neutral-400">Microserviços</td>
+                <td class="py-2 px-3 text-neutral-300 text-xs">Time &lt;20 devs, produto em evolução, menos de 1M usuários</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-blue-400 font-medium">API</td>
+                <td class="py-2 px-3 text-emerald-400">REST</td>
+                <td class="py-2 px-3 text-neutral-400">GraphQL</td>
+                <td class="py-2 px-3 text-neutral-300 text-xs">APIs simples, mobile, ou quando over-fetching não é problema</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-blue-400 font-medium">Cache</td>
+                <td class="py-2 px-3 text-emerald-400">Sem cache inicial</td>
+                <td class="py-2 px-3 text-neutral-400">Redis desde o início</td>
+                <td class="py-2 px-3 text-neutral-300 text-xs">MVP, &lt;10K usuários. Adicione cache quando medir o problema</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold">2</div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
-            <h4 class="font-semibold mb-2">Monolito vs. Microserviços</h4>
-            <p class="text-sm text-neutral-400">Comece com monolito bem estruturado. A IA gera monolitos mais consistentes. Microserviços adicionam complexidade operacional que o vibe coding não resolve automaticamente.</p>
-          </div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold">3</div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
-            <h4 class="font-semibold mb-2">Cache: quando e onde</h4>
-            <p class="text-sm text-neutral-400">Instrua a IA sobre sua estratégia de cache no CLAUDE.md: Redis para sessões e cache de alta frequência, CDN para assets estáticos. Sem instrução, a IA não adiciona cache por padrão.</p>
-          </div>
-        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">💬 Prompt para Decisão Arquitetural com IA</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>"Ajude-me a decidir entre SQL e NoSQL para este caso:
+
+Contexto:
+- App de marketplace com compradores e vendedores
+- Produtos têm atributos variáveis por categoria
+  (eletrônicos: especificações técnicas; roupas: tamanho/cor)
+- 50K usuários no ano 1, potencial de 500K no ano 3
+- Time de 4 desenvolvedores
+- Vibe coding com IA como principal método
+
+Para cada opção, avalie:
+1. Complexidade de implementação com IA
+2. Flexibilidade para os atributos variáveis
+3. Performance para as queries mais comuns
+4. Custo operacional
+5. Facilidade de migração futura
+
+Dê uma recomendação com justificativa clara."</code></pre>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Otimização prematura: o grande inimigo</h3>
+        <p class="text-neutral-300 text-sm">A regra de Donald Knuth ainda vale: "premature optimization is the root of all evil". A IA vai sugerir cache, filas, sharding e microserviços se você não definir o contexto. Para 99% dos projetos em fase inicial: monolito + Postgres + sem cache = a arquitetura certa. Adicione complexidade apenas quando medir que precisa dela.</p>
       </div>
     </section>
 
@@ -325,10 +665,11 @@ mais usadas e os índices correspondentes."</code></pre>
         <h2 class="text-2xl font-bold">📄 Documentação arquitetural automática — ADRs com IA</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Architecture Decision Records (ADRs) são documentos curtos que registram decisões arquiteturais importantes, o contexto que as motivou e as alternativas consideradas. <strong class="text-blue-400">A IA é excelente em gerar ADRs</strong> quando você fornece o contexto da decisão — e ADRs são essenciais para manutenção de longo prazo.
+        Architecture Decision Records (ADRs) são documentos curtos que registram decisões arquiteturais importantes, o contexto que as motivou e as alternativas consideradas. <strong class="text-blue-400">A IA é excelente em gerar ADRs</strong> quando você fornece o contexto da decisão — e ADRs são especialmente críticos em projetos de vibe coding, onde as decisões costumam ficar implícitas no código.
       </p>
+
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">📄 Prompt para Gerar ADR</h3>
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📝 Prompt completo para gerar ADR</h3>
         <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>"Gere um ADR (Architecture Decision Record)
 para a seguinte decisão:
 
@@ -347,25 +688,70 @@ Alternativas consideradas:
 - Supabase
 
 Formato: markdown, inclua Status, Contexto,
-Decisão, Consequências e Alternativas."</code></pre>
+Decisão, Consequências e Alternativas.
+Use template ADR de Michael Nygard."</code></pre>
       </div>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📋 Output: ADR gerado pela IA</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code># ADR-001: Usar Supabase como Backend-as-a-Service
+
+## Status
+Aceito — 2026-01-15
+
+## Contexto
+Time de 3 desenvolvedores construindo MVP em 6 semanas.
+Necessidade de autenticação, banco relacional, storage de
+arquivos e funcionalidades realtime sem overhead de DevOps.
+
+## Decisão
+Adotar Supabase como BaaS principal para o MVP.
+
+## Consequências
+
+### Positivas
+- Reduz tempo de setup de auth de ~2 semanas para 2 horas
+- PostgreSQL com RLS — modelo de segurança robusto
+- Realtime embutido sem infraestrutura adicional
+- Free tier adequado para validação de produto
+
+### Negativas
+- Vendor lock-in no Supabase Auth e Storage
+- Custo escala com uso — pode ser maior que self-hosted
+  em escala (>100K usuários ativos)
+- Migrações futuras para self-hosted requerem adaptação
+  da camada de autenticação
+
+## Alternativas Consideradas
+- **API própria (Node.js + PostgreSQL)**: +controle,
+  +2-3 semanas de setup, equipe menor fica sobrecarregada
+- **Firebase**: NoSQL inadequado para dados relacionais
+  da plataforma (assinaturas, pagamentos)
+
+## Revisão sugerida
+Reavaliar quando atingir 50K usuários ativos ou
+$500/mês em custos Supabase.</code></pre>
+      </div>
+
       <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3">💡 ADRs no Repositório</h3>
-        <p class="text-neutral-300 text-sm">Salve ADRs em docs/decisions/ no repositório. São versionados com o código e explicam "por que" tomamos decisões que podem parecer estranhas no futuro. Um ADR bem escrito pode economizar horas de investigação para qualquer pessoa que entrar no projeto depois.</p>
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Por que ADRs são críticos em projetos de vibe coding</h3>
+        <p class="text-neutral-300 text-sm mb-3">Em projetos tradicionais, as decisões arquiteturais são discutidas em reuniões e ficam na memória do time. Em vibe coding, a velocidade é tão alta que decisões importantes são tomadas em segundos — e esquecidas em dias. O ADR captura "por que escolhemos isso" antes que o contexto se perca.</p>
+        <p class="text-neutral-300 text-sm">Salve ADRs em <code class="text-blue-400">docs/decisions/</code> no repositório. Quando o próximo desenvolvedor (ou você em 3 meses) perguntar "por que estamos usando X?", a resposta estará documentada.</p>
       </div>
     </section>
 
     <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6">✅ Resumo do Módulo 4.3</h2>
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 4.3</h2>
         <div class="space-y-4 mb-8">
           <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Patchwork</strong><span class="text-neutral-400"> é o inimigo — defina arquitetura no .cursorrules e ela será respeitada em cada sessão</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Camadas explícitas</strong><span class="text-neutral-400"> — Routes → Controllers → Services → Repositories, nunca pule etapas</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">DDD assistido por IA</strong><span class="text-neutral-400"> — LLMs são bons em modelagem quando recebem regras de negócio claras</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Schema primeiro</strong><span class="text-neutral-400"> — a decisão mais difícil de reverter. Revise sempre antes de aplicar em produção</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Auth é infraestrutura</strong><span class="text-neutral-400"> — implemente antes de qualquer feature. Nunca depois.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">ADRs automáticos</strong><span class="text-neutral-400"> — use a IA para documentar decisões arquiteturais enquanto as toma</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Camadas explícitas</strong><span class="text-neutral-400"> — Routes → Controllers → Services → Repositories, nunca pule etapas. Use o fluxo visual como referência</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">DDD assistido por IA</strong><span class="text-neutral-400"> — LLMs são bons em modelagem quando recebem regras de negócio claras. Você decide os bounded contexts</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Schema primeiro, com revisão</strong><span class="text-neutral-400"> — corrija os 5 erros comuns antes de qualquer migration em produção</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Auth é infraestrutura</strong><span class="text-neutral-400"> — implemente antes de qualquer feature. Adicionar depois quebra schema, rotas, services e testes</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Não otimize prematuramente</strong><span class="text-neutral-400"> — monolito + Postgres é certo para 99% dos MVPs. Use a matriz de decisão para escolher racionalmente</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">ADRs automáticos</strong><span class="text-neutral-400"> — use a IA para documentar decisões arquiteturais enquanto as toma. Em vibe coding, velocidade apaga memória</span></div></div>
         </div>
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
           <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
@@ -390,8 +776,18 @@ Decisão, Consequências e Alternativas."</code></pre>
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
     const html = document.documentElement;
-    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
-    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
   </script>
 </body>
 </html>

@@ -22,7 +22,9 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
-    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
     html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
@@ -37,19 +39,31 @@
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Vibe Coding</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
         <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
-          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span></a>
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span></a>
-          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span></a>
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="../tecnicos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span>
+          </a>
           <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
             <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
             <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
@@ -59,28 +73,45 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-amber-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-amber-400">Executivos</a><span>/</span>
+      <a href="../../index.html" class="hover:text-amber-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-amber-400">Executivos</a>
+      <span>/</span>
       <span class="text-amber-400">Módulo 3.4</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.4</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">🛡️ Riscos, Governança e Segurança</h1>
       <p class="text-lg text-neutral-400 max-w-3xl">Os incidentes reais que aconteceram, os dados de risco que o seu CTO precisa conhecer, e o framework de governança que permite adotar com segurança.</p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">7</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Crítico</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Risco</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">Crítico</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">Risco</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- CONTEÚDO -->
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
     <!-- TÓPICO 1 -->
@@ -89,31 +120,53 @@
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">1</span>
         <h2 class="text-2xl font-bold">📊 Os dados de risco</h2>
       </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Os benefícios de vibe coding são reais — e os riscos também. Dados de pesquisas independentes e relatos de líderes técnicos revelam um quadro que exige atenção antes de qualquer implementação em produção.</p>
-      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-4">Dados de risco documentados</h3>
-        <div class="space-y-3">
-          <div class="flex items-start space-x-3">
-            <span class="text-red-400 font-bold text-sm mt-0.5 w-20 flex-shrink-0">16 de 18</span>
-            <span class="text-neutral-300 text-sm">CTOs consultados sobre vibe coding em produção reportaram desastres — código em produção quebrando sistemas, dados perdidos ou expostos</span>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Os benefícios de vibe coding são reais — e os riscos também. Dados de pesquisas independentes e relatos de líderes técnicos revelam um quadro que exige atenção antes de qualquer implementação em produção.
+      </p>
+
+      <!-- Stats data box -->
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📈</span> Números que o executivo precisa conhecer
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-dark-800/50 rounded-lg p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-red-400 mb-1">16/18</div>
+            <div class="text-sm text-neutral-300">CTOs consultados sobre uso de vibe coding em produção reportaram desastres — código quebrando sistemas, dados perdidos ou expostos</div>
+            <div class="text-xs text-neutral-500 mt-2">Fonte: pesquisa qualitativa com CTOs de startups (2025)</div>
           </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-red-400 font-bold text-sm mt-0.5 w-20 flex-shrink-0">2,74x</span>
-            <span class="text-neutral-300 text-sm">mais vulnerabilidades de segurança em código gerado por IA sem revisão estruturada (Veracode Research, 2025)</span>
+          <div class="bg-dark-800/50 rounded-lg p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-red-400 mb-1">2,74x</div>
+            <div class="text-sm text-neutral-300">mais vulnerabilidades de segurança em código gerado por IA sem revisão estruturada, comparado a código escrito por humanos</div>
+            <div class="text-xs text-neutral-500 mt-2">Fonte: Veracode Research, 2025</div>
           </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-red-400 font-bold text-sm mt-0.5 w-20 flex-shrink-0">45%</span>
-            <span class="text-neutral-300 text-sm">do código gerado por IA contém pelo menos uma vulnerabilidade de segurança conhecida quando avaliado por SAST</span>
+          <div class="bg-dark-800/50 rounded-lg p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-orange-400 mb-1">45%</div>
+            <div class="text-sm text-neutral-300">do código gerado por IA contém pelo menos uma vulnerabilidade conhecida quando submetido a análise SAST automatizada</div>
+            <div class="text-xs text-neutral-500 mt-2">Fonte: CodeRabbit study, 2025</div>
           </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-red-400 font-bold text-sm mt-0.5 w-20 flex-shrink-0">-19%</span>
-            <span class="text-neutral-300 text-sm">de velocidade em tarefas complexas — o risco de aplicar vibe coding onde ele é contraproducente (METR 2025)</span>
+          <div class="bg-dark-800/50 rounded-lg p-4 border border-dark-600">
+            <div class="text-3xl font-bold text-orange-400 mb-1">-19%</div>
+            <div class="text-sm text-neutral-300">de velocidade em tarefas complexas — o risco de aplicar vibe coding onde ele é contraproducente e cria débito técnico acumulado</div>
+            <div class="text-xs text-neutral-500 mt-2">Fonte: METR Study, 2025</div>
           </div>
         </div>
       </div>
+
+      <!-- Alert box -->
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center">
+          <span class="mr-2">⚠️</span> O que esses números significam para executivos
+        </h3>
+        <p class="text-neutral-300 text-sm leading-relaxed">Se 16 de 18 CTOs relataram desastres, o problema não é estatístico — é sistêmico. Não é que alguns CTOs foram imprudentes. É que a ausência de governança transforma a velocidade do vibe coding em vetor de risco. A mesma propriedade que faz o código surgir rapidamente faz os bugs também surgirem rapidamente — e em produção, sem revisão, antes que alguém os detecte.</p>
+      </div>
+
       <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3">💡 O contexto correto</h3>
-        <p class="text-neutral-300">Esses dados não invalidam o vibe coding — eles definem as condições nas quais ele deve ser aplicado. Sistemas de aviação têm altas taxas de acidente quando operados sem treinamento. A ferramenta não é o problema; a ausência de processo é.</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> O contexto correto
+        </h3>
+        <p class="text-neutral-300">Esses dados não invalidam o vibe coding — eles definem as condições nas quais ele deve ser aplicado. Sistemas de aviação têm altas taxas de acidente quando operados sem treinamento. A ferramenta não é o problema; a ausência de processo é. Com governança, os mesmos dados mostram que o risco cai para níveis gerenciáveis.</p>
       </div>
     </section>
 
@@ -123,29 +176,63 @@
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">2</span>
         <h2 class="text-2xl font-bold">💥 Os incidentes reais</h2>
       </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Casos documentados públicamente mostram o que acontece quando vibe coding é aplicado sem governança. Esses não são hipotéticos — são relatos de empresas reais com usuários reais afetados.</p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Casos documentados publicamente mostram o que acontece quando vibe coding é aplicado sem governança. Esses não são hipotéticos — são relatos de empresas reais com usuários reais afetados.
+      </p>
+
       <div class="space-y-4 mb-6">
-        <div class="bg-dark-800 rounded-xl p-6 border border-red-500/20">
-          <div class="flex items-start justify-between mb-3">
-            <h4 class="font-semibold text-white">Lovable — 18.000 usuários expostos</h4>
-            <span class="text-xs text-red-400 bg-red-500/10 px-2 py-0.5 rounded flex-shrink-0 ml-2">Dados</span>
+        <!-- Lovable incident -->
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+            <span class="text-red-400 font-bold text-sm">LOV</span>
           </div>
-          <p class="text-neutral-300 text-sm">Um bug no código gerado por IA da plataforma Lovable expôs dados de 18.000 usuários. O problema estava na lógica de autenticação gerada automaticamente, que tinha uma falha de controle de acesso. A empresa levou horas para identificar a causa raiz porque nenhum dev tinha lido o código gerado.</p>
-        </div>
-        <div class="bg-dark-800 rounded-xl p-6 border border-red-500/20">
-          <div class="flex items-start justify-between mb-3">
-            <h4 class="font-semibold text-white">Base44 — Falha de autenticação em produção</h4>
-            <span class="text-xs text-red-400 bg-red-500/10 px-2 py-0.5 rounded flex-shrink-0 ml-2">Segurança</span>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-red-500/20">
+            <div class="flex items-start justify-between mb-2">
+              <h4 class="font-semibold text-white">Lovable — 18.000 usuários expostos</h4>
+              <span class="text-xs text-red-400 bg-red-500/10 px-2 py-0.5 rounded flex-shrink-0 ml-2">Dados</span>
+            </div>
+            <p class="text-sm text-neutral-400 mb-2">Plataforma de vibe coding no-code · Incidente de autenticação · 2025</p>
+            <p class="text-neutral-300 text-sm">Um bug no código gerado por IA da plataforma Lovable expôs dados de 18.000 usuários. O problema estava na lógica de autenticação gerada automaticamente, que tinha uma falha de controle de acesso (IDOR — Insecure Direct Object Reference). A empresa levou horas para identificar a causa raiz porque nenhum desenvolvedor tinha lido e compreendido o código gerado antes do deploy. O código "funcionava" nos testes superficiais mas tinha uma brecha estrutural.</p>
           </div>
-          <p class="text-neutral-300 text-sm">Plataforma de no-code vibe coding lançou feature com falha de controle de acesso que permitia usuários acessar dados de outras contas. O código tinha sido gerado por IA e publicado sem revisão de segurança. A vulnerabilidade ficou em produção por 72 horas antes de ser detectada.</p>
         </div>
-        <div class="bg-dark-800 rounded-xl p-6 border border-red-500/20">
-          <div class="flex items-start justify-between mb-3">
-            <h4 class="font-semibold text-white">Replit — Banco de dados deletado em desenvolvimento</h4>
-            <span class="text-xs text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded flex-shrink-0 ml-2">Dados</span>
+
+        <!-- Base44 incident -->
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+            <span class="text-red-400 font-bold text-sm">B44</span>
           </div>
-          <p class="text-neutral-300 text-sm">Desenvolvedor usando Replit Agent para automação instruiu o agente a "limpar dados de teste". O agente interpretou o comando de forma mais ampla e deletou o banco de dados de desenvolvimento inteiro. Backup existia, mas 8 horas de trabalho foram perdidas. Caso documentado pelo próprio usuário no X.</p>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-red-500/20">
+            <div class="flex items-start justify-between mb-2">
+              <h4 class="font-semibold text-white">Base44 — Falha de controle de acesso em produção</h4>
+              <span class="text-xs text-red-400 bg-red-500/10 px-2 py-0.5 rounded flex-shrink-0 ml-2">Segurança</span>
+            </div>
+            <p class="text-sm text-neutral-400 mb-2">Plataforma de no-code vibe coding · Falha de autenticação · 72 horas em produção</p>
+            <p class="text-neutral-300 text-sm">Plataforma de no-code vibe coding lançou feature com falha de controle de acesso que permitia usuários acessar dados de outras contas. O código tinha sido gerado por IA e publicado sem revisão de segurança. A vulnerabilidade ficou em produção por 72 horas antes de ser detectada por um usuário externo — não pela equipe interna. O tempo de exposição multiplicou o número de contas potencialmente comprometidas.</p>
+          </div>
         </div>
+
+        <!-- Agent deleting code -->
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center">
+            <span class="text-orange-400 font-bold text-sm">RPL</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-orange-500/20">
+            <div class="flex items-start justify-between mb-2">
+              <h4 class="font-semibold text-white">Replit Agent — Banco de dados deletado em desenvolvimento</h4>
+              <span class="text-xs text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded flex-shrink-0 ml-2">Agentic</span>
+            </div>
+            <p class="text-sm text-neutral-400 mb-2">Usuário individual · Agente com permissões amplas · 8h de trabalho perdidas</p>
+            <p class="text-neutral-300 text-sm">Desenvolvedor usando Replit Agent para automação instruiu o agente a "limpar dados de teste". O agente interpretou o comando de forma mais ampla do que o esperado e deletou o banco de dados de desenvolvimento inteiro, incluindo dados que não eram de teste. Backup existia, mas 8 horas de trabalho foram perdidas no processo de restauração. O caso foi documentado pelo próprio usuário no X e tornou-se referência sobre o risco de agentes com permissões irrestritas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center">
+          <span class="mr-2">⚠️</span> O padrão comum nos incidentes
+        </h3>
+        <p class="text-neutral-300 text-sm leading-relaxed">Nos três casos: código em produção sem revisão humana, ausência de SAST, e velocidade de entrega priorizando sobre verificação. A lição executiva: o risco não vem da ferramenta — vem da ausência de processo entre a geração e o deploy.</p>
       </div>
     </section>
 
@@ -155,20 +242,46 @@
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">3</span>
         <h2 class="text-2xl font-bold">⚖️ Propriedade intelectual</h2>
       </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">A questão de propriedade intelectual em código gerado por IA é uma das mais complexas e menos resolvidas do direito de tecnologia em 2025-2026. Há três dimensões que seu time jurídico precisa conhecer.</p>
-      <div class="space-y-4 mb-6">
-        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
-          <h4 class="font-semibold text-amber-400 mb-2">Quem é dono do código gerado?</h4>
-          <p class="text-neutral-300 text-sm">A maioria dos Termos de Serviço das ferramentas de IA (OpenAI, Anthropic, Cursor) concede ao usuário os direitos sobre o output gerado. Porém, nos EUA, código sem autoria humana suficientemente original pode não ser protegível por direito autoral. O USCO (US Copyright Office) já recusou pedidos de registro de obras 100% geradas por IA.</p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A questão de propriedade intelectual em código gerado por IA é uma das mais complexas e menos resolvidas do direito de tecnologia em 2025-2026. Há três dimensões que seu time jurídico precisa conhecer.
+      </p>
+
+      <!-- 3-column grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="text-2xl mb-3">⚖️</div>
+          <h4 class="font-semibold text-amber-400 mb-2">Perspectiva legal</h4>
+          <p class="text-xs text-neutral-500 mb-3">Quem é dono do código gerado?</p>
+          <p class="text-neutral-300 text-sm">A maioria dos ToS (OpenAI, Anthropic, Cursor) concede ao usuário os direitos sobre o output. Porém, nos EUA, código sem autoria humana suficientemente original pode não ser protegível por direito autoral. O USCO já recusou pedidos de registro de obras 100% geradas por IA — a questão ainda está sendo definida nos tribunais.</p>
         </div>
-        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
-          <h4 class="font-semibold text-amber-400 mb-2">Risco de código de terceiros no output</h4>
-          <p class="text-neutral-300 text-sm">LLMs foram treinados em código público — incluindo código com licenças restritivas (GPL, AGPL). Há risco de que o modelo gere código que reproduza trechos com licença incompatível com seu uso comercial. Ferramentas como GitHub Copilot têm filtros para isso; outras, não.</p>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="text-2xl mb-3">🌍</div>
+          <h4 class="font-semibold text-amber-400 mb-2">O que as jurisdições dizem</h4>
+          <p class="text-xs text-neutral-500 mb-3">Posição de diferentes países</p>
+          <p class="text-neutral-300 text-sm">EUA: sem proteção para obras sem autoria humana substancial. Reino Unido: permite direito autoral para obras geradas por computador (CDPA 1988). UE: em discussão. Brasil: sem regulamentação específica ainda — LGPD e direito autoral tradicional se aplicam por default. Seu jurídico precisa acompanhar a evolução.</p>
         </div>
-        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
-          <h4 class="font-semibold text-amber-400 mb-2">Código-fonte como segredo comercial</h4>
-          <p class="text-neutral-300 text-sm">Ao enviar código-fonte proprietário para um LLM externo para que ele o modifique, você pode estar comprometendo a confidencialidade do seu segredo comercial. Verifique a política de retenção de dados de cada ferramenta — algumas usam os dados para treinar modelos futuros.</p>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="text-2xl mb-3">🛡️</div>
+          <h4 class="font-semibold text-amber-400 mb-2">Recomendações práticas</h4>
+          <p class="text-xs text-neutral-500 mb-3">O que fazer agora</p>
+          <p class="text-neutral-300 text-sm">Documente a contribuição humana no desenvolvimento (arquitetura, revisão, testes). Use ferramentas enterprise com cláusulas de indemnização de IP (GitHub Copilot Enterprise, Cursor Business). Verifique se a ferramenta usa filtros de reprodução de código licenciado. Revise ToS periodicamente — estão evoluindo.</p>
         </div>
+      </div>
+
+      <!-- Risk of third-party code -->
+      <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-3 flex items-center">
+          <span class="mr-2">⚠️</span> Risco de código de terceiros no output
+        </h3>
+        <p class="text-neutral-300 text-sm leading-relaxed">LLMs foram treinados em código público — incluindo código com licenças restritivas (GPL, AGPL). Há risco de que o modelo gere código que reproduza trechos com licença incompatível com seu uso comercial. Ao enviar código-fonte proprietário para LLMs externos, você pode estar comprometendo a confidencialidade do seu segredo comercial. Verifique a política de retenção de dados de cada ferramenta — algumas usam os dados para treinar modelos futuros.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Insight executivo sobre IP
+        </h3>
+        <p class="text-neutral-300">A questão de IP em IA não tem resposta definitiva em 2026. A decisão pragmática: use ferramentas enterprise com cobertura de indenização de IP (GitHub Copilot Enterprise e Cursor Business têm isso explicitamente), documente o processo de desenvolvimento com revisão humana, e envolva o time jurídico agora — não depois do primeiro contencioso.</p>
       </div>
     </section>
 
@@ -178,24 +291,66 @@
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">4</span>
         <h2 class="text-2xl font-bold">📋 LGPD e código de IA</h2>
       </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">A Lei Geral de Proteção de Dados cria responsabilidades específicas quando LLMs são usados no contexto de desenvolvimento de software que processa dados pessoais de usuários brasileiros.</p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A Lei Geral de Proteção de Dados cria responsabilidades específicas quando LLMs são usados no contexto de desenvolvimento de software que processa dados pessoais de usuários brasileiros.
+      </p>
+
+      <!-- LGPD Timeline -->
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center">
+          <span class="mr-2">🗓️</span> Obrigações LGPD no contexto de desenvolvimento com IA
+        </h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <div class="w-28 flex-shrink-0 text-xs text-neutral-500 mt-0.5 font-mono">Antes do dev</div>
+            <div class="text-sm text-neutral-300">Classificar quais dados o sistema processará. Definir quais LLMs são autorizados. Documentar no ROPA o uso de IA generativa no processo de desenvolvimento</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-28 flex-shrink-0 text-xs text-neutral-500 mt-0.5 font-mono">Durante o dev</div>
+            <div class="text-sm text-neutral-300">Usar apenas dados sintéticos ou anonimizados em prompts de desenvolvimento. Nunca incluir dados pessoais reais de usuários em contexto de debug ou feature building com LLMs</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-28 flex-shrink-0 text-xs text-neutral-500 mt-0.5 font-mono">Antes do deploy</div>
+            <div class="text-sm text-neutral-300">Revisar se o código gerado por IA implementa corretamente as obrigações de privacidade (consentimento, direito de exclusão, portabilidade). SAST específico para privacidade</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-28 flex-shrink-0 text-xs text-primary mt-0.5 font-mono font-bold">Em produção</div>
+            <div class="text-sm text-neutral-300"><strong class="text-primary">Monitoramento contínuo:</strong> qualquer acidente com dados pessoais deve ser reportado à ANPD em 72h. Código gerado por IA com falha de segurança que expõe dados pessoais ativa essa obrigação</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What cannot go into prompts -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-4">O que NÃO fazer (risco LGPD)</h4>
+          <h4 class="font-bold text-red-400 mb-4">Dados que NUNCA devem ir para LLMs externos</h4>
           <ul class="space-y-3 text-neutral-300 text-sm">
-            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Enviar dados pessoais reais para LLMs externos em prompts de desenvolvimento</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Usar dados de produção (com CPFs, emails, nomes) em contexto de IA sem anonimização</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Descrever vulnerabilidades específicas de usuários em prompts para a IA corrigir</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>CPFs, RGs, passaportes — qualquer identificador único de pessoa</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Dados financeiros de clientes reais (saldos, transações, histórico)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Dados de saúde (especialmente sensíveis sob LGPD)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Emails, telefones ou endereços de clientes reais</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Logs de produção que contenham dados pessoais identificáveis</span></li>
           </ul>
         </div>
         <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
-          <h4 class="font-bold text-amber-400 mb-4">O que fazer (conformidade)</h4>
+          <h4 class="font-bold text-amber-400 mb-4">O que fazer na prática</h4>
           <ul class="space-y-3 text-neutral-300 text-sm">
             <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Usar dados sintéticos ou anonimizados em todos os contextos de desenvolvimento com IA</span></li>
-            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Escolher ferramentas com política de não retenção de dados (enterprise tiers)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Documentar no ROPA (Registro de Operações de Tratamento) o uso de IA no desenvolvimento</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Escolher ferramentas com política de não retenção de dados (planos enterprise)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Documentar no ROPA o uso de IA generativa no desenvolvimento</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Treinar time sobre o que é dado pessoal e o que é dado sintético válido</span></li>
           </ul>
         </div>
+      </div>
+
+      <!-- Fines and risks -->
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center">
+          <span class="mr-2">⚠️</span> Riscos e penalidades — alerta para executivos
+        </h3>
+        <p class="text-neutral-300 text-sm leading-relaxed mb-3">A ANPD pode aplicar multas de até <strong class="text-red-400">2% do faturamento bruto</strong> (limitado a R$50M por infração) em casos de violação de dados pessoais. Um incidente de segurança causado por código gerado por IA sem revisão adequada pode configurar negligência — o que agrava a penalidade. A responsabilidade é da empresa controladora dos dados, não da ferramenta de IA.</p>
+        <p class="text-xs text-neutral-500">Consulte seu DPO (Data Protection Officer) antes de expandir o uso de LLMs externos no ciclo de desenvolvimento.</p>
       </div>
     </section>
 
@@ -205,28 +360,49 @@
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">5</span>
         <h2 class="text-2xl font-bold">🔒 Política de uso seguro</h2>
       </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">Uma política de uso seguro não precisa ser um documento de 50 páginas. Um checklist de duas categorias — "pode enviar" e "nunca enviar" — já previne a maioria dos incidentes.</p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Uma política de uso seguro não precisa ser um documento de 50 páginas. Um checklist de duas categorias — "pode enviar" e "nunca enviar" — já previne a maioria dos incidentes. A clareza é mais importante do que a extensão.
+      </p>
+
+      <!-- Do/don't grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
           <h4 class="font-bold text-amber-400 mb-4">PODE enviar para LLMs externos</h4>
           <ul class="space-y-2 text-neutral-300 text-sm">
-            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Código novo sem dados de produção</span></li>
-            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Código de projetos open source ou públicos</span></li>
-            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Dados sintéticos criados para testes</span></li>
-            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Descrições abstratas de problema sem identificadores</span></li>
-            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Código de ferramentas internas sem dados sensíveis</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Código novo sem dados de produção ou variáveis de ambiente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Código de projetos open source ou públicos da empresa</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Dados sintéticos criados especificamente para testes</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Descrições abstratas de problema sem identificadores de usuários</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Código de ferramentas internas sem dados sensíveis embutidos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400 mt-0.5">✓</span><span>Documentação técnica e especificações de produto (sem PI sensível)</span></li>
           </ul>
         </div>
         <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
           <h4 class="font-bold text-red-400 mb-4">NUNCA enviar para LLMs externos</h4>
           <ul class="space-y-2 text-neutral-300 text-sm">
-            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Chaves de API, tokens de autenticação, senhas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Chaves de API, tokens de autenticação, senhas de qualquer tipo</span></li>
             <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>CPFs, emails, dados pessoais de clientes reais</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Dados financeiros de clientes (saldos, transações)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Dados financeiros de clientes (saldos, transações, histórico de crédito)</span></li>
             <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Código-fonte de sistemas classificados como segredo comercial</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Arquivos de configuração com credenciais de produção</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Arquivos de configuração com credenciais de produção (.env, config.yml)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Logs de produção que contenham dados pessoais identificáveis</span></li>
           </ul>
         </div>
+      </div>
+
+      <!-- Example policy text block -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h3 class="text-lg font-semibold text-neutral-300 mb-3">Exemplo de texto de política (modelo para adaptação)</h3>
+        <div class="bg-dark-900 rounded-lg p-4 font-mono text-xs text-neutral-400 leading-relaxed border border-dark-700">
+          <p class="text-amber-400 font-bold mb-2">POLÍTICA DE USO DE IA GENERATIVA NO DESENVOLVIMENTO — [EMPRESA] v1.0</p>
+          <p class="mb-2">1. FERRAMENTAS AUTORIZADAS: Cursor Business, Claude API (plano Team), GitHub Copilot Enterprise.</p>
+          <p class="mb-2">2. DADOS PROIBIDOS: É vedado o envio de dados pessoais, credenciais ou código de segredo comercial a LLMs externos. Violação é passível de advertência formal.</p>
+          <p class="mb-2">3. REVISÃO OBRIGATÓRIA: Todo código gerado por IA deve ter PR com checklist de IA preenchido e aprovado por 1 revisor humano antes do merge.</p>
+          <p class="mb-2">4. SAST: Análise estática obrigatória em todo código antes do deploy. Vulnerabilidades críticas bloqueiam o pipeline.</p>
+          <p>5. RESPONSÁVEL: [Nome do DPO/Engenheiro de Segurança]. Dúvidas: [contato]. Vigência: [data] — revisão trimestral.</p>
+        </div>
+        <p class="text-xs text-neutral-500 mt-3">* Este texto é um modelo inicial. Adapte com seu time jurídico antes de distribuir.</p>
       </div>
     </section>
 
@@ -236,41 +412,85 @@
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">6</span>
         <h2 class="text-2xl font-bold">🏗️ Arquitetura de governança</h2>
       </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">A governança eficaz é construída em camadas — cada camada é uma linha de defesa que impede que problemas cheguem ao usuário final. Não é burocracia; é engenharia de processo.</p>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A governança eficaz é construída em camadas — cada camada é uma linha de defesa que impede que problemas cheguem ao usuário final. Não é burocracia; é engenharia de processo.
+      </p>
+
+      <!-- 3-step governance flow -->
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center">
+          <span class="mr-2">🔄</span> Fluxo de governança: Geração → Revisão → Aprovação
+        </h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-28 text-center">
+              <span class="inline-block px-3 py-1.5 bg-blue-500/20 text-blue-400 text-xs font-bold rounded-lg w-full">Etapa 1</span>
+              <div class="text-xs text-neutral-500 mt-1">Geração</div>
+            </div>
+            <div class="flex-1">
+              <p class="text-neutral-300 text-sm mb-1"><strong class="text-white">O que acontece:</strong> Dev gera código com LLM. Responsabilidade do dev: revisar linha por linha antes de qualquer PR.</p>
+              <p class="text-neutral-400 text-sm"><strong class="text-amber-400">Papéis:</strong> Dev individual · Ferramenta: Cursor, Windsurf, Claude Code ou similar aprovado</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-28 text-center">
+              <span class="inline-block px-3 py-1.5 bg-amber-500/20 text-amber-400 text-xs font-bold rounded-lg w-full">Etapa 2</span>
+              <div class="text-xs text-neutral-500 mt-1">Revisão</div>
+            </div>
+            <div class="flex-1">
+              <p class="text-neutral-300 text-sm mb-1"><strong class="text-white">O que acontece:</strong> PR criado com checklist de IA preenchido. SAST automatizado roda no pipeline. Revisor humano inspeciona o código e a saída do SAST.</p>
+              <p class="text-neutral-400 text-sm"><strong class="text-amber-400">Papéis:</strong> Engenheiro revisor (obrigatório) · Para sistemas críticos: senior designado · Ferramenta: SonarQube/Snyk no CI/CD</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-28 text-center">
+              <span class="inline-block px-3 py-1.5 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-lg w-full">Etapa 3</span>
+              <div class="text-xs text-neutral-500 mt-1">Aprovação</div>
+            </div>
+            <div class="flex-1">
+              <p class="text-neutral-300 text-sm mb-1"><strong class="text-white">O que acontece:</strong> Merge aprovado após SAST sem vulnerabilidades críticas e revisão humana concluída. Deploy com monitoramento ativo nas primeiras 24h.</p>
+              <p class="text-neutral-400 text-sm"><strong class="text-amber-400">Papéis:</strong> Tech Lead ou Engineering Manager · Ferramenta: alertas de produção configurados (Datadog, Grafana ou similar)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layered defense -->
       <div class="space-y-3 mb-6">
         <div class="flex items-start space-x-4">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-xs">1</span></div>
           <div class="flex-1 bg-dark-800 rounded-lg p-4 border border-dark-600">
             <h4 class="font-semibold text-white mb-1">Camada 1: Política de uso</h4>
-            <p class="text-neutral-300 text-sm">Documento de uma página com "pode enviar / não pode enviar". Distribuído e assinado por todos os devs antes de usar ferramentas de IA.</p>
+            <p class="text-neutral-300 text-sm">Documento de uma página com "pode enviar / não pode enviar". Distribuído e assinado por todos os devs antes de usar ferramentas de IA. Revisão trimestral obrigatória.</p>
           </div>
         </div>
         <div class="flex items-start space-x-4">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-xs">2</span></div>
           <div class="flex-1 bg-dark-800 rounded-lg p-4 border border-dark-600">
             <h4 class="font-semibold text-white mb-1">Camada 2: Pull Request obrigatório</h4>
-            <p class="text-neutral-300 text-sm">Todo código (gerado por IA ou não) deve passar por PR antes do merge. Checklist específico para código de IA: "Você revisou todo o código? SAST passou? Dados sensíveis verificados?"</p>
+            <p class="text-neutral-300 text-sm">Todo código — gerado por IA ou não — deve passar por PR antes do merge. Checklist específico para código de IA: "Você revisou todo o código? SAST passou? Dados sensíveis verificados?"</p>
           </div>
         </div>
         <div class="flex items-start space-x-4">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-xs">3</span></div>
           <div class="flex-1 bg-dark-800 rounded-lg p-4 border border-dark-600">
             <h4 class="font-semibold text-white mb-1">Camada 3: SAST no pipeline de CI/CD</h4>
-            <p class="text-neutral-300 text-sm">Análise estática automatizada em todo código antes do deploy. Vulnerabilidades críticas bloqueiam o pipeline automaticamente. Resultado documentado no PR.</p>
+            <p class="text-neutral-300 text-sm">Análise estática automatizada em todo código antes do deploy. Vulnerabilidades críticas bloqueiam o pipeline automaticamente. Resultado documentado no PR para rastreabilidade.</p>
           </div>
         </div>
         <div class="flex items-start space-x-4">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-xs">4</span></div>
           <div class="flex-1 bg-dark-800 rounded-lg p-4 border border-dark-600">
             <h4 class="font-semibold text-white mb-1">Camada 4: Revisão de senior obrigatória</h4>
-            <p class="text-neutral-300 text-sm">Para código em sistemas de produção críticos, revisão de pelo menos um engenheiro sênior é obrigatória antes do merge. Não pode ser bypassada.</p>
+            <p class="text-neutral-300 text-sm">Para código em sistemas de produção críticos, revisão de pelo menos um engenheiro sênior é obrigatória antes do merge. Não pode ser bypassada — a velocidade não justifica o risco.</p>
           </div>
         </div>
         <div class="flex items-start space-x-4">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold text-xs">5</span></div>
           <div class="flex-1 bg-dark-800 rounded-lg p-4 border border-dark-600">
             <h4 class="font-semibold text-white mb-1">Camada 5: Monitoramento e rollback</h4>
-            <p class="text-neutral-300 text-sm">Alertas de produção configurados para detectar anomalias rapidamente após deploys. Processo de rollback documentado e testado regularmente.</p>
+            <p class="text-neutral-300 text-sm">Alertas de produção configurados para detectar anomalias rapidamente após deploys. Processo de rollback documentado e testado regularmente. SLA de detecção e resposta definido.</p>
           </div>
         </div>
       </div>
@@ -282,56 +502,135 @@
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">7</span>
         <h2 class="text-2xl font-bold">🚫 Quando NÃO usar vibe coding</h2>
       </div>
+
       <p class="text-neutral-300 mb-6 leading-relaxed">
         Existem contextos onde o risco de vibe coding é estruturalmente muito alto — não por falta de governança, mas pela natureza do sistema. Nesses contextos, o código deve ser escrito, revisado e validado por humanos com expertise específica no domínio.
       </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
-          <div class="text-2xl mb-3">💳</div>
-          <h4 class="font-bold text-red-400 mb-2">Sistemas Financeiros</h4>
-          <p class="text-neutral-300 text-sm">Lógica de processamento de pagamentos, cálculo de juros, transferências, reconciliação contábil. Um bug pode resultar em perda financeira direta e passivo regulatório.</p>
+
+      <!-- Checklist of 5 scenarios -->
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+            <span class="text-2xl">💳</span>
+          </div>
+          <div class="flex-1 bg-red-900/20 rounded-xl p-5 border border-red-500/30">
+            <h4 class="font-bold text-red-400 mb-2">Sistemas financeiros críticos</h4>
+            <p class="text-neutral-300 text-sm mb-2">Lógica de processamento de pagamentos, cálculo de juros, transferências, reconciliação contábil, sistemas de liquidação.</p>
+            <p class="text-xs text-neutral-500">Por que: Um bug de 1 centavo em lógica de cálculo pode resultar em perda financeira de escala e passivo regulatório (BACEN, CVM). A verificação exaustiva necessária elimina o ganho de velocidade.</p>
+          </div>
         </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
-          <div class="text-2xl mb-3">🏥</div>
-          <h4 class="font-bold text-red-400 mb-2">Sistemas de Saúde</h4>
-          <p class="text-neutral-300 text-sm">Dosagem de medicamentos, histórico médico, diagnósticos, sistemas de suporte à decisão clínica. Falhas têm impacto direto na saúde e vida de pacientes.</p>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+            <span class="text-2xl">🏥</span>
+          </div>
+          <div class="flex-1 bg-red-900/20 rounded-xl p-5 border border-red-500/30">
+            <h4 class="font-bold text-red-400 mb-2">Sistemas de saúde e medicina</h4>
+            <p class="text-neutral-300 text-sm mb-2">Dosagem de medicamentos, histórico médico, diagnósticos por IA, sistemas de suporte à decisão clínica, monitoramento de pacientes.</p>
+            <p class="text-xs text-neutral-500">Por que: Falhas têm impacto direto na saúde e vida de pacientes. Regulação específica (ANVISA, FDA) exige validação clínica que incompatível com a velocidade do vibe coding.</p>
+          </div>
         </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
-          <div class="text-2xl mb-3">⚡</div>
-          <h4 class="font-bold text-red-400 mb-2">Infraestrutura Crítica</h4>
-          <p class="text-neutral-300 text-sm">Sistemas de energia, água, telecomunicações, controle industrial (SCADA). Falhas podem ter impacto em escala de população e são irreversíveis no curto prazo.</p>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+            <span class="text-2xl">⚡</span>
+          </div>
+          <div class="flex-1 bg-red-900/20 rounded-xl p-5 border border-red-500/30">
+            <h4 class="font-bold text-red-400 mb-2">Infraestrutura crítica nacional</h4>
+            <p class="text-neutral-300 text-sm mb-2">Sistemas de energia elétrica, abastecimento de água, telecomunicações, controle industrial (SCADA/ICS), redes ferroviárias e de aviação.</p>
+            <p class="text-xs text-neutral-500">Por que: Falhas podem ter impacto em escala de população e são frequentemente irreversíveis no curto prazo. Ataques a esses sistemas via código vulnerável têm consequências de segurança nacional.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center">
+            <span class="text-2xl">🔐</span>
+          </div>
+          <div class="flex-1 bg-red-900/20 rounded-xl p-5 border border-red-500/30">
+            <h4 class="font-bold text-red-400 mb-2">Sistemas de autenticação e identidade</h4>
+            <p class="text-neutral-300 text-sm mb-2">Lógica de autenticação, autorização, gestão de sessões, controle de acesso de sistemas com dados de alto valor.</p>
+            <p class="text-xs text-neutral-500">Por que: Os incidentes Lovable e Base44 mostraram que falhas de autenticação geradas por IA são um vetor de ataque real. Em sistemas com dados sensíveis, código de auth deve ser escrito e validado por especialistas em segurança.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center">
+            <span class="text-2xl">⚖️</span>
+          </div>
+          <div class="flex-1 bg-red-900/20 rounded-xl p-5 border border-red-500/30">
+            <h4 class="font-bold text-red-400 mb-2">Sistemas com decisões automatizadas sobre pessoas</h4>
+            <p class="text-neutral-300 text-sm mb-2">Sistemas de crédito automatizado, triagem de currículos, decisões de benefícios sociais, sistemas judiciais auxiliados por IA.</p>
+            <p class="text-xs text-neutral-500">Por que: LGPDs e regulações de IA (EU AI Act) exigem explicabilidade e auditabilidade que o vibe coding não produz nativamente. Riscos de bias sistêmico e responsabilidade legal são elevados.</p>
+          </div>
         </div>
       </div>
+
       <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3">💡 O critério decisivo</h3>
-        <p class="text-neutral-300">Se uma falha no sistema pode resultar em perda irreversível — de vida, de dados críticos, de dinheiro em escala, de infraestrutura — o custo de verificação exaustiva cancela o benefício de velocidade do vibe coding. Nesses casos, a velocidade correta é a velocidade segura.</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> O critério decisivo — e o equilíbrio correto
+        </h3>
+        <p class="text-neutral-300 mb-3">Se uma falha no sistema pode resultar em perda irreversível — de vida, de dados críticos, de dinheiro em escala, de infraestrutura — o custo de verificação exaustiva cancela o benefício de velocidade do vibe coding. Nesses casos, a velocidade correta é a velocidade segura.</p>
+        <p class="text-neutral-300">Mas isso não significa que vibe coding não cabe nesses setores. Significa que ele cabe nas partes certas — ferramentas internas, dashboards, automações de processos, sistemas de suporte que não tocam na lógica crítica. A decisão é sobre <strong class="text-white">granularidade</strong>, não sobre exclusão total do setor.</p>
       </div>
     </section>
 
-    <!-- RESUMO -->
+    <!-- RESUMO FINAL -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 3.4</h2>
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 3.4
+        </h2>
+
         <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">16 de 18 CTOs reportaram desastres</strong><span class="text-neutral-400"> — sem governança, o risco é estrutural, não acidental</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Incidentes reais documentados</strong><span class="text-neutral-400"> — Lovable (18K usuários), Base44, Replit. Casos reais, não hipotéticos</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Propriedade intelectual é complexa</strong><span class="text-neutral-400"> — direito autoral, licenças de terceiros e segredos comerciais precisam de atenção jurídica</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">LGPD cria obrigações específicas</strong><span class="text-neutral-400"> — dados pessoais nunca devem ser enviados para LLMs externos sem anonimização</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">5 camadas de governança</strong><span class="text-neutral-400"> — política, PR, SAST, revisão de senior e monitoramento</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Sistemas financeiros, saúde e infraestrutura crítica</strong><span class="text-neutral-400"> — contextos onde vibe coding tem risco estruturalmente alto</span></div></div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">16 de 18 CTOs reportaram desastres</strong><span class="text-neutral-400"> — sem governança, o risco é estrutural. 2,74x mais vulnerabilidades sem revisão (Veracode)</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Incidentes reais documentados</strong><span class="text-neutral-400"> — Lovable (18K usuários), Base44 (72h em produção), Replit (banco deletado). Casos reais, não hipotéticos</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Propriedade intelectual é complexa</strong><span class="text-neutral-400"> — use ferramentas enterprise com cobertura de IP, documente autoria humana, envolva o jurídico</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">LGPD cria obrigações específicas</strong><span class="text-neutral-400"> — dados pessoais nunca para LLMs externos, documente no ROPA, multas de até 2% do faturamento</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Fluxo de 3 etapas: Geração → Revisão → Aprovação</strong><span class="text-neutral-400"> — cada etapa com papéis definidos, ferramentas e critérios claros</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">5 contextos onde NÃO usar</strong><span class="text-neutral-400"> — sistemas financeiros críticos, saúde, infraestrutura, autenticação sensível e decisões automatizadas sobre pessoas</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">O critério é granularidade, não exclusão</strong><span class="text-neutral-400"> — mesmo setores de alto risco têm espaço para vibe coding nas partes não-críticas</span></div>
+          </div>
         </div>
+
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
           <h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3>
           <p class="text-neutral-300">3.5 — 🔭 O Futuro: Do Vibe Coding ao Agentic Engineering: Karpathy em 2026, agentes em paralelo e o novo perfil de engenheiro</p>
         </div>
+
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 3.3</a>
-          <a href="modulo-3-5.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Próximo Módulo →</a>
+          <a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo 3.3
+          </a>
+          <a href="modulo-3-5.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">
+            Próximo Módulo →
+          </a>
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer class="border-t border-dark-600 py-8">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
       <p>⚡ Vibe Coding — Módulo 3.4 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
@@ -343,8 +642,21 @@
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
     const html = document.documentElement;
-    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
-    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
   </script>
+
 </body>
 </html>

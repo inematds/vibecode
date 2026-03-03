@@ -591,88 +591,1098 @@
       </div>
     </div>
 
-    <!-- MÓDULO 2.3 (card compacto) -->
+    <!-- MÓDULO 2.3 -->
     <div id="modulo-2-3" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
-      <div class="p-6">
+      <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-purple-400 font-bold">2.3</span>
           <span class="text-xs text-neutral-500">~40 min</span>
         </div>
         <h3 class="text-2xl font-bold mb-2">🛠️ Construindo seu Primeiro App</h3>
-        <p class="text-neutral-400 text-sm mb-4">Do briefing ao primeiro resultado: como definir o que construir, escrever prompts eficazes e salvar versões sem perder progresso.</p>
-        <div class="flex justify-start">
-          <a href="modulo-2-3.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
-            Acessar Módulo
-          </a>
+        <p class="text-neutral-400 text-sm">Do briefing ao primeiro resultado funcional. Como definir o que construir, escrever prompts eficazes, interpretar o resultado e salvar versões sem perder progresso.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🎯</span>
+            <div>
+              <span class="font-medium">Definindo o que construir</span>
+              <span class="text-neutral-500 text-sm ml-2">— comece menor do que acha que deveria</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">O processo de definir com precisão quem usa, qual problema resolve, qual é a solução mínima e o que NÃO entra no escopo — antes de abrir qualquer ferramenta.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">O maior erro de quem começa não é escrever o prompt errado — é tentar construir a coisa errada. Definir bem o escopo evita retrabalho e frustração.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Framework de 4 perguntas (quem usa, qual problema, solução mínima, o que NÃO inclui), armadilha da "feature envy", regra de começar menor.</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📝</span>
+            <div>
+              <span class="font-medium">Escrevendo o briefing</span>
+              <span class="text-neutral-500 text-sm ml-2">— o documento antes de abrir a ferramenta</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Um documento de uma página com nome do app, usuário principal, problema que resolve, funcionalidades (máximo 3), estilo visual e o que NÃO incluir — escrito antes de abrir qualquer ferramenta.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">O briefing funciona como receita de bolo: quanto mais detalhado, menos improviso e retrabalho. Economiza tempo e tokens da ferramenta.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Template preenchível, exemplo AgendaPet completo, limite de 3 funcionalidades, estilo visual em palavras, importância do campo "NÃO INCLUIR".</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">💬</span>
+            <div>
+              <span class="font-medium">O primeiro prompt — Template que funciona</span>
+              <span class="text-neutral-500 text-sm ml-2">— estrutura que a IA entende</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Um template de prompt inicial que inclui: nome do app, usuário, problema, funcionalidades numeradas, estilo visual e o que NÃO incluir — a estrutura que define o tom de todo o projeto.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">O prompt inicial bem estruturado economiza dezenas de iterações. Dá contexto, escopo e estilo numa única mensagem, evitando que a IA adicione complexidade desnecessária.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Template com 5 seções, exemplo AgendaPet aplicado, razão pela qual a seção "não incluir" é a mais importante, diferença entre prompt vago e prompt estruturado.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">👁️</span>
+            <div>
+              <span class="font-medium">Interpretando o resultado</span>
+              <span class="text-neutral-500 text-sm ml-2">— avaliar comportamento, não código</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">A metodologia de avaliação do primeiro resultado: testar como usuário real, usar o checklist de 5 pontos e identificar o que funciona e o que precisa de ajuste — sem tentar ler o código.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Muitos não-técnicos pulam a avaliação estruturada ou tentam ler o código (o que não ajuda). Saber o que olhar economiza horas de iteração desnecessária.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Checklist de 5 perguntas, como avaliar bem vs. erros comuns, teste no celular e desktop, regra de nunca mostrar para clientes antes de testar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔄</span>
+            <div>
+              <span class="font-medium">Pedindo ajustes</span>
+              <span class="text-neutral-500 text-sm ml-2">— a fórmula do bom pedido</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">A técnica de pedir ajustes eficazes usando a fórmula "[o que acontece agora] + [o que deveria acontecer]", com exemplos para design, funcionalidade e erros.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Pedidos vagos ("melhore o design") geram resultados imprevisíveis. Pedidos precisos com contexto economizam iterações e créditos da ferramenta.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Fórmula do bom pedido, exemplos de pedidos simples (design) e complexos (funcionalidade), como descrever um erro para a IA corrigir eficientemente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🧪</span>
+            <div>
+              <span class="font-medium">Testando funcionalidades</span>
+              <span class="text-neutral-500 text-sm ml-2">— quebre antes que o usuário quebre</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">O processo de testar sistematicamente: fluxo principal completo, tentativa de quebrar (campos em branco, datas inválidas, cliques múltiplos), teste no celular e teste com pessoa real sem explicação.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">A IA pode gerar código funcional com comportamentos inesperados em situações de borda. Esses problemas só aparecem testando — nunca lendo o código.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">4 tipos de teste (fluxo principal, quebrar, celular, usuário real), situações de borda, por que nunca pular o teste, diferença entre "funciona" e "está pronto".</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">💾</span>
+            <div>
+              <span class="font-medium">Salvando versões — O conceito de snapshot</span>
+              <span class="text-neutral-500 text-sm ml-2">— sua rede de segurança</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">A prática de salvar versões estáveis antes de mudanças grandes — no Lovable via histórico de versões com nomes, no Bolt.new via exportação de código e abas paralelas.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Salvar snapshots evita horas de retrabalho quando uma mudança estraga o que estava funcionando. É a diferença entre ter uma rede de segurança ou não.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Snapshot, quando salvar (antes de mudança grande, quando funciona bem, antes de nova feature, antes de mostrar para alguém), como usar histórico no Lovable e no Bolt.new.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-2-3.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
       </div>
     </div>
 
-    <!-- MÓDULO 2.4 (card compacto) -->
+    <!-- MÓDULO 2.4 -->
     <div id="modulo-2-4" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
-      <div class="p-6">
+      <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-purple-400 font-bold">2.4</span>
           <span class="text-xs text-neutral-500">~35 min</span>
         </div>
         <h3 class="text-2xl font-bold mb-2">🎯 Do Protótipo ao Produto</h3>
-        <p class="text-neutral-400 text-sm mb-4">Como coletar feedback, melhorar UX com instruções simples, adicionar banco de dados e login, e saber quando contratar um dev.</p>
-        <div class="flex justify-start">
-          <a href="modulo-2-4.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
-            Acessar Módulo
-          </a>
+        <p class="text-neutral-400 text-sm">Como coletar feedback de usuários reais, melhorar o design sem ser designer, adicionar banco de dados e login, e saber o momento certo de contratar um desenvolvedor.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔍</span>
+            <div>
+              <span class="font-medium">A diferença entre protótipo e produto</span>
+              <span class="text-neutral-500 text-sm ml-2">— transição não é binária</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">A distinção entre protótipo (funciona no seu fluxo específico, dados fictícios, erros tolerados) e produto (funciona para qualquer usuário, em qualquer situação, com dados reais, erros tratados).</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Entender a diferença evita lançar um protótipo como produto, o que gera má experiência para usuários reais e prejudica a reputação do produto antes de ele ter chance.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Tabela protótipo vs. produto, a transição como processo iterativo de 3-5 rodadas de feedback, objetivo de cada estágio da evolução.</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">💬</span>
+            <div>
+              <span class="font-medium">Feedback de usuários — Como coletar e usar</span>
+              <span class="text-neutral-500 text-sm ml-2">— 5 usuários revelam 85% dos problemas</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">As 3 técnicas de coleta de feedback: observação direta (sem explicação), as 3 perguntas certas após uso e a metodologia de traduzir feedback em prompt para a ferramenta de vibe coding.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">O feedback mais valioso não vem de perguntas — vem de observação. Coletar feedback errado (de amigos que querem agradar) leva a melhorias nas partes erradas do produto.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">5 usuários revelam 85% dos problemas (Nielsen Norman), 3 rodadas são suficientes para MVP, como converter feedback em prompt de ajuste eficaz.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎨</span>
+            <div>
+              <span class="font-medium">Design sem designer — Pedindo melhorias de UX/UI</span>
+              <span class="text-neutral-500 text-sm ml-2">— vocabulário que funciona em prompts</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">O vocabulário de design que funciona em prompts para melhorar aparência (espaçamento, tipografia, botões) e experiência (fluxos mais curtos, mensagens de erro, confirmações visuais).</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Você não precisa de designer para melhorar UX/UI — basta saber descrever o que está errado. Referenciar apps famosos ("estilo Notion") funciona muito bem.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">UX vs. UI, vocabulário de aparência vs. experiência, técnica de referenciar produtos famosos, como descrever o que está errado sem saber termos técnicos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🗄️</span>
+            <div>
+              <span class="font-medium">Banco de dados — Guardando informações sem saber SQL</span>
+              <span class="text-neutral-500 text-sm ml-2">— planilha mental para pedir o certo</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Como descrever banco de dados para a IA em linguagem natural — usando a analogia do Excel (colunas = campos, linhas = registros) e templates de prompts para criar estruturas de dados.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Você não precisa saber SQL — precisa entender o conceito para saber o que pedir. Com Lovable (Supabase), o banco é criado automaticamente conforme você descreve.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Analogia banco de dados = planilha, Supabase no Lovable, Google Sheets e Airtable como alternativas para MVPs simples, exemplos de prompts para criar estruturas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔐</span>
+            <div>
+              <span class="font-medium">Login e cadastro — Autenticação para leigos</span>
+              <span class="text-neutral-500 text-sm ml-2">— "entrar com Google" sem código</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Os 4 tipos de autenticação (email+senha, Google OAuth, magic link, multi-tenant) e como pedir cada um para a IA usando prompts em linguagem natural — sem entender como funciona internamente.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">O Lovable inclui autenticação pronta — você só precisa pedir. Entender os tipos ajuda a escolher o mais adequado para o comportamento esperado dos seus usuários.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Email+senha, OAuth (Google), magic link, multi-tenant, exemplos de prompts para cada tipo, recuperação de senha via email.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">⚡</span>
+            <div>
+              <span class="font-medium">Performance básica — Quando o app fica lento</span>
+              <span class="text-neutral-500 text-sm ml-2">— 53% abandonam em 3 segundos</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Os 3 problemas de lentidão mais comuns (lista grande, imagens pesadas, carregamento inicial) com sintomas identificáveis e prompts exatos para corrigir cada um sem saber programar.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">53% dos usuários abandonam um site que demora mais de 3 segundos. Performance é UX — um app lento perde usuários independente da qualidade das features.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Paginação para listas grandes, lazy loading para imagens, carregamento progressivo para início, como descrever sintomas de lentidão em prompts de correção.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">👩‍💻</span>
+            <div>
+              <span class="font-medium">Quando contratar um desenvolvedor</span>
+              <span class="text-neutral-500 text-sm ml-2">— vibe coding muda quando, não se</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Os 5 sinais de que chegou a hora de contratar um dev (500+ usuários, SLA corporativo, integração legacy, feature impossível após 3 tentativas, regulação) e como a validação prévia melhora a negociação.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Vibe coding não substitui devs — muda quando você os contrata. Com receita e usuários reais, sua posição de negociação é muito mais forte e o escopo é mais claro.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">5 sinais de quando contratar, modelo híbrido (vibe coding + dev freelancer por horas), como ter receita comprovada muda a negociação com desenvolvedores.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-2-4.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
       </div>
     </div>
 
-    <!-- MÓDULO 2.5 (card compacto) -->
+    <!-- MÓDULO 2.5 -->
     <div id="modulo-2-5" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
-      <div class="p-6">
+      <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-purple-400 font-bold">2.5</span>
           <span class="text-xs text-neutral-500">~30 min</span>
         </div>
         <h3 class="text-2xl font-bold mb-2">🔌 Integrações: Conectando Tudo</h3>
-        <p class="text-neutral-400 text-sm mb-4">APIs, pagamentos com Stripe, WhatsApp, Google Sheets, Zapier e como adicionar IA dentro do seu produto — sem saber uma linha de código.</p>
-        <div class="flex justify-start">
-          <a href="modulo-2-5.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
-            Acessar Módulo
-          </a>
+        <p class="text-neutral-400 text-sm">APIs explicadas para humanos, pagamentos com Stripe, WhatsApp automático, Google Sheets como banco de dados e como adicionar IA dentro do seu produto.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔗</span>
+            <div>
+              <span class="font-medium">O que é uma API — A explicação mais simples</span>
+              <span class="text-neutral-500 text-sm ml-2">— o garçom digital</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">API como garçom digital: seu app pede algo (garçom), o garçom vai ao sistema externo (cozinha) e traz o resultado. Você nunca entra na cozinha — só faz o pedido.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Você não precisa entender como as APIs funcionam internamente — mas precisa saber qual usar para cada função e como pedir para a ferramenta de vibe coding integrá-la.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Analogia do restaurante, APIs que você já usa sem saber (login Google, Uber Maps, iFood Stripe), o que um não-técnico precisa saber sobre APIs.</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">💳</span>
+            <div>
+              <span class="font-medium">Pagamentos — Stripe e Mercado Pago</span>
+              <span class="text-neutral-500 text-sm ml-2">— integrar pagamento em minutos</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Comparativo Stripe vs. Mercado Pago com casos de uso, prompts para pedir integração de pagamento e a regra crítica de sempre testar no modo sandbox antes de ativar produção.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Integrar pagamentos costumava ser o maior pesadelo de um MVP. Com vibe coding, você descreve o fluxo e a ferramenta integra Stripe ou Mercado Pago em minutos.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Stripe (global, assinaturas, 2.9%+R$0.30), Mercado Pago (PIX, Brasil, melhor reconhecimento BR), modo sandbox/teste, cartão de teste, prompts de integração.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📱</span>
+            <div>
+              <span class="font-medium">WhatsApp e email — Notificações automáticas</span>
+              <span class="text-neutral-500 text-sm ml-2">— reduz no-shows em até 80%</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Como configurar notificações automáticas via email (Resend/SendGrid, gratuito até 100/dia) e WhatsApp (Twilio/Z-API), com a estratégia de começar por email e depois adicionar WhatsApp.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Notificações automáticas são o tipo de integração que mais impressiona usuários e mais economiza tempo do dono do negócio. Um lembrete de agendamento pode reduzir no-shows em até 80%.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Resend e SendGrid para email, Twilio e Z-API para WhatsApp, aprovação de template WhatsApp Business, por que começar com email antes do WhatsApp.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📊</span>
+            <div>
+              <span class="font-medium">Google Sheets — Planilha como banco de dados</span>
+              <span class="text-neutral-500 text-sm ml-2">— elegante para MVPs simples</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Usar Google Sheets como banco de dados para MVPs simples: quando usar (volume baixo, equipe usa planilhas, não-técnicos editam dados) e quando não usar (100+ usuários simultâneos, dados sensíveis).</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Para donos de negócio que já controlam tudo em planilhas, integrar com Google Sheets mantém o controle familiar e adiciona um app bonito na frente — ótimo para validar antes de banco real.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">API do Google Sheets, quando usar vs. quando não usar, limite de 10K linhas, alternativa para dados editáveis por não-técnicos, prompt de integração.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">⚙️</span>
+            <div>
+              <span class="font-medium">Zapier/n8n — Quando a IA não consegue</span>
+              <span class="text-neutral-500 text-sm ml-2">— tradutores universais de sistemas</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Zapier e n8n como "tradutores universais" que conectam qualquer app com qualquer app quando a ferramenta de vibe coding não consegue integrar diretamente — usando lógica Trigger → Ação.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Às vezes a ferramenta não consegue integrar com sistemas específicos ou legados. Zapier resolve isso visualmente, sem código, com 6.000+ apps disponíveis.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Zapier (visual, 6K apps, gratuito 100/mês), n8n (open source, mais flexível, curva maior), fórmula Trigger→Ação, exemplos: novo cadastro→Mailchimp, pagamento→Trello.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🧠</span>
+            <div>
+              <span class="font-medium">OpenAI/Claude na sua aplicação — IA dentro do produto</span>
+              <span class="text-neutral-500 text-sm ml-2">— transforma ferramenta em mágica</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">3 casos de uso de IA no produto: chatbot de suporte (reduz suporte em 70%), geração de conteúdo personalizado (contratos, emails, propostas) e análise/classificação automática (sentimento, triagem de leads).</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Adicionar IA transforma uma ferramenta comum em algo que parece mágico. Custo é baixo (~$0.005 por chamada) e você pode cobrar $10-30/mês com margem positiva.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">GPT-4o, Claude API, custo por chamada vs. custo de assinatura cobrado ao usuário, chatbot de FAQ, geração de texto personalizado, classificação de sentimento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🧪</span>
+            <div>
+              <span class="font-medium">Testando integrações — Como verificar que está funcionando</span>
+              <span class="text-neutral-500 text-sm ml-2">— a regra do "e se der errado"</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">O checklist de teste de integração (fluxo principal, erros, pagamento recusado, email na caixa de entrada, dados corretos) e as ferramentas de monitoramento de cada serviço.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Integração que "funcionou uma vez" não é integração testada. Você precisa testar cenários de erro — o que acontece quando o pagamento falha silenciosamente causa danos sérios.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Regra do "e se der errado", checklist de 6 pontos, Stripe Dashboard, Resend/SendGrid logs, Supabase logs, Zapier History, cenários de borda em integrações.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-2-5.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
       </div>
     </div>
 
-    <!-- MÓDULO 2.6 (card compacto) -->
+    <!-- MÓDULO 2.6 -->
     <div id="modulo-2-6" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
-      <div class="p-6">
+      <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-purple-400 font-bold">2.6</span>
           <span class="text-xs text-neutral-500">~30 min</span>
         </div>
         <h3 class="text-2xl font-bold mb-2">💰 Publicando e Monetizando</h3>
-        <p class="text-neutral-400 text-sm mb-4">Deploy com um clique, domínio personalizado, modelos de monetização, Stripe para recorrência e o caminho do $0 ao primeiro $1.000 MRR.</p>
-        <div class="flex justify-start">
-          <a href="modulo-2-6.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
-            Acessar Módulo
-          </a>
+        <p class="text-neutral-400 text-sm">Deploy com um clique, domínio personalizado, modelos de monetização, Stripe para recorrência, precificação e o caminho real do $0 ao primeiro $1.000 MRR.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🚀</span>
+            <div>
+              <span class="font-medium">Deploy com um clique — Publicando na internet</span>
+              <span class="text-neutral-500 text-sm ml-2">— Lovable, Vercel ou Render</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">As 3 opções de deploy para não-técnicos: Lovable Deploy (automático, incluso no plano, recomendado para iniciantes), Vercel (gratuito, melhor para Next.js/v0) e Render (ideal para backend e automações).</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Com ferramentas de vibe coding, deploy foi reduzido a um clique — mas escolher a opção errada pode gerar custos inesperados ou limitações técnicas no futuro.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Deploy automático, HTTPS obrigatório e gratuito em todas as opções, CDN global, subdomain gratuito (.lovable.app, .vercel.app), por que HTTPS é obrigatório para SEO e segurança.</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🌐</span>
+            <div>
+              <span class="font-medium">Domínio personalizado — Comprando seu .com.br</span>
+              <span class="text-neutral-500 text-sm ml-2">— R$30-80/ano de credibilidade</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Passo a passo para conectar domínio personalizado: comprar no Registro.br ou GoDaddy, adicionar no painel da ferramenta de deploy, configurar CNAME/A Record no registrador, aguardar propagação.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">"seuapp.com.br" passa muito mais credibilidade que "seuapp.lovable.app". Um domínio custa R$30-80/ano e pode ser a diferença entre o usuário confiar ou desconfiar do produto.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Registro.br (.com.br), GoDaddy e Namecheap (.com), CNAME e A Record, propagação de DNS (10 min a 48h), como pedir ajuda à IA para configuração passo a passo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">💼</span>
+            <div>
+              <span class="font-medium">Modelos de monetização — Como cobrar</span>
+              <span class="text-neutral-500 text-sm ml-2">— 4 modelos com vantagens e armadilhas</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Os 4 modelos de monetização para produtos digitais: assinatura (SaaS, receita previsível), freemium (mais usuários, desafio de conversão), pagamento único (fácil de vender, difícil de escalar) e por uso (pay-as-you-go).</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">A escolha do modelo de monetização errado pode travar o crescimento. Cada modelo tem casos de uso ideais e armadilhas específicas que vale conhecer antes de decidir.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Assinatura mensal (recomendado para iniciantes), freemium (Notion, Spotify), pagamento único (cursos, ferramentas simples), pay-as-you-go (AWS, Twilio), quando usar cada modelo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">💳</span>
+            <div>
+              <span class="font-medium">Stripe para recorrência — Assinatura pronta</span>
+              <span class="text-neutral-500 text-sm ml-2">— passo a passo para não-técnicos</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Passo a passo para configurar assinatura recorrente no Stripe: criar conta, criar produto com preço, copiar Secret Key para o Lovable, testar com cartão 4242, migrar para produção.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">O Stripe tem dashboard visual completo gerenciável sem código, e o Lovable integra nativamente. É gratuito para instalar — você só paga quando vende (2.9% + R$0.30 por transação).</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Secret Key, modo teste vs. produção, cartão de teste 4242 4242 4242 4242, taxas no Brasil (cartão, PIX, boleto), repasse em 7 dias úteis, nunca pular o teste.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🏷️</span>
+            <div>
+              <span class="font-medium">Precificação — Como definir o valor do seu produto</span>
+              <span class="text-neutral-500 text-sm ml-2">— nunca barato por medo</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">3 frameworks de precificação: por valor gerado (economizou R$1.000/mês → pode cobrar R$100-200), pesquisa de concorrência e teste de preços no mercado real — mais referências de preços SaaS BR.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">O erro mais comum é cobrar barato demais por medo. Produto barato é percebido como de qualidade baixa, usuários baratos dão mais trabalho de suporte e é difícil subir preço depois.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Precificação por valor, benchmarking de concorrentes, teste de preços, referências BR (R$29-79 simples, R$99-299 negócio, R$299-999 enterprise), 4 razões para não cobrar barato.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">👥</span>
+            <div>
+              <span class="font-medium">Primeiros usuários — Onde encontrar os primeiros 100 clientes</span>
+              <span class="text-neutral-500 text-sm ml-2">— rede pessoal até Product Hunt</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">A jornada dos primeiros clientes em 4 estágios: rede pessoal (0-10), grupos e comunidades online (10-50), Product Hunt e lançamentos (50-100) e conteúdo e SEO (100+).</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Os primeiros clientes exigem esforço manual e conversas pessoais — não campanhas sofisticadas. Entender os canais certos para cada estágio evita desperdiçar tempo e dinheiro.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Desconto de beta em troca de feedback, grupos de nicho (WhatsApp, Telegram, LinkedIn B2B), Product Hunt como motor de lançamento, conteúdo/SEO para tráfego sustentável de longo prazo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">📈</span>
+            <div>
+              <span class="font-medium">Do $0 ao primeiro $1.000 MRR — O caminho real</span>
+              <span class="text-neutral-500 text-sm ml-2">— 3 a 21 clientes dependendo do preço</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">A rota em 3 fases para $1.000 MRR: Meses 1-2 (MVP + teste com 5-10 usuários), Meses 2-3 (beta pago com preço de fundador, primeiros 5-10 pagantes) e Meses 3-6 (escala manual por conversas).</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">$1.000 MRR é o primeiro marco significativo para um SaaS. Com preço de R$197/mês, você precisa de apenas 6 clientes — e os primeiros vêm de conversas individuais, não campanhas.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">MRR (Monthly Recurring Revenue), tabela de clientes necessários por faixa de preço, preço de fundador (30-50% desconto), beta fechado, escala manual antes de marketing em escala.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-2-6.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
       </div>
     </div>
 
-    <!-- MÓDULO 2.7 (card compacto) -->
+    <!-- MÓDULO 2.7 -->
     <div id="modulo-2-7" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
-      <div class="p-6">
+      <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-purple-400 font-bold">2.7</span>
           <span class="text-xs text-neutral-500">~25 min</span>
         </div>
         <h3 class="text-2xl font-bold mb-2">⚠️ O Que Pode Dar Errado (e Como Evitar)</h3>
-        <p class="text-neutral-400 text-sm mb-4">Segurança, LGPD em 5 minutos, plano de contingência, backup e o checklist de 10 perguntas para validar antes de lançar.</p>
-        <div class="flex justify-start">
-          <a href="modulo-2-7.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
-            Acessar Módulo
-          </a>
+        <p class="text-neutral-400 text-sm">Casos reais de vazamento de dados, LGPD em 5 minutos, backup, plano de contingência e o checklist de 10 perguntas para validar antes de lançar.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <!-- Tópico 1 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔓</span>
+            <div>
+              <span class="font-medium">Apps que expuseram dados — O caso Lovable</span>
+              <span class="text-neutral-500 text-sm ml-2">— RLS desativado expôs 18K+ usuários</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">O caso real de 2025: apps construídos no Lovable com banco de dados público (RLS desativado), expondo dados de 18.000+ usuários — nomes, emails, histórico — acessíveis por qualquer pessoa com conhecimento técnico.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Ferramentas de vibe coding geram código funcional, mas não necessariamente seguro por padrão. Segurança requer intenção explícita — você precisa pedir especificamente que os dados estejam protegidos.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">RLS (Row Level Security) como segurança do banco Supabase, configuração "público" vs. "privado", prompts para ativar RLS explicitamente, validação de autenticação em todas as rotas.</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Tópico 2 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔑</span>
+            <div>
+              <span class="font-medium">O problema das senhas e chaves secretas</span>
+              <span class="text-neutral-500 text-sm ml-2">— nunca no código visível</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">API Keys e Secrets como "chaves de cofre digital" — o que nunca fazer (compartilhar código com chaves, mandar screenshot, misturar teste e produção) e como gerenciar com segurança via variáveis de ambiente.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Uma chave do Stripe vazada em código público permite que qualquer pessoa cobre cartões usando sua conta. Variáveis de ambiente existem exatamente para proteger isso.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">API Key, Secret Key, variáveis de ambiente (Lovable e Vercel têm campo específico), nunca colar chaves no chat da IA, como invalidar imediatamente se vazar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 3 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📋</span>
+            <div>
+              <span class="font-medium">Dados de usuários — LGPD em 5 minutos</span>
+              <span class="text-neutral-500 text-sm ml-2">— multa de até R$50 milhões</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">O mínimo obrigatório da LGPD para apps brasileiros: Política de Privacidade (gerada pela IA), consentimento explícito (checkbox), direito de exclusão de conta e notificação de incidente em 72h.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">A LGPD se aplica a qualquer app que coleta dados de brasileiros — incluindo apps de vibe coding. Multas chegam a 2% do faturamento, limitadas a R$50 milhões por infração.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">LGPD (Lei 13.709/2018), ANPD, 4 obrigações mínimas, prompt para gerar Política de Privacidade com IA, checkbox de consentimento, botão "Excluir minha conta".</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 4 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📉</span>
+            <div>
+              <span class="font-medium">Quando o app cai — Plano de contingência</span>
+              <span class="text-neutral-500 text-sm ml-2">— comunique antes de resolver</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">O plano de 3 passos quando o app cai: 5 minutos de diagnóstico (dashboard + logs), 15 minutos de comunicação proativa com usuários e, se não resolver, reverter para versão estável anterior.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Todo app cai eventualmente. A diferença entre fundador amador e profissional não é não ter problemas — é saber como reagir. Comunicar antes de resolver é o segredo para manter confiança.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">UptimeRobot (monitoramento gratuito), comunicação proativa com prazo estimado, reverter para snapshot estável, email padrão de incidente, como configurar página de status.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 5 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">💾</span>
+            <div>
+              <span class="font-medium">Backup — Como garantir que seus dados não desaparecem</span>
+              <span class="text-neutral-500 text-sm ml-2">— 3 camadas de proteção</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Estratégia de backup em 3 camadas: backup automático do provedor (Supabase diário, retenção 7-30 dias), export manual semanal para Google Drive e automação via Zapier para backup diário automático.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Dados de usuários perdidos não se recuperam e podem destruir a confiança construída em meses. Backup não testado não é backup — a regra do teste mensal é crítica.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Backup automático Supabase, export manual para Google Drive, automação Zapier noturna, regra do teste mensal de restauração, o que "backup não testado não é backup" significa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 6 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">✅</span>
+            <div>
+              <span class="font-medium">Checklist antes de lançar — 10 perguntas</span>
+              <span class="text-neutral-500 text-sm ml-2">— lançamento profissional vs. amador</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">As 10 perguntas obrigatórias antes de qualquer lançamento público: fluxo principal, celular, RLS ativo, chaves em variáveis de ambiente, Política de Privacidade, pagamento testado, monitoramento, backup, 5 usuários externos testaram, suporte configurado.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Passar pelo checklist leva 30 minutos e pode evitar incidentes de segurança, multas de LGPD e má experiência que mancha a reputação do produto no lançamento.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">10 pontos de verificação pré-lançamento, critério de parada (se travar no fluxo principal, não lança), diferença entre testar você mesmo vs. testar com 5 usuários reais do público-alvo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tópico 7 -->
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🔒</span>
+            <div>
+              <span class="font-medium">Seguro técnico — Quando contratar revisão profissional</span>
+              <span class="text-neutral-500 text-sm ml-2">— auditoria quando o risco justifica</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-purple-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm mt-1">Quando vale contratar auditoria de segurança: dados sensíveis, 500+ usuários com receita relevante, cliente B2B exige relatório ou investidores fazem due diligence técnica — com custo estimado de R$500 a R$8.000+.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm mt-1">Auditoria profissional é um investimento que protege receita e reputação. Antes de pagar, ferramentas gratuitas (OWASP ZAP, Lighthouse, SSL Labs) cobrem o básico.</p>
+              </div>
+              <div>
+                <span class="text-purple-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm mt-1">Pentest (teste de penetração), 4 situações que justificam auditoria, onde encontrar devs de segurança (99Freelas, Upwork, LinkedIn), ferramentas gratuitas pré-auditoria (OWASP ZAP, Lighthouse, SSL Labs).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-7')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-2-7.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">
+          Ver Completo
+        </a>
       </div>
     </div>
 
@@ -711,6 +1721,71 @@
         <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
       </div>
       <iframe src="modulo-2-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-2-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">2.3</span>
+          <span class="font-semibold">🛠️ Construindo seu Primeiro App</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-2-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">2.4</span>
+          <span class="font-semibold">🎯 Do Protótipo ao Produto</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-4.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-2-5" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">2.5</span>
+          <span class="font-semibold">🔌 Integrações: Conectando Tudo</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-5.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-2-6" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">2.6</span>
+          <span class="font-semibold">💰 Publicando e Monetizando</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-6.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-2-7" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-purple-400 font-bold">2.7</span>
+          <span class="font-semibold">⚠️ O Que Pode Dar Errado (e Como Evitar)</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-7.html" class="flex-1 w-full rounded-b-xl"></iframe>
     </div>
   </div>
 

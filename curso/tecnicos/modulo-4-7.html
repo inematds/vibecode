@@ -38,19 +38,31 @@
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Vibe Coding</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
         <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
-          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span></a>
-          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span></a>
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span></a>
+          <a href="../fundamentos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../leigos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Leigos</span>
+          </a>
+          <a href="../executivos/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Executivos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Técnicos</span>
+          </a>
           <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
             <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
             <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
@@ -60,28 +72,49 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-blue-400">Técnicos</a><span>/</span>
+      <a href="../../index.html" class="hover:text-blue-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Técnicos</a>
+      <span>/</span>
       <span class="text-blue-400">Módulo 4.7</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.7</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">🤖 Agentes Autônomos e Multi-Agent</h1>
       <p class="text-lg text-neutral-400 max-w-3xl">O futuro do desenvolvimento de software: agentes que planejam, implementam, testam e iteram autonomamente. Entenda a arquitetura multi-agent e o novo papel do engenheiro como orquestrador.</p>
+      <div class="mt-3 inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 rounded-lg px-3 py-1.5">
+        <span class="text-blue-400 text-xs font-medium">Pré-requisito:</span>
+        <span class="text-neutral-400 text-xs">Módulos 4.1 a 4.6</span>
+      </div>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">7</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Futuro</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">45</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Avançado</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Futuro</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- CONTEÚDO -->
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
     <!-- TÓPICO 1 -->
@@ -93,35 +126,80 @@
       <p class="text-neutral-300 mb-6 leading-relaxed">
         O desenvolvimento com IA evoluiu rapidamente de autocomplete de linha para agentes autônomos que executam tarefas complexas. Entender onde cada ferramenta se encaixa neste espectro é essencial para <strong class="text-blue-400">escolher o nível certo de automação para cada tarefa</strong>.
       </p>
-      <div class="space-y-4 mb-6">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <div class="w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center flex-shrink-0 text-neutral-300 font-bold text-sm">1</div>
-          <div>
-            <div class="flex items-center space-x-2 mb-1"><span class="font-semibold">Autocomplete</span><span class="text-xs text-neutral-500 bg-dark-700 px-2 py-0.5 rounded">GitHub Copilot, Cursor Tab</span></div>
-            <p class="text-sm text-neutral-400">Sugere a próxima linha ou bloco. Humano ainda escreve, IA completa. Latência &lt;100ms.</p>
-          </div>
+
+      <!-- Diagrama de progressão visual -->
+      <div class="flex flex-col sm:flex-row items-stretch gap-0 mb-6 overflow-x-auto">
+        <div class="flex-1 bg-dark-800 border border-dark-600 rounded-l-xl p-4 text-center min-w-[140px]">
+          <div class="text-2xl mb-2">⌨️</div>
+          <div class="font-bold text-sm text-neutral-300 mb-1">Autocomplete</div>
+          <div class="text-xs text-neutral-500">Sugere próxima linha</div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <div class="w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center flex-shrink-0 text-neutral-300 font-bold text-sm">2</div>
-          <div>
-            <div class="flex items-center space-x-2 mb-1"><span class="font-semibold">Editor Agêntico</span><span class="text-xs text-neutral-500 bg-dark-700 px-2 py-0.5 rounded">Cursor Composer, Windsurf Cascade</span></div>
-            <p class="text-sm text-neutral-400">Edita múltiplos arquivos por objetivo. Humano aprova cada step. Sessões de 5-20 minutos.</p>
-          </div>
+        <div class="flex items-center justify-center px-1 text-blue-400 text-xl font-bold">→</div>
+        <div class="flex-1 bg-dark-800 border border-dark-600 p-4 text-center min-w-[140px]">
+          <div class="text-2xl mb-2">🤝</div>
+          <div class="font-bold text-sm text-neutral-300 mb-1">Assistente</div>
+          <div class="text-xs text-neutral-500">Chat + edição guiada</div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-blue-500/30 p-5 flex items-start space-x-4">
-          <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-sm">3</div>
-          <div>
-            <div class="flex items-center space-x-2 mb-1"><span class="font-semibold text-blue-400">Agente Autônomo</span><span class="text-xs text-blue-400/70 bg-blue-500/10 px-2 py-0.5 rounded">Devin, Claude Code — você está aqui</span></div>
-            <p class="text-sm text-neutral-400">Planeja, implementa, testa, itera sem intervenção. Humano define objetivo e revisa resultado. Sessões de horas.</p>
-          </div>
+        <div class="flex items-center justify-center px-1 text-blue-400 text-xl font-bold">→</div>
+        <div class="flex-1 bg-blue-900/30 border border-blue-500/40 p-4 text-center min-w-[140px]">
+          <div class="text-2xl mb-2">🤖</div>
+          <div class="font-bold text-sm text-blue-300 mb-1">Agente</div>
+          <div class="text-xs text-blue-400/70">Planeja e executa</div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <div class="w-10 h-10 rounded-full bg-neutral-700 flex items-center justify-center flex-shrink-0 text-neutral-300 font-bold text-sm">4</div>
-          <div>
-            <div class="flex items-center space-x-2 mb-1"><span class="font-semibold">Multi-Agent</span><span class="text-xs text-neutral-500 bg-dark-700 px-2 py-0.5 rounded">Agentic Engineering, 2026</span></div>
-            <p class="text-sm text-neutral-400">Orquestra de agentes especializados em paralelo. Humano como diretor. Tarefas de dias ou semanas.</p>
-          </div>
+        <div class="flex items-center justify-center px-1 text-blue-400 text-xl font-bold">→</div>
+        <div class="flex-1 bg-dark-800 border border-dark-600 rounded-r-xl p-4 text-center min-w-[140px]">
+          <div class="text-2xl mb-2">🌐</div>
+          <div class="font-bold text-sm text-neutral-300 mb-1">Multi-Agent</div>
+          <div class="text-xs text-neutral-500">Orquestra paralela</div>
         </div>
+      </div>
+
+      <!-- Tabela de autonomia -->
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Comparativo por Nível de Autonomia</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-2 px-3 text-neutral-400">Nível</th>
+                <th class="text-left py-2 px-3 text-blue-400">Autonomia</th>
+                <th class="text-left py-2 px-3 text-neutral-400">Envolvimento Humano</th>
+                <th class="text-left py-2 px-3 text-neutral-400">Casos de Uso</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-700">
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">Autocomplete</td>
+                <td class="py-2 px-3 text-neutral-400">Mínima</td>
+                <td class="py-2 px-3 text-neutral-400">Aprovação linha a linha</td>
+                <td class="py-2 px-3 text-neutral-400">Boilerplate, importações</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">Assistente</td>
+                <td class="py-2 px-3 text-neutral-400">Baixa</td>
+                <td class="py-2 px-3 text-neutral-400">Humano dirige, IA executa</td>
+                <td class="py-2 px-3 text-neutral-400">Funções, componentes</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-blue-300 font-medium">Agente</td>
+                <td class="py-2 px-3 text-blue-400">Alta</td>
+                <td class="py-2 px-3 text-neutral-400">Define objetivo, revisa resultado</td>
+                <td class="py-2 px-3 text-neutral-400">Features completas, refactoring</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">Multi-Agent</td>
+                <td class="py-2 px-3 text-neutral-400">Máxima</td>
+                <td class="py-2 px-3 text-neutral-400">Diretor estratégico</td>
+                <td class="py-2 px-3 text-neutral-400">Projetos, produtos inteiros</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 A Escolha do Nível Certo</h3>
+        <p class="text-neutral-300 text-sm">Não use multi-agent para um bugfix de 3 linhas. Não use autocomplete para refatorar um módulo inteiro. O erro mais comum é subutilizar o nível de autonomia disponível — por medo ou por hábito. Em 2026, a vantagem competitiva está em usar o nível correto para cada contexto.</p>
       </div>
     </section>
 
@@ -134,34 +212,100 @@
       <p class="text-neutral-300 mb-6 leading-relaxed">
         Devin (Cognition AI) é o agente de software autônomo mais avançado disponível comercialmente. Em 2026, passou de experimento a ferramenta de produção usada por empresas Fortune 500. Os números são <strong class="text-blue-400">significativamente melhores do que o esperado</strong>.
       </p>
+
+      <!-- Stats data box -->
       <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Métricas do Devin em Produção (2026)</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          <div class="bg-dark-800/50 rounded-lg p-3">
-            <div class="text-2xl font-bold text-blue-400">67%</div>
-            <div class="text-xs text-neutral-400">de PRs mergeados sem modificação humana</div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <div class="text-3xl font-bold text-blue-400">67%</div>
+            <div class="text-xs text-neutral-400 mt-1">PRs mergeados sem modificação humana</div>
           </div>
-          <div class="bg-dark-800/50 rounded-lg p-3">
-            <div class="text-2xl font-bold text-blue-400">4x</div>
-            <div class="text-xs text-neutral-400">mais rápido que desenvolvimento humano médio</div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <div class="text-3xl font-bold text-blue-400">4x</div>
+            <div class="text-xs text-neutral-400 mt-1">mais rápido que desenvolvimento humano médio</div>
           </div>
-          <div class="bg-dark-800/50 rounded-lg p-3">
-            <div class="text-2xl font-bold text-blue-400">$500/mo</div>
-            <div class="text-xs text-neutral-400">custo médio vs. $8K de dev junior</div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <div class="text-3xl font-bold text-blue-400">$500</div>
+            <div class="text-xs text-neutral-400 mt-1">custo mensal vs. $8K de dev junior</div>
           </div>
-          <div class="bg-dark-800/50 rounded-lg p-3">
-            <div class="text-2xl font-bold text-blue-400">24/7</div>
-            <div class="text-xs text-neutral-400">disponibilidade sem fadiga ou distrações</div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <div class="text-3xl font-bold text-blue-400">24/7</div>
+            <div class="text-xs text-neutral-400 mt-1">disponibilidade sem fadiga</div>
           </div>
         </div>
       </div>
+
+      <!-- Cases Goldman e Nubank -->
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">🏢 Adoção Enterprise em 2026</h3>
-        <ul class="space-y-3 text-neutral-300 text-sm">
-          <li><strong class="text-white">Goldman Sachs</strong> — usando Devin para automação de análise de código legado e geração de testes para sistemas críticos</li>
-          <li><strong class="text-white">Nubank</strong> — agentes para criação de microsserviços internos e automação de conformidade regulatória</li>
-          <li><strong class="text-white">Stripe</strong> — geração e manutenção de SDKs para 14 linguagens usando agentes autônomos</li>
-          <li><strong class="text-white">Accenture</strong> — 50.000 desenvolvedores usando agentes para migração de sistemas legados</li>
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🏢 Cases de Adoção Enterprise</h3>
+        <div class="space-y-4">
+          <div class="bg-dark-800/50 rounded-lg p-4 border-l-4 border-blue-500">
+            <div class="font-semibold text-white mb-1">Goldman Sachs</div>
+            <p class="text-sm text-neutral-300">Automação de análise de código legado COBOL e geração de testes para sistemas críticos. Reduziu de 6 meses para 3 semanas a migração de módulos de risco.</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4 border-l-4 border-blue-500">
+            <div class="font-semibold text-white mb-1">Nubank</div>
+            <p class="text-sm text-neutral-300">Criação de microsserviços internos e automação de conformidade regulatória com o Banco Central. 40% de redução no tempo de entrega de compliance features.</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4 border-l-4 border-neutral-600">
+            <div class="font-semibold text-white mb-1">Stripe</div>
+            <p class="text-sm text-neutral-300">Geração e manutenção de SDKs para 14 linguagens de programação usando agentes autônomos. Ciclo de atualização de semanas para horas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔍 Devin vs. Claude Code vs. OpenHands</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-2 px-3 text-neutral-400">Critério</th>
+                <th class="text-left py-2 px-3 text-blue-400">Devin</th>
+                <th class="text-left py-2 px-3 text-blue-400">Claude Code</th>
+                <th class="text-left py-2 px-3 text-blue-400">OpenHands</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-700">
+              <tr>
+                <td class="py-2 px-3 text-neutral-400">Preço</td>
+                <td class="py-2 px-3 text-neutral-300">$500+/mês</td>
+                <td class="py-2 px-3 text-neutral-300">Por token (API)</td>
+                <td class="py-2 px-3 text-neutral-300">Gratuito (open-source)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-400">Privacidade</td>
+                <td class="py-2 px-3 text-neutral-300">Nuvem Cognition</td>
+                <td class="py-2 px-3 text-neutral-300">Nuvem Anthropic</td>
+                <td class="py-2 px-3 text-neutral-300">Infraestrutura própria</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-400">Integração</td>
+                <td class="py-2 px-3 text-neutral-300">GitHub nativo, Slack</td>
+                <td class="py-2 px-3 text-neutral-300">Terminal, CI/CD</td>
+                <td class="py-2 px-3 text-neutral-300">Docker, qualquer API</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-400">Melhor para</td>
+                <td class="py-2 px-3 text-neutral-300">Enterprise, projetos complexos</td>
+                <td class="py-2 px-3 text-neutral-300">Devs individuais, times</td>
+                <td class="py-2 px-3 text-neutral-300">Pesquisa, compliance rígido</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Alert box -->
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Quando NÃO usar agentes autônomos</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Código de segurança crítico sem revisão humana rigorosa — agentes introduzem vulnerabilidades sutis</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Tarefas com requisitos ambíguos — o agente vai tomar decisões que você vai precisar desfazer</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Sistemas com estado compartilhado sem rollback fácil — falhas são difíceis de reverter</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Quando o custo de um erro supera o custo de fazer manualmente</span></li>
         </ul>
       </div>
     </section>
@@ -175,37 +319,75 @@
       <p class="text-neutral-300 mb-6 leading-relaxed">
         Claude Code é o agente mais acessível para desenvolvedores individuais e times pequenos. Com suporte a sessões longas, CLAUDE.md como memória de projeto e capacidade de executar comandos, criar arquivos e fazer commits, é <strong class="text-blue-400">um agente completo de desenvolvimento acessível via terminal</strong>.
       </p>
+
+      <!-- CLAUDE.md for autonomous work -->
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">💻 Sessão Autônoma de Claude Code</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code># Iniciar sessão autônoma
-claude --model opus-4 --dangerously-skip-permissions
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📄 CLAUDE.md para Sessões Autônomas</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code># Projeto: Plataforma de Relatórios (CLAUDE.md)
 
-# Exemplo de task longa delegada:
-> Analise o codebase em @src/. Implemente o módulo
-> de relatórios conforme especificado em @docs/reports-spec.md.
->
-> Requisitos:
-> - Siga os padrões definidos no CLAUDE.md
-> - Execute npm run test após cada módulo implementado
-> - Commit separado para cada módulo funcional
-> - Pare e me consulte se encontrar decisão arquitetural
->   não coberta pela spec
->
-> Comece pelo schema de banco e me mostre o plano
-> antes de implementar.
+## Modo Autônomo — Regras de Operação
+- Faça commits incrementais após cada módulo funcional
+- Execute npm run test após CADA mudança de lógica
+- NUNCA faça push para main — sempre crie uma branch
+- Se encontrar decisão arquitetural não coberta: PARE e reporte
+- Documente cada decisão tomada em docs/decisions/
 
-# Claude Code então:
-# 1. Lê o CLAUDE.md (regras do projeto)
-# 2. Lê a spec de relatórios
-# 3. Apresenta plano para aprovação
-# 4. Implementa módulo por módulo
-# 5. Executa testes após cada módulo
-# 6. Faz commits incrementais
-# 7. Para e reporta quando finaliza</code></pre>
+## Stack (não alterar sem aprovação)
+- Node.js 22 + TypeScript strict
+- Fastify 4.x — nunca Express
+- PostgreSQL via Prisma 5.x
+- Redis para cache e filas (BullMQ)
+
+## Definição de Done para cada módulo
+- Testes unitários com cobertura > 80%
+- Tipos TypeScript sem 'any'
+- Sem warnings de lint
+- Endpoint documentado no OpenAPI spec
+
+## Acesso proibido em modo autônomo
+- NUNCA modificar src/migrations/
+- NUNCA alterar configurações de autenticação
+- NUNCA fazer deploy ou alterar infraestrutura</code></pre>
       </div>
+
+      <!-- Tarefas de longa duração -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-blue-400 mb-3">Tarefas que Claude Code gerencia bem</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">•</span><span>Implementar módulo completo a partir de spec detalhada</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">•</span><span>Escrever suite de testes para codebase existente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">•</span><span>Migrar base de código entre frameworks</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">•</span><span>Gerar documentação OpenAPI a partir do código</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">•</span><span>Refatorar para novos padrões arquiteturais</span></li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-blue-400 mb-3">Padrão de Prompt Autônomo Eficaz</h4>
+          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3"><code>Implemente o módulo de relatórios
+conforme @docs/reports-spec.md.
+
+Contexto: @src/reports/, @CLAUDE.md
+
+Definição de Done:
+- Todos os endpoints da spec
+- Testes com cobertura > 80%
+- Sem erros de TypeScript
+- Commit separado por endpoint
+
+Pare e me consulte se:
+- Encontrar conflito de arquitetura
+- Spec tiver ambiguidade crítica
+- Teste falhar por razão desconhecida
+
+Comece: mostre o plano antes
+de implementar.</code></pre>
+        </div>
+      </div>
+
       <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3">💡 CLAUDE.md é a Memória do Agente</h3>
-        <p class="text-neutral-300 text-sm">Em sessões longas, o Claude Code lê o CLAUDE.md no início de cada sessão. Isso garante que o agente sempre respeite as regras do projeto, mesmo que a sessão anterior tenha terminado. É a diferença entre um agente que "esquece" o contexto e um que mantém coerência ao longo do tempo.</p>
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 MCP amplia o poder do agente</h3>
+        <p class="text-neutral-300 text-sm">Com MCP configurado, Claude Code não trabalha apenas com arquivos de texto — ele pode consultar o banco de dados real, criar PRs no GitHub, verificar erros no Sentry e executar migrações. O MCP transforma o agente de um editor de código em um operador real do ambiente de desenvolvimento.</p>
       </div>
     </section>
 
@@ -216,61 +398,86 @@ claude --model opus-4 --dangerously-skip-permissions
         <h2 class="text-2xl font-bold">🔗 Arquitetura multi-agent — orquestra de especialistas</h2>
       </div>
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Em vez de um agente tentando fazer tudo, a arquitetura multi-agent distribui responsabilidades entre agentes especializados que trabalham em paralelo. O resultado é maior qualidade, maior velocidade e menor custo por output — <strong class="text-blue-400">porque cada agente usa o modelo mais adequado para sua tarefa específica</strong>.
+        Em vez de um agente tentando fazer tudo, a arquitetura multi-agent distribui responsabilidades entre agentes especializados que trabalham em paralelo. O resultado é maior qualidade, maior velocidade e menor custo — <strong class="text-blue-400">porque cada agente usa o modelo mais adequado para sua tarefa específica</strong>.
       </p>
+
+      <!-- Diagrama visual da arquitetura -->
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">🏗️ Arquitetura Multi-Agent para Feature Completa</h3>
-        <div class="space-y-3">
-          <div class="flex items-start space-x-3">
-            <div class="w-8 h-8 rounded-full bg-blue-500/30 flex items-center justify-center flex-shrink-0 text-blue-300 font-bold text-xs">P</div>
-            <div class="flex-1 bg-dark-800 rounded-lg p-3 border border-blue-500/20">
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-medium text-sm text-blue-300">Agente de Planejamento</span>
-                <span class="text-xs text-neutral-500">Claude Opus</span>
-              </div>
-              <p class="text-xs text-neutral-400">Recebe o requisito, decompõe em subtarefas, define dependências, cria plano de execução e distribui para agentes de implementação.</p>
-            </div>
+        <h3 class="text-lg font-semibold text-blue-400 mb-6">🏗️ Diagrama de Arquitetura Multi-Agent</h3>
+
+        <!-- Orchestrator -->
+        <div class="flex justify-center mb-4">
+          <div class="bg-blue-900/50 border-2 border-blue-500 rounded-xl p-4 text-center w-64">
+            <div class="text-xs text-blue-400 font-semibold mb-1">HUMANO / ORQUESTRADOR</div>
+            <div class="font-bold text-white">Define objetivo e valida resultado final</div>
           </div>
-          <div class="flex items-start space-x-3 ml-6">
-            <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xs">I1</div>
-            <div class="flex-1 bg-dark-800 rounded-lg p-3">
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-medium text-sm">Agente Backend</span>
-                <span class="text-xs text-neutral-500">Claude Sonnet</span>
-              </div>
-              <p class="text-xs text-neutral-400">Implementa endpoints, lógica de negócio, queries de banco. Paralelo com Agente Frontend.</p>
-            </div>
+        </div>
+        <div class="flex justify-center mb-4">
+          <div class="w-0.5 h-6 bg-blue-500/50"></div>
+        </div>
+
+        <!-- Planner -->
+        <div class="flex justify-center mb-4">
+          <div class="bg-blue-800/40 border border-blue-500/60 rounded-xl p-4 text-center w-72">
+            <div class="text-xs text-blue-400 font-semibold mb-1">AGENTE DE PLANEJAMENTO · Claude Opus</div>
+            <div class="font-semibold text-neutral-300 text-sm">Decompõe objetivo → subtarefas com dependências</div>
           </div>
-          <div class="flex items-start space-x-3 ml-6">
-            <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xs">I2</div>
-            <div class="flex-1 bg-dark-800 rounded-lg p-3">
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-medium text-sm">Agente Frontend</span>
-                <span class="text-xs text-neutral-500">Claude Sonnet</span>
-              </div>
-              <p class="text-xs text-neutral-400">Implementa componentes, integração com API, estados de loading/error. Em paralelo com Backend.</p>
-            </div>
+        </div>
+        <div class="flex justify-center gap-8 mb-4">
+          <div class="w-0.5 h-6 bg-blue-500/30"></div>
+          <div class="w-0.5 h-6 bg-blue-500/30"></div>
+          <div class="w-0.5 h-6 bg-blue-500/30"></div>
+        </div>
+
+        <!-- Implementors in parallel -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+          <div class="bg-dark-800 border border-blue-500/30 rounded-xl p-4 text-center">
+            <div class="text-xs text-blue-400 font-semibold mb-1">AGENTE BACKEND · Sonnet</div>
+            <div class="text-sm text-neutral-300">Endpoints, lógica de negócio, queries</div>
           </div>
-          <div class="flex items-start space-x-3 ml-6">
-            <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xs">T</div>
-            <div class="flex-1 bg-dark-800 rounded-lg p-3">
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-medium text-sm">Agente de Testes</span>
-                <span class="text-xs text-neutral-500">Claude Haiku</span>
-              </div>
-              <p class="text-xs text-neutral-400">Gera e executa testes unitários, integração e E2E para outputs dos agentes de implementação.</p>
-            </div>
+          <div class="bg-dark-800 border border-blue-500/30 rounded-xl p-4 text-center">
+            <div class="text-xs text-blue-400 font-semibold mb-1">AGENTE FRONTEND · Sonnet</div>
+            <div class="text-sm text-neutral-300">Componentes, estados, integração API</div>
           </div>
-          <div class="flex items-start space-x-3">
-            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-xs">R</div>
-            <div class="flex-1 bg-dark-800 rounded-lg p-3 border border-emerald-500/20">
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-medium text-sm text-emerald-400">Agente de Revisão</span>
-                <span class="text-xs text-neutral-500">Claude Opus</span>
-              </div>
-              <p class="text-xs text-neutral-400">Revisa código por segurança, consistência e qualidade. Gera relatório para aprovação humana final.</p>
-            </div>
+          <div class="bg-dark-800 border border-blue-500/30 rounded-xl p-4 text-center">
+            <div class="text-xs text-blue-400 font-semibold mb-1">AGENTE DE TESTES · Haiku</div>
+            <div class="text-sm text-neutral-300">Unitários, integração, E2E</div>
           </div>
+        </div>
+        <div class="flex justify-center mb-4">
+          <div class="w-0.5 h-6 bg-emerald-500/30"></div>
+        </div>
+
+        <!-- Reviewer -->
+        <div class="flex justify-center">
+          <div class="bg-emerald-900/30 border border-emerald-500/50 rounded-xl p-4 text-center w-72">
+            <div class="text-xs text-emerald-400 font-semibold mb-1">AGENTE REVISOR · Claude Opus</div>
+            <div class="font-semibold text-neutral-300 text-sm">Segurança, consistência, qualidade → PR para humano</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- O que cada agente faz e quando usar -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-blue-400 mb-3">Responsabilidades por agente</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li><strong class="text-white">Orquestrador (humano):</strong> define o objetivo de alto nível e critérios de aceitação</li>
+            <li><strong class="text-white">Planejador (Opus):</strong> decompõe, prioriza, atribui subtarefas e resolve dependências</li>
+            <li><strong class="text-white">Implementadores (Sonnet):</strong> executam as subtarefas em paralelo, maximizando velocidade</li>
+            <li><strong class="text-white">Testador (Haiku):</strong> valida cada output de implementador com cobertura automática</li>
+            <li><strong class="text-white">Revisor (Opus):</strong> revisão final por segurança e consistência antes de entregar ao humano</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-blue-400 mb-3">Quando usar arquitetura multi-agent</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Features que envolvem backend + frontend + testes em paralelo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Migrações de sistemas grandes que podem ser particionadas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Geração de documentação + testes em paralelo com implementação</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Tarefas pequenas e interdependentes — overhead não compensa</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 mt-0.5">✗</span><span>Quando o contexto precisa ser compartilhado continuamente</span></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -284,30 +491,97 @@ claude --model opus-4 --dangerously-skip-permissions
       <p class="text-neutral-300 mb-6 leading-relaxed">
         MCP é o que dá aos agentes acesso ao ambiente real de produção. Sem MCP, o agente trabalha com código em texto. Com MCP, ele <strong class="text-blue-400">pode interagir com banco de dados, APIs, infraestrutura e ferramentas externas</strong> como se fosse um desenvolvedor humano.
       </p>
+
+      <!-- mcp.json config block -->
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">⚙️ Configuração mcp.json para um time</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>// .claude/mcp.json (na raiz do projeto)
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem",
+               "./src", "./docs", "./tests"]
+    },
+    "database": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "POSTGRES_CONNECTION_STRING": "${DB_STAGING_URL}"
+      }
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GH_TOKEN}"
+      }
+    },
+    "sentry": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-sentry"],
+      "env": {
+        "SENTRY_AUTH_TOKEN": "${SENTRY_TOKEN}",
+        "SENTRY_ORG": "minha-empresa"
+      }
+    }
+  }
+}</code></pre>
+      </div>
+
+      <!-- O que MCP habilita -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-blue-400 mb-3">Servidores MCP Essenciais</h4>
+          <h4 class="font-semibold text-blue-400 mb-3">O que MCP habilita</h4>
           <ul class="space-y-2 text-sm text-neutral-300">
-            <li><strong>@supabase/mcp-server-supabase</strong> — queries, schema, auth, storage</li>
-            <li><strong>@modelcontextprotocol/server-github</strong> — PRs, issues, repositório</li>
-            <li><strong>@modelcontextprotocol/server-filesystem</strong> — leitura/escrita de arquivos</li>
-            <li><strong>@modelcontextprotocol/server-postgres</strong> — banco PostgreSQL direto</li>
-            <li><strong>mcp-server-sentry</strong> — erros de produção, alertas</li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">•</span><span><strong>Queries no banco:</strong> "Qual é a estrutura da tabela users? Quantos usuários ativos temos?"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">•</span><span><strong>Operações em arquivos:</strong> leitura e escrita com contexto real do projeto</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">•</span><span><strong>Chamadas de API:</strong> criar PRs, comentar em issues, checar status de CI</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400 mt-0.5">•</span><span><strong>Erros de produção:</strong> ler Sentry e corrigir os 3 bugs mais frequentes</span></li>
           </ul>
         </div>
         <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-blue-400 mb-3">Casos de Uso com MCP</h4>
-          <ul class="space-y-2 text-sm text-neutral-300">
-            <li>"Verifique os erros do Sentry das últimas 24h e corrija os top 3 por frequência"</li>
-            <li>"Crie um PR no GitHub com as mudanças e solicite review"</li>
-            <li>"Query o banco de produção para entender o schema atual"</li>
-            <li>"Leia todos os arquivos em src/api/ e gere a documentação OpenAPI"</li>
-          </ul>
+          <h4 class="font-semibold text-blue-400 mb-3">Servidores MCP mais úteis</h4>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs">
+              <thead>
+                <tr class="border-b border-dark-700">
+                  <th class="text-left py-1 px-2 text-neutral-400">Servidor</th>
+                  <th class="text-left py-1 px-2 text-neutral-400">Para</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-dark-700">
+                <tr><td class="py-1.5 px-2 text-blue-300">server-filesystem</td><td class="py-1.5 px-2 text-neutral-300">Leitura/escrita de arquivos</td></tr>
+                <tr><td class="py-1.5 px-2 text-blue-300">server-postgres</td><td class="py-1.5 px-2 text-neutral-300">Banco de dados direto</td></tr>
+                <tr><td class="py-1.5 px-2 text-blue-300">server-github</td><td class="py-1.5 px-2 text-neutral-300">PRs, issues, CI/CD</td></tr>
+                <tr><td class="py-1.5 px-2 text-blue-300">server-browser</td><td class="py-1.5 px-2 text-neutral-300">Automação web, scraping</td></tr>
+                <tr><td class="py-1.5 px-2 text-blue-300">mcp-server-sentry</td><td class="py-1.5 px-2 text-neutral-300">Erros de produção</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Princípio de Menor Privilégio no MCP</h3>
-        <p class="text-neutral-300 text-sm">Configure permissões mínimas necessárias. Um agente de desenvolvimento não precisa de acesso de escrita ao banco de produção. Use ambientes separados (staging vs. production). Configure MCP para produção apenas com read-only access para diagnóstico.</p>
+
+      <!-- Do/Don't de segurança MCP -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5">
+          <h4 class="font-bold text-emerald-400 mb-3">✓ Boas práticas de segurança no MCP</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Credenciais sempre em variáveis de ambiente, nunca no JSON</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Permissões mínimas: agente de dev não precisa de write em produção</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Use banco de staging, nunca produção para operações de escrita</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Audite quais ferramentas o agente pode executar sem confirmação</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+          <h4 class="font-bold text-red-400 mb-3">✗ Erros comuns de segurança no MCP</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Hardcodar secrets no mcp.json (que vai para o git)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Dar acesso de write ao banco de produção para agentes de dev</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Não limitar quais diretórios o agente pode acessar via filesystem</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Usar token com permissões de admin no GitHub MCP</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -320,44 +594,91 @@ claude --model opus-4 --dangerously-skip-permissions
       <p class="text-neutral-300 mb-6 leading-relaxed">
         OpenHands (anteriormente OpenDevin) é o projeto open-source mais avançado de agente de software autônomo. Permite rodar localmente ou em sua própria infraestrutura — <strong class="text-blue-400">sem enviar código para serviços externos</strong>. Ideal para experimentação e para compliance que não permite código em nuvem.
       </p>
+
+      <!-- Setup guide -->
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔬 Setup do OpenHands Local</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code># Instalação via Docker
-docker pull docker.all-hands.dev/all-hands-ai/runtime:0.38-nikolaik
-
-docker run -it --rm \
-  -e SANDBOX_RUNTIME_CONTAINER_IMAGE=docker.all-hands.dev/all-hands-ai/runtime:0.38-nikolaik \
-  -e LOG_ALL_EVENTS=true \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v ~/.openhands-state:/.openhands-state \
-  -p 3000:3000 \
-  --add-host host.docker.internal:host-gateway \
-  --name openhands-app \
-  docker.all-hands.dev/all-hands-ai/openhands:0.38
-
-# Acesse http://localhost:3000
-# Configure seu API key (Claude, OpenAI, etc.)
-# O agente tem acesso ao filesystem e executa comandos</code></pre>
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔬 Setup Conceitual do OpenHands Local</h3>
+        <div class="space-y-3 mb-4">
+          <div class="flex items-start space-x-3">
+            <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xs">1</div>
+            <div class="text-sm text-neutral-300"><strong class="text-white">Pré-requisito:</strong> Docker instalado e rodando na máquina local ou servidor</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xs">2</div>
+            <div class="text-sm text-neutral-300"><strong class="text-white">API Key:</strong> Configure sua chave da Anthropic (Claude), OpenAI ou qualquer LLM compatível</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xs">3</div>
+            <div class="text-sm text-neutral-300"><strong class="text-white">Docker run:</strong> Pull da imagem e inicialização com acesso ao filesystem via volume mount</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xs">4</div>
+            <div class="text-sm text-neutral-300"><strong class="text-white">Interface web:</strong> Acesse localhost:3000 — interface visual para delegar tarefas ao agente</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-xs">5</div>
+            <div class="text-sm text-neutral-300"><strong class="text-white">Código 100% local:</strong> o agente executa no container Docker, nunca envia código para a nuvem</div>
+          </div>
+        </div>
+        <div class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-400 font-mono">
+          # Diferença crucial vs. Devin: OpenHands roda no seu ambiente.<br>
+          # Seus dados nunca saem da sua infraestrutura.<br>
+          # Você controla qual LLM usa — troque Claude por GPT-4 a qualquer hora.
+        </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5">
-          <h4 class="font-semibold text-emerald-400 mb-3">Vantagens do OpenHands</h4>
-          <ul class="space-y-1 text-sm text-neutral-300">
-            <li>• 100% open-source (MIT License)</li>
-            <li>• Código nunca sai da sua infraestrutura</li>
-            <li>• Suporta qualquer modelo via API</li>
-            <li>• Ideal para pesquisa e experimentação</li>
-          </ul>
+
+      <!-- Comparison table -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">⚖️ Comparativo: OpenHands vs. Devin vs. Claude Code</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-2 px-3 text-neutral-400">Caso de Uso</th>
+                <th class="text-left py-2 px-3 text-blue-400">OpenHands</th>
+                <th class="text-left py-2 px-3 text-blue-400">Devin</th>
+                <th class="text-left py-2 px-3 text-blue-400">Claude Code</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-700">
+              <tr>
+                <td class="py-2 px-3 text-neutral-300">Compliance rigoroso</td>
+                <td class="py-2 px-3 text-emerald-400">Ideal</td>
+                <td class="py-2 px-3 text-red-400">Problemático</td>
+                <td class="py-2 px-3 text-neutral-400">Depende</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300">Projetos enterprise</td>
+                <td class="py-2 px-3 text-neutral-400">Possível</td>
+                <td class="py-2 px-3 text-emerald-400">Ideal</td>
+                <td class="py-2 px-3 text-neutral-400">Bom</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300">Uso individual</td>
+                <td class="py-2 px-3 text-neutral-400">Complexo de configurar</td>
+                <td class="py-2 px-3 text-neutral-400">Caro</td>
+                <td class="py-2 px-3 text-emerald-400">Ideal</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300">Experimentação / pesquisa</td>
+                <td class="py-2 px-3 text-emerald-400">Ideal</td>
+                <td class="py-2 px-3 text-red-400">Custo alto</td>
+                <td class="py-2 px-3 text-neutral-400">Bom</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300">Custo</td>
+                <td class="py-2 px-3 text-emerald-400">Apenas LLM API</td>
+                <td class="py-2 px-3 text-red-400">$500+/mês</td>
+                <td class="py-2 px-3 text-neutral-400">Por token</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
-          <h4 class="font-semibold text-red-400 mb-3">Limitações vs. Devin/Claude Code</h4>
-          <ul class="space-y-1 text-sm text-neutral-300">
-            <li>• Requer infraestrutura própria para produção</li>
-            <li>• Menos otimizado para projetos grandes</li>
-            <li>• Suporte community (não enterprise)</li>
-            <li>• Estabilidade menor que soluções comerciais</li>
-          </ul>
-        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Vantagens do Open-Source</h3>
+        <p class="text-neutral-300 text-sm">Com OpenHands, você pode customizar o comportamento do agente, contribuir para melhorias, auditar o código que processa suas informações e integrar com qualquer LLM — incluindo modelos rodando localmente com Ollama. Para organizações com dados altamente sensíveis, essa soberania de dados é essencial.</p>
       </div>
     </section>
 
@@ -370,70 +691,144 @@ docker run -it --rm \
       <p class="text-neutral-300 mb-6 leading-relaxed">
         Karpathy declarou em fevereiro de 2026 que o próximo passo após vibe coding é "Agentic Engineering". O papel do engenheiro sênior está evoluindo de <strong class="text-blue-400">implementador para arquiteto de sistemas de agentes</strong>. As habilidades mudam, mas a necessidade de expertise técnica sólida permanece — e se torna ainda mais crítica.
       </p>
+
+      <!-- Day in the life -->
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔄 Evolução do Papel do Engenheiro Sênior</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📅 Dia típico de um AI Orchestrator Engineer (2026)</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <div class="text-xs text-neutral-500 w-12 flex-shrink-0 mt-0.5">9:00</div>
+            <div class="text-sm text-neutral-300"><strong class="text-white">Review de PRs de agentes:</strong> verifica 4-6 PRs gerados overnight por sessões autônomas do Claude Code. Aprova 3, rejeita 1 com feedback, ajusta spec de 2.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="text-xs text-neutral-500 w-12 flex-shrink-0 mt-0.5">10:00</div>
+            <div class="text-sm text-neutral-300"><strong class="text-white">Planejamento de sprint:</strong> decompõe 3 features em subtarefas para agentes, define Definition of Done, atualiza CLAUDE.md com novos padrões.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="text-xs text-neutral-500 w-12 flex-shrink-0 mt-0.5">11:00</div>
+            <div class="text-sm text-neutral-300"><strong class="text-white">Sessão de debugging arquitetural:</strong> investigação de problema de performance que o agente não conseguiu resolver — requer julgamento humano sobre trade-offs.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="text-xs text-neutral-500 w-12 flex-shrink-0 mt-0.5">14:00</div>
+            <div class="text-sm text-neutral-300"><strong class="text-white">Delegação de feature nova:</strong> escreve prompt detalhado com contexto, Definition of Done, e inicia sessão autônoma para implementação overnight.</div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="text-xs text-neutral-500 w-12 flex-shrink-0 mt-0.5">16:00</div>
+            <div class="text-sm text-neutral-300"><strong class="text-white">Decisão arquitetural:</strong> uma sessão de agente encontrou conflito de design, para e consulta. Engenheiro decide a direção — 10 minutos de julgamento humano que poupa horas de retrabalho.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills required -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🎯 Skills do AI Orchestrator Engineer</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <p class="text-sm text-neutral-500 mb-3">2020-2024 (tradicional)</p>
-            <ul class="space-y-2 text-sm text-neutral-300">
-              <li>• Escreve código de alta qualidade diretamente</li>
-              <li>• Revisa PRs linha por linha</li>
-              <li>• Mentora juniores em implementação</li>
-              <li>• Toma decisões arquiteturais em reuniões</li>
-              <li>• Debug de problemas complexos manualmente</li>
+            <p class="text-sm text-blue-400 font-medium mb-2">Skills que se tornam mais valiosas</p>
+            <ul class="space-y-1 text-sm text-neutral-300">
+              <li>• Arquitetura de sistemas e design patterns</li>
+              <li>• Segurança: identificar vulnerabilidades no código gerado</li>
+              <li>• Decomposição de problemas complexos</li>
+              <li>• Escrita de prompts precisos (prompt engineering)</li>
+              <li>• Julgamento técnico: correto vs. plausível</li>
             </ul>
           </div>
           <div>
-            <p class="text-sm text-blue-400 mb-3">2025-2026 (agentic engineering)</p>
-            <ul class="space-y-2 text-sm text-neutral-300">
-              <li>• Define arquitetura que agentes respeitam</li>
-              <li>• Revisa PRs de agentes por segurança e lógica</li>
-              <li>• Mentora em como orquestrar agentes efetivamente</li>
-              <li>• Toma decisões que definem o que agentes podem fazer</li>
-              <li>• Debug de comportamento de agentes, não de código</li>
+            <p class="text-sm text-neutral-500 font-medium mb-2">Skills que diminuem em importância</p>
+            <ul class="space-y-1 text-sm text-neutral-400">
+              <li>• Velocidade de digitação e syntax memorizada</li>
+              <li>• Conhecimento de boilerplate e CRUD</li>
+              <li>• Escrita manual de testes repetitivos</li>
+              <li>• Documentação manual de código</li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">💡 As Habilidades que Permanecem Valiosas</h3>
-        <ul class="space-y-2 text-neutral-300 text-sm">
-          <li><strong class="text-white">Arquitetura de sistemas:</strong> agentes seguem a arquitetura que você define. Engenheiros sem esse conhecimento produzem patchwork em escala.</li>
-          <li><strong class="text-white">Segurança:</strong> agentes reproduzem vulnerabilidades sem instrução explícita. Conhecimento de segurança é mais crítico, não menos.</li>
-          <li><strong class="text-white">Julgamento técnico:</strong> distinguir quando o código do agente é correto vs. plausível mas errado. Requer entender código profundamente.</li>
-          <li><strong class="text-white">Decomposição de problemas:</strong> a habilidade de decompor sistemas complexos em subtarefas que agentes podem executar bem.</li>
-        </ul>
+
+      <!-- Do/Don't grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5">
+          <h4 class="font-bold text-emerald-400 mb-3">✓ Orquestração eficaz</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Defina Definition of Done explícito antes de cada delegação</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Forneça contexto mínimo viável — arquivos relevantes, não o projeto todo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Configure checkpoints onde o agente deve parar e reportar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Revise criticamente — não apenas aprovação de CI é suficiente</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+          <h4 class="font-bold text-red-400 mb-3">✗ Armadilhas comuns</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Delegar sem spec clara — o agente vai inventar requisitos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Aceitar código que "funciona" sem entender o que ele faz</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Não atualizar CLAUDE.md quando padrões evoluem</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Usar agente para decisões que requerem contexto de negócio</span></li>
+          </ul>
+        </div>
       </div>
+
       <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3">💡 A Paradoxo da Expertise em 2026</h3>
-        <p class="text-neutral-300 text-sm">Os engenheiros que mais se beneficiam de agentes são os mais experientes — porque sabem exatamente o que pedir, como validar o resultado e quando não confiar. Engenheiros menos experientes aceitam código incorreto que "parece certo". A IA amplifica expertise, não a substitui.</p>
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 A Evolução do Papel de Engenharia</h3>
+        <p class="text-neutral-300 text-sm">Os engenheiros que mais se beneficiam de agentes são os mais experientes — porque sabem exatamente o que pedir, como validar o resultado e quando não confiar. Engenheiros menos experientes aceitam código incorreto que "parece certo". Em 2026, expertise técnica sólida não é menos importante: ela é o que torna um orquestrador eficaz em vez de um amplificador de erros.</p>
       </div>
     </section>
 
-    <!-- RESUMO -->
+    <!-- RESUMO FINAL -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6">✅ Resumo do Módulo 4.7</h2>
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 4.7
+        </h2>
         <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">O espectro</strong><span class="text-neutral-400"> — autocomplete → editor agêntico → agente autônomo → multi-agent. Cada nível tem seu contexto.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Devin em produção</strong><span class="text-neutral-400"> — 67% de PRs mergeados sem modificação. Goldman Sachs, Nubank e Stripe já usam.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Claude Code como agente</strong><span class="text-neutral-400"> — sessões longas + CLAUDE.md como memória = agente com contexto persistente.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Multi-agent</strong><span class="text-neutral-400"> — Planejamento (Opus) + Implementação (Sonnet) + Testes (Haiku) + Revisão (Opus) em paralelo.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">MCP = agente operando no mundo real</strong><span class="text-neutral-400"> — banco, GitHub, Sentry, filesystem. Com permissões mínimas necessárias.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Você como orquestrador</strong><span class="text-neutral-400"> — o engenheiro sênior define arquitetura, valida resultado e dirige a orquestra de agentes.</span></div></div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">O espectro</strong><span class="text-neutral-400"> — autocomplete → assistente → agente → multi-agent. Escolha o nível correto para cada tarefa.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Devin em produção</strong><span class="text-neutral-400"> — 67% de PRs mergeados sem modificação. Goldman Sachs e Nubank já operam com agentes.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Claude Code como agente</strong><span class="text-neutral-400"> — CLAUDE.md como memória persistente. Prompt com Definition of Done claro antes de cada sessão.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Multi-agent</strong><span class="text-neutral-400"> — Planejador (Opus) + Implementadores (Sonnet) em paralelo + Testador (Haiku) + Revisor (Opus).</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">MCP = agente operando no mundo real</strong><span class="text-neutral-400"> — banco, GitHub, Sentry, filesystem. Segurança: permissões mínimas e variáveis de ambiente.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">OpenHands</strong><span class="text-neutral-400"> — alternativa open-source para compliance rigoroso. Código 100% na sua infraestrutura.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Você como orquestrador</strong><span class="text-neutral-400"> — defina arquitetura, valide resultado, direcione decisões. Expertise técnica amplifica agentes.</span></div>
+          </div>
         </div>
+
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
-          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
-          <p class="text-neutral-300">4.8 — 👥 Vibe Coding em Times: o último módulo do curso. Governança, métricas e as lições de 16 CTOs.</p>
+          <h3 class="font-semibold text-blue-400 mb-2">Próximo e Último Módulo:</h3>
+          <p class="text-neutral-300">4.8 — 👥 Vibe Coding em Times: governança, processos e as lições documentadas de times que falharam e os que acertaram.</p>
         </div>
+
         <div class="flex justify-start gap-4">
-          <a href="modulo-4-6.html" class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 4.6</a>
-          <a href="modulo-4-8.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Último Módulo →</a>
+          <a href="modulo-4-6.html" class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo 4.6
+          </a>
+          <a href="modulo-4-8.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">
+            Último Módulo →
+          </a>
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer class="border-t border-dark-600 py-8">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
       <p>⚡ Vibe Coding — Módulo 4.7 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
@@ -445,8 +840,18 @@ docker run -it --rm \
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
     const html = document.documentElement;
-    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
-    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
   </script>
 </body>
 </html>

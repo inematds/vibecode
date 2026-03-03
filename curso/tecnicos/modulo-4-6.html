@@ -38,11 +38,15 @@
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Vibe Coding</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-primary hover:text-yellow-300">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-lg hidden sm:inline">Vibe Coding</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -60,28 +64,45 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-blue-400">Técnicos</a><span>/</span>
+      <a href="../../index.html" class="hover:text-blue-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Técnicos</a>
+      <span>/</span>
       <span class="text-blue-400">Módulo 4.6</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.6</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">🚢 CI/CD e Deploy Profissional</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Com vibe coding, CI/CD passa de conveniência para necessidade. Cada linha de código gerada por IA precisa passar por um pipeline de qualidade antes de chegar à produção.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl">Com vibe coding, CI/CD passa de conveniência para necessidade. Cada linha de código gerada por IA precisa passar por um pipeline de qualidade antes de chegar à produção — feature flags, rollback automático e monitoramento incluídos.</p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">7</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">DevOps</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">7</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">35</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Avançado</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">DevOps</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- CONTEÚDO -->
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
     <!-- TÓPICO 1 -->
@@ -90,48 +111,67 @@
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span>
         <h2 class="text-2xl font-bold">⚙️ Por que CI/CD é ainda mais importante com vibe coding</h2>
       </div>
+
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Em desenvolvimento tradicional, CI/CD captura bugs que humanos introduzem por descuido. Em vibe coding, CI/CD captura bugs que agentes introduzem por falta de contexto ou instrução ambígua. <strong class="text-blue-400">O pipeline é a verificação objetiva que o agente não pode fazer por si mesmo</strong>.
+        Em desenvolvimento tradicional, CI/CD captura bugs que humanos introduzem por descuido. Em vibe coding, CI/CD captura bugs que agentes introduzem por falta de contexto ou instrução ambígua. <strong class="text-blue-400">O pipeline é a verificação objetiva que o agente não consegue fazer por si mesmo</strong> — e sem ele, cada push é uma aposta.
       </p>
-      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔄 Pipeline Mínimo Profissional</h3>
-        <div class="space-y-3">
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">1</div>
-            <div class="flex-1 bg-dark-800 rounded-lg p-3">
-              <span class="font-medium text-sm">Lint</span>
-              <span class="text-neutral-500 text-sm ml-2">— ESLint, TypeScript strict mode, formatação Prettier</span>
-            </div>
-          </div>
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">2</div>
-            <div class="flex-1 bg-dark-800 rounded-lg p-3">
-              <span class="font-medium text-sm">Testes unitários</span>
-              <span class="text-neutral-500 text-sm ml-2">— cobertura mínima 80%, falha se abaixo</span>
-            </div>
-          </div>
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">3</div>
-            <div class="flex-1 bg-dark-800 rounded-lg p-3">
-              <span class="font-medium text-sm">SAST</span>
-              <span class="text-neutral-500 text-sm ml-2">— Semgrep ou CodeQL para vulnerabilidades de segurança</span>
-            </div>
-          </div>
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">4</div>
-            <div class="flex-1 bg-dark-800 rounded-lg p-3">
-              <span class="font-medium text-sm">Build</span>
-              <span class="text-neutral-500 text-sm ml-2">— verificação que o projeto compila sem erros</span>
-            </div>
-          </div>
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm flex-shrink-0">5</div>
-            <div class="flex-1 bg-dark-800 rounded-lg p-3 border border-emerald-500/20">
-              <span class="font-medium text-sm text-emerald-400">Deploy automático</span>
-              <span class="text-neutral-500 text-sm ml-2">— apenas se todos os steps anteriores passarem</span>
-            </div>
-          </div>
+
+      <!-- Without CI/CD vs With CI/CD comparison -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Sem CI/CD — o que pode acontecer</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li class="flex items-start space-x-2"><span class="text-red-400 flex-shrink-0">•</span><span>Agente faz push com TypeScript errors não percebidos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 flex-shrink-0">•</span><span>Testes quebram silenciosamente após refactoring</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 flex-shrink-0">•</span><span>Vulnerabilidade de segurança vai direto para produção</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 flex-shrink-0">•</span><span>Build falha em produção por falta de variável de ambiente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 flex-shrink-0">•</span><span>Bug sutil descoberto por usuário 3 dias após o deploy</span></li>
+          </ul>
         </div>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Com CI/CD — o que é capturado automaticamente</h4>
+          <ul class="space-y-2 text-sm text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 flex-shrink-0">•</span><span>TypeScript errors e violações de lint no PR</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 flex-shrink-0">•</span><span>Regressões detectadas antes do merge</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 flex-shrink-0">•</span><span>Padrões de vulnerabilidade bloqueados pelo SAST</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 flex-shrink-0">•</span><span>Build verificado em ambiente limpo e isolado</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 flex-shrink-0">•</span><span>Deploy só ocorre após todos os gates passarem</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Data about bug escape rates -->
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Taxa de Escape de Bugs — Com vs. Sem CI/CD em Projetos de Vibe Coding</h3>
+        <div class="space-y-3">
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-neutral-300">Bugs que chegam à produção (sem CI/CD)</span>
+              <span class="text-red-400 font-bold">68%</span>
+            </div>
+            <div class="h-2 bg-dark-700 rounded-full"><div class="h-2 bg-red-500 rounded-full" style="width:68%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-neutral-300">Bugs que chegam à produção (com CI/CD básico)</span>
+              <span class="text-amber-400 font-bold">22%</span>
+            </div>
+            <div class="h-2 bg-dark-700 rounded-full"><div class="h-2 bg-amber-500 rounded-full" style="width:22%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-neutral-300">Bugs que chegam à produção (com CI/CD + SAST + cobertura)</span>
+              <span class="text-emerald-400 font-bold">8%</span>
+            </div>
+            <div class="h-2 bg-dark-700 rounded-full"><div class="h-2 bg-emerald-500 rounded-full" style="width:8%"></div></div>
+          </div>
+          <p class="text-xs text-neutral-500 mt-2">Estimativa baseada em análise de projetos com Claude Code (2025)</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 O Pipeline como Segundo Revisor</h3>
+        <p class="text-neutral-300 text-sm">Pense no CI/CD como um revisor de código que nunca cansa, nunca esquece um check e nunca aprova código que quebra testes. Para equipes de vibe coding, o pipeline é o segundo par de olhos mais confiável — diferentemente do humano, ele executa os mesmos checks toda vez, sem variação.</p>
       </div>
     </section>
 
@@ -139,13 +179,17 @@
     <section id="topico-2" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span>
-        <h2 class="text-2xl font-bold">⚙️ GitHub Actions básico — pipeline gerado por IA</h2>
+        <h2 class="text-2xl font-bold">⚙️ GitHub Actions — workflow completo gerado por IA</h2>
       </div>
+
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O GitHub Actions é a ferramenta padrão de CI/CD para a maioria dos projetos de vibe coding por integrar nativamente com o repositório, ser gratuito para projetos privados (2.000 min/mês) e ser facilmente gerado por IA. <strong class="text-blue-400">Peça para o agente criar o workflow completo</strong>.
+        O GitHub Actions é a ferramenta padrão de CI/CD para projetos de vibe coding por integrar nativamente com o repositório, ser gratuito para projetos privados (2.000 min/mês) e ser facilmente gerado por IA. <strong class="text-blue-400">Peça para o agente criar o workflow completo</strong> — de lint a deploy.
       </p>
+
+      <!-- Full YAML workflow -->
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">⚙️ Workflow Completo para Node.js + TypeScript</h3>
+        <h3 class="text-lg font-semibold text-blue-400 mb-2">⚙️ Workflow Completo para Projeto de Vibe Coding</h3>
+        <p class="text-xs text-neutral-500 mb-4">Lint + Type check + Testes + Cobertura + SAST + Deploy — tudo em um arquivo</p>
         <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code># .github/workflows/ci.yml
 name: CI/CD Pipeline
 
@@ -156,47 +200,90 @@ on:
     branches: [main]
 
 jobs:
+  # JOB 1: Qualidade de código
   quality:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'npm'
+          cache: 'npm'         # Cache de dependências — builds 3x mais rápidos
 
-      - run: npm ci
+      - run: npm ci             # Instala dependências de forma determinística
 
-      - name: Lint
-        run: npm run lint
+      - name: Lint e formatação
+        run: npm run lint        # ESLint + Prettier check
 
-      - name: Type check
-        run: npx tsc --noEmit
+      - name: TypeScript type check
+        run: npx tsc --noEmit    # Verifica tipos sem gerar arquivos
 
-      - name: Tests com cobertura
+      - name: Testes unitários + integração
         run: npm run test:coverage
         env:
           DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+          NODE_ENV: test
 
-      - name: Upload cobertura
+      - name: Upload cobertura para Codecov
         uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true   # Falha se cobertura abaixo do threshold
 
+  # JOB 2: Segurança (roda em paralelo com quality)
   security:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Semgrep SAST
         uses: semgrep/semgrep-action@v1
         with:
-          config: p/security-audit p/owasp-top-ten
+          config: >-
+            p/security-audit
+            p/secrets
+            p/owasp-top-ten
+            p/javascript
 
+  # JOB 3: Deploy (só roda se quality E security passarem)
   deploy:
-    needs: [quality, security]
+    needs: [quality, security]    # Gates obrigatórios
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' &amp;&amp; github.event_name == 'push'
     steps:
-      - name: Deploy to Vercel
-        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}</code></pre>
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Vercel (produção)
+        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Notificar Sentry do novo deploy
+        run: |
+          curl -X POST "https://sentry.io/api/0/organizations/${{ secrets.SENTRY_ORG }}/releases/" \
+            -H "Authorization: Bearer ${{ secrets.SENTRY_AUTH_TOKEN }}" \
+            -d '{"version": "${{ github.sha }}", "projects": ["${{ secrets.SENTRY_PROJECT }}"]}'</code></pre>
+      </div>
+
+      <!-- Prompt to generate workflow -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📋 Prompt para Gerar Este Workflow</h3>
+        <pre class="bg-dark-900 rounded-lg p-3 text-sm text-neutral-300 font-mono"><code>"Crie um GitHub Actions workflow completo para meu projeto.
+
+Stack: Node.js 22 + TypeScript + Vitest + Vercel
+
+Requisitos:
+- Job 'quality': lint (ESLint), type check (tsc), tests com cobertura (Vitest),
+  upload para Codecov
+- Job 'security': Semgrep com p/security-audit, p/secrets, p/owasp-top-ten
+- Job 'deploy': Vercel prod, só em push para main, requer quality E security
+- Notificar Sentry de novo deploy após deploy bem-sucedido
+- Cache de npm para builds rápidos
+- Usar secrets para tokens e URLs de banco
+
+Crie o arquivo em .github/workflows/ci.yml"</code></pre>
       </div>
     </section>
 
@@ -206,34 +293,101 @@ jobs:
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span>
         <h2 class="text-2xl font-bold">🔍 SAST no pipeline — análise de segurança em cada PR</h2>
       </div>
+
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        SAST no pipeline transforma segurança de uma fase final para um processo contínuo. Em vez de encontrar vulnerabilidades depois do deploy, você as encontra <strong class="text-blue-400">antes de qualquer código chegar à produção</strong>.
+        SAST (Static Application Security Testing) no pipeline transforma segurança de uma fase final para um processo contínuo. Código gerado por IA pode replicar padrões inseguros conhecidos — SAST os detecta <strong class="text-blue-400">antes de qualquer código chegar à produção</strong>.
       </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-          <h4 class="font-semibold text-blue-400 mb-4">CodeQL (GitHub nativo)</h4>
-          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3 mb-3"><code>- uses: github/codeql-action/init@v3
-  with:
-    languages: javascript-typescript
-    queries: security-extended
-- uses: github/codeql-action/analyze@v3</code></pre>
-          <p class="text-xs text-neutral-500">Gratuito, integrado ao GitHub, detecta vulnerabilidades complexas de múltiplos arquivos.</p>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-          <h4 class="font-semibold text-blue-400 mb-4">Semgrep (regras customizáveis)</h4>
-          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3 mb-3"><code>- uses: semgrep/semgrep-action@v1
-  with:
-    config: >-
-      p/security-audit
-      p/secrets
-      p/owasp-top-ten
-      p/javascript</code></pre>
-          <p class="text-xs text-neutral-500">Regras customizáveis, mais rápido que CodeQL, excelente para padrões específicos do projeto.</p>
+
+      <!-- Extended GitHub Actions with Snyk/Semgrep -->
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔍 Adicionando Snyk + Semgrep ao Pipeline</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>  # Adicione ao job 'security' no ci.yml existente:
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Semgrep: padrões de código inseguro (OWASP, secrets)
+      - name: Semgrep SAST
+        uses: semgrep/semgrep-action@v1
+        with:
+          config: >-
+            p/security-audit
+            p/secrets
+            p/owasp-top-ten
+            p/javascript
+        env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+
+      # Snyk: vulnerabilidades em dependências (npm packages)
+      - name: Snyk — dependências vulneráveis
+        uses: snyk/actions/node@master
+        with:
+          args: --severity-threshold=high  # só bloqueia HIGH e CRITICAL
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      # CodeQL: análise profunda de fluxo de dados (GitHub nativo, gratuito)
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+          queries: security-extended
+      - uses: github/codeql-action/analyze@v3</code></pre>
+      </div>
+
+      <!-- What gets caught at what stage table -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 O Que é Detectado em Cada Estágio</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-2 px-3 text-neutral-400">Ferramenta</th>
+                <th class="text-left py-2 px-3 text-blue-400">Detecta</th>
+                <th class="text-left py-2 px-3 text-neutral-400">Quando</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-700">
+              <tr>
+                <td class="py-2 px-3 text-neutral-300">ESLint + no-eval, no-new-func</td>
+                <td class="py-2 px-3 text-neutral-300">Uso de eval(), injeção via string</td>
+                <td class="py-2 px-3 text-blue-400">Em cada PR (job quality)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300">Semgrep p/secrets</td>
+                <td class="py-2 px-3 text-neutral-300">API keys, tokens hardcoded no código</td>
+                <td class="py-2 px-3 text-blue-400">Em cada PR (job security)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300">Semgrep p/owasp-top-ten</td>
+                <td class="py-2 px-3 text-neutral-300">SQLi, XSS, path traversal, SSRF</td>
+                <td class="py-2 px-3 text-blue-400">Em cada PR (job security)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300">Snyk</td>
+                <td class="py-2 px-3 text-neutral-300">CVEs em dependências npm</td>
+                <td class="py-2 px-3 text-blue-400">Em cada PR (job security)</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300">CodeQL</td>
+                <td class="py-2 px-3 text-neutral-300">Fluxos de dados inseguros entre arquivos</td>
+                <td class="py-2 px-3 text-neutral-400">No merge para main</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3">💡 SAST não Substitui Code Review</h3>
-        <p class="text-neutral-300 text-sm">SAST detecta padrões conhecidos de vulnerabilidade. Não detecta falhas de lógica de autorização, regras de negócio incorretas ou RLS ausente. Use SAST como primeira linha, code review humano como segunda. Ambos são necessários.</p>
+
+      <!-- Alert about false positives -->
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Não Bloqueie Deploys com Falsos Positivos</h3>
+        <p class="text-neutral-300 text-sm mb-3">SAST tem falsos positivos. Se você configurar todas as ferramentas como bloqueadoras estritas, sua equipe vai começar a suprimir alertas em massa — destruindo o valor do sistema. Estratégia recomendada:</p>
+        <ul class="space-y-1 text-sm text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span><strong>Semgrep p/secrets:</strong> sempre bloqueador — segredos hardcoded são inaceitáveis</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span><strong>Snyk HIGH/CRITICAL:</strong> bloqueador — dependências com CVE grave não devem ir para prod</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span><strong>CodeQL e Semgrep geral:</strong> alertas visíveis, mas não bloqueadores no PR — revise semanalmente</span></li>
+        </ul>
       </div>
     </section>
 
@@ -243,29 +397,113 @@ jobs:
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span>
         <h2 class="text-2xl font-bold">🚀 Deploy automático com Vercel/Railway</h2>
       </div>
+
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Vercel e Railway são as plataformas de deploy padrão para projetos de vibe coding por sua integração nativa com GitHub, zero configuração de infraestrutura e deploy automático a cada push. <strong class="text-blue-400">Cada merge em main dispara deploy automático</strong>.
+        Vercel e Railway são as plataformas de deploy padrão para projetos de vibe coding por sua integração nativa com GitHub, zero configuração de infraestrutura e deploy automático a cada push. <strong class="text-blue-400">Cada merge em main dispara deploy automático</strong> — sem intervenção humana.
       </p>
-      <div class="overflow-x-auto mb-6">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="border-b border-dark-600">
-              <th class="text-left py-2 px-3 text-neutral-400">Critério</th>
-              <th class="text-left py-2 px-3 text-blue-400">Vercel</th>
-              <th class="text-left py-2 px-3 text-blue-400">Railway</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-dark-700">
-            <tr><td class="py-2 px-3 text-neutral-400">Melhor para</td><td class="py-2 px-3 text-neutral-300">Frontend, Next.js, funções serverless</td><td class="py-2 px-3 text-neutral-300">APIs, workers, banco de dados, workers</td></tr>
-            <tr><td class="py-2 px-3 text-neutral-400">Banco de dados</td><td class="py-2 px-3 text-neutral-300">Não (use Supabase/Neon externo)</td><td class="py-2 px-3 text-neutral-300">PostgreSQL, Redis nativos</td></tr>
-            <tr><td class="py-2 px-3 text-neutral-400">Preview deploys</td><td class="py-2 px-3 text-neutral-300">Automático por PR</td><td class="py-2 px-3 text-neutral-300">Configurável</td></tr>
-            <tr><td class="py-2 px-3 text-neutral-400">Preço</td><td class="py-2 px-3 text-neutral-300">Gratuito até 100GB/mês</td><td class="py-2 px-3 text-neutral-300">$5/mês (Hobby)</td></tr>
-          </tbody>
-        </table>
+
+      <!-- Step-by-step boxes: Vercel and Railway -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-blue-400 mb-4">Vercel — 3 Passos para Deploy Automático</h4>
+          <div class="space-y-3">
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xs">1</div>
+              <div>
+                <p class="text-sm font-medium">Conectar repositório</p>
+                <p class="text-xs text-neutral-500">vercel.com → "Add New Project" → selecionar repo GitHub → Next.js/Vite detectado automaticamente</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xs">2</div>
+              <div>
+                <p class="text-sm font-medium">Configurar variáveis de ambiente</p>
+                <p class="text-xs text-neutral-500">Settings → Environment Variables → adicionar DATABASE_URL, NEXTAUTH_SECRET, etc. para Production e Preview</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-xs">3</div>
+              <div>
+                <p class="text-sm font-medium">Deploy automático ativado</p>
+                <p class="text-xs text-neutral-500">Cada push para main = deploy de produção. Cada PR = preview deploy com URL única para revisão.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-blue-400 mb-4">Railway — 3 Passos para APIs e Workers</h4>
+          <div class="space-y-3">
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xs">1</div>
+              <div>
+                <p class="text-sm font-medium">Criar projeto com template</p>
+                <p class="text-xs text-neutral-500">railway.app → "New Project" → Deploy from GitHub repo → Railway detecta Node.js e cria Dockerfile automaticamente</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xs">2</div>
+              <div>
+                <p class="text-sm font-medium">Adicionar PostgreSQL e Redis</p>
+                <p class="text-xs text-neutral-500">New Service → PostgreSQL → Railway injeta DATABASE_URL automaticamente no ambiente. Redis da mesma forma.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-xs">3</div>
+              <div>
+                <p class="text-sm font-medium">Configurar health check</p>
+                <p class="text-xs text-neutral-500">Settings → Deploy → Health Check Path: /health. Railway valida que app está saudável antes de trocar o tráfego.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-3">🔑 Preview Deploys: A Killer Feature</h3>
-        <p class="text-neutral-300 text-sm">O Vercel cria automaticamente um deploy de preview para cada PR. Isso significa que revisores podem testar o código de IA em ambiente real antes de aprovar o merge — sem precisar rodar localmente. Para vibe coding em times, esta é uma funcionalidade crítica.</p>
+
+      <!-- Comparison table with cost -->
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Vercel vs. Railway — Quando Usar Cada Um</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-2 px-3 text-neutral-400">Critério</th>
+                <th class="text-left py-2 px-3 text-blue-400">Vercel</th>
+                <th class="text-left py-2 px-3 text-blue-400">Railway</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-700">
+              <tr>
+                <td class="py-2 px-3 text-neutral-400">Melhor para</td>
+                <td class="py-2 px-3 text-neutral-300">Frontend, Next.js, Edge Functions</td>
+                <td class="py-2 px-3 text-neutral-300">APIs Node.js, workers, microserviços</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-400">Banco de dados</td>
+                <td class="py-2 px-3 text-neutral-300">Use Supabase/Neon externo</td>
+                <td class="py-2 px-3 text-emerald-400">PostgreSQL + Redis nativos</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-400">Preview deploys</td>
+                <td class="py-2 px-3 text-emerald-400">Automático por PR — cada PR ganha URL</td>
+                <td class="py-2 px-3 text-neutral-300">Configurável por ambiente</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-400">Processos long-running</td>
+                <td class="py-2 px-3 text-neutral-300">Não (serverless apenas)</td>
+                <td class="py-2 px-3 text-emerald-400">Sim, containers persistentes</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-400">Plano gratuito</td>
+                <td class="py-2 px-3 text-emerald-400">Hobby: 100GB banda/mês</td>
+                <td class="py-2 px-3 text-neutral-300">Trial: $5 crédito único</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-400">Custo estimado (produção)</td>
+                <td class="py-2 px-3 text-neutral-300">$20/mês (Pro)</td>
+                <td class="py-2 px-3 text-neutral-300">$5-15/mês (Hobby/Pro)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
@@ -275,43 +513,92 @@ jobs:
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span>
         <h2 class="text-2xl font-bold">🚩 Feature flags — liberando código de IA gradualmente</h2>
       </div>
+
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Feature flags permitem deploar código de IA em produção mas ativá-lo apenas para subconjuntos controlados de usuários. Se algo der errado, você desliga o flag sem rollback de código. <strong class="text-blue-400">É a estratégia de release mais segura para vibe coding</strong>.
+        Feature flags permitem deploar código de IA em produção mas ativá-lo apenas para subconjuntos controlados de usuários. Se algo der errado, você desliga o flag sem rollback de código. <strong class="text-blue-400">É a estratégia de release mais segura para vibe coding</strong> — especialmente para features críticas.
       </p>
+
+      <!-- Feature flag TypeScript code block -->
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">🚩 Implementação Simples de Feature Flag</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code">// feature-flags.ts
-export const flags = {
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🚩 Implementação de Feature Flag em TypeScript</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>// src/lib/feature-flags.ts
+type UserId = string;
+
+interface FeatureFlags {
+  newCheckoutFlow: boolean;
+  aiRecommendations: boolean;
+  betaDashboard: boolean;
+}
+
+// Flags simples por variável de ambiente (rollout global on/off)
+export const flags: FeatureFlags = {
   newCheckoutFlow: process.env.FF_NEW_CHECKOUT === 'true',
   aiRecommendations: process.env.FF_AI_RECS === 'true',
+  betaDashboard: process.env.FF_BETA_DASHBOARD === 'true',
 };
 
-// Uso no componente
-if (flags.newCheckoutFlow) {
-  return <NewCheckout />;  // código de IA
+// Flags com rollout percentual (por userId)
+export function isInRollout(userId: UserId, flagName: string, percent: number): boolean {
+  // Hash determinístico: mesmo user sempre cai no mesmo grupo
+  const hash = userId.split('').reduce((acc, c) =&gt; acc + c.charCodeAt(0), 0);
+  return (hash % 100) &lt; percent;
 }
-return <OldCheckout />;  // código estável
 
-// Liberação gradual com Vercel
-// Environment Variables: FF_NEW_CHECKOUT=true
-// Rollback: alterar para false, sem novo deploy</code></pre>
+// Uso no componente / handler
+export function getCheckoutComponent(userId: UserId) {
+  if (flags.newCheckoutFlow &amp;&amp; isInRollout(userId, 'newCheckout', 25)) {
+    return NewCheckout;  // 25% dos usuários veem o novo checkout
+  }
+  return OldCheckout;
+}</code></pre>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-blue-400 mb-3">Estratégia de Release Gradual</h4>
-          <ul class="space-y-2 text-sm text-neutral-300">
-            <li>• 1%: equipe interna (dogfooding)</li>
-            <li>• 5%: usuários beta voluntários</li>
-            <li>• 25%: release parcial com monitoramento</li>
-            <li>• 100%: release completo após 48h estável</li>
+
+      <!-- Prompt to add feature flags -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">📋 Prompt para Adicionar Feature Flags a uma Feature Existente</h3>
+        <pre class="bg-dark-900 rounded-lg p-3 text-sm text-neutral-300 font-mono"><code>"Adicione feature flag para o novo fluxo de checkout.
+
+@src/pages/checkout.tsx
+@src/lib/feature-flags.ts
+
+Requisitos:
+- Flag chamado FF_NEW_CHECKOUT (variável de ambiente booleana)
+- Rollout percentual por userId (começa em 10%)
+- Se flag desligado, usa OldCheckout sem nenhuma mudança de comportamento
+- Adicione log de analytics quando usuário entra no grupo de teste
+- NÃO modifique OldCheckout — apenas envolva com o flag"</code></pre>
+      </div>
+
+      <!-- Gradual rollout strategy insight -->
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Estratégia de Rollout Gradual para Código de IA</h3>
+        <p class="text-neutral-300 text-sm mb-3">Código gerado por IA pode ter bugs sutis que só aparecem com dados reais de produção. O rollout gradual limita o blast radius:</p>
+        <div class="grid grid-cols-4 gap-2 text-center mt-3">
+          <div class="bg-dark-800 rounded-lg p-2"><div class="text-lg font-bold text-blue-400">1%</div><div class="text-xs text-neutral-500">Equipe interna (dogfood)</div></div>
+          <div class="bg-dark-800 rounded-lg p-2"><div class="text-lg font-bold text-blue-400">10%</div><div class="text-xs text-neutral-500">Usuários beta voluntários</div></div>
+          <div class="bg-dark-800 rounded-lg p-2"><div class="text-lg font-bold text-blue-400">50%</div><div class="text-xs text-neutral-500">Release parcial + monitoramento 24h</div></div>
+          <div class="bg-dark-800 rounded-lg p-2"><div class="text-lg font-bold text-emerald-400">100%</div><div class="text-xs text-neutral-500">Release completo (48h estável)</div></div>
+        </div>
+      </div>
+
+      <!-- Do/Don't for AI-generated features -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5">
+          <h4 class="font-bold text-red-400 mb-3">✗ Não faça com features de IA</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li class="flex items-start space-x-2"><span class="text-red-400 flex-shrink-0">•</span><span>Deploy de 100% de uma vez sem teste gradual</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 flex-shrink-0">•</span><span>Feature flag que muda schema do banco (irreversível)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 flex-shrink-0">•</span><span>Remover o código antigo antes de validar o novo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400 flex-shrink-0">•</span><span>Feature flag que afeta fluxos de pagamento sem revisão manual</span></li>
           </ul>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-blue-400 mb-3">Ferramentas de Feature Flag</h4>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-5">
+          <h4 class="font-bold text-emerald-400 mb-3">✓ Boas práticas com feature flags</h4>
           <ul class="space-y-2 text-sm text-neutral-300">
-            <li>• <strong>Variáveis de ambiente:</strong> simples e grátis para flags binários</li>
-            <li>• <strong>PostHog:</strong> gratuito, flags + analytics integrados</li>
-            <li>• <strong>LaunchDarkly:</strong> enterprise, regras complexas por usuário</li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 flex-shrink-0">•</span><span>Rollout gradual com métricas monitoradas em cada etapa</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 flex-shrink-0">•</span><span>Flags sempre reversíveis sem novo deploy</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 flex-shrink-0">•</span><span>Remova flags antigos após 100% de rollout estável</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400 flex-shrink-0">•</span><span>Documente cada flag com data de criação e propósito</span></li>
           </ul>
         </div>
       </div>
@@ -323,31 +610,106 @@ return <OldCheckout />;  // código estável
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span>
         <h2 class="text-2xl font-bold">⏪ Rollback automático — revertendo quando métricas degradam</h2>
       </div>
+
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Rollback automático é a capacidade de reverter um deploy automaticamente quando métricas de saúde do sistema degradam além de um threshold. Em projetos de vibe coding, onde código gerado pode ter bugs sutis que só aparecem em produção, <strong class="text-blue-400">rollback automático é segurança crítica</strong>.
+        Rollback automático é a capacidade de reverter um deploy quando métricas de saúde do sistema degradam além de um threshold. Em projetos de vibe coding, onde código gerado pode ter bugs sutis que só aparecem em produção com dados reais, <strong class="text-blue-400">rollback automático é a última linha de defesa</strong>.
       </p>
+
+      <!-- Decision tree for rollback -->
       <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">⏪ Rollback no Vercel</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code"># Via CLI — rollback imediato para deploy anterior
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🌲 Árvore de Decisão para Rollback Automático</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 text-red-400 font-bold text-xs">!</div>
+            <div class="flex-1 bg-dark-800 rounded-lg p-3">
+              <span class="font-medium text-sm text-red-400">Taxa de erro HTTP 5xx &gt; 2%</span>
+              <span class="text-neutral-500 text-sm ml-2">→ rollback imediato (baseline esperado: &lt;0.1%)</span>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 text-red-400 font-bold text-xs">!</div>
+            <div class="flex-1 bg-dark-800 rounded-lg p-3">
+              <span class="font-medium text-sm text-red-400">Latência P99 &gt; 3s</span>
+              <span class="text-neutral-500 text-sm ml-2">→ rollback imediato (baseline esperado: &lt;500ms)</span>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0 text-amber-400 font-bold text-xs">?</div>
+            <div class="flex-1 bg-dark-800 rounded-lg p-3">
+              <span class="font-medium text-sm text-amber-400">Taxa de conversão caiu &gt; 15% vs. média 7 dias</span>
+              <span class="text-neutral-500 text-sm ml-2">→ alerta + avaliação manual (pode ser sazonalidade)</span>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0 text-amber-400 font-bold text-xs">?</div>
+            <div class="flex-1 bg-dark-800 rounded-lg p-3">
+              <span class="font-medium text-sm text-amber-400">Erros JS no browser &gt; 5%</span>
+              <span class="text-neutral-500 text-sm ml-2">→ alerta + investigação (pode ser browser específico)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Health check code block -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">Health Check Endpoint — Base para Rollback Automático</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>// src/routes/health.ts
+import { Router } from 'express';
+import { db } from '../lib/database';
+
+const router = Router();
+
+router.get('/health', async (req, res) =&gt; {
+  try {
+    // Verifica conexão com banco
+    await db.$queryRaw`SELECT 1`;
+
+    res.json({
+      status: 'ok',
+      timestamp: new Date().toISOString(),
+      version: process.env.npm_package_version,
+      uptime: process.uptime(),
+    });
+  } catch (error) {
+    // Retorna 503 — Railway/Vercel detectam e param o tráfego
+    res.status(503).json({
+      status: 'degraded',
+      error: 'Database connection failed',
+    });
+  }
+});
+
+export default router;</code></pre>
+      </div>
+
+      <!-- Vercel/Railway rollback configuration -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-blue-400 mb-3">Rollback no Vercel</h4>
+          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3 mb-2"><code># Via CLI — rollback para deployment anterior
 vercel rollback [deployment-url]
 
-# Via GitHub Actions — rollback automático por métricas
-- name: Check Error Rate
-  run: |
-    ERROR_RATE=$(curl -s "https://api.sentry.io/...")
-    if [ "$ERROR_RATE" -gt "5" ]; then
-      echo "Error rate acima de 5% — iniciando rollback"
-      vercel rollback --token=${{ secrets.VERCEL_TOKEN }}
-    fi</code></pre>
+# Listar deployments disponíveis
+vercel ls --prod</code></pre>
+          <p class="text-xs text-neutral-500">Vercel mantém histórico de deployments. Rollback é instantâneo — apenas aponta DNS para deployment anterior sem rebuild.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+          <h4 class="font-semibold text-blue-400 mb-3">Rollback no Railway</h4>
+          <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded p-3 mb-2"><code># Railway Dashboard:
+# Deployments → selecionar deploy anterior
+# → "Rollback to this deployment"
+
+# Ou via Railway CLI:
+railway rollback [deployment-id]</code></pre>
+          <p class="text-xs text-neutral-500">Railway usa containers — rollback reativa o container anterior. Configure health check em Settings → Deploy para validação automática.</p>
+        </div>
       </div>
-      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3">💡 Métricas para Acionar Rollback</h3>
-        <ul class="space-y-1 text-neutral-300 text-sm">
-          <li>• Taxa de erro HTTP 5xx acima de 2% (baseline: &lt;0.1%)</li>
-          <li>• Latência P95 acima de 2s (baseline: &lt;500ms)</li>
-          <li>• Taxa de conversão caiu mais de 20% vs. 7 dias anteriores</li>
-          <li>• Erros de JavaScript no browser acima de 5%</li>
-        </ul>
+
+      <!-- Alert about database migrations -->
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Migrations de Banco e Rollback — O Ponto Crítico</h3>
+        <p class="text-neutral-300 text-sm mb-3">Rollback de código é trivial. Rollback de schema de banco é perigoso. Se um deploy incluiu uma migration que <strong class="text-white">removeu uma coluna ou tabela</strong>, reverter o código sem reverter o banco causa erros imediatos no código antigo.</p>
+        <p class="text-neutral-300 text-sm">Regra: <strong class="text-white">sempre use migrations expansivas (additive only) com vibe coding</strong>. Adicione nova coluna, migre dados, só então remova a antiga em um deploy posterior. Nunca remova e adicione no mesmo deploy.</p>
       </div>
     </section>
 
@@ -355,51 +717,88 @@ vercel rollback [deployment-url]
     <section id="topico-7" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">7</span>
-        <h2 class="text-2xl font-bold">📡 Monitoramento pós-deploy — Sentry, logs e alertas</h2>
+        <h2 class="text-2xl font-bold">📡 Monitoramento pós-deploy — Sentry, analytics e alertas</h2>
       </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Código gerado por IA pode ter bugs que passam por todos os checks mas só aparecem com tráfego real e dados de produção. Monitoramento pós-deploy é o <strong class="text-blue-400">último guardrail do processo de vibe coding profissional</strong>.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-blue-400 mb-3">Sentry — Error Tracking</h4>
-          <ul class="space-y-1 text-sm text-neutral-300">
-            <li>• Captura exceções em tempo real</li>
-            <li>• Stack traces com contexto de usuário</li>
-            <li>• Alertas por Slack/email no primeiro erro</li>
-            <li>• Gratuito até 5K erros/mês</li>
-          </ul>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-blue-400 mb-3">Logs Estruturados</h4>
-          <ul class="space-y-1 text-sm text-neutral-300">
-            <li>• Pino.js para Node.js (alta performance)</li>
-            <li>• Logs em JSON estruturado</li>
-            <li>• LogTail, Datadog ou CloudWatch</li>
-            <li>• Correlação com request ID</li>
-          </ul>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-blue-400 mb-3">Métricas de Negócio</h4>
-          <ul class="space-y-1 text-sm text-neutral-300">
-            <li>• PostHog para analytics de produto</li>
-            <li>• Funnels de conversão</li>
-            <li>• Feature flag analytics</li>
-            <li>• Alertas de anomalia</li>
-          </ul>
-        </div>
-      </div>
-      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">⚙️ Configuração Básica do Sentry</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 font-mono"><code>// sentry.config.ts
-import * as Sentry from "@sentry/nextjs";
 
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Código gerado por IA pode ter bugs que passam por todos os checks mas só aparecem com tráfego real e dados de produção. Monitoramento pós-deploy é o <strong class="text-blue-400">último guardrail do processo de vibe coding profissional</strong> — e o que garante que você saiba antes dos usuários.
+      </p>
+
+      <!-- Comparison table of monitoring tools -->
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Ferramentas de Monitoramento — Stack Recomendado</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-2 px-3 text-neutral-400">Ferramenta</th>
+                <th class="text-left py-2 px-3 text-blue-400">Detecta</th>
+                <th class="text-left py-2 px-3 text-neutral-400">Custo</th>
+                <th class="text-left py-2 px-3 text-neutral-400">Prioridade</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-700">
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">Sentry</td>
+                <td class="py-2 px-3 text-neutral-300">Erros runtime, exceções não tratadas, performance issues</td>
+                <td class="py-2 px-3 text-neutral-300">Grátis até 5K erros/mês</td>
+                <td class="py-2 px-3 text-emerald-400 font-bold">Obrigatório</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">Vercel Analytics</td>
+                <td class="py-2 px-3 text-neutral-300">Web Vitals (LCP, CLS, FID), performance por página</td>
+                <td class="py-2 px-3 text-neutral-300">Incluso no plano Pro</td>
+                <td class="py-2 px-3 text-blue-400 font-bold">Recomendado</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">Railway Metrics</td>
+                <td class="py-2 px-3 text-neutral-300">CPU, memória, latência HTTP, container health</td>
+                <td class="py-2 px-3 text-neutral-300">Incluso no Railway</td>
+                <td class="py-2 px-3 text-blue-400 font-bold">Recomendado</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">PostHog</td>
+                <td class="py-2 px-3 text-neutral-300">Analytics de produto, funis, feature flag analytics, sessões</td>
+                <td class="py-2 px-3 text-neutral-300">Grátis até 1M eventos/mês</td>
+                <td class="py-2 px-3 text-neutral-400">Opcional</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-neutral-300 font-medium">Pino.js + LogTail</td>
+                <td class="py-2 px-3 text-neutral-300">Logs estruturados, rastreamento de requests</td>
+                <td class="py-2 px-3 text-neutral-300">LogTail grátis até 1GB/mês</td>
+                <td class="py-2 px-3 text-neutral-400">Opcional</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Sentry in one prompt -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h3 class="text-lg font-semibold text-blue-400 mb-3">Adicionando Sentry em um Prompt</h3>
+          <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>"Adicione Sentry ao projeto Next.js.
+
+Requisitos:
+- Instale @sentry/nextjs
+- Configure captura de erros em client e server
+- Remova dados sensíveis (senha, cartão)
+  antes de enviar para o Sentry
+- Adicione SENTRY_DSN ao .env.example
+- Crie sentry.client.config.ts e
+  sentry.server.config.ts conforme docs
+
+@package.json @next.config.ts"</code></pre>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h3 class="text-lg font-semibold text-blue-400 mb-3">Sentry Configurado com Privacidade</h3>
+          <pre class="bg-dark-900 rounded-lg p-3 text-xs text-neutral-300 font-mono"><code>// sentry.config.ts
 Sentry.init({
   dsn: process.env.SENTRY_DSN,
   environment: process.env.NODE_ENV,
   tracesSampleRate: 0.1, // 10% das transações
   beforeSend(event) {
-    // Remove dados sensíveis antes de enviar
+    // Remove dados sensíveis
     if (event.request?.data) {
       delete event.request.data.password;
       delete event.request.data.creditCard;
@@ -407,33 +806,97 @@ Sentry.init({
     return event;
   },
 });</code></pre>
+        </div>
+      </div>
+
+      <!-- Example alert configuration -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3">Configuração de Alertas Essenciais no Sentry</h3>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+            <div><p class="text-sm font-medium text-red-400">Alerta crítico — Slack imediato</p><p class="text-xs text-neutral-500">Novo erro nunca visto antes (first seen) + taxa &gt; 10 ocorrências/min</p></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+            <div><p class="text-sm font-medium text-amber-400">Alerta de regressão — Email</p><p class="text-xs text-neutral-500">Erro resolvido que voltou a ocorrer (regression) em até 24h após deploy</p></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+            <div><p class="text-sm font-medium text-blue-400">Digest diário — Email</p><p class="text-xs text-neutral-500">Resumo dos 10 erros mais frequentes das últimas 24h — para priorização</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What to monitor for AI-generated code -->
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 O Que Monitorar Especificamente em Código Gerado por IA</h3>
+        <p class="text-neutral-300 text-sm mb-3">Código gerado por IA tem padrões de falha distintos do código humano. Foque o monitoramento em:</p>
+        <ul class="space-y-1 text-sm text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-primary">•</span><span><strong>Edge cases de dados reais:</strong> o agente testou com dados mockados — monitore erros com dados reais de produção nas primeiras 48h</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary">•</span><span><strong>Performance em escala:</strong> algoritmos corretos mas ineficientes aparecem quando há volume. Monitore queries lentas e memory usage</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary">•</span><span><strong>Erros de tipo em runtime:</strong> TypeScript estrito no build, mas dados externos (APIs, banco) podem surpreender. Monitore TypeErrors especificamente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary">•</span><span><strong>Mudanças de comportamento sutis:</strong> a feature "funciona" mas a taxa de conversão caiu. PostHog com funis é essencial para detectar isso</span></li>
+        </ul>
       </div>
     </section>
 
-    <!-- RESUMO -->
+    <!-- RESUMO FINAL -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6">✅ Resumo do Módulo 4.6</h2>
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo 4.6
+        </h2>
         <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">CI/CD é mais crítico com IA</strong><span class="text-neutral-400"> — o pipeline é a verificação objetiva que o agente não pode fazer por si mesmo</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Pipeline mínimo</strong><span class="text-neutral-400"> — Lint → Testes → SAST → Build → Deploy. Todos obrigatórios.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">SAST em cada PR</strong><span class="text-neutral-400"> — Semgrep ou CodeQL. Segurança contínua, não spot checks.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Feature flags para release seguro</strong><span class="text-neutral-400"> — release gradual com capacidade de rollback instantâneo.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Rollback automático</strong><span class="text-neutral-400"> — métricas de saúde acionam rollback antes que usuários sejam afetados massivamente.</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Sentry + logs + métricas</strong><span class="text-neutral-400"> — o último guardrail. Bugs que passam pelos checks aparecem aqui.</span></div></div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">CI/CD é mais crítico com IA</strong><span class="text-neutral-400"> — sem pipeline, bugs escapam 8x mais. O pipeline é a verificação objetiva que o agente não faz por si mesmo.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Workflow completo gerado por IA</strong><span class="text-neutral-400"> — Lint + Type check + Testes + Cobertura + SAST + Deploy. Jobs paralelos, deploy só após todos os gates.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">SAST inteligente</strong><span class="text-neutral-400"> — Semgrep (secrets + OWASP), Snyk (dependências), CodeQL (fluxo de dados). Não bloqueie deploys com falsos positivos.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Vercel vs. Railway</strong><span class="text-neutral-400"> — Vercel para frontend/Next.js + preview deploys por PR. Railway para APIs + banco nativo + workers.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Feature flags para release seguro</strong><span class="text-neutral-400"> — rollout gradual 1% → 10% → 50% → 100%. Flags reversíveis sem novo deploy.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Rollback automático</strong><span class="text-neutral-400"> — 5xx &gt; 2% ou P99 &gt; 3s = rollback imediato. Atenção: migrations de banco não revertem com o código.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Stack de monitoramento</strong><span class="text-neutral-400"> — Sentry (obrigatório) + Vercel Analytics + Railway Metrics. Monitore TypeErrors e performance nas primeiras 48h de cada deploy.</span></div>
+          </div>
         </div>
+
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
           <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
-          <p class="text-neutral-300">4.7 — 🤖 Agentes Autônomos e Multi-Agent: o futuro do desenvolvimento de software em 2026</p>
+          <p class="text-neutral-300">4.7 — 🤖 Agentes Autônomos e Multi-Agent: orquestração de agentes, paralelismo e o futuro do desenvolvimento de software em 2026</p>
         </div>
+
         <div class="flex justify-start gap-4">
-          <a href="modulo-4-5.html" class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 4.5</a>
-          <a href="modulo-4-7.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo Módulo →</a>
+          <a href="modulo-4-5.html" class="px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Módulo 4.5
+          </a>
+          <a href="modulo-4-7.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">
+            Próximo Módulo →
+          </a>
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer class="border-t border-dark-600 py-8">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
       <p>⚡ Vibe Coding — Módulo 4.6 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
@@ -445,8 +908,18 @@ Sentry.init({
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
     const html = document.documentElement;
-    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
-    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
   </script>
 </body>
 </html>

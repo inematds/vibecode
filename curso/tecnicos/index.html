@@ -591,106 +591,1274 @@
       </div>
     </div>
 
-    <!-- MÓDULOS COMPACTOS 4.3 a 4.8 -->
-
-    <!-- 4.3 -->
-    <div id="modulo-4-3" class="bg-dark-800 rounded-xl border border-dark-600 mb-4">
-      <div class="p-5 flex items-center justify-between">
-        <div class="flex-1">
-          <div class="flex items-center space-x-3 mb-1">
-            <span class="text-blue-400 font-bold text-sm">4.3</span>
-            <span class="text-xs text-neutral-500">~40 min</span>
-          </div>
-          <h3 class="text-xl font-bold mb-1">🏗️ Arquitetura e Design Patterns com IA</h3>
-          <p class="text-neutral-400 text-sm">MVC, DDD assistido por IA, modelagem de banco de dados, autenticação e documentação arquitetural automática.</p>
+    <!-- MÓDULO 4.3 -->
+    <div id="modulo-4-3" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">4.3</span>
+          <span class="text-xs text-neutral-500">~40 min</span>
         </div>
-        <a href="modulo-4-3.html" class="ml-4 px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors flex-shrink-0">
-          Acessar →
+        <h3 class="text-2xl font-bold mb-2">🏗️ Arquitetura e Design Patterns com IA</h3>
+        <p class="text-neutral-400 text-sm">Como instruir a IA sobre padrões do projeto, usar DDD assistido por LLM, modelar banco de dados corretamente desde o início e documentar decisões arquiteturais automaticamente.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔴</span>
+            <div>
+              <span class="font-medium">O problema do patchwork</span>
+              <span class="text-neutral-500 text-sm ml-2">— o inimigo da arquitetura com IA</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Efeito patchwork é quando cada sessão de vibe coding adiciona código que funciona isoladamente mas não se integra coerentemente. O resultado é um sistema que cresce mas fica progressivamente mais difícil de manter — com três padrões de erro diferentes, nomenclatura inconsistente e lógica de negócio duplicada.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Sem visão arquitetural persistente, todo projeto de vibe coding vira patchwork em semanas. Definir a arquitetura no .cursorrules ou CLAUDE.md garante que cada sessão respeite o padrão global, mesmo que o agente não veja o projeto inteiro.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Sinais de patchwork: padrões de erro inconsistentes, lógica duplicada, nomenclatura caótica (userId vs user_id vs userID), SQL raw misturado com ORM. Solução: visão arquitetural no .cursorrules/CLAUDE.md lida automaticamente em cada sessão.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🏛️</span>
+            <div>
+              <span class="font-medium">MVC e separação em camadas</span>
+              <span class="text-neutral-500 text-sm ml-2">— instruindo a IA sobre camadas</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Técnica de declarar explicitamente a arquitetura MVC (Model-View-Controller) e separação em camadas no arquivo de regras persistentes. Sem instrução explícita, a IA mistura camadas — lógica de negócio em controllers, queries diretas em services, validação espalhada por todo o código.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A IA tende a misturar camadas sem instrução explícita, resultando em código testável apenas com servidor rodando. Declarar Routes → Controllers → Services → Repositories no .cursorrules garante separação correta em cada sessão, sem precisar repetir a instrução.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Routes: apenas parsing + chamada de controller. Controllers: coordena serviços, monta response. Services: TODA lógica de negócio. Repositories: TODA interação com banco. Regra de dependência: Routes → Controllers → Services → Repositories. NUNCA pular camadas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🗺️</span>
+            <div>
+              <span class="font-medium">Domain-Driven Design assistido por IA</span>
+              <span class="text-neutral-500 text-sm ml-2">— modelagem de domínio com LLMs</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Uso de LLMs para modelagem de domínio: o modelo identifica entidades, agregados, value objects e bounded contexts a partir de descrições de regras de negócio. A IA é excelente nisso quando recebe o contexto de negócio correto — mas as decisões finais de bounded contexts e trade-offs permanecem com o engenheiro.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Modelagem de domínio é uma das tarefas mais demoradas em novos projetos. Com o prompt correto, a IA pode gerar um modelo inicial de entidades, relacionamentos e invariantes em minutos — acelerando discussões arquiteturais e reduzindo erros de modelagem precoce.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Entidades e atributos, agregados e raízes de agregado, value objects, bounded contexts. Onde a IA ajuda: identificar entidades óbvias, sugerir relacionamentos, gerar schemas. Onde você decide: bounded contexts, trade-offs de normalização, consistência eventual vs. imediata.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🗄️</span>
+            <div>
+              <span class="font-medium">Banco de dados: modelagem e SQL</span>
+              <span class="text-neutral-500 text-sm ml-2">— schemas corretos desde o início</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Processo de usar IA para gerar schemas de banco de dados completos e corretos desde o início — incluindo índices, soft delete, timestamps de auditoria e suporte a Row Level Security. O schema é a decisão mais difícil de reverter em qualquer projeto e nunca deve ser gerado sem revisão humana.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Um schema incorreto impacta performance, integridade de dados e segurança por toda a vida do projeto. Investir tempo na modelagem correta antes de qualquer linha de código de aplicação economiza semanas de refatoração futura.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Schema Prisma multi-tenant, soft delete em todas as tabelas principais, timestamps de auditoria (created_at, updated_at), suporte a RLS para Supabase, índices para queries comuns. Schema Review obrigatório antes de aplicar em produção.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔐</span>
+            <div>
+              <span class="font-medium">Autenticação e autorização</span>
+              <span class="text-neutral-500 text-sm ml-2">— implementar primeiro, não depois</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Princípio e prática de implementar autenticação antes de qualquer feature de produto. Autenticação é infraestrutura, não feature — adicioná-la depois exige refatorar cada rota, endpoint e potencialmente o schema inteiro. A ordem correta: schema com user_id → autenticação → middleware → features.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">O erro arquitetural mais comum em vibe coding: construir features sem auth e tentar adicionar depois. O custo de refatoração cresce exponencialmente com o tamanho do projeto. Implementar auth primeiro custa horas; refatorar depois custa dias ou semanas.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">MVP simples: Supabase Auth (magic link/OAuth). API própria: JWT stateless com refresh tokens. Enterprise/Compliance: OAuth 2.0 + PKCE. Multi-tenant: RLS no banco + contexto de tenant no token. Middleware de auth protege todas as rotas antes de qualquer feature.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📈</span>
+            <div>
+              <span class="font-medium">Escalabilidade: decidindo antes de construir</span>
+              <span class="text-neutral-500 text-sm ml-2">— decisões que o agente não toma por você</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Processo de tomar decisões de escalabilidade explicitamente antes de iniciar a implementação — banco SQL vs. NoSQL, monolito vs. microserviços, estratégia de cache. A IA gera soluções que funcionam para o caso atual sem considerar crescimento, a menos que você forneça esse contexto explicitamente.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Decisões de escalabilidade incorretas são as mais caras de reverter. A IA escolherá SQL e monolito por padrão — o que é correto em 80% dos casos. Mas sem instrução explícita, também não adiciona cache, não considera sharding e não pensa em separação de serviços para escala.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">SQL (Postgres) por padrão — correto em 80% dos casos. Monolito bem estruturado antes de microserviços. Redis para sessões e cache de alta frequência. CDN para assets estáticos. Instrua a IA no CLAUDE.md sobre a estratégia de cache do projeto.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">📄</span>
+            <div>
+              <span class="font-medium">Documentação arquitetural automática</span>
+              <span class="text-neutral-500 text-sm ml-2">— ADRs com IA</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Architecture Decision Records (ADRs) são documentos curtos que registram decisões arquiteturais importantes, o contexto que as motivou e as alternativas consideradas. A IA é excelente em gerar ADRs quando você fornece o contexto da decisão — e ADRs são essenciais para manutenção de longo prazo.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Sem ADRs, decisões arquiteturais importantes se perdem com o tempo. Ninguém sabe por que foi escolhido o Supabase em vez de uma API própria, ou por que o projeto usa monolito em vez de microserviços. ADRs gerados pela IA enquanto as decisões são tomadas eliminam esse problema com custo mínimo.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Formato ADR: Status, Contexto, Decisão, Consequências, Alternativas. Salvar em docs/decisions/ no repositório. Gerar ADR com prompt fornecendo: decisão tomada, contexto do projeto, alternativas consideradas. ADRs versionados explicam "por que" para futuras manutenções.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-4-3.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
+          Ver Completo
         </a>
       </div>
     </div>
 
-    <!-- 4.4 -->
-    <div id="modulo-4-4" class="bg-dark-800 rounded-xl border border-dark-600 mb-4">
-      <div class="p-5 flex items-center justify-between">
-        <div class="flex-1">
-          <div class="flex items-center space-x-3 mb-1">
-            <span class="text-blue-400 font-bold text-sm">4.4</span>
-            <span class="text-xs text-neutral-500">~40 min</span>
-          </div>
-          <h3 class="text-xl font-bold mb-1">🔒 Segurança em Código Gerado por IA</h3>
-          <p class="text-neutral-400 text-sm">45% do código de IA tem falhas (Veracode). OWASP Top 10, RLS, gestão de secrets e casos reais de incidentes.</p>
+    <!-- MÓDULO 4.4 -->
+    <div id="modulo-4-4" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">4.4</span>
+          <span class="text-xs text-neutral-500">~40 min</span>
         </div>
-        <a href="modulo-4-4.html" class="ml-4 px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors flex-shrink-0">
-          Acessar →
+        <h3 class="text-2xl font-bold mb-2">🔒 Segurança em Código Gerado por IA</h3>
+        <p class="text-neutral-400 text-sm">Os dados são alarmantes: 45% do código gerado por IA tem falhas de segurança. Este módulo ensina a identificar, prevenir e auditar vulnerabilidades antes que cheguem à produção.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📊</span>
+            <div>
+              <span class="font-medium">Os dados: 45% do código de IA tem falhas</span>
+              <span class="text-neutral-500 text-sm ml-2">— o problema com dados concretos</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Análise dos dados de pesquisa que quantificam o risco de segurança em código gerado por IA: 45% do código contém pelo menos uma falha (Veracode 2025), 2,74x mais vulnerabilidades vs. código humano (CodeRabbit 2025), 40% dos devs não revisam o código antes de commitar (Stack Overflow 2025).</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Entender a escala do problema com dados concretos muda a postura de revisão. A IA não tem intenção maliciosa — ela reproduz padrões de código inseguro dos dados de treinamento (tutoriais online frequentemente não validam input). O modelo otimiza para "funcionar", não para "funcionar com segurança".</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Pesquisa Veracode 2025, CodeRabbit 2025, Stack Overflow Survey 2025. 78% das vulnerabilidades em código de IA são OWASP Top 10. 16/18 CTOs reportaram problemas sérios com vibe coding não supervisionado. Revisão de código de IA não é opcional.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔟</span>
+            <div>
+              <span class="font-medium">OWASP Top 10 para código de IA</span>
+              <span class="text-neutral-500 text-sm ml-2">— vulnerabilidades mais frequentes</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">As vulnerabilidades mais críticas geradas por IA são categorizadas no OWASP Top 10. As mais frequentes: SQL Injection (IA gera queries concatenadas sem instrução), XSS (innerHTML com dados de usuário), e BOLA/Broken Object Level Authorization (endpoint sem verificação de ownership).</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A IA cria todas as vulnerabilidades OWASP, mas as mais frequentes têm padrões identificáveis que você pode prevenir com instruções específicas no CLAUDE.md. Uma linha de instrução pode prevenir toda uma categoria de vulnerabilidade em todas as sessões futuras.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">SQL Injection: usar ORM parametrizado (Prisma) — nunca SQL raw com input do usuário. XSS: textContent em vez de innerHTML. BOLA: sempre verificar req.user.id ao acessar dados. Instrução no CLAUDE.md: "SEMPRE verificar ownership, NUNCA confiar em parâmetros de URL sem validação".</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🛡️</span>
+            <div>
+              <span class="font-medium">Row Level Security</span>
+              <span class="text-neutral-500 text-sm ml-2">— o erro mais comum em apps Lovable</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Row Level Security (RLS) é uma funcionalidade do PostgreSQL/Supabase que garante que usuários só acessam seus próprios dados no nível do banco de dados, independente do que a aplicação faça. É a última linha de defesa e a mais frequentemente esquecida em vibe coding — um app Lovable expôs 18.000 usuários por falta de RLS.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Mesmo que a aplicação tenha bugs de autorização, RLS garante que o banco não retorne dados de outros usuários. O incidente dos 18K usuários no Lovable (2025) foi causado exatamente por ausência de RLS — prevenível com 3 linhas de SQL e uma instrução no CLAUDE.md.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">ALTER TABLE ... ENABLE ROW LEVEL SECURITY. CREATE POLICY "users_own_data" USING (auth.uid() = user_id). Política para admins separada. Instrução no CLAUDE.md: "SEMPRE criar políticas RLS ao criar novas tabelas no Supabase. Nunca criar tabela sem RLS habilitado."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🔑</span>
+            <div>
+              <span class="font-medium">Gestão de secrets</span>
+              <span class="text-neutral-500 text-sm ml-2">— never hardcode, never commit</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Prática de nunca hardcodar credenciais, API keys ou senhas no código — sempre usando variáveis de ambiente. A IA aprende de exemplos online onde credenciais frequentemente aparecem hardcodadas para simplificação educacional. Sem instrução explícita, o agente reproduz esse padrão inseguro.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Secrets hardcodados commitados no repositório são um dos erros mais comuns e devastadores. GitHub Secret Scanning detecta e alerta, mas a rotação do secret é imediata e obrigatória. Uma instrução no CLAUDE.md previne esse erro em 100% das sessões futuras.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">.env no .gitignore (sempre, sem exceção). .env.example com chaves vazias no repositório. process.env.STRIPE_SECRET_KEY em vez de string hardcodada. git-secrets ou trufflehog para scan automático. GitHub Secret Scanning habilitado. Rotacionar imediatamente se secret foi commitado.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔍</span>
+            <div>
+              <span class="font-medium">SAST: análise estática automatizada</span>
+              <span class="text-neutral-500 text-sm ml-2">— segurança em cada commit</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">SAST (Static Application Security Testing) analisa o código sem executá-lo, detectando vulnerabilidades antes do deploy. Em vibe coding, SAST deve rodar automaticamente em cada commit ou PR — não manualmente depois. Ferramentas: CodeQL (GitHub nativo, gratuito), Semgrep (regras customizáveis), Snyk (dependências).</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Segurança manual pós-deploy é cara e inconsistente. SAST automático no CI/CD transforma segurança de uma revisão pontual para um processo contínuo — cada linha de código gerado por IA passa por análise de segurança antes de entrar no repositório.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">CodeQL: GitHub Actions nativo, detecta vulnerabilidades complexas de múltiplos arquivos. Semgrep: regras customizáveis p/security-audit p/secrets p/owasp-top-ten. Bandit: Python. ESLint Security Plugin: JavaScript/TypeScript. Snyk: dependências com CVEs conhecidas. Rodar em cada PR, não apenas no main.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">👁️</span>
+            <div>
+              <span class="font-medium">Code review focado em segurança</span>
+              <span class="text-neutral-500 text-sm ml-2">— o que SAST não detecta</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Checklist estruturado para revisão humana de código de IA focado em segurança: autenticação e autorização, validação de input/output, gestão de secrets e dependências. SAST detecta padrões conhecidos, mas o humano detecta falhas de lógica de autorização que tecnicamente compilam mas semanticamente estão erradas.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">SAST não detecta: verificação de ownership incorreta (acessa dados de outro usuário mas o código é sintaticamente correto), RLS ausente, regras de negócio de segurança implícitas, erros de lógica de autorização por papel. Code review humano é a segunda linha de defesa insubstituível.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Checklist: todas as rotas privadas têm middleware de auth? Verificação de ownership em todos os recursos? Todo input validado com schema (Zod)? Queries usam ORM ou parâmetros? Nenhum secret hardcodado? RLS configurado? Dependências auditadas com npm audit?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">💀</span>
+            <div>
+              <span class="font-medium">Casos reais de incidentes</span>
+              <span class="text-neutral-500 text-sm ml-2">— o que aconteceu e por quê</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Análise detalhada de incidentes reais documentados em plataformas de vibe coding: Lovable (18.000 usuários expostos por falta de RLS), CurXecute CVE-2025-54135 (prompt injection executava código no sistema do dev), Replit (banco de produção deletado por instrução ambígua), Base44 (qualquer usuário exportava dados de qualquer empresa).</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Estudar casos reais é a forma mais eficaz de internalizar a importância de segurança. Todos esses incidentes eram preveníveis com as técnicas do módulo — RLS obrigatório, verificação de ownership, ambientes separados, confirmação antes de operações destrutivas.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Lovable: RLS não configurado por padrão → dados de 18K usuários expostos. CurXecute: plugin de IDE com prompt injection → execução de código arbitrário. Replit: "limpe dados de teste" → DELETE sem WHERE em produção. Base44: BOLA em exportação de relatórios → qualquer empresa acessível. Todos preveníveis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-4-4.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
+          Ver Completo
         </a>
       </div>
     </div>
 
-    <!-- 4.5 -->
-    <div id="modulo-4-5" class="bg-dark-800 rounded-xl border border-dark-600 mb-4">
-      <div class="p-5 flex items-center justify-between">
-        <div class="flex-1">
-          <div class="flex items-center space-x-3 mb-1">
-            <span class="text-blue-400 font-bold text-sm">4.5</span>
-            <span class="text-xs text-neutral-500">~35 min</span>
-          </div>
-          <h3 class="text-xl font-bold mb-1">🧪 Testes Automatizados com IA</h3>
-          <p class="text-neutral-400 text-sm">Testes como guardrail do vibe coding. Unitários, integração, E2E com Playwright, TDD invertido e debugging sistemático.</p>
+    <!-- MÓDULO 4.5 -->
+    <div id="modulo-4-5" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">4.5</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
         </div>
-        <a href="modulo-4-5.html" class="ml-4 px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors flex-shrink-0">
-          Acessar →
+        <h3 class="text-2xl font-bold mb-2">🧪 Testes Automatizados com IA</h3>
+        <p class="text-neutral-400 text-sm">Testes robustos são o guardrail que permite que agentes operem com segurança máxima. Aprenda a gerar e manter suites completas de testes usando IA.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🛡️</span>
+            <div>
+              <span class="font-medium">Por que testes são o guardrail do vibe coding</span>
+              <span class="text-neutral-500 text-sm ml-2">— a relação entre cobertura e autonomia</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">A relação direta entre cobertura de testes e capacidade de usar IA com segurança: quanto mais testes, mais seguramente o agente opera autonomamente. Com suite robusta, o agente pode refatorar, otimizar e adicionar features com confiança — qualquer regressão é detectada imediatamente. Dados: 67% redução em regressões, 4x aprovação de PRs mais rápida.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Sem testes, cada mudança do agente é um salto no escuro. Com testes, cada mudança tem feedback objetivo imediato. Testes bem escritos também são especificação — descrevem exatamente o comportamento esperado, o que permite ao agente implementar corretamente e verificar sua própria implementação.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">67% redução em regressões com suite robusta (Devin 2025). 4x mais rápido para aprovar PRs com >80% cobertura. 90% dos bugs introduzidos por IA detectados por testes antes do deploy. Testes como especificação: descrevem comportamento esperado antes da implementação.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🧩</span>
+            <div>
+              <span class="font-medium">Testes unitários por prompt</span>
+              <span class="text-neutral-500 text-sm ml-2">— cobertura com edge cases explícitos</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">A IA é excepcionalmente boa em gerar testes unitários — especialmente para identificar e cobrir edge cases que humanos frequentemente esquecem. Com o prompt correto, você obtém uma suite completa incluindo casos extremos em minutos: desconto 0%, desconto >100%, preço negativo, tipos incorretos.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Sem instrução explícita, a IA gera apenas testes para o "happy path". Pedir explicitamente edge cases — inputs inválidos, zeros, negativos, máximos possíveis — resulta em cobertura que normalmente leva horas para escrever manualmente, gerada em segundos.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Prompt: referenciar @arquivo a testar, listar casos felizes e edge cases explicitamente, especificar framework (Vitest vs Jest), pedir describe blocks por categoria. Sempre incluir: inputs inválidos (null, undefined, string em vez de number), valores extremos (0, negativo, máximo), tipos incorretos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔗</span>
+            <div>
+              <span class="font-medium">Testes de integração</span>
+              <span class="text-neutral-500 text-sm ml-2">— testando fluxos completos de API</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Testes que verificam que componentes funcionam corretamente quando conectados. Em APIs REST, significa testar endpoints reais com banco de dados real (ou banco de testes). A IA gera testes de integração de forma eficaz quando você fornece o contrato esperado da API — status codes, estrutura do response, efeitos colaterais no banco.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Testes unitários verificam funções isoladas; testes de integração verificam que o sistema como um todo funciona. Um sistema pode ter 100% de cobertura unitária e ainda falhar em integração por problemas de configuração, autenticação ou interação com banco.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Setup/teardown com banco de teste limpo. Testar: 201 com payload válido + verificação no banco, 401 sem autenticação, 422 com payload inválido. Verificar efeitos colaterais: a entidade foi criada no banco com o userId correto? Supertest para Node.js, banco de teste separado do desenvolvimento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🎭</span>
+            <div>
+              <span class="font-medium">Testes E2E com Playwright/Cypress</span>
+              <span class="text-neutral-500 text-sm ml-2">— gerado por descrição de comportamento</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Testes End-to-End verificam fluxos completos do ponto de vista do usuário — clicando em botões, preenchendo formulários, navegando entre páginas. A IA pode gerar testes Playwright ou Cypress a partir de descrições de comportamento em linguagem natural, usando seletores data-testid para estabilidade.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Testes E2E são os mais caros de escrever manualmente e os mais valiosos — verificam o que o usuário realmente experimenta. A IA pode gerar suites completas de Playwright/Cypress a partir de descrições de fluxo em minutos, economizando horas de trabalho manual.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Seletores data-testid: estáveis, não dependem de CSS ou texto que muda. Instrução no CLAUDE.md: "Todo componente de UI deve ter data-testid". Setup: criar usuário de teste e fazer login. Teardown: limpar dados criados. Timeout para operações de rede. Playwright tem suporte nativo a componentes React/Vue/Svelte.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔄</span>
+            <div>
+              <span class="font-medium">TDD invertido</span>
+              <span class="text-neutral-500 text-sm ml-2">— testes primeiro, implementação depois</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Técnica de pedir à IA para escrever os testes que definem o comportamento esperado antes da implementação, depois pedir para implementar o código que faz os testes passarem. Passo 1: "escreva os testes para validatePassword — NÃO implemente a função". Passo 2: "implemente para que os testes em @arquivo.test.ts passem".</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Testes como especificação eliminam ambiguidades antes da implementação. O agente sabe exatamente quando terminou (testes passando). Ambiguidades são descobertas na fase de testes, não de implementação — quando corrigir custa 30 segundos em vez de horas de refatoração.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Separação de fases: testes primeiro (sem implementação), implementação depois (referenciando o arquivo de testes). Vantagens: especificação precisa antes do código, verificação automática de conclusão, 100% de cobertura dos comportamentos documentados, menos retrabalho por ambiguidades descobertas tarde.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📈</span>
+            <div>
+              <span class="font-medium">Cobertura de código</span>
+              <span class="text-neutral-500 text-sm ml-2">— métricas e 80% como mínimo profissional</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Métricas de cobertura de código (linhas, branches, funções) e como atingi-las com IA. 80% é o threshold mínimo profissional — abaixo disso, o agente opera em território desconhecido onde pode introduzir regressões sem detecção. Configuração de thresholds no CI para falhar automaticamente se a cobertura cair.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Cobertura baixa significa que o agente pode fazer mudanças em código não coberto sem qualquer sinal de falha. Com thresholds configurados no CI, cobertura insuficiente bloqueia o merge — forçando a geração de testes antes de qualquer código novo entrar no repositório.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Vitest config: thresholds lines/functions/statements: 80, branches: 70. Prompt para aumentar cobertura: "execute npm run test:coverage, identifique branches não cobertos em @arquivo.ts, gere testes para atingir 85%+". Cobertura de qualidade vs. quantidade: asserções explícitas > execução sem erro.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🔬</span>
+            <div>
+              <span class="font-medium">Debugging sistemático</span>
+              <span class="text-neutral-500 text-sm ml-2">— isolando problemas para o agente</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Técnica de isolar o problema antes de enviar para o agente: contexto mínimo viável para debugging. Em vez de enviar o sistema completo com "algo está errado no checkout", enviar um teste que falha + código mínimo que reproduz o problema. Quanto menor e mais preciso o problema isolado, maior a probabilidade de resolução na primeira tentativa.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Debugging ineficaz: enviar sistema completo com descrição vaga → 5-10 trocas de mensagem, sugestões genéricas, alta chance de solução incorreta. Debugging eficaz: teste que falha + código mínimo → resolução em 1-2 mensagens com solução específica e teste confirmando a correção.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Técnica de regressão como ponto de partida: escrever um teste que falha reproduzindo o bug, enviar o teste + @arquivo para o agente. Template de bug report: Erro + Stack Trace + Código Relevante + Ambiente + O que tentou + Comportamento esperado. Reprodução mínima: isolar a menor quantidade de código que reproduz o bug.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-4-5.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
+          Ver Completo
         </a>
       </div>
     </div>
 
-    <!-- 4.6 -->
-    <div id="modulo-4-6" class="bg-dark-800 rounded-xl border border-dark-600 mb-4">
-      <div class="p-5 flex items-center justify-between">
-        <div class="flex-1">
-          <div class="flex items-center space-x-3 mb-1">
-            <span class="text-blue-400 font-bold text-sm">4.6</span>
-            <span class="text-xs text-neutral-500">~35 min</span>
-          </div>
-          <h3 class="text-xl font-bold mb-1">🚢 CI/CD e Deploy Profissional</h3>
-          <p class="text-neutral-400 text-sm">GitHub Actions, SAST no pipeline, deploy automático com Vercel/Railway, feature flags e monitoramento pós-deploy.</p>
+    <!-- MÓDULO 4.6 -->
+    <div id="modulo-4-6" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">4.6</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
         </div>
-        <a href="modulo-4-6.html" class="ml-4 px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors flex-shrink-0">
-          Acessar →
+        <h3 class="text-2xl font-bold mb-2">🚢 CI/CD e Deploy Profissional</h3>
+        <p class="text-neutral-400 text-sm">Com vibe coding, CI/CD passa de conveniência para necessidade. Cada linha de código gerada por IA precisa passar por um pipeline de qualidade antes de chegar à produção.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">⚙️</span>
+            <div>
+              <span class="font-medium">Por que CI/CD é mais crítico com vibe coding</span>
+              <span class="text-neutral-500 text-sm ml-2">— o pipeline como verificação objetiva</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">CI/CD captura em desenvolvimento tradicional bugs que humanos introduzem por descuido. Em vibe coding, captura bugs que agentes introduzem por falta de contexto ou instrução ambígua. O pipeline é a verificação objetiva que o agente não pode fazer por si mesmo. Pipeline mínimo profissional: Lint → Testes → SAST → Build → Deploy.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Sem CI/CD, código de agente vai diretamente para produção sem nenhuma verificação objetiva. Com CI/CD, cada push passa por lint, testes, análise de segurança e build antes de qualquer deploy. É a diferença entre vibe coding profissional e vibe coding que resulta em incidentes.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Pipeline obrigatório: 1-Lint (ESLint, TypeScript strict), 2-Testes unitários (cobertura mínima 80%), 3-SAST (Semgrep/CodeQL para vulnerabilidades), 4-Build (compilação sem erros), 5-Deploy automático (apenas se todos anteriores passaram). Deploy nunca ocorre diretamente sem pipeline.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🔧</span>
+            <div>
+              <span class="font-medium">GitHub Actions básico</span>
+              <span class="text-neutral-500 text-sm ml-2">— pipeline completo gerado por IA</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">GitHub Actions é a ferramenta padrão de CI/CD para projetos de vibe coding por integrar nativamente com o repositório, ser gratuito para projetos privados (2.000 min/mês) e ser facilmente gerado por IA. O agente pode criar o workflow completo para Node.js/TypeScript com lint, testes, cobertura e deploy em uma única sessão.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Configurar CI/CD manualmente leva horas para quem não tem experiência. Pedir ao agente para criar o workflow completo com as especificações do projeto leva minutos. GitHub Actions integrado com Vercel/Railway transforma push em main em deploy automático seguro.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Workflow YAML: on push/PR, jobs quality (lint, type check, testes com cobertura), security (Semgrep SAST), deploy (needs: [quality, security], if: main branch). Cache npm para velocidade. Secrets no GitHub Actions para DATABASE_URL e tokens de deploy. Upload de cobertura para Codecov.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔍</span>
+            <div>
+              <span class="font-medium">SAST no pipeline</span>
+              <span class="text-neutral-500 text-sm ml-2">— análise de segurança em cada PR</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Integração de SAST (Static Application Security Testing) diretamente no pipeline de CI/CD, transformando segurança de uma fase final para um processo contínuo. CodeQL (GitHub nativo, detecta vulnerabilidades complexas de múltiplos arquivos) e Semgrep (regras customizáveis por projeto) são as ferramentas padrão.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">SAST no pipeline encontra vulnerabilidades antes de qualquer código chegar à produção. Em vez de encontrar problemas de segurança em auditoria trimestral, você os encontra em segundos após cada commit. SAST não substitui code review humano, mas é a primeira linha de defesa automática.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">CodeQL via github/codeql-action: languages: javascript-typescript, queries: security-extended. Semgrep via semgrep/semgrep-action: config p/security-audit p/secrets p/owasp-top-ten. SAST detecta padrões conhecidos; não detecta falhas de lógica de autorização — code review humano ainda necessário.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🚀</span>
+            <div>
+              <span class="font-medium">Deploy automático com Vercel/Railway</span>
+              <span class="text-neutral-500 text-sm ml-2">— cada merge em main dispara deploy</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Vercel e Railway são plataformas de deploy padrão para vibe coding por sua integração nativa com GitHub, zero configuração de infraestrutura e deploy automático a cada push. Vercel para frontend/Next.js/serverless; Railway para APIs, workers e banco de dados nativos. O Vercel cria preview deploys automáticos para cada PR — revisores podem testar em ambiente real antes de aprovar o merge.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Preview deploys são a killer feature para vibe coding em times: cada PR tem um ambiente real onde o código de IA pode ser testado sem necessidade de rodar localmente. Isso acelera code review e aumenta a confiança antes do merge em main.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Vercel: frontend, Next.js, serverless, gratuito até 100GB/mês, preview deploys automáticos por PR. Railway: APIs, PostgreSQL e Redis nativos, $5/mês (Hobby). Estratégia: Vercel para frontend + Railway para backend + Supabase/Neon para banco é o stack padrão de vibe coding profissional.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🚩</span>
+            <div>
+              <span class="font-medium">Feature flags</span>
+              <span class="text-neutral-500 text-sm ml-2">— liberando código de IA gradualmente</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Feature flags permitem deploar código de IA em produção mas ativá-lo apenas para subconjuntos controlados de usuários. Se algo der errado, você desliga o flag sem rollback de código — alterando apenas uma variável de ambiente. É a estratégia de release mais segura para código gerado por agentes.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Código de IA pode ter bugs sutis que só aparecem com tráfego real de produção. Feature flags permitem release gradual: 1% interno → 5% beta → 25% → 100%. Se o bug aparecer em 1%, você desliga antes de impactar todos os usuários — sem rollback de código, sem novo deploy.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Implementação simples: process.env.FF_NEW_FEATURE === 'true'. Rollback: alterar variável de ambiente, sem novo deploy. Ferramentas: variáveis de ambiente (simples e grátis), PostHog (gratuito, flags + analytics), LaunchDarkly (enterprise, regras por usuário). Release gradual: 1% → 5% → 25% → 100% com monitoramento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">⏪</span>
+            <div>
+              <span class="font-medium">Rollback automático</span>
+              <span class="text-neutral-500 text-sm ml-2">— revertendo quando métricas degradam</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Capacidade de reverter um deploy automaticamente quando métricas de saúde do sistema degradam além de um threshold configurado. Em projetos de vibe coding, bugs sutis que passam por todos os checks só aparecem com tráfego real — rollback automático é a última linha de defesa antes que usuários sejam amplamente impactados.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Monitorar manualmente pós-deploy é lento e dependente de alguém estar acordado. Rollback automático por métricas detecta e reverte em minutos — antes que o time perceba o problema. Para vibe coding com agentes que fazem múltiplos deploys por dia, rollback automático é segurança crítica.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Métricas para acionar rollback: taxa de erro HTTP 5xx acima de 2%, latência P95 acima de 2s, taxa de conversão caiu 20%+, erros de JavaScript no browser acima de 5%. Vercel CLI: vercel rollback [deployment-url]. GitHub Actions: verificação de error rate via Sentry API, rollback automático se acima do threshold.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">📡</span>
+            <div>
+              <span class="font-medium">Monitoramento pós-deploy</span>
+              <span class="text-neutral-500 text-sm ml-2">— Sentry, logs e alertas</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Stack de observabilidade pós-deploy para detectar bugs de código de IA que passam por todos os checks mas só aparecem com tráfego real. Três camadas: Sentry para error tracking em tempo real, logs estruturados em JSON para debugging, e métricas de negócio (PostHog) para impacto em conversão e comportamento de usuário.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Código de IA pode ter bugs que passam por lint, testes unitários, integração e SAST — mas falham com dados específicos de produção. Monitoramento pós-deploy é o último guardrail do processo. Sentry configurado corretamente alerta no primeiro erro, antes que o problema se espalhe.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Sentry: captura exceções em tempo real, stack traces com contexto de usuário, alertas no primeiro erro, gratuito até 5K erros/mês. Logs estruturados: Pino.js para Node.js, JSON estruturado, LogTail/Datadog. Métricas de negócio: PostHog para funnels de conversão e feature flag analytics. BeforeSend: remover dados sensíveis (passwords, creditCard) antes de enviar ao Sentry.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-4-6.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
+          Ver Completo
         </a>
       </div>
     </div>
 
-    <!-- 4.7 -->
-    <div id="modulo-4-7" class="bg-dark-800 rounded-xl border border-dark-600 mb-4">
-      <div class="p-5 flex items-center justify-between">
-        <div class="flex-1">
-          <div class="flex items-center space-x-3 mb-1">
-            <span class="text-blue-400 font-bold text-sm">4.7</span>
-            <span class="text-xs text-neutral-500">~45 min</span>
-          </div>
-          <h3 class="text-xl font-bold mb-1">🤖 Agentes Autônomos e Multi-Agent</h3>
-          <p class="text-neutral-400 text-sm">Devin em 2026, Claude Code como agente, arquitetura multi-agent, MCP na prática e o novo papel do engenheiro sênior.</p>
+    <!-- MÓDULO 4.7 -->
+    <div id="modulo-4-7" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">4.7</span>
+          <span class="text-xs text-neutral-500">~45 min</span>
         </div>
-        <a href="modulo-4-7.html" class="ml-4 px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors flex-shrink-0">
-          Acessar →
+        <h3 class="text-2xl font-bold mb-2">🤖 Agentes Autônomos e Multi-Agent</h3>
+        <p class="text-neutral-400 text-sm">O futuro do desenvolvimento de software: agentes que planejam, implementam, testam e iteram autonomamente. Entenda a arquitetura multi-agent e o novo papel do engenheiro como orquestrador.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📡</span>
+            <div>
+              <span class="font-medium">O espectro: autocomplete → agente → multi-agent</span>
+              <span class="text-neutral-500 text-sm ml-2">— entendendo os níveis de automação</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O desenvolvimento com IA evoluiu em quatro níveis: Autocomplete (GitHub Copilot, sugestão de linha, latência &lt;100ms), Editor Agêntico (Cursor Composer/Windsurf, edita múltiplos arquivos por objetivo), Agente Autônomo (Devin/Claude Code, planeja e implementa sem intervenção, sessões de horas), Multi-Agent (orquestra de especialistas, tarefas de dias).</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Escolher o nível certo de automação para cada tarefa é tão importante quanto dominar a ferramenta. Usar agente autônomo para autocomplete é desperdício; usar autocomplete para implementar uma feature complexa é frustrante. Cada nível tem seu contexto ótimo de uso.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Autocomplete: sugestão de linha/bloco, humano ainda escreve. Editor agêntico: multi-arquivo por objetivo, humano aprova cada step. Agente autônomo: objetivo de alto nível + Definition of Done, humano revisa resultado. Multi-agent: diretor humano orquestra especialistas (Planejamento-Opus, Implementação-Sonnet, Testes-Haiku, Revisão-Opus).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🤖</span>
+            <div>
+              <span class="font-medium">Devin em 2025-2026</span>
+              <span class="text-neutral-500 text-sm ml-2">— 67% de PRs mergeados</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Devin (Cognition AI) é o agente de software autônomo mais avançado disponível comercialmente. Em 2026, passou de experimento a ferramenta de produção usada por empresas Fortune 500: Goldman Sachs (automação de análise de código legado), Nubank (microsserviços internos), Stripe (SDKs para 14 linguagens) e Accenture (50.000 devs em migração de sistemas legados).</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Os dados do Devin em produção definem o estado da arte: 67% de PRs mergeados sem modificação humana, 4x mais rápido que desenvolvimento humano médio, $500/mês vs. $8K de dev junior. Entender o que é possível hoje define o que você deve preparar como engenheiro para os próximos anos.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Métricas Devin 2026: 67% PRs mergeados sem modificação, 4x mais rápido, 24/7 disponibilidade, $500/mês. Casos de uso enterprise: código legado, migração de sistemas, geração de SDKs, automação de conformidade regulatória. Não substitui engenheiros sênior — o 33% de PRs que precisam modificação requer expertise humana.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">💻</span>
+            <div>
+              <span class="font-medium">Claude Code como agente autônomo</span>
+              <span class="text-neutral-500 text-sm ml-2">— sessões longas com CLAUDE.md como memória</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Claude Code é o agente mais acessível para desenvolvedores individuais e times pequenos: sessões longas, CLAUDE.md como memória persistente de projeto, capacidade de executar comandos, criar arquivos e fazer commits. Com --dangerously-skip-permissions, opera autonomamente por horas executando tarefas complexas.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Claude Code transforma o terminal em um agente de desenvolvimento completo — sem IDE, sem interface gráfica. Para automação de CI/CD, scripts de migração e tarefas em lote, é a ferramenta mais poderosa disponível. O CLAUDE.md garante que o agente mantenha contexto de projeto entre sessões.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Sessão autônoma: objetivo de alto nível + referências a specs (@docs/spec.md) + instruções de commit incremental. O agente: lê CLAUDE.md, apresenta plano para aprovação, implementa módulo por módulo, executa testes após cada módulo, faz commits incrementais, para quando finaliza. CLAUDE.md = memória persistente entre sessões.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🔗</span>
+            <div>
+              <span class="font-medium">Arquitetura multi-agent</span>
+              <span class="text-neutral-500 text-sm ml-2">— orquestra de especialistas em paralelo</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Em vez de um agente tentando fazer tudo, a arquitetura multi-agent distribui responsabilidades entre agentes especializados em paralelo: Agente de Planejamento (Opus) decompõe e distribui, Agentes de Implementação (Sonnet) executam backend e frontend em paralelo, Agente de Testes (Haiku) valida outputs, Agente de Revisão (Opus) revisa segurança e qualidade.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Multi-agent tem maior qualidade, maior velocidade e menor custo que um agente único tentando fazer tudo — porque cada agente usa o modelo mais adequado para sua tarefa. Haiku para testes é 10x mais barato que Opus. Backend e frontend em paralelo reduz tempo total pela metade.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Estrutura: Planejamento (Opus) → Implementação Backend + Frontend em paralelo (Sonnet) → Testes (Haiku) → Revisão (Opus) → Aprovação humana. Cada agente tem escopo definido. Roteamento de modelos por complexidade: Opus para arquitetura/revisão, Sonnet para implementação, Haiku para tasks repetitivas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔌</span>
+            <div>
+              <span class="font-medium">MCP na prática</span>
+              <span class="text-neutral-500 text-sm ml-2">— conectando agentes ao mundo real</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">MCP (Model Context Protocol) é o que dá aos agentes acesso ao ambiente real de produção. Sem MCP, o agente trabalha com código em texto. Com MCP, pode interagir com banco de dados, APIs, infraestrutura e ferramentas externas como um desenvolvedor humano: queries Supabase, PRs no GitHub, logs do Sentry, leitura/escrita de arquivos.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">MCP transforma o agente de "assistente de texto" para "operador do ambiente". Com servidores MCP configurados, o agente pode "verificar os top 3 erros do Sentry das últimas 24h e corrija", "crie PR no GitHub com as mudanças e solicite review", "query o banco de produção para entender o schema atual".</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Servidores MCP essenciais: @supabase/mcp-server-supabase, @modelcontextprotocol/server-github, @modelcontextprotocol/server-filesystem, @modelcontextprotocol/server-postgres, mcp-server-sentry. Princípio de menor privilégio: agente de desenvolvimento sem escrita em produção. Ambientes separados: staging para dev, produção apenas read-only para diagnóstico.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔬</span>
+            <div>
+              <span class="font-medium">OpenHands/OpenDevin</span>
+              <span class="text-neutral-500 text-sm ml-2">— alternativa open-source ao Devin</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">OpenHands (anteriormente OpenDevin) é o projeto open-source mais avançado de agente de software autônomo. Permite rodar localmente ou em infraestrutura própria — sem enviar código para serviços externos. Suporta qualquer modelo via API. Ideal para experimentação, pesquisa e compliance que não permite código em nuvem.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Para organizações com requisitos de compliance que impedem envio de código para serviços externos, OpenHands é a única opção viável de agente autônomo. Para experimentação, é uma forma de aprender arquitetura de agentes sem custo de plataforma comercial.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">MIT License, 100% open-source. Instalação via Docker com runtime sandbox. Acesso ao filesystem e execução de comandos. Vantagens: código nunca sai da infraestrutura, suporta qualquer modelo API. Limitações vs. Devin/Claude Code: requer infraestrutura própria, menos otimizado para projetos grandes, suporte community (não enterprise).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">👑</span>
+            <div>
+              <span class="font-medium">Você como orquestrador</span>
+              <span class="text-neutral-500 text-sm ml-2">— o novo papel do engenheiro sênior</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Karpathy declarou em fevereiro de 2026 que o próximo passo após vibe coding é "Agentic Engineering". O papel do engenheiro sênior está evoluindo de implementador para arquiteto de sistemas de agentes — define arquitetura que agentes respeitam, revisa PRs de agentes por segurança e lógica, toma decisões que definem o que agentes podem fazer.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Os engenheiros que mais se beneficiam de agentes são os mais experientes — porque sabem exatamente o que pedir, como validar o resultado e quando não confiar. A IA amplifica expertise, não a substitui. Expertise técnica sólida se torna mais crítica, não menos, em um mundo com agentes autônomos.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Habilidades que permanecem valiosas: arquitetura de sistemas (agentes seguem a arquitetura que você define), segurança (agentes reproduzem vulnerabilidades sem instrução), julgamento técnico (distinguir código correto de código plausível mas errado), decomposição de problemas (transformar sistemas complexos em subtarefas executáveis por agentes).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-7')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-4-7.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
+          Ver Completo
         </a>
       </div>
     </div>
 
-    <!-- 4.8 -->
-    <div id="modulo-4-8" class="bg-dark-800 rounded-xl border border-dark-600 mb-8">
-      <div class="p-5 flex items-center justify-between">
-        <div class="flex-1">
-          <div class="flex items-center space-x-3 mb-1">
-            <span class="text-blue-400 font-bold text-sm">4.8</span>
-            <span class="text-xs text-neutral-500">~35 min</span>
-          </div>
-          <h3 class="text-xl font-bold mb-1">👥 Vibe Coding em Times</h3>
-          <p class="text-neutral-400 text-sm">PRs obrigatórios, padronização de prompts, SAST/DAST no processo, métricas de produtividade e lições de 16 de 18 CTOs que tiveram desastres.</p>
+    <!-- MÓDULO 4.8 -->
+    <div id="modulo-4-8" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-blue-400 font-bold">4.8</span>
+          <span class="text-xs text-neutral-500">~35 min</span>
         </div>
-        <a href="modulo-4-8.html" class="ml-4 px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors flex-shrink-0">
-          Acessar →
+        <h3 class="text-2xl font-bold mb-2">👥 Vibe Coding em Times</h3>
+        <p class="text-neutral-400 text-sm">Governança, processos e métricas para usar vibe coding com segurança em equipes profissionais. As lições de 16 CTOs que tiveram problemas sérios — e como evitá-los.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">👤</span>
+            <div>
+              <span class="font-medium">O dev sênior como reviewer</span>
+              <span class="text-neutral-500 text-sm ml-2">— IA gera, humano revisa</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">O modelo que funciona em times: agentes implementam, sêniors revisam. Não porque a IA não seja capaz — mas porque o humano traz julgamento sobre contexto de negócio, arquitetura de longo prazo e implicações de segurança que o agente não pode inferir. O fluxo: implementação → CI automático → revisão sênior → aprovação → deploy automático.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Revisores que não entendem o código são uma vulnerabilidade de governança. "Aprova tudo que o CI passou" não é revisão. Sêniors precisam identificar problemas de lógica de autorização, falhas de segurança sutis e violações de padrões arquiteturais que o CI não captura.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Fluxo: dev/agente implementa → CI/CD automático (lint, testes, SAST) → dev sênior revisa (arquitetura, segurança, lógica de negócio) → aprovação humana explícita → merge → deploy automático → monitoramento pós-deploy. PR só avança se CI passa. Merge só ocorre com aprovação de sênior.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🛠️</span>
+            <div>
+              <span class="font-medium">Múltiplas ferramentas por papel</span>
+              <span class="text-neutral-500 text-sm ml-2">— IDE certa para cada função no time</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Times de vibe coding profissional não usam uma ferramenta para tudo. Padronização por papel e tipo de tarefa: Cursor para desenvolvimento diário (contexto de projeto, multi-arquivo), Claude Code para automação e CI/CD (terminal-first), Windsurf/Lovable para protótipos rápidos, GitHub Copilot Enterprise para compliance, Claude.ai para análise arquitetural profunda.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Padronizar a ferramenta por tipo de trabalho — não por preferência individual — reduz surface de ataque, facilita onboarding e garante consistência de processo. Um dev usando uma ferramenta não auditada pode enviar código proprietário para servidores externos sem que o time saiba.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Documentar no handbook de engenharia: ferramentas aprovadas por tipo de tarefa e ferramentas proibidas (enviam código para servidores não auditados). Desenvolvimento diário: Cursor. Automação/pipelines: Claude Code. Protótipos: Windsurf ou Lovable. Enterprise/SOC 2: GitHub Copilot Enterprise. Análise arquitetural: Claude.ai (Opus).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔒</span>
+            <div>
+              <span class="font-medium">PRs obrigatórios</span>
+              <span class="text-neutral-500 text-sm ml-2">— nenhum código de IA vai para main sem review</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">A política de governança mais importante para vibe coding em times: nenhum código — gerado por IA ou por humano — vai para a branch principal sem passar por review e CI/CD. Sem exceções. Nem para "hotfixes urgentes". Branch Protection no GitHub: require PR reviews, require status checks, include administrators.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A política sem exceções existe exatamente para momentos de pressão. Um CTO que faz push direto em main para resolver "urgente" com código de IA e sem review é o mesmo padrão que destruiu bancos de dados de produção em casos documentados. A regra protege mais quando é mais difícil de seguir.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Branch Protection Settings: Require pull request (min 1 aprovação), Require status checks (CI/quality + CI/security), Require branches up to date, Include administrators (sem exceções), Allow force pushes: NUNCA. Configurar em Settings → Branches → Branch rules, branch pattern: main.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📋</span>
+            <div>
+              <span class="font-medium">Padronização de prompts e regras</span>
+              <span class="text-neutral-500 text-sm ml-2">— CLAUDE.md compartilhado no time</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Em um time, cada desenvolvedor com seus próprios prompts e regras resulta em codebase inconsistente — o patchwork em escala de time. Regras (CLAUDE.md, .cursorrules) e templates de prompt devem ser assets de equipe, versionados no repositório: docs/prompts/feature.md, bugfix.md, refactor.md, security-review.md.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Consistência de input gera consistência de output do agente. Quando todos os devs do time usam o mesmo CLAUDE.md e os mesmos templates de prompt, o código gerado tem o mesmo padrão de arquitetura, nomenclatura e tratamento de erro — independente de quem abriu a sessão de IA.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Estrutura no repositório: CLAUDE.md (raiz), .cursorrules (raiz), docs/prompts/feature.md (template para novas features), docs/prompts/bugfix.md (template para correções), docs/prompts/security-review.md (checklist), docs/decisions/ (ADRs), docs/ai-guidelines.md (política de uso de IA no time). Todos versionados e revisados como código.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔐</span>
+            <div>
+              <span class="font-medium">Testes de segurança no processo</span>
+              <span class="text-neutral-500 text-sm ml-2">— SAST/DAST integrado como processo contínuo</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Segurança como processo contínuo, não como fase final. SAST (análise estática, antes do deploy): CodeQL em cada PR, Semgrep com regras customizadas, npm audit para dependências, truffleHog para secrets. DAST (teste dinâmico, em staging): OWASP ZAP para scan automático, Burp Suite Community para análise manual, Nuclei para vulnerabilidades conhecidas.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">SAST antes do deploy detecta padrões conhecidos de vulnerabilidade automaticamente. DAST em staging detecta vulnerabilidades que só aparecem com a aplicação rodando — como problemas de configuração de CORS, headers de segurança ausentes ou endpoints expostos inadvertidamente pelo agente.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Política Security Gate: SAST de alta severidade bloqueia merge, média gera alertas, baixa registrada para revisão futura. SAST gratuito: CodeQL, Semgrep, npm audit, truffleHog. DAST gratuito: OWASP ZAP (automático), Burp Suite Community (manual), Nuclei (templates de CVEs). Penetration testing anual para sistemas críticos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📊</span>
+            <div>
+              <span class="font-medium">Medindo produtividade</span>
+              <span class="text-neutral-500 text-sm ml-2">— métricas DORA que realmente importam</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Framework DORA adaptado para vibe coding: Deployment Frequency (múltiplos/dia como target elite), Lead Time for Changes (&lt;1 hora ticket→deploy), Change Failure Rate (&lt;5% deploys causam incidente), Time to Restore (&lt;1 hora para restaurar serviço), Test Coverage (&gt;80%). Métricas de resultado, não de atividade.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Métricas incorretas criam incentivos perversos. "Linhas de código por dia" foi inútil antes da IA — com IA é ainda mais inútil (o agente infla artificialmente). "Velocidade de sprint" incentiva code dumping. As métricas que importam medem resultado de negócio e qualidade de software, não velocidade de geração de código.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Métricas úteis com IA: lead time para features, taxa de bugs por feature em produção, cobertura de testes e tendência, taxa de aceitação de código de IA em review, custo de API por feature entregue. Métricas inúteis/prejudiciais: linhas de código/dia, número de commits, velocidade de sprint sem considerar bugs introduzidos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">💀</span>
+            <div>
+              <span class="font-medium">O que deu errado: 16 de 18 CTOs reportaram desastres</span>
+              <span class="text-neutral-500 text-sm ml-2">— padrões de falha preveníveis</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-blue-400 font-semibold">O que é:</span>
+                <p class="text-neutral-300 text-sm">Em pesquisa com 18 CTOs que adotaram vibe coding sem estrutura de governança, 16 reportaram problemas sérios. Três padrões de falha: Velocidade sem processo (8/16) — codebase inutilizável em 3 meses sem PRs; Júniores sem supervisão (5/16) — dívida técnica e vulnerabilidades massivas; Sem contexto de arquitetura (3/16) — 4 padrões de auth diferentes, refactoring mais caro que reconstrução.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Estudar casos reais de falha é a forma mais eficaz de evitar cometê-los. Os 2 CTOs sem desastres fizeram coisas específicas diferentes: processo antes de velocidade, arquitetura documentada antes de dar IA para o time, sêniors revisando sempre, gradualidade na adoção, treinamento real.</p>
+              </div>
+              <div>
+                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">O que os 2 CTOs sem desastres fizeram: implementaram PRs e CI/CD antes de usar IA extensivamente, CLAUDE.md com regras claras antes de dar IA para o time, sênior como reviewer obrigatório, piloto com 1 time antes de expandir, treinamento real em prompting e revisão de código de IA — não assumiram que "é intuitivo".</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-8')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          Ver em Modal
+        </button>
+        <a href="modulo-4-8.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
+          Ver Completo
         </a>
       </div>
     </div>
@@ -730,6 +1898,84 @@
         <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
       </div>
       <iframe src="modulo-4-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-4-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">4.3</span>
+          <span class="font-semibold">🏗️ Arquitetura e Design Patterns com IA</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-4-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">4.4</span>
+          <span class="font-semibold">🔒 Segurança em Código Gerado por IA</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-4.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-4-5" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">4.5</span>
+          <span class="font-semibold">🧪 Testes Automatizados com IA</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-5.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-4-6" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">4.6</span>
+          <span class="font-semibold">🚢 CI/CD e Deploy Profissional</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-6.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-4-7" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">4.7</span>
+          <span class="font-semibold">🤖 Agentes Autônomos e Multi-Agent</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-7.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <div id="modal-4-8" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-400 font-bold">4.8</span>
+          <span class="font-semibold">👥 Vibe Coding em Times</span>
+        </div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-8.html" class="flex-1 w-full rounded-b-xl"></iframe>
     </div>
   </div>
 
